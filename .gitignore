@@ -55,10 +55,13 @@ venv/
 *.log
 
 # Sphinx documentation
-docs/_build/
+docs/_build/s
 
 # PyBuilder
 target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+
+#Swagger codegen
+.swagger-codegen-ignore
