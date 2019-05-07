@@ -16,8 +16,8 @@ import re  # noqa: F401
 
 import six
 
-from swagger_client.models.odg_metadata import OdgMetadata  # noqa: F401,E501
-from swagger_client.models.odg_page import OdgPage  # noqa: F401,E501
+from asposeimagingcloud.models.odg_metadata import OdgMetadata  # noqa: F401,E501
+from asposeimagingcloud.models.odg_page import OdgPage  # noqa: F401,E501
 
 
 class OdgProperties(object):

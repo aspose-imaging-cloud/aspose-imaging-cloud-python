@@ -16,7 +16,7 @@ import re  # noqa: F401
 
 import six
 
-from swagger_client.models.error_details import ErrorDetails  # noqa: F401,E501
+from asposeimagingcloud.models.error_details import ErrorDetails  # noqa: F401,E501
 
 
 class Error(object):

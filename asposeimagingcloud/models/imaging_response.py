@@ -16,18 +16,18 @@ import re  # noqa: F401
 
 import six
 
-from swagger_client.models.bmp_properties import BmpProperties  # noqa: F401,E501
-from swagger_client.models.dicom_properties import DicomProperties  # noqa: F401,E501
-from swagger_client.models.djvu_properties import DjvuProperties  # noqa: F401,E501
-from swagger_client.models.dng_properties import DngProperties  # noqa: F401,E501
-from swagger_client.models.gif_properties import GifProperties  # noqa: F401,E501
-from swagger_client.models.jpeg2000_properties import Jpeg2000Properties  # noqa: F401,E501
-from swagger_client.models.jpeg_properties import JpegProperties  # noqa: F401,E501
-from swagger_client.models.odg_properties import OdgProperties  # noqa: F401,E501
-from swagger_client.models.png_properties import PngProperties  # noqa: F401,E501
-from swagger_client.models.psd_properties import PsdProperties  # noqa: F401,E501
-from swagger_client.models.tiff_properties import TiffProperties  # noqa: F401,E501
-from swagger_client.models.web_p_properties import WebPProperties  # noqa: F401,E501
+from asposeimagingcloud.models.bmp_properties import BmpProperties  # noqa: F401,E501
+from asposeimagingcloud.models.dicom_properties import DicomProperties  # noqa: F401,E501
+from asposeimagingcloud.models.djvu_properties import DjvuProperties  # noqa: F401,E501
+from asposeimagingcloud.models.dng_properties import DngProperties  # noqa: F401,E501
+from asposeimagingcloud.models.gif_properties import GifProperties  # noqa: F401,E501
+from asposeimagingcloud.models.jpeg2000_properties import Jpeg2000Properties  # noqa: F401,E501
+from asposeimagingcloud.models.jpeg_properties import JpegProperties  # noqa: F401,E501
+from asposeimagingcloud.models.odg_properties import OdgProperties  # noqa: F401,E501
+from asposeimagingcloud.models.png_properties import PngProperties  # noqa: F401,E501
+from asposeimagingcloud.models.psd_properties import PsdProperties  # noqa: F401,E501
+from asposeimagingcloud.models.tiff_properties import TiffProperties  # noqa: F401,E501
+from asposeimagingcloud.models.web_p_properties import WebPProperties  # noqa: F401,E501
 
 
 class ImagingResponse(object):

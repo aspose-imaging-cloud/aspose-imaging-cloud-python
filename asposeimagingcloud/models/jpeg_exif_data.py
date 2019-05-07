@@ -16,7 +16,7 @@ import re  # noqa: F401
 
 import six
 
-from swagger_client.models.exif_data import ExifData  # noqa: F401,E501
+from asposeimagingcloud.models.exif_data import ExifData  # noqa: F401,E501
 
 
 class JpegExifData(ExifData):

@@ -16,7 +16,7 @@ import re  # noqa: F401
 
 import six
 
-from swagger_client.models.search_result import SearchResult  # noqa: F401,E501
+from asposeimagingcloud.models.search_result import SearchResult  # noqa: F401,E501
 
 
 class SearchResultsSet(object):
