@@ -40,7 +40,9 @@ class Configuration(object):
             return
 
         # Default Base url
-        self.host = "https://api-qa.aspose.cloud/v3.0"
+        self.host = "https://api-qa.aspose.cloud"
+        # Default API version
+        self.api_version = "v3.0"
         # Temp file folder for downloading files
         self.temp_folder_path = None
 

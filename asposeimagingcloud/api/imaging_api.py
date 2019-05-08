@@ -8243,3 +8243,27 @@ class ImagingApi(object):
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
+
+    # TODO: investigate auth algorithm
+    def request_token(self):
+        config = self.api_client.configuration
+        request_url = "/connect/token"
+        form_params = [('grant_type', 'client_credentials'), ('client_id', config.api_key['app_sid']),
+                       ('client_secret', config.api_key['api_key'])]
+
+        header_params = {'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded'}
+
+        api_version = self.api_client.configuration.api_version
+        self.api_client.configuration.api_version = ''
+
+        data = self.api_client.call_api(request_url, 'POST',
+                                        {},
+                                        [],
+                                        header_params,
+                                        post_params=form_params,
+                                        response_type='object',
+                                        files={}, _return_http_data_only=True)
+        access_token = data['access_token'] if six.PY3 else data['access_token'].encode('utf8')
+        self.api_client.configuration.access_token = access_token
+
+        self.api_client.configuration.api_version = api_version

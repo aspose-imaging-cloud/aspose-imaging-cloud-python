@@ -105,6 +105,7 @@ class ApiTester(unittest.TestCase):
         api_client.configuration.api_version = api_version
 
         self.imaging_api = ImagingApi(api_client)
+        self.imaging_api.request_token()
 
         self.input_test_files = self.imaging_api.get_files_list(self.original_data_folder,
                                                                 **{"storage_name": self.test_storage}).value

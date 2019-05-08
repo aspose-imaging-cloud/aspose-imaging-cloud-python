@@ -151,7 +151,7 @@ class ApiClient(object):
             body = self.sanitize_for_serialization(body)
 
         # request url
-        url = self.configuration.host + resource_path
+        url = self.configuration.host + '/' + self.configuration.api_version + resource_path
 
         # perform request and return response
         response_data = self.request(
