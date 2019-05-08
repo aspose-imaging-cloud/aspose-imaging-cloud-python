@@ -69,7 +69,8 @@ class ApiClient(object):
         # Use the pool property to lazily initialize the ThreadPool.
         self._pool = None
         self.rest_client = rest.RESTClientObject(configuration)
-        self.default_headers = {}
+        # TODO: Client and version
+        self.default_headers = {"x-aspose-client": ".net sdk", "x-aspose-client-version": "19.4"}
         if header_name is not None:
             self.default_headers[header_name] = header_value
         self.cookie = cookie
@@ -533,7 +534,8 @@ class ApiClient(object):
                                  content_disposition).group(1)
             path = os.path.join(os.path.dirname(path), filename)
 
-        with open(path, "wb") as f:
+        # TODO: Why response.data is str and tries to write to binary file? Maybe error somewhere before this fix
+        with open(path, "w" if isinstance(response.data, str) else "wb") as f:
             f.write(response.data)
 
         return path
@@ -618,9 +620,10 @@ class ApiClient(object):
         if klass.swagger_types is not None:
             for attr, attr_type in six.iteritems(klass.swagger_types):
                 if (data is not None and
-                        klass.attribute_map[attr] in data and
+                        # TODO: Problem with first capital letter - swagger-codegen bug?
+                        klass.attribute_map[attr][0].lower() + klass.attribute_map[attr][1:] in data and
                         isinstance(data, (list, dict))):
-                    value = data[klass.attribute_map[attr]]
+                    value = data[klass.attribute_map[attr][0].lower() + klass.attribute_map[attr][1:]]
                     kwargs[attr] = self.__deserialize(value, attr_type)
 
         instance = klass(**kwargs)
