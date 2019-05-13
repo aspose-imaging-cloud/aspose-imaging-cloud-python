@@ -31,17 +31,26 @@ class ApiTester(unittest.TestCase):
             print('Storage name is not set by environment variable. Using the default one.')
             self.test_storage = self.default_storage
 
+        self.basic_export_formats = ['bmp',
+                                     'gif',
+                                     'jpg',
+                                     'png',
+                                     'psd',
+                                     'tiff',
+                                     'webp',
+                                     'pdf']
+
         self._create_api_instance()
 
         if not self.failed_any_test and self.remove_result and self.imaging_api.object_exists(
-                self.temp_folder, **{"storage_name": self.test_storage}).exists:
-            self.imaging_api.delete_folder(self.temp_folder, **{"storage_name": self.test_storage, "recursive": True})
-            self.imaging_api.create_folder(self.temp_folder, **{"storage_name": self.test_storage})
+                self.temp_folder, storage_name=self.test_storage).exists:
+            self.imaging_api.delete_folder(self.temp_folder, storage_name=self.test_storage, recursive=True)
+            self.imaging_api.create_folder(self.temp_folder, storage_name=self.test_storage)
 
     def tearDown(self):
         if not self.failed_any_test and self.remove_result and self.imaging_api.object_exists(
-                self.temp_folder, **{"storage_name": self.test_storage}).exists:
-            self.imaging_api.delete_folder(self.temp_folder, **{"storage_name": self.test_storage, "recursive": True})
+                self.temp_folder, storage_name=self.test_storage).exists:
+            self.imaging_api.delete_folder(self.temp_folder, storage_name=self.test_storage, recursive=True)
 
     def _create_api_instance(self, app_key=None, app_sid=None, base_url=None,
                              api_version=None, debug=False):
@@ -108,7 +117,7 @@ class ApiTester(unittest.TestCase):
         self.imaging_api.request_token()
 
         self.input_test_files = self.imaging_api.get_files_list(self.original_data_folder,
-                                                                **{"storage_name": self.test_storage}).value
+                                                                storage_name=self.test_storage).value
 
     def _test_request(self, test_method_name, save_result_to_storage, parameters_line, input_file_name,
                       result_file_name, invoke_request_action, properties_tester, folder, storage=None):
@@ -121,11 +130,10 @@ class ApiTester(unittest.TestCase):
                     input_file_name, folder))
 
         if not self.imaging_api.object_exists(os.path.join(folder, input_file_name),
-                                              **{"storage_name": storage}).exists:
+                                              storage_name=storage).exists:
             self.imaging_api.copy_file(os.path.join(self.original_data_folder, input_file_name),
-                                       os.path.join(folder, input_file_name), **{"src_storage_name": storage,
-                                                                                 "dest_storage_name": storage}
-                                       )
+                                       os.path.join(folder, input_file_name), src_storage_name=storage,
+                                       dest_storage_name=storage)
         passed = False
         out_path = str(None)
 
@@ -135,9 +143,10 @@ class ApiTester(unittest.TestCase):
             if save_result_to_storage:
                 out_path = os.path.join(folder, result_file_name)
 
-                if self.imaging_api.object_exists(out_path, **{"storage_name": storage}).exists:
-                    self.imaging_api.delete_file(out_path, **{"storage_name": storage})
+                if self.imaging_api.object_exists(out_path, storage_name=storage).exists:
+                    self.imaging_api.delete_file(out_path, storage_name=storage)
 
+            result_properties = None
             response = invoke_request_action()
             if save_result_to_storage:
 
@@ -149,17 +158,15 @@ class ApiTester(unittest.TestCase):
                             result_file_name, folder))
 
                 if not str(result_file_name).endswith('.pdf'):
-                    result_properties = self.imaging_api.get_image_properties(result_file_name, **{"folder": folder,
-                                                                                                   "storage":
-                                                                                                       storage})
+                    result_properties = self.imaging_api.get_image_properties(result_file_name, folder=folder,
+                                                                              storage=storage)
                 self.assertIsNotNone(result_properties)
             elif "v1." not in self.imaging_api.api_client.configuration.host and not str(result_file_name).endswith(
                     'pdf'):
                 result_properties = self.imaging_api.post_image_properties(response)
                 self.assertIsNotNone(result_properties)
 
-            original_properties = self.imaging_api.get_image_properties(input_file_name,
-                                                                        **{"folder": folder, "storage": storage})
+            original_properties = self.imaging_api.get_image_properties(input_file_name, folder=folder, storage=storage)
             self.assertIsNotNone(original_properties)
 
             if result_properties:
@@ -173,8 +180,8 @@ class ApiTester(unittest.TestCase):
             raise
         finally:
             if passed and save_result_to_storage and self.remove_result \
-                    and self.imaging_api.object_exists(out_path, **{"storage_name": storage}).exists:
-                self.imaging_api.delete_file(out_path, **{"storage_name": storage})
+                    and self.imaging_api.object_exists(out_path, storage_name=storage).exists:
+                self.imaging_api.delete_file(out_path, storage_name=storage)
             print("Test passed: " + str(passed))
 
     def test_get_request(self, test_method_name, save_result_to_storage, parameters_line, input_file_name,
@@ -183,14 +190,26 @@ class ApiTester(unittest.TestCase):
             storage = self.default_storage
 
         self._test_request(test_method_name, save_result_to_storage, parameters_line, input_file_name, result_file_name,
-                           lambda: self._obtain_get_response(input_file_name, os.path.join(folder, result_file_name) if save_result_to_storage else None,
+                           lambda: self._obtain_get_response(input_file_name, os.path.join(folder,
+                                                                                           result_file_name) if save_result_to_storage else None,
                                                              request_invoker), properties_tester, folder, storage)
+
+    def test_post_request(self, test_method_name, save_result_to_storage, parameters_line, input_file_name,
+                          result_file_name, request_invoker, properties_tester, folder, storage=None):
+        if not storage:
+            storage = self.default_storage
+
+        self._test_request(test_method_name, save_result_to_storage, parameters_line, input_file_name, result_file_name,
+                           lambda: self._obtain_post_response(os.path.join(folder, input_file_name),
+                                                              os.path.join(folder, result_file_name)
+                                                              if save_result_to_storage else None, storage,
+                           request_invoker), properties_tester, folder, storage)
 
     def _check_input_file_exists(self, input_file_name):
         return any(input_file_name == storage_file_info.name for storage_file_info in self.input_test_files)
 
     def _get_storage_file_info(self, folder, file_name, storage):
-        file_list_response = self.imaging_api.get_files_list(folder, **{"storage_name": storage}).value
+        file_list_response = self.imaging_api.get_files_list(folder, storage_name=storage).value
 
         for storage_file_info in file_list_response:
             if storage_file_info.name == file_name:
@@ -199,8 +218,20 @@ class ApiTester(unittest.TestCase):
 
     def _obtain_get_response(self, input_file_name, out_path, request_invoker):
         response = request_invoker(input_file_name, out_path)
-        if not out_path: return None
+        if out_path:
+            return None
 
         self.assertIsNotNone(response)
         # TODO: assert response length?
+        return response
+
+    def _obtain_post_response(self, input_path, out_path, storage, request_invoker):
+        res = self.imaging_api.download_file(input_path, storage_name=storage)
+
+        response = request_invoker(res, out_path)
+
+        if out_path:
+            return None
+
+        self.assertIsNotNone(response)
         return response
