@@ -203,7 +203,7 @@ class ApiTester(unittest.TestCase):
                            lambda: self._obtain_post_response(os.path.join(folder, input_file_name),
                                                               os.path.join(folder, result_file_name)
                                                               if save_result_to_storage else None, storage,
-                           request_invoker), properties_tester, folder, storage)
+                                                              request_invoker), properties_tester, folder, storage)
 
     def _check_input_file_exists(self, input_file_name):
         return any(input_file_name == storage_file_info.name for storage_file_info in self.input_test_files)
