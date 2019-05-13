@@ -218,8 +218,9 @@ class RESTClientObject(object):
 
             # In the python 3, the response.data is bytes.
             # we need to decode it to string.
-            if six.PY3:
-                r.data = r.data.decode('utf8')
+            # TODO: Why we need to decode image's bytes into utf8 string?
+            #if six.PY3:
+                #r.data = r.data.decode('utf8')
 
             # log response body
             logger.debug("response body: %s", r.data)
