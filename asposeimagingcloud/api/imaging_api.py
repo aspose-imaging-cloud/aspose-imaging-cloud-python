@@ -5407,8 +5407,9 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
+        # TODO: Why codegen want to set Content-Type to application/json, if we are sending file?
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+            ['multipart/form-data'])  # noqa: E50
 
         # Authentication setting
         auth_settings = ['JWT']  # noqa: E501
