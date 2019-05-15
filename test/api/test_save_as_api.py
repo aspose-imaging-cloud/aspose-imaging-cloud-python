@@ -12,7 +12,10 @@ class TestSaveAsApi(ImagingApiTester):
     #
     def test_get_image_save_as(self):
         additional_export_formats = set()
-        format_extension_test_cases = ['.jpg']
+        if not self.EXTENDED_TEST:
+            format_extension_test_cases = ['.jpg']
+        else:
+            format_extension_test_cases = ['.jpg', '.bmp', '.dicom', '.gif', '.j2k', '.png', '.psd', '.tiff', '.webp']
         save_result_to_storage_test_cases = [True, False]
 
         for (save_result_to_storage, format_extension) in list(
@@ -50,7 +53,10 @@ class TestSaveAsApi(ImagingApiTester):
     #
     def test_post_image_save_as(self):
         additional_export_formats = set()
-        format_extension_test_cases = ['.jpg']
+        if not self.EXTENDED_TEST:
+            format_extension_test_cases = ['.jpg']
+        else:
+            format_extension_test_cases = ['.jpg', '.bmp', '.dicom', '.gif', '.j2k', '.png', '.psd', '.tiff', '.webp']
         save_result_to_storage_test_cases = [True, False]
 
         for (save_result_to_storage, format_extension) in list(

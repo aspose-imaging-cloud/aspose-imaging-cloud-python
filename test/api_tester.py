@@ -7,6 +7,8 @@ from asposeimagingcloud import ImagingApi, ApiClient
 
 
 class ApiTester(unittest.TestCase):
+    EXTENDED_TEST = True
+
     def setUp(self):
         # TODO: Move some of parameters to something like OneTimeSetUp?
         self.failed_any_test = False
