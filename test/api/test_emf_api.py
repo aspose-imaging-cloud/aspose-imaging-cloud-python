@@ -39,11 +39,11 @@ class TestEmfApi(ImagingApiTester):
                     self.assertEqual(width, result_properties.width)
                     self.assertEqual(height, result_properties.height)
 
-                self.test_get_request('GetImageEmfTest', save_result_to_storage,
-                                      'Input image: {0}; BackColor: {1}; Page width: {2}; Page height: {3}; '
-                                      'BorderX: {4}; BorderY: {5}'.format(name, bk_color, page_width, page_height,
-                                                                          border_x, border_y),
-                                      name, out_name, request_invoker, properties_tester, folder, storage)
+                self.get_request_tester('GetImageEmfTest', save_result_to_storage,
+                                        'Input image: {0}; BackColor: {1}; Page width: {2}; Page height: {3}; '
+                                        'BorderX: {4}; BorderY: {5}'.format(name, bk_color, page_width, page_height,
+                                                                            border_x, border_y),
+                                        name, out_name, request_invoker, properties_tester, folder, storage)
 
     #
     # Test post_image_emf
@@ -77,8 +77,8 @@ class TestEmfApi(ImagingApiTester):
                     self.assertEqual(width, result_properties.width)
                     self.assertEqual(height, result_properties.height)
 
-                self.test_post_request('PostImageEmfTest', save_result_to_storage,
-                                       'Input image: {0}; BackColor: {1}; Page width: {2}; Page height: {3}; '
-                                       'BorderX: {4}; BorderY: {5}'.format(name, bk_color, page_width, page_height,
-                                                                           border_x, border_y),
-                                       name, out_name, request_invoker, properties_tester, folder, storage)
+                self.post_request_tester('PostImageEmfTest', save_result_to_storage,
+                                         'Input image: {0}; BackColor: {1}; Page width: {2}; Page height: {3}; '
+                                         'BorderX: {4}; BorderY: {5}'.format(name, bk_color, page_width, page_height,
+                                                                             border_x, border_y),
+                                         name, out_name, request_invoker, properties_tester, folder, storage)

@@ -45,11 +45,11 @@ class TestTiffApi(ImagingApiTester):
                     self.assertEqual(original_properties.width, result_properties.width)
                     self.assertEqual(original_properties.height, result_properties.height)
 
-                self.test_get_request('GetImageTiffTest', save_result_to_storage,
-                                      'Input image: {0}; Compression: {1}; Bit depth: {2}; Horizontal resolution: {3};'
-                                      ' Vertical resolution: {4}'.format(name, compression, bit_depth,
-                                                                         horizontal_resolution, vertical_resolution),
-                                      name, out_name, request_invoker, properties_tester, folder, storage)
+                self.get_request_tester('GetImageTiffTest', save_result_to_storage,
+                                        'Input image: {0}; Compression: {1}; Bit depth: {2}; Horizontal resolution: {3};'
+                                        ' Vertical resolution: {4}'.format(name, compression, bit_depth,
+                                                                           horizontal_resolution, vertical_resolution),
+                                        name, out_name, request_invoker, properties_tester, folder, storage)
 
     #
     # Test post_image_tiff
@@ -91,11 +91,11 @@ class TestTiffApi(ImagingApiTester):
                     self.assertEqual(original_properties.width, result_properties.width)
                     self.assertEqual(original_properties.height, result_properties.height)
 
-                self.test_post_request('PostImageTiffTest', save_result_to_storage,
-                                       'Input image: {0}; Compression: {1}; Bit depth: {2}; Horizontal resolution: {3};'
-                                       ' Vertical resolution: {4}'.format(name, compression, bit_depth,
-                                                                          horizontal_resolution, vertical_resolution),
-                                       name, out_name, request_invoker, properties_tester, folder, storage)
+                self.post_request_tester('PostImageTiffTest', save_result_to_storage,
+                                         'Input image: {0}; Compression: {1}; Bit depth: {2}; Horizontal resolution: {3};'
+                                         ' Vertical resolution: {4}'.format(name, compression, bit_depth,
+                                                                            horizontal_resolution, vertical_resolution),
+                                         name, out_name, request_invoker, properties_tester, folder, storage)
 
     #
     # Test get_tiff_to_fax
@@ -121,8 +121,8 @@ class TestTiffApi(ImagingApiTester):
             self.assertEqual(1728, result_properties.width)
             self.assertEqual(2200, result_properties.height)
 
-        self.test_get_request('GetTiffToFaxTest', True, 'Input image: {0}'.format(name), name, out_name,
-                              request_invoker, properties_tester, folder, storage)
+        self.get_request_tester('GetTiffToFaxTest', True, 'Input image: {0}'.format(name), name, out_name,
+                                request_invoker, properties_tester, folder, storage)
 
     #
     # Test post_tiff_append

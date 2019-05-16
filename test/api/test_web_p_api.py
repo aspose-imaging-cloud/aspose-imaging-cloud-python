@@ -38,11 +38,11 @@ class TestWebPApi(ImagingApiTester):
                     self.assertEqual(original_properties.width, result_properties.width)
                     self.assertEqual(original_properties.height, result_properties.height)
 
-                self.test_get_request('GetImageWebPTest', save_result_to_storage,
-                                      'Input image: {0}; AnimBackgroundColor: {1}; Lossless: {2}; Quality: {3}; '
-                                      'AnimLoopCount: {4}'.format(name, anim_background_color, lossless, quality,
-                                                                  anum_loop_count),
-                                      name, out_name, request_invoker, properties_tester, folder, storage)
+                self.get_request_tester('GetImageWebPTest', save_result_to_storage,
+                                        'Input image: {0}; AnimBackgroundColor: {1}; Lossless: {2}; Quality: {3}; '
+                                        'AnimLoopCount: {4}'.format(name, anim_background_color, lossless, quality,
+                                                                    anum_loop_count),
+                                        name, out_name, request_invoker, properties_tester, folder, storage)
 
     #
     # Test psot_image_web_p
@@ -76,8 +76,8 @@ class TestWebPApi(ImagingApiTester):
                     self.assertEqual(original_properties.width, result_properties.width)
                     self.assertEqual(original_properties.height, result_properties.height)
 
-                self.test_post_request('PostImageWebPTest', save_result_to_storage,
-                                       'Input image: {0}; AnimBackgroundColor: {1}; Lossless: {2}; Quality: {3}; '
-                                       'AnimLoopCount: {4}'.format(name, anim_background_color, lossless, quality,
-                                                                   anum_loop_count),
-                                       name, out_name, request_invoker, properties_tester, folder, storage)
+                self.post_request_tester('PostImageWebPTest', save_result_to_storage,
+                                         'Input image: {0}; AnimBackgroundColor: {1}; Lossless: {2}; Quality: {3}; '
+                                         'AnimLoopCount: {4}'.format(name, anim_background_color, lossless, quality,
+                                                                     anum_loop_count),
+                                         name, out_name, request_invoker, properties_tester, folder, storage)

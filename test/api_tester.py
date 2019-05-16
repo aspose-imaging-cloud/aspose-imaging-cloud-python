@@ -186,8 +186,8 @@ class ApiTester(unittest.TestCase):
                 self.imaging_api.delete_file(out_path, storage_name=storage)
             print("Test passed: " + str(passed))
 
-    def test_get_request(self, test_method_name, save_result_to_storage, parameters_line, input_file_name,
-                         result_file_name, request_invoker, properties_tester, folder, storage=None):
+    def get_request_tester(self, test_method_name, save_result_to_storage, parameters_line, input_file_name,
+                           result_file_name, request_invoker, properties_tester, folder, storage=None):
         if not storage:
             storage = self.default_storage
 
@@ -196,8 +196,8 @@ class ApiTester(unittest.TestCase):
                                                                                            result_file_name) if save_result_to_storage else None,
                                                              request_invoker), properties_tester, folder, storage)
 
-    def test_post_request(self, test_method_name, save_result_to_storage, parameters_line, input_file_name,
-                          result_file_name, request_invoker, properties_tester, folder, storage=None):
+    def post_request_tester(self, test_method_name, save_result_to_storage, parameters_line, input_file_name,
+                            result_file_name, request_invoker, properties_tester, folder, storage=None):
         if not storage:
             storage = self.default_storage
 

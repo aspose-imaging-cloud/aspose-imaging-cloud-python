@@ -42,9 +42,9 @@ class TestJpeg2000Api(ImagingApiTester):
                     self.assertIsNotNone(original_properties.jpeg2000_properties.comments)
                     self.assertNotEqual(comment, original_properties.jpeg2000_properties.comments[0])
 
-                self.test_get_request('GetImageJpeg2000Test', save_result_to_storage,
-                                      'Input image: {0}; Comment: {1}; Codec: {2}'.format(name, comment, codec),
-                                      name, out_name, request_invoker, properties_tester, folder, storage)
+                self.get_request_tester('GetImageJpeg2000Test', save_result_to_storage,
+                                        'Input image: {0}; Comment: {1}; Codec: {2}'.format(name, comment, codec),
+                                        name, out_name, request_invoker, properties_tester, folder, storage)
 
     #
     # Test post_image_jpeg2000
@@ -82,6 +82,6 @@ class TestJpeg2000Api(ImagingApiTester):
                     self.assertIsNotNone(original_properties.jpeg2000_properties.comments)
                     self.assertNotEqual(comment, original_properties.jpeg2000_properties.comments[0])
 
-                self.test_post_request('PostImageJpeg2000Test', save_result_to_storage,
-                                       'Input image: {0}; Comment: {1}; Codec: {2}'.format(name, comment, codec),
-                                       name, out_name, request_invoker, properties_tester, folder, storage)
+                self.post_request_tester('PostImageJpeg2000Test', save_result_to_storage,
+                                         'Input image: {0}; Comment: {1}; Codec: {2}'.format(name, comment, codec),
+                                         name, out_name, request_invoker, properties_tester, folder, storage)

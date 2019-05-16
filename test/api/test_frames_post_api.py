@@ -72,13 +72,13 @@ class TestFramesPostApi(ImagingApiTester):
                     self.assertEqual(frame_properties.tiff_properties.frames[0].frame_options.image_length,
                                      frame_properties.height)
 
-                self.test_post_request('GetImageSingleFrameTest', save_result_to_storage,
-                                       'Input image: {0}; Frame ID: {1}; New width: {2}; New height: {3}; '
-                                       'Rotate/flip method: {4}; Save other frames: {5}; X: {6}; Y: {7}; Rect width: '
-                                       '{8}; Rect height: {9}'.format(name, frame_id, new_width, new_height,
-                                                                      rotate_flip_method, save_other_frames, x, y,
-                                                                      rect_width, rect_height),
-                                       name, out_name, request_invoker, properties_tester, folder, storage)
+                self.post_request_tester('GetImageSingleFrameTest', save_result_to_storage,
+                                         'Input image: {0}; Frame ID: {1}; New width: {2}; New height: {3}; '
+                                         'Rotate/flip method: {4}; Save other frames: {5}; X: {6}; Y: {7}; Rect width: '
+                                         '{8}; Rect height: {9}'.format(name, frame_id, new_width, new_height,
+                                                                        rotate_flip_method, save_other_frames, x, y,
+                                                                        rect_width, rect_height),
+                                         name, out_name, request_invoker, properties_tester, folder, storage)
 
     #
     # Test post_image_frame
@@ -134,10 +134,10 @@ class TestFramesPostApi(ImagingApiTester):
                     self.assertEqual(rect_width,
                                      result_properties.tiff_properties.frames[frame_id].frame_options.image_length)
 
-                self.test_post_request('GetImageAllFramesTest', save_result_to_storage,
-                                       'Input image: {0}; Frame ID: {1}; New width: {2}; New height: {3}; '
-                                       'Rotate/flip method: {4}; Save other frames: {5}; X: {6}; Y: {7}; Rect width: '
-                                       '{8}; Rect height: {9}'.format(name, frame_id, new_width, new_height,
-                                                                      rotate_flip_method, save_other_frames, x, y,
-                                                                      rect_width, rect_height),
-                                       name, out_name, request_invoker, properties_tester, folder, storage)
+                self.post_request_tester('GetImageAllFramesTest', save_result_to_storage,
+                                         'Input image: {0}; Frame ID: {1}; New width: {2}; New height: {3}; '
+                                         'Rotate/flip method: {4}; Save other frames: {5}; X: {6}; Y: {7}; Rect width: '
+                                         '{8}; Rect height: {9}'.format(name, frame_id, new_width, new_height,
+                                                                        rotate_flip_method, save_other_frames, x, y,
+                                                                        rect_width, rect_height),
+                                         name, out_name, request_invoker, properties_tester, folder, storage)

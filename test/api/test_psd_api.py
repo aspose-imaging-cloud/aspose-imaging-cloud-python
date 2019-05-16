@@ -40,10 +40,10 @@ class TestPsdApi(ImagingApiTester):
                     self.assertEqual(original_properties.psd_properties.bits_per_channel,
                                      result_properties.psd_properties.bits_per_channel)
 
-                self.test_get_request('GetImagePsdTest', save_result_to_storage,
-                                      'Input image: {0}; Channel count: {1}, Compression method: '
-                                      '{2}'.format(name, channels_count, compression_method),
-                                      name, out_name, request_invoker, properties_tester, folder, storage)
+                self.get_request_tester('GetImagePsdTest', save_result_to_storage,
+                                        'Input image: {0}; Channel count: {1}, Compression method: '
+                                        '{2}'.format(name, channels_count, compression_method),
+                                        name, out_name, request_invoker, properties_tester, folder, storage)
 
     #
     # Test post_image_psd
@@ -79,7 +79,7 @@ class TestPsdApi(ImagingApiTester):
                     self.assertEqual(original_properties.psd_properties.bits_per_channel,
                                      result_properties.psd_properties.bits_per_channel)
 
-                self.test_post_request('PostImagePsdTest', save_result_to_storage,
-                                       'Input image: {0}; Channel count: {1}, Compression method: '
-                                       '{2}'.format(name, channels_count, compression_method),
-                                       name, out_name, request_invoker, properties_tester, folder, storage)
+                self.post_request_tester('PostImagePsdTest', save_result_to_storage,
+                                         'Input image: {0}; Channel count: {1}, Compression method: '
+                                         '{2}'.format(name, channels_count, compression_method),
+                                         name, out_name, request_invoker, properties_tester, folder, storage)

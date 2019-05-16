@@ -42,11 +42,11 @@ class TestBmpApi(ImagingApiTester):
                     self.assertEqual(original_properties.width, result_properties.width)
                     self.assertEqual(original_properties.height, result_properties.height)
 
-                self.test_get_request('GetImageBmpTest', save_result_to_storage,
-                                      'Input image: {0}; Bits per pixel: {1}; Horizontal resolution: {2}; '
-                                      'Vertical resolution: {3}'.format(name, bits_per_pixel, horizontal_resolution,
-                                                                        vertical_resolution),
-                                      name, out_name, request_invoker, properties_tester, folder, storage)
+                self.get_request_tester('GetImageBmpTest', save_result_to_storage,
+                                        'Input image: {0}; Bits per pixel: {1}; Horizontal resolution: {2}; '
+                                        'Vertical resolution: {3}'.format(name, bits_per_pixel, horizontal_resolution,
+                                                                          vertical_resolution),
+                                        name, out_name, request_invoker, properties_tester, folder, storage)
 
     #
     # Test post_image_bmp
@@ -82,8 +82,8 @@ class TestBmpApi(ImagingApiTester):
                     self.assertEqual(original_properties.width, result_properties.width)
                     self.assertEqual(original_properties.height, result_properties.height)
 
-                self.test_post_request('PostImageBmpTest', save_result_to_storage,
-                                       'Input image: {0}; Bits per pixel: {1}; Horizontal resolution: {2}; '
-                                       'Vertical resolution: {3}'.format(name, bits_per_pixel, horizontal_resolution,
-                                                                         vertical_resolution),
-                                       name, out_name, request_invoker, properties_tester, folder, storage)
+                self.post_request_tester('PostImageBmpTest', save_result_to_storage,
+                                         'Input image: {0}; Bits per pixel: {1}; Horizontal resolution: {2}; '
+                                         'Vertical resolution: {3}'.format(name, bits_per_pixel, horizontal_resolution,
+                                                                           vertical_resolution),
+                                         name, out_name, request_invoker, properties_tester, folder, storage)

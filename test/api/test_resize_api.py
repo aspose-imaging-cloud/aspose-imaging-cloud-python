@@ -50,10 +50,10 @@ class TestResizeApi(ImagingApiTester):
                     for format in formats_to_export:
                         out_name = '{0}_crop.{1}'.format(name, format)
 
-                        self.test_get_request('GetImageResizeTest', save_result_to_storage,
-                                              'Input image: {0}; Output format: {1}; New width: {2}; New height: '
-                                              '{3};'.format(name, format, new_width, new_height),
-                                              name, out_name, request_invoker, properties_tester, folder, storage)
+                        self.get_request_tester('GetImageResizeTest', save_result_to_storage,
+                                                'Input image: {0}; Output format: {1}; New width: {2}; New height: '
+                                                '{3};'.format(name, format, new_width, new_height),
+                                                name, out_name, request_invoker, properties_tester, folder, storage)
 
     #
     # Test post_image_resize
@@ -98,7 +98,7 @@ class TestResizeApi(ImagingApiTester):
                     for format in formats_to_export:
                         out_name = '{0}_crop.{1}'.format(name, format)
 
-                        self.test_post_request('PostImageResizeTest', save_result_to_storage,
-                                               'Input image: {0}; Output format: {1}; New width: {2}; New height: '
-                                               '{3};'.format(name, format, new_width, new_height),
-                                               name, out_name, request_invoker, properties_tester, folder, storage)
+                        self.post_request_tester('PostImageResizeTest', save_result_to_storage,
+                                                 'Input image: {0}; Output format: {1}; New width: {2}; New height: '
+                                                 '{3};'.format(name, format, new_width, new_height),
+                                                 name, out_name, request_invoker, properties_tester, folder, storage)

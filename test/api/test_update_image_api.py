@@ -55,12 +55,12 @@ class TestUpdateImageApi(ImagingApiTester):
                     for format in formats_to_export:
                         out_name = '{0}_crop.{1}'.format(name, format)
 
-                        self.test_get_request('GetImageUpdateTest', save_result_to_storage,
-                                              'Input image: {0}; Output format: {1}; New width: {2}; New height: {3}; '
-                                              'Rotate/flip method: {4}; X: {5}; Y: {6}; Rect width: {7}; Rect height: '
-                                              '{8}'.format(name, format, new_width, new_height, rotate_flip_method, x,
-                                                           y, rect_width, rect_height),
-                                              name, out_name, request_invoker, properties_tester, folder, storage)
+                        self.get_request_tester('GetImageUpdateTest', save_result_to_storage,
+                                                'Input image: {0}; Output format: {1}; New width: {2}; New height: {3}; '
+                                                'Rotate/flip method: {4}; X: {5}; Y: {6}; Rect width: {7}; Rect height: '
+                                                '{8}'.format(name, format, new_width, new_height, rotate_flip_method, x,
+                                                             y, rect_width, rect_height),
+                                                name, out_name, request_invoker, properties_tester, folder, storage)
 
     #
     # Test post_image_update
@@ -110,9 +110,10 @@ class TestUpdateImageApi(ImagingApiTester):
                     for format in formats_to_export:
                         out_name = '{0}_crop.{1}'.format(name, format)
 
-                        self.test_post_request('PostImageUpdateTest', save_result_to_storage,
-                                               'Input image: {0}; Output format: {1}; New width: {2}; New height: {3}; '
-                                               'Rotate/flip method: {4}; X: {5}; Y: {6}; Rect width: {7}; Rect height: '
-                                               '{8}'.format(name, format, new_width, new_height, rotate_flip_method, x,
-                                                            y, rect_width, rect_height),
-                                               name, out_name, request_invoker, properties_tester, folder, storage)
+                        self.post_request_tester('PostImageUpdateTest', save_result_to_storage,
+                                                 'Input image: {0}; Output format: {1}; New width: {2}; New height: {3}; '
+                                                 'Rotate/flip method: {4}; X: {5}; Y: {6}; Rect width: {7}; Rect height: '
+                                                 '{8}'.format(name, format, new_width, new_height, rotate_flip_method,
+                                                              x,
+                                                              y, rect_width, rect_height),
+                                                 name, out_name, request_invoker, properties_tester, folder, storage)

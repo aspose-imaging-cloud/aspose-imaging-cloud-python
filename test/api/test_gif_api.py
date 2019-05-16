@@ -46,12 +46,12 @@ class TestGifApi(ImagingApiTester):
                     self.assertEqual(original_properties.width, result_properties.width)
                     self.assertEqual(original_properties.height, result_properties.height)
 
-                self.test_get_request('GetImageGifTest', save_result_to_storage,
-                                      'Input image: {0}; Back color index: {1}; Color resolution: {2}; Has trailer: '
-                                      '{3}; Interlaced: {4}; Is palette sorted: {5}; Pixel aspect ratio: {6}'.format(
-                                          name, background_color_index, color_resolution, has_trailer, interlaced,
-                                          is_palette_sorted, pixel_aspect_ratio),
-                                      name, out_name, request_invoker, properties_tester, folder, storage)
+                self.get_request_tester('GetImageGifTest', save_result_to_storage,
+                                        'Input image: {0}; Back color index: {1}; Color resolution: {2}; Has trailer: '
+                                        '{3}; Interlaced: {4}; Is palette sorted: {5}; Pixel aspect ratio: {6}'.format(
+                                            name, background_color_index, color_resolution, has_trailer, interlaced,
+                                            is_palette_sorted, pixel_aspect_ratio),
+                                        name, out_name, request_invoker, properties_tester, folder, storage)
 
     #
     # Test post_image_gif
@@ -93,9 +93,9 @@ class TestGifApi(ImagingApiTester):
                     self.assertEqual(original_properties.width, result_properties.width)
                     self.assertEqual(original_properties.height, result_properties.height)
 
-                self.test_post_request('PostImageGifTest', save_result_to_storage,
-                                       'Input image: {0}; Back color index: {1}; Color resolution: {2}; Has trailer: '
-                                       '{3}; Interlaced: {4}; Is palette sorted: {5}; Pixel aspect ratio: {6}'.format(
-                                           name, background_color_index, color_resolution, has_trailer, interlaced,
-                                           is_palette_sorted, pixel_aspect_ratio),
-                                       name, out_name, request_invoker, properties_tester, folder, storage)
+                self.post_request_tester('PostImageGifTest', save_result_to_storage,
+                                         'Input image: {0}; Back color index: {1}; Color resolution: {2}; Has trailer: '
+                                         '{3}; Interlaced: {4}; Is palette sorted: {5}; Pixel aspect ratio: {6}'.format(
+                                             name, background_color_index, color_resolution, has_trailer, interlaced,
+                                             is_palette_sorted, pixel_aspect_ratio),
+                                         name, out_name, request_invoker, properties_tester, folder, storage)

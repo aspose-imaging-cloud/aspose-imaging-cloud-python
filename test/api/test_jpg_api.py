@@ -36,10 +36,10 @@ class TestJpgApi(ImagingApiTester):
                 self.assertEqual(original_properties.width, result_properties.width)
                 self.assertEqual(original_properties.height, result_properties.height)
 
-            self.test_get_request('GetImageJpgTest', save_result_to_storage,
-                                  'Input image: {0}; Quality: {1}; Compression type: {2}'.format(name, quality,
-                                                                                                 compression_type),
-                                  name, out_name, request_invoker, properties_tester, folder, storage)
+            self.get_request_tester('GetImageJpgTest', save_result_to_storage,
+                                    'Input image: {0}; Quality: {1}; Compression type: {2}'.format(name, quality,
+                                                                                                   compression_type),
+                                    name, out_name, request_invoker, properties_tester, folder, storage)
 
     #
     # Test post_image_jpg
@@ -70,7 +70,7 @@ class TestJpgApi(ImagingApiTester):
                 self.assertEqual(original_properties.width, result_properties.width)
                 self.assertEqual(original_properties.height, result_properties.height)
 
-            self.test_post_request('PostImageJpgTest', save_result_to_storage,
-                                  'Input image: {0}; Quality: {1}; Compression type: {2}'.format(name, quality,
-                                                                                                 compression_type),
-                                  name, out_name, request_invoker, properties_tester, folder, storage)
+            self.post_request_tester('PostImageJpgTest', save_result_to_storage,
+                                     'Input image: {0}; Quality: {1}; Compression type: {2}'.format(name, quality,
+                                                                                                    compression_type),
+                                     name, out_name, request_invoker, properties_tester, folder, storage)

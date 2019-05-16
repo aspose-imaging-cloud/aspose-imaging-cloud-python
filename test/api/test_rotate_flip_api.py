@@ -56,10 +56,10 @@ class TestRotateFlipApi(ImagingApiTester):
                     for format in formats_to_export:
                         out_name = '{0}_crop.{1}'.format(name, format)
 
-                        self.test_get_request('GetImageRotateFlipTest', save_result_to_storage,
-                                              'Input image: {0}; Output format: {1}; Method: '
-                                              '{2}'.format(name, format, method),
-                                              name, out_name, request_invoker, properties_tester, folder, storage)
+                        self.get_request_tester('GetImageRotateFlipTest', save_result_to_storage,
+                                                'Input image: {0}; Output format: {1}; Method: '
+                                                '{2}'.format(name, format, method),
+                                                name, out_name, request_invoker, properties_tester, folder, storage)
 
     #
     # Test post_image_rotate_flip
@@ -110,7 +110,7 @@ class TestRotateFlipApi(ImagingApiTester):
                     for format in formats_to_export:
                         out_name = '{0}_crop.{1}'.format(name, format)
 
-                        self.test_post_request('PostImageRotateFlipTest', save_result_to_storage,
-                                               'Input image: {0}; Output format: {1}; Method: '
-                                               '{2}'.format(name, format, method),
-                                               name, out_name, request_invoker, properties_tester, folder, storage)
+                        self.post_request_tester('PostImageRotateFlipTest', save_result_to_storage,
+                                                 'Input image: {0}; Output format: {1}; Method: '
+                                                 '{2}'.format(name, format, method),
+                                                 name, out_name, request_invoker, properties_tester, folder, storage)

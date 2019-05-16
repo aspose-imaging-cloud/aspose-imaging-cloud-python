@@ -44,9 +44,9 @@ class TestSaveAsApi(ImagingApiTester):
                     for format in formats_to_export:
                         out_name = '{0}_crop.{1}'.format(name, format)
 
-                        self.test_get_request('GetImageSaveAsTest', save_result_to_storage,
-                                              'Input image: {0}; Output format: {1}'.format(name, format),
-                                              name, out_name, request_invoker, lambda x, y, z: None, folder, storage)
+                        self.get_request_tester('GetImageSaveAsTest', save_result_to_storage,
+                                                'Input image: {0}; Output format: {1}'.format(name, format),
+                                                name, out_name, request_invoker, lambda x, y, z: None, folder, storage)
 
     #
     # Performs SaveAs (export to another format) operation test with POST method, sending input data in request stream.
@@ -85,6 +85,6 @@ class TestSaveAsApi(ImagingApiTester):
                     for format in formats_to_export:
                         out_name = '{0}_crop.{1}'.format(name, format)
 
-                        self.test_post_request('PostImageSaveAsTest', save_result_to_storage,
-                                               'Input image: {0}; Output format: {1}'.format(name, format),
-                                               name, out_name, request_invoker, lambda x, y, z: None, folder, storage)
+                        self.post_request_tester('PostImageSaveAsTest', save_result_to_storage,
+                                                 'Input image: {0}; Output format: {1}'.format(name, format),
+                                                 name, out_name, request_invoker, lambda x, y, z: None, folder, storage)
