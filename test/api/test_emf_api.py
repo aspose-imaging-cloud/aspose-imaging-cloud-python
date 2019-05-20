@@ -1,4 +1,5 @@
 from test.api import ImagingApiTester
+import asposeimagingcloud.models.requests as requests
 
 
 #
@@ -23,13 +24,12 @@ class TestEmfApi(ImagingApiTester):
                 out_name = name + '_specific.bmp'
                 folder = self.temp_folder
                 storage = self.test_storage
+                from_scratch = None
 
                 def request_invoker(file_name, out_path):
-                    kwargs = ({"out_path": out_path, "folder": folder, "storage": storage}) if out_path else (
-                        {"folder": folder, "storage": storage})
-
-                    return self.imaging_api.get_image_emf(name, bk_color, page_width, page_height, border_x, border_y,
-                                                          **kwargs)
+                    return self.imaging_api.get_image_emf(
+                        requests.GetImageEmfRequest(name, bk_color, page_width, page_height, border_x, border_y,
+                                                    from_scratch, out_path, folder, storage))
 
                 def properties_tester(original_properties, result_properties, result_stream):
                     width = page_width + border_x * 2
@@ -62,12 +62,14 @@ class TestEmfApi(ImagingApiTester):
                 out_name = name + '_specific.bmp'
                 folder = self.temp_folder
                 storage = self.test_storage
+                from_scratch = None
 
                 def request_invoker(input_stream, out_path):
                     kwargs = ({"out_path": out_path, "storage": storage}) if out_path else ({"storage": storage})
 
-                    return self.imaging_api.post_image_emf(input_stream, bk_color, page_width, page_height, border_x,
-                                                           border_y, **kwargs)
+                    return self.imaging_api.post_image_emf(
+                        requests.PostImageEmfRequest(input_stream, bk_color, page_width, page_height, border_x,
+                                                     border_y, from_scratch, out_path, storage))
 
                 def properties_tester(original_properties, result_properties, result_stream):
                     width = page_width + border_x * 2

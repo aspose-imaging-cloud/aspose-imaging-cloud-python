@@ -1,5 +1,6 @@
 from test.api.imaging_api_tester import ImagingApiTester
 import math
+import asposeimagingcloud.models.requests as requests
 
 
 #
@@ -22,13 +23,12 @@ class TestBmpApi(ImagingApiTester):
                 out_name = name + '_specific.bmp'
                 folder = self.temp_folder
                 storage = self.test_storage
+                from_scratch = None
 
                 def request_invoker(file_name, out_path):
-                    kwargs = ({"out_path": out_path, "folder": folder, "storage": storage}) if out_path else (
-                        {"folder": folder, "storage": storage})
-
-                    return self.imaging_api.get_image_bmp(file_name, bits_per_pixel, horizontal_resolution,
-                                                          vertical_resolution, **kwargs)
+                    return self.imaging_api.get_image_bmp(
+                        requests.GetImageBmpRequest(file_name, bits_per_pixel, horizontal_resolution,
+                                                    vertical_resolution, from_scratch, out_path, folder, storage))
 
                 def properties_tester(original_properties, result_properties, result_stream):
                     self.assertIsNotNone(result_properties.bmp_properties)
@@ -63,12 +63,12 @@ class TestBmpApi(ImagingApiTester):
                 out_name = name + '_specific.bmp'
                 folder = self.temp_folder
                 storage = self.test_storage
+                from_scartch = None
 
                 def request_invoker(input_stream, out_path):
-                    kwargs = ({"out_path": out_path, "storage": storage}) if out_path else ({"storage": storage})
-
-                    return self.imaging_api.post_image_bmp(input_stream, bits_per_pixel, horizontal_resolution,
-                                                           vertical_resolution, **kwargs)
+                    return self.imaging_api.post_image_bmp(
+                        requests.PostImageBmpRequest(input_stream, bits_per_pixel, horizontal_resolution,
+                                                     vertical_resolution, from_scartch, out_path, storage))
 
                 def properties_tester(original_properties, result_properties, result_stream):
                     self.assertIsNotNone(result_properties.bmp_properties)

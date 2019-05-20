@@ -1,5 +1,6 @@
 from test.api import ImagingApiTester
 from itertools import product
+import asposeimagingcloud.models.requests as requests
 
 
 #
@@ -35,12 +36,9 @@ class TestUpdateImageApi(ImagingApiTester):
                 formats_to_export = set(self.basic_export_formats).union(additional_export_formats)
 
                 def request_invoker(file_name, out_path):
-                    kwargs = {"folder": folder, "storage": storage}
-                    if out_path:
-                        kwargs["out_path"] = out_path
-
-                    return self.imaging_api.get_image_update(file_name, format, new_width, new_height, x, y, rect_width,
-                                                             rect_height, rotate_flip_method, **kwargs)
+                    return self.imaging_api.get_image_update(
+                        requests.GetImageUpdateRequest(file_name, format, new_width, new_height, x, y, rect_width,
+                                                       rect_height, rotate_flip_method, out_path, folder, storage))
 
                 def properties_tester(original_properties, result_properties, result_stream):
                     self.assertEqual(rect_height, result_properties.width)
@@ -90,12 +88,10 @@ class TestUpdateImageApi(ImagingApiTester):
                 formats_to_export = set(self.basic_export_formats).union(additional_export_formats)
 
                 def request_invoker(input_stream, out_path):
-                    kwargs = {"storage": storage}
-                    if out_path:
-                        kwargs["out_path"] = out_path
-
-                    return self.imaging_api.post_image_update(input_stream, format, new_width, new_height, x, y,
-                                                              rect_width, rect_height, rotate_flip_method, **kwargs)
+                    return self.imaging_api.post_image_update(
+                        requests.PostImageUpdateRequest(input_stream, format, new_width, new_height, x, y,
+                                                        rect_width, rect_height, rotate_flip_method, out_path,
+                                                        storage))
 
                 def properties_tester(original_properties, result_properties, result_stream):
                     self.assertEqual(rect_height, result_properties.width)
@@ -111,8 +107,9 @@ class TestUpdateImageApi(ImagingApiTester):
                         out_name = '{0}_crop.{1}'.format(name, format)
 
                         self.post_request_tester('PostImageUpdateTest', save_result_to_storage,
-                                                 'Input image: {0}; Output format: {1}; New width: {2}; New height: {3}; '
-                                                 'Rotate/flip method: {4}; X: {5}; Y: {6}; Rect width: {7}; Rect height: '
+                                                 'Input image: {0}; Output format: {1}; New width: {2}; '
+                                                 'New height: {3}; Rotate/flip method: {4}; X: {5}; Y: {6}; '
+                                                 'Rect width: {7}; Rect height: '
                                                  '{8}'.format(name, format, new_width, new_height, rotate_flip_method,
                                                               x,
                                                               y, rect_width, rect_height),

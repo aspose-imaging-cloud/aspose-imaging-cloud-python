@@ -1,4 +1,5 @@
 from test.api import ImagingApiTester
+import asposeimagingcloud.models.requests as requests
 
 
 #
@@ -20,14 +21,12 @@ class TestPsdApi(ImagingApiTester):
                 out_name = name + '_specific.psd'
                 folder = self.temp_folder
                 storage = self.test_storage
+                from_scratch = None
 
                 def request_invoker(file_name, out_path):
-                    kwargs = {"channels_count": channels_count, "compression_method": compression_method,
-                              "folder": folder, "storage": storage}
-                    if out_path:
-                        kwargs["out_path"] = out_path
-
-                    return self.imaging_api.get_image_psd(name, **kwargs)
+                    return self.imaging_api.get_image_psd(
+                        requests.GetImagePsdRequest(name, channels_count, compression_method, from_scratch, out_path,
+                                                    folder, storage))
 
                 def properties_tester(original_properties, result_properties, result_stream):
                     self.assertIsNotNone(result_properties.psd_properties)
@@ -59,14 +58,12 @@ class TestPsdApi(ImagingApiTester):
                 out_name = name + '_specific.psd'
                 folder = self.temp_folder
                 storage = self.test_storage
+                from_scratch = None
 
                 def request_invoker(input_stream, out_path):
-                    kwargs = {"channels_count": channels_count, "compression_method": compression_method,
-                              "storage": storage}
-                    if out_path:
-                        kwargs["out_path"] = out_path
-
-                    return self.imaging_api.post_image_psd(input_stream, **kwargs)
+                    return self.imaging_api.post_image_psd(
+                        requests.PostImagePsdRequest(input_stream, channels_count, compression_method, from_scratch,
+                                                     out_path, storage))
 
                 def properties_tester(original_properties, result_properties, result_stream):
                     self.assertIsNotNone(result_properties.psd_properties)

@@ -1,4 +1,5 @@
 from test.api import ImagingApiTester
+import asposeimagingcloud.models.requests as requests
 
 
 #
@@ -24,16 +25,13 @@ class TestGifApi(ImagingApiTester):
                 out_name = name + '_specific.gif'
                 folder = self.temp_folder
                 storage = self.test_storage
+                from_scratch = None
 
                 def request_invoker(file_name, out_path):
-                    kwargs = {"background_color_index": background_color_index, "color_resolution": color_resolution,
-                              "has_trailer": has_trailer, "interlaced": interlaced,
-                              "is_palette_sorted": is_palette_sorted, "pixel_aspect_ratio": pixel_aspect_ratio,
-                              "folder": folder, "storage": storage}
-                    if out_path:
-                        kwargs["out_path"] = out_path
-
-                    return self.imaging_api.get_image_gif(name, **kwargs)
+                    return self.imaging_api.get_image_gif(
+                        requests.GetImageGifRequest(name, background_color_index, color_resolution, has_trailer,
+                                                    interlaced, is_palette_sorted, pixel_aspect_ratio, from_scratch,
+                                                    out_path, folder, storage))
 
                 def properties_tester(original_properties, result_properties, result_stream):
                     self.assertIsNotNone(result_properties.gif_properties)
@@ -71,16 +69,13 @@ class TestGifApi(ImagingApiTester):
                 out_name = name + '_specific.gif'
                 folder = self.temp_folder
                 storage = self.test_storage
+                from_scratch = None
 
                 def request_invoker(input_stream, out_path):
-                    kwargs = {"background_color_index": background_color_index, "color_resolution": color_resolution,
-                              "has_trailer": has_trailer, "interlaced": interlaced,
-                              "is_palette_sorted": is_palette_sorted, "pixel_aspect_ratio": pixel_aspect_ratio,
-                              "storage": storage}
-                    if out_path:
-                        kwargs["out_path"] = out_path
-
-                    return self.imaging_api.post_image_gif(input_stream, **kwargs)
+                    return self.imaging_api.post_image_gif(
+                        requests.PostImageGifRequest(input_stream, background_color_index, color_resolution,
+                                                     has_trailer, interlaced, is_palette_sorted, pixel_aspect_ratio,
+                                                     from_scratch, out_path, storage))
 
                 def properties_tester(original_properties, result_properties, result_stream):
                     self.assertIsNotNone(result_properties.gif_properties)

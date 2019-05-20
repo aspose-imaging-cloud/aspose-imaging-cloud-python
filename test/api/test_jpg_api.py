@@ -1,4 +1,5 @@
 from test.api import ImagingApiTester
+import asposeimagingcloud.models.requests as requests
 
 
 #
@@ -20,14 +21,12 @@ class TestJpgApi(ImagingApiTester):
                 out_name = name + '_specific.jpg'
                 folder = self.temp_folder
                 storage = self.test_storage
+                from_scratch = None
 
             def request_invoker(file_name, out_path):
-                kwargs = {"quality": quality, "compression_type": compression_type, "folder": folder,
-                          "storage": storage}
-                if out_path:
-                    kwargs["out_path"] = out_path
-
-                return self.imaging_api.get_image_jpg(name, **kwargs)
+                return self.imaging_api.get_image_jpg(
+                    requests.GetImageJpgRequest(name, quality, compression_type, from_scratch, out_path, folder,
+                                                storage))
 
             def properties_tester(original_properties, result_properties, result_stream):
                 self.assertIsNotNone(result_properties.jpeg_properties)
@@ -55,13 +54,12 @@ class TestJpgApi(ImagingApiTester):
                 out_name = name + '_specific.jpg'
                 folder = self.temp_folder
                 storage = self.test_storage
+                from_scratch = None
 
             def request_invoker(input_stream, out_path):
-                kwargs = {"quality": quality, "compression_type": compression_type, "storage": storage}
-                if out_path:
-                    kwargs["out_path"] = out_path
-
-                return self.imaging_api.post_image_jpg(input_stream, **kwargs)
+                return self.imaging_api.post_image_jpg(
+                    requests.PostImageJpgRequest(input_stream, quality, compression_type, from_scratch, out_path,
+                                                 storage))
 
             def properties_tester(original_properties, result_properties, result_stream):
                 self.assertIsNotNone(result_properties.jpeg_properties)

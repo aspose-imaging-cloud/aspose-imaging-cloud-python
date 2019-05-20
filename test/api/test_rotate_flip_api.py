@@ -1,5 +1,6 @@
 from test.api import ImagingApiTester
 from itertools import product
+import asposeimagingcloud.models.requests as requests
 
 
 #
@@ -30,11 +31,8 @@ class TestRotateFlipApi(ImagingApiTester):
                 formats_to_export = set(self.basic_export_formats).union(additional_export_formats)
 
                 def request_invoker(file_name, out_path):
-                    kwargs = {"folder": folder, "storage": storage}
-                    if out_path:
-                        kwargs["out_path"] = out_path
-
-                    return self.imaging_api.get_image_rotate_flip(file_name, format, method, **kwargs)
+                    return self.imaging_api.get_image_rotate_flip(
+                        requests.GetImageRotateFlipRequest(file_name, format, method, out_path, folder, storage))
 
                 def properties_tester(original_properties, result_properties, result_stream):
                     try:
@@ -88,7 +86,8 @@ class TestRotateFlipApi(ImagingApiTester):
                     if out_path:
                         kwargs["out_path"] = out_path
 
-                    return self.imaging_api.post_image_rotate_flip(input_stream, format, method, **kwargs)
+                    return self.imaging_api.post_image_rotate_flip(
+                        requests.PostImageRotateFlipRequest(input_stream, format, method, out_path, storage))
 
                 def properties_tester(original_properties, result_properties, result_stream):
                     try:

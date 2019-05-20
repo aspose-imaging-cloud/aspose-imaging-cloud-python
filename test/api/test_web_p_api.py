@@ -1,4 +1,5 @@
 from test.api import ImagingApiTester
+import asposeimagingcloud.models.requests as requests
 
 
 #
@@ -22,14 +23,12 @@ class TestWebPApi(ImagingApiTester):
                 folder = self.temp_folder
                 storage = self.test_storage
                 out_name = name + '_specific.webp'
+                from_scratch = None
 
                 def request_invoker(file_name, out_path):
-                    kwargs = {"folder": folder, "storage": storage}
-                    if out_path:
-                        kwargs["out_path"] = out_path
-
-                    return self.imaging_api.get_image_web_p(file_name, lossless, quality, anum_loop_count,
-                                                            anim_background_color, **kwargs)
+                    return self.imaging_api.get_image_web_p(
+                        requests.GetImageWebPRequest(file_name, lossless, quality, anum_loop_count,
+                                                     anim_background_color, from_scratch, out_path, folder, storage))
 
                 def properties_tester(original_properties, result_properties, result_stream):
                     self.assertIsNotNone(result_properties.web_p_properties)
@@ -60,14 +59,12 @@ class TestWebPApi(ImagingApiTester):
                 folder = self.temp_folder
                 storage = self.test_storage
                 out_name = name + '_specific.webp'
+                from_scratch = None
 
                 def request_invoker(input_stream, out_path):
-                    kwargs = {"storage": storage}
-                    if out_path:
-                        kwargs["out_path"] = out_path
-
-                    return self.imaging_api.post_image_web_p(input_stream, lossless, quality, anum_loop_count,
-                                                             anim_background_color, **kwargs)
+                    return self.imaging_api.post_image_web_p(
+                        requests.PostImageWebPRequest(input_stream, lossless, quality, anum_loop_count,
+                                                      anim_background_color, from_scratch, out_path, storage))
 
                 def properties_tester(original_properties, result_properties, result_stream):
                     self.assertIsNotNone(result_properties.web_p_properties)

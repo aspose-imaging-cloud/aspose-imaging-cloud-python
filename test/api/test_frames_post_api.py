@@ -1,4 +1,5 @@
 from test.api import ImagingApiTester
+import asposeimagingcloud.models.requests as requests
 
 
 #
@@ -36,7 +37,10 @@ class TestFramesPostApi(ImagingApiTester):
                     if out_path:
                         kwargs["out_path"] = out_path
 
-                    return self.imaging_api.post_image_frame(input_stream, frame_id, **kwargs)
+                    return self.imaging_api.post_image_frame(
+                        requests.PostImageFrameRequest(input_stream, frame_id, new_width, new_height, x, y,
+                                                       rect_width, rect_height, rotate_flip_method,
+                                                       save_other_frames, out_path, storage))
 
                 def properties_tester(original_properties, result_properties, result_stream):
                     self.assertIsNotNone(result_properties)
@@ -54,11 +58,11 @@ class TestFramesPostApi(ImagingApiTester):
                     self.assertEqual(rect_width, result_properties.height)
 
                     if save_result_to_storage:
-                        frame_properties = self.imaging_api.get_image_frame_properties(out_name, 0,
-                                                                                       **{"folder": folder,
-                                                                                          "storage": storage})
+                        frame_properties = self.imaging_api.get_image_frame_properties(
+                            requests.GetImageFramePropertiesRequest(out_name, 0, folder, storage))
                     else:
-                        frame_properties = self.imaging_api.post_image_frame_properties(result_stream, 0)
+                        frame_properties = self.imaging_api.post_image_frame_properties(
+                            requests.PostImageFramePropertiesRequest(result_stream, 0))
 
                     self.assertIsNotNone(frame_properties)
                     self.assertIsNotNone(frame_properties.tiff_properties)
@@ -110,7 +114,10 @@ class TestFramesPostApi(ImagingApiTester):
                     if out_path:
                         kwargs["out_path"] = out_path
 
-                    return self.imaging_api.post_image_frame(input_stream, frame_id, **kwargs)
+                    return self.imaging_api.post_image_frame(
+                        requests.PostImageFrameRequest(input_stream, frame_id, new_width, new_height, x, y,
+                                                       rect_width, rect_height, rotate_flip_method,
+                                                       save_other_frames, out_path, storage))
 
                 def properties_tester(original_properties, result_properties, result_stream):
                     self.assertIsNotNone(original_properties)

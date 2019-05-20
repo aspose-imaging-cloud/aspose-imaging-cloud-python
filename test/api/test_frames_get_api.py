@@ -1,4 +1,5 @@
 from test.api import ImagingApiTester
+import asposeimagingcloud.models.requests as requests
 
 
 #
@@ -29,14 +30,10 @@ class TestFramesGetApi(ImagingApiTester):
                 out_name = name + '_singleFrame.tiff'
 
                 def request_invoker(file_name, out_path):
-                    kwargs = (
-                        {"new_width": new_width, "new_height": new_height, "x": x, "y": y, "rect_width": rect_width,
-                         "rect_height": rect_height, "rotate_flip_method": rotate_flip_method,
-                         "save_other_frames": save_other_frames, "folder": folder, "storage": storage})
-                    if out_path:
-                        kwargs["out_path"] = out_path
-
-                    return self.imaging_api.get_image_frame(name, frame_id, **kwargs)
+                    return self.imaging_api.get_image_frame(
+                        requests.GetImageFrameRequest(name, frame_id, new_width, new_height, x, y, rect_width,
+                                                      rect_height, rotate_flip_method, save_other_frames, out_path,
+                                                      folder, storage))
 
                 def properties_tester(original_properties, result_properties, result_stream):
                     self.assertIsNotNone(result_properties)
@@ -56,8 +53,8 @@ class TestFramesGetApi(ImagingApiTester):
                     if not save_result_to_storage:
                         return
 
-                    frame_properties = self.imaging_api.get_image_frame_properties(out_name, 0, **{"folder": folder,
-                                                                                                   "storage": storage})
+                    frame_properties = self.imaging_api.get_image_frame_properties(
+                        requests.GetImageFramePropertiesRequest(out_name, 0, folder, storage))
 
                     self.assertIsNotNone(frame_properties)
                     self.assertIsNotNone(frame_properties.tiff_properties)
@@ -102,14 +99,10 @@ class TestFramesGetApi(ImagingApiTester):
                 out_name = name + '_singleFrame.tiff'
 
                 def request_invoker(file_name, out_path):
-                    kwargs = (
-                        {"new_width": new_width, "new_height": new_height, "x": x, "y": y, "rect_width": rect_width,
-                         "rect_height": rect_height, "rotate_flip_method": rotate_flip_method,
-                         "save_other_frames": save_other_frames, "folder": folder, "storage": storage})
-                    if out_path:
-                        kwargs["out_path"] = out_path
-
-                    return self.imaging_api.get_image_frame(name, frame_id, **kwargs)
+                    return self.imaging_api.get_image_frame(
+                        requests.GetImageFrameRequest(name, frame_id, new_width, new_height, x, y, rect_width,
+                                                       rect_height, rotate_flip_method, save_other_frames, out_path,
+                                                       folder, storage))
 
                 def properties_tester(original_properties, result_properties, result_stream):
                     self.assertIsNotNone(original_properties)

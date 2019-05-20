@@ -1,5 +1,6 @@
 from test.api.imaging_api_tester import ImagingApiTester
 from itertools import product
+import asposeimagingcloud.models.requests as requests
 
 
 #
@@ -33,11 +34,9 @@ class TestCropApi(ImagingApiTester):
                 formats_to_export = set(self.basic_export_formats).union(additional_export_formats)
 
                 def request_invoker(file_name, out_path):
-                    kwargs = {"out_path": out_path, "folder": folder, "storage": storage} if out_path else {
-                        "folder": folder,
-                        "storage": storage}
-
-                    return self.imaging_api.get_image_crop(file_name, format, x, y, width, height, **kwargs)
+                    return self.imaging_api.get_image_crop(
+                        requests.GetImageCropRequest(file_name, format, x, y, width, height, out_path, folder,
+                                                     storage))
 
                 def properties_tester(original_properties, result_properties, result_stream):
                     self.assertEqual(width, result_properties.width)
@@ -83,9 +82,8 @@ class TestCropApi(ImagingApiTester):
                 formats_to_export = set(self.basic_export_formats).union(additional_export_formats)
 
                 def request_invoker(input_stream, out_path):
-                    kwargs = {"out_path": out_path, "storage": storage} if out_path else {"storage": storage}
-
-                    return self.imaging_api.post_image_crop(input_stream, format, x, y, width, height, **kwargs)
+                    return self.imaging_api.post_image_crop(
+                        requests.PostImageCropRequest(input_stream, format, x, y, width, height, out_path, storage))
 
                 def properties_tester(original_properties, result_properties, result_stream):
                     self.assertEqual(width, result_properties.width)

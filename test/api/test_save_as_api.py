@@ -1,5 +1,6 @@
 from test.api import ImagingApiTester
 from itertools import product
+import asposeimagingcloud.models.requests as requests
 
 
 #
@@ -33,7 +34,8 @@ class TestSaveAsApi(ImagingApiTester):
                     if out_path:
                         kwargs["out_path"] = out_path
 
-                    return self.imaging_api.get_image_save_as(file_name, format, **kwargs)
+                    return self.imaging_api.get_image_save_as(
+                        requests.GetImageSaveAsRequest(file_name, format, out_path, folder, storage))
 
                 for input_file in self.input_test_files:
                     if not str(input_file.name).endswith(format_extension):
@@ -74,7 +76,8 @@ class TestSaveAsApi(ImagingApiTester):
                     if out_path:
                         kwargs["out_path"] = out_path
 
-                    return self.imaging_api.post_image_save_as(input_stream, format, **kwargs)
+                    return self.imaging_api.post_image_save_as(
+                        requests.PostImageSaveAsRequest(input_stream, format, out_path, storage))
 
                 for input_file in self.input_test_files:
                     if not str(input_file.name).endswith(format_extension):

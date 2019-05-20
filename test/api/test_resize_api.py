@@ -1,5 +1,6 @@
 from test.api import ImagingApiTester
 from itertools import product
+import asposeimagingcloud.models.requests as requests
 
 
 #
@@ -31,11 +32,9 @@ class TestResizeApi(ImagingApiTester):
                 formats_to_export = set(self.basic_export_formats).union(additional_export_formats)
 
                 def request_invoker(file_name, out_path):
-                    kwargs = {"folder": folder, "storage": storage}
-                    if out_path:
-                        kwargs["out_path"] = out_path
-
-                    return self.imaging_api.get_image_resize(file_name, format, new_width, new_height, **kwargs)
+                    return self.imaging_api.get_image_resize(
+                        requests.GetImageResizeRequest(file_name, format, new_width, new_height, out_path, folder,
+                                                       storage))
 
                 def properties_tester(original_properties, result_properties, result_stream):
                     self.assertEqual(new_width, result_properties.width)
@@ -79,11 +78,9 @@ class TestResizeApi(ImagingApiTester):
                 formats_to_export = set(self.basic_export_formats).union(additional_export_formats)
 
                 def request_invoker(input_stream, out_path):
-                    kwargs = {"storage": storage}
-                    if out_path:
-                        kwargs["out_path"] = out_path
-
-                    return self.imaging_api.post_image_resize(input_stream, format, new_width, new_height, **kwargs)
+                    return self.imaging_api.post_image_resize(
+                        requests.PostImageResizeRequest(input_stream, format, new_width, new_height, out_path,
+                                                        storage))
 
                 def properties_tester(original_properties, result_properties, result_stream):
                     self.assertEqual(new_width, result_properties.width)

@@ -1,4 +1,5 @@
 from test.api import ImagingApiTester
+import asposeimagingcloud.models.requests as requests
 
 
 #
@@ -24,6 +25,7 @@ class TestTiffApi(ImagingApiTester):
                 out_name = name + '_specific.tiff'
                 folder = self.temp_folder
                 storage = self.test_storage
+                from_scratch = None
 
                 def request_invoker(file_name, out_path):
                     kwargs = {"horizontal_resolution": horizontal_resolution,
@@ -31,7 +33,10 @@ class TestTiffApi(ImagingApiTester):
                     if out_path:
                         kwargs["out_path"] = out_path
 
-                    return self.imaging_api.get_image_tiff(name, compression, resolution_unit, bit_depth, **kwargs)
+                    return self.imaging_api.get_image_tiff(
+                        requests.GetImageTiffRequest(name, bit_depth, from_scratch, compression, resolution_unit,
+                                                     horizontal_resolution, vertical_resolution, out_path, folder,
+                                                     storage))
 
                 def properties_tester(original_properties, result_properties, result_stream):
                     self.assertIsNotNone(result_properties.tiff_properties)
@@ -46,9 +51,10 @@ class TestTiffApi(ImagingApiTester):
                     self.assertEqual(original_properties.height, result_properties.height)
 
                 self.get_request_tester('GetImageTiffTest', save_result_to_storage,
-                                        'Input image: {0}; Compression: {1}; Bit depth: {2}; Horizontal resolution: {3};'
-                                        ' Vertical resolution: {4}'.format(name, compression, bit_depth,
-                                                                           horizontal_resolution, vertical_resolution),
+                                        'Input image: {0}; Compression: {1}; Bit depth: {2}; '
+                                        'Horizontal resolution: {3}; Vertical resolution: {4}'
+                                        .format(name, compression, bit_depth, horizontal_resolution,
+                                                vertical_resolution),
                                         name, out_name, request_invoker, properties_tester, folder, storage)
 
     #
@@ -69,6 +75,7 @@ class TestTiffApi(ImagingApiTester):
                 out_name = name + '_specific.tiff'
                 folder = self.temp_folder
                 storage = self.test_storage
+                from_scratch = None
 
                 def request_invoker(input_stream, out_path):
                     kwargs = {"horizontal_resolution": horizontal_resolution,
@@ -76,8 +83,10 @@ class TestTiffApi(ImagingApiTester):
                     if out_path:
                         kwargs["out_path"] = out_path
 
-                    return self.imaging_api.post_image_tiff(input_stream, compression, resolution_unit, bit_depth,
-                                                            **kwargs)
+                    return self.imaging_api.post_image_tiff(
+                        requests.PostImageTiffRequest(input_stream, bit_depth, from_scratch, compression,
+                                                      resolution_unit, horizontal_resolution, vertical_resolution,
+                                                      out_path, storage))
 
                 def properties_tester(original_properties, result_properties, result_stream):
                     self.assertIsNotNone(result_properties.tiff_properties)
@@ -92,9 +101,10 @@ class TestTiffApi(ImagingApiTester):
                     self.assertEqual(original_properties.height, result_properties.height)
 
                 self.post_request_tester('PostImageTiffTest', save_result_to_storage,
-                                         'Input image: {0}; Compression: {1}; Bit depth: {2}; Horizontal resolution: {3};'
-                                         ' Vertical resolution: {4}'.format(name, compression, bit_depth,
-                                                                            horizontal_resolution, vertical_resolution),
+                                         'Input image: {0}; Compression: {1}; Bit depth: {2}; Horizontal resolution: '
+                                         '{3}; Vertical resolution: {4}'.format(name, compression, bit_depth,
+                                                                                horizontal_resolution,
+                                                                                vertical_resolution),
                                          name, out_name, request_invoker, properties_tester, folder, storage)
 
     #
@@ -111,7 +121,7 @@ class TestTiffApi(ImagingApiTester):
             if out_path:
                 kwargs["out_path"] = out_path
 
-            return self.imaging_api.get_tiff_to_fax(name, **kwargs)
+            return self.imaging_api.get_tiff_to_fax(requests.GetTiffToFaxRequest(name, storage, folder, out_path))
 
         def properties_tester(original_properties, result_properties, result_stream):
             self.assertIsNotNone(result_properties.tiff_properties)
@@ -150,32 +160,30 @@ class TestTiffApi(ImagingApiTester):
             out_path = self.temp_folder + '/' + result_file_name
 
             # remove output file from the storage (if exists)
-            if self.imaging_api.object_exists(out_path, **{"storage_name": storage}).exists:
-                self.imaging_api.delete_file(out_path, **{"storage_name": storage})
+            if self.imaging_api.object_exists(requests.ObjectExistsRequest(out_path, storage)).exists:
+                self.imaging_api.delete_file(requests.DeleteFileRequest(out_path, storage))
 
-            if not self.imaging_api.object_exists(input_path, **{"storage_name": storage}).exists:
-                self.imaging_api.copy_file(self.original_data_folder + '/' + input_file_name,
-                                           folder + '/' + input_file_name,
-                                           **{"src_storage_name": storage, "dest_storage_name": storage})
+            if not self.imaging_api.object_exists(requests.ObjectExistsRequest(input_path, storage)).exists:
+                self.imaging_api.copy_file(requests.CopyFileRequest(self.original_data_folder + '/' + input_file_name,
+                                                                    folder + '/' + input_file_name, storage, storage))
 
-            self.imaging_api.copy_file(input_path, out_path,
-                                       **{"src_storage_name": storage, "dest_storage_name": storage})
-            self.assertTrue(self.imaging_api.object_exists(out_path, **{"storage_name": storage}))
+            self.imaging_api.copy_file(requests.CopyFileRequest(input_path, out_path, storage, storage))
+            self.assertTrue(self.imaging_api.object_exists(requests.ObjectExistsRequest(out_path, storage)))
 
-            self.imaging_api.post_tiff_append(result_file_name, input_file_name,
-                                              **{"storage": storage, "folder": folder})
+            self.imaging_api.post_tiff_append(requests.PostImageTiffRequest(result_file_name, input_file_name,
+                                                                            storage, folder))
 
             result_info = self._get_storage_file_info(folder, result_file_name, storage)
             if not result_info:
                 raise ValueError('Result file {0} doesn\'t exist in the specified storage folder: {1}. Result isn\'t '
                                  'present in the storage by an unknown reason.'.format(result_file_name, folder))
 
-            result_properties = self.imaging_api.get_image_properties(result_file_name,
-                                                                      **{"folder": folder, "storage": storage})
+            result_properties = self.imaging_api.get_image_properties(
+                requests.GetImagePropertiesRequest(result_file_name, folder, storage))
             self.assertIsNotNone(result_properties)
 
-            original_properties = self.imaging_api.get_image_properties(input_file_name,
-                                                                        **{"folder": folder, "storage": storage})
+            original_properties = self.imaging_api.get_image_properties(
+                requests.GetImagePropertiesRequest(input_file_name, folder, storage))
             self.assertIsNotNone(original_properties)
 
             self.assertIsNotNone(result_properties.tiff_properties)
@@ -192,7 +200,8 @@ class TestTiffApi(ImagingApiTester):
             print(e)
 
         finally:
-            if self.remove_result and self.imaging_api.object_exists(out_path, **{"storage_name": storage}).exists:
-                self.imaging_api.delete_file(out_path, **{"storage_name": storage})
+            if self.remove_result and self.imaging_api.object_exists(
+                    requests.ObjectExistsRequest(out_path, storage)).exists:
+                self.imaging_api.delete_file(requests.DeleteFileRequest(out_path, storage))
 
                 print('Test passed: ' + str(passed))

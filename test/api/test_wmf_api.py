@@ -1,4 +1,5 @@
 from test.api import ImagingApiTester
+import asposeimagingcloud.models.requests as requests
 
 
 #
@@ -23,13 +24,12 @@ class TestWmfApi(ImagingApiTester):
                 out_name = name + '_specific.png'
                 folder = self.temp_folder
                 storage = self.test_storage
+                from_scratch = None
 
                 def request_invoker(file_name, out_path):
-                    kwargs = ({"out_path": out_path, "folder": folder, "storage": storage}) if out_path else (
-                        {"folder": folder, "storage": storage})
-
-                    return self.imaging_api.get_image_wmf(name, bk_color, page_width, page_height, border_x, border_y,
-                                                          **kwargs)
+                    return self.imaging_api.get_image_wmf(
+                        requests.GetImageWmfRequest(name, bk_color, page_width, page_height, border_x, border_y,
+                                                    from_scratch, out_path, folder, storage))
 
                 def properties_tester(original_properties, result_properties, result_stream):
                     self.assertIsNotNone(result_properties.png_properties)
@@ -59,15 +59,12 @@ class TestWmfApi(ImagingApiTester):
                 out_name = name + '_specific.png'
                 folder = self.temp_folder
                 storage = self.test_storage
+                from_scratch = None
 
                 def request_invoker(input_stream, out_path):
-                    kwargs = {"storage": storage}
-                    if out_path:
-                        kwargs["out_path"] = out_path
-
-                    return self.imaging_api.post_image_wmf(input_stream, bk_color, page_width, page_height, border_x,
-                                                           border_y,
-                                                           **kwargs)
+                    return self.imaging_api.post_image_wmf(
+                        requests.PostImageWmfRequest(input_stream, bk_color, page_width, page_height, border_x,
+                                                     border_y, from_scratch, out_path, storage))
 
                 def properties_tester(original_properties, result_properties, result_stream):
                     self.assertIsNotNone(result_properties.png_properties)
