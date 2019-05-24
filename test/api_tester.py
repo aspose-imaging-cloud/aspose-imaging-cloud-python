@@ -89,20 +89,21 @@ class ApiTester(unittest.TestCase):
         with open(server_access_info) as f:
             server_file_info = json.load(f)
 
-        if not server_file_info:
+        if server_file_info:
+            if not app_key:
+                app_key = server_file_info['AppKey']
+                print('Set default App key')
+
+            if not app_sid:
+                app_sid = server_file_info['AppSid']
+                print('Set default App SID')
+
+            if not base_url:
+                base_url = server_file_info['BaseURL']
+                print('Set default Base URL')
+
+        if not app_key or app_sid or base_url or api_version:
             raise ValueError('Please, specify valid access data (AppKey, AppSid, Base URL)')
-
-        if not app_key:
-            app_key = server_file_info['AppKey']
-            print('Set default App key')
-
-        if not app_sid:
-            app_sid = server_file_info['AppSid']
-            print('Set default App SID')
-
-        if not base_url:
-            base_url = server_file_info['BaseURL']
-            print('Set default Base URL')
 
         print('App key: ' + app_key)
         print('App SID: ' + app_sid)
