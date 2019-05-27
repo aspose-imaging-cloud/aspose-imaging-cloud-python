@@ -102,7 +102,7 @@ class ApiTester(unittest.TestCase):
                 base_url = server_file_info['BaseURL']
                 print('Set default Base URL')
 
-        if not app_key or app_sid or base_url or api_version:
+        if not (app_key and app_sid and base_url and api_version):
             raise ValueError('Please, specify valid access data (AppKey, AppSid, Base URL)')
 
         print('App key: ' + app_key)
