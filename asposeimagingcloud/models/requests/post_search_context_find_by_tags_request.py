@@ -1,3 +1,4 @@
+# coding: utf-8
 # -----------------------------------------------------------------------------------
 # <copyright company="Aspose" file="post_search_context_find_by_tags_request.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.

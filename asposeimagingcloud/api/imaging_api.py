@@ -43,7 +43,6 @@ class ImagingApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.__request_token()
 
     def copy_file(self, request, **kwargs):  # noqa: E501
         """Copy file  # noqa: E501
@@ -147,7 +146,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'PUT',
@@ -262,7 +261,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'PUT',
@@ -364,7 +363,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'POST',
@@ -471,7 +470,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'DELETE',
@@ -578,7 +577,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'DELETE',
@@ -685,7 +684,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'DELETE',
@@ -800,7 +799,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'DELETE',
@@ -915,7 +914,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'DELETE',
@@ -1022,7 +1021,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -1119,7 +1118,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -1221,7 +1220,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -1323,7 +1322,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -1464,7 +1463,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -1616,7 +1615,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -1778,7 +1777,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -1935,7 +1934,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -2047,7 +2046,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -2194,7 +2193,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -2324,7 +2323,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -2451,7 +2450,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -2558,7 +2557,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -2685,7 +2684,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -2821,7 +2820,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -2949,7 +2948,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -3069,7 +3068,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -3214,7 +3213,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -3390,7 +3389,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -3539,7 +3538,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -3701,7 +3700,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -3818,7 +3817,7 @@ class ImagingApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -3933,7 +3932,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -4063,7 +4062,7 @@ class ImagingApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -4178,7 +4177,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -4293,7 +4292,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -4400,7 +4399,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -4512,7 +4511,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -4632,7 +4631,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'PUT',
@@ -4747,7 +4746,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'PUT',
@@ -4854,7 +4853,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -4966,7 +4965,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'POST',
@@ -5102,7 +5101,7 @@ class ImagingApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'POST',
@@ -5249,7 +5248,7 @@ class ImagingApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'POST',
@@ -5406,7 +5405,7 @@ class ImagingApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'POST',
@@ -5558,7 +5557,7 @@ class ImagingApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'POST',
@@ -5660,7 +5659,7 @@ class ImagingApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'POST',
@@ -5802,7 +5801,7 @@ class ImagingApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'POST',
@@ -5927,7 +5926,7 @@ class ImagingApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'POST',
@@ -6049,7 +6048,7 @@ class ImagingApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'POST',
@@ -6146,7 +6145,7 @@ class ImagingApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'POST',
@@ -6268,7 +6267,7 @@ class ImagingApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'POST',
@@ -6399,7 +6398,7 @@ class ImagingApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'POST',
@@ -6522,7 +6521,7 @@ class ImagingApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'POST',
@@ -6637,7 +6636,7 @@ class ImagingApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'POST',
@@ -6777,7 +6776,7 @@ class ImagingApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'POST',
@@ -6948,7 +6947,7 @@ class ImagingApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'POST',
@@ -7092,7 +7091,7 @@ class ImagingApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'POST',
@@ -7249,7 +7248,7 @@ class ImagingApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'POST',
@@ -7366,7 +7365,7 @@ class ImagingApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'POST',
@@ -7486,7 +7485,7 @@ class ImagingApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'POST',
@@ -7608,7 +7607,7 @@ class ImagingApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'POST',
@@ -7727,7 +7726,7 @@ class ImagingApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'POST',
@@ -7855,7 +7854,7 @@ class ImagingApi(object):
             ['application/json', 'multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'POST',
@@ -7970,7 +7969,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'POST',
@@ -8087,7 +8086,7 @@ class ImagingApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'PUT',
@@ -8204,7 +8203,7 @@ class ImagingApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'PUT',
@@ -8301,7 +8300,7 @@ class ImagingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'GET',
@@ -8408,7 +8407,7 @@ class ImagingApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['oauth']  # noqa: E501
+        auth_settings = ['JWT'] # noqa: E501
 
         return self.api_client.call_api(
             path, 'POST',

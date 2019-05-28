@@ -1,3 +1,4 @@
+# coding: utf-8
 # -----------------------------------------------------------------------------------
 # <copyright company="Aspose" file="get_image_frame_properties_request.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.

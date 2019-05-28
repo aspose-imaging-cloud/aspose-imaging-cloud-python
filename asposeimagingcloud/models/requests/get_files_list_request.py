@@ -1,3 +1,4 @@
+# coding: utf-8
 # -----------------------------------------------------------------------------------
 # <copyright company="Aspose" file="get_files_list_request.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
