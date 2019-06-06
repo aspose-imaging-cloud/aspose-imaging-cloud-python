@@ -65,3 +65,6 @@ target/
 
 #Swagger codegen
 .swagger-codegen-ignore
+
+#PyCharm
+.idea/
