@@ -24,17 +24,74 @@
 # </summary>
 # -----------------------------------------------------------------------------------
 
+from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
+from asposeimagingcloud.models.requests.http_request import HttpRequest
 
-class ObjectExistsRequest(object):
+
+class ObjectExistsRequest(ImagingRequest):
     """
     Request model for object_exists operation.
     Initializes a new instance.
+
     :param path File or folder path e.g. '/file.ext' or '/folder'
     :param storage_name Storage name
     :param version_id File version ID
     """
 
     def __init__(self, path, storage_name=None, version_id=None):
+        ImagingRequest.__init__(self)
         self.path = path
         self.storage_name = storage_name
         self.version_id = version_id
+
+    def to_http_info(self, config):
+        """
+        Prepares initial info for HTTP request
+
+        :param config: Imaging API configuration
+        :type: asposeimagingcloud.Configuration
+        :return: http_request configured http request
+        :rtype: Configuration.models.requests.HttpRequest
+        """
+        # verify the required parameter 'path' is set
+        if self.path is None:
+            raise ValueError("Missing the required parameter `path` when calling `object_exists`")  # noqa: E501
+
+        collection_formats = {}
+        path = '/imaging/storage/exist/{path}'
+        path_params = {}
+        if self.path is not None:
+            path_params[self._lowercase_first_letter('path')] = self.path  # noqa: E501
+
+        query_params = []
+        if self._lowercase_first_letter('storageName') in path:
+            path = path.replace('{' + self._lowercase_first_letter('storageName' + '}'), self.storage_name if self.storage_name is not None else '')
+        else:
+            if self.storage_name is not None:
+                query_params.append((self._lowercase_first_letter('storageName'), self.storage_name))  # noqa: E501
+        if self._lowercase_first_letter('versionId') in path:
+            path = path.replace('{' + self._lowercase_first_letter('versionId' + '}'), self.version_id if self.version_id is not None else '')
+        else:
+            if self.version_id is not None:
+                query_params.append((self._lowercase_first_letter('versionId'), self.version_id))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = []
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self._select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self._select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)

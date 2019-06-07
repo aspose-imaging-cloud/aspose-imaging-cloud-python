@@ -24,11 +24,15 @@
 # </summary>
 # -----------------------------------------------------------------------------------
 
+from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
+from asposeimagingcloud.models.requests.http_request import HttpRequest
 
-class GetImageGifRequest(object):
+
+class GetImageGifRequest(ImagingRequest):
     """
     Request model for get_image_gif operation.
     Initializes a new instance.
+
     :param name Filename of image.
     :param background_color_index Index of the background color.
     :param color_resolution Color resolution.
@@ -43,6 +47,7 @@ class GetImageGifRequest(object):
     """
 
     def __init__(self, name, background_color_index=None, color_resolution=None, has_trailer=None, interlaced=None, is_palette_sorted=None, pixel_aspect_ratio=None, from_scratch=None, out_path=None, folder=None, storage=None):
+        ImagingRequest.__init__(self)
         self.name = name
         self.background_color_index = background_color_index
         self.color_resolution = color_resolution
@@ -54,3 +59,95 @@ class GetImageGifRequest(object):
         self.out_path = out_path
         self.folder = folder
         self.storage = storage
+
+    def to_http_info(self, config):
+        """
+        Prepares initial info for HTTP request
+
+        :param config: Imaging API configuration
+        :type: asposeimagingcloud.Configuration
+        :return: http_request configured http request
+        :rtype: Configuration.models.requests.HttpRequest
+        """
+        # verify the required parameter 'name' is set
+        if self.name is None:
+            raise ValueError("Missing the required parameter `name` when calling `get_image_gif`")  # noqa: E501
+
+        collection_formats = {}
+        path = '/imaging/{name}/gif'
+        path_params = {}
+        if self.name is not None:
+            path_params[self._lowercase_first_letter('name')] = self.name  # noqa: E501
+
+        query_params = []
+        if self._lowercase_first_letter('backgroundColorIndex') in path:
+            path = path.replace('{' + self._lowercase_first_letter('backgroundColorIndex' + '}'), self.background_color_index if self.background_color_index is not None else '')
+        else:
+            if self.background_color_index is not None:
+                query_params.append((self._lowercase_first_letter('backgroundColorIndex'), self.background_color_index))  # noqa: E501
+        if self._lowercase_first_letter('colorResolution') in path:
+            path = path.replace('{' + self._lowercase_first_letter('colorResolution' + '}'), self.color_resolution if self.color_resolution is not None else '')
+        else:
+            if self.color_resolution is not None:
+                query_params.append((self._lowercase_first_letter('colorResolution'), self.color_resolution))  # noqa: E501
+        if self._lowercase_first_letter('hasTrailer') in path:
+            path = path.replace('{' + self._lowercase_first_letter('hasTrailer' + '}'), self.has_trailer if self.has_trailer is not None else '')
+        else:
+            if self.has_trailer is not None:
+                query_params.append((self._lowercase_first_letter('hasTrailer'), self.has_trailer))  # noqa: E501
+        if self._lowercase_first_letter('interlaced') in path:
+            path = path.replace('{' + self._lowercase_first_letter('interlaced' + '}'), self.interlaced if self.interlaced is not None else '')
+        else:
+            if self.interlaced is not None:
+                query_params.append((self._lowercase_first_letter('interlaced'), self.interlaced))  # noqa: E501
+        if self._lowercase_first_letter('isPaletteSorted') in path:
+            path = path.replace('{' + self._lowercase_first_letter('isPaletteSorted' + '}'), self.is_palette_sorted if self.is_palette_sorted is not None else '')
+        else:
+            if self.is_palette_sorted is not None:
+                query_params.append((self._lowercase_first_letter('isPaletteSorted'), self.is_palette_sorted))  # noqa: E501
+        if self._lowercase_first_letter('pixelAspectRatio') in path:
+            path = path.replace('{' + self._lowercase_first_letter('pixelAspectRatio' + '}'), self.pixel_aspect_ratio if self.pixel_aspect_ratio is not None else '')
+        else:
+            if self.pixel_aspect_ratio is not None:
+                query_params.append((self._lowercase_first_letter('pixelAspectRatio'), self.pixel_aspect_ratio))  # noqa: E501
+        if self._lowercase_first_letter('fromScratch') in path:
+            path = path.replace('{' + self._lowercase_first_letter('fromScratch' + '}'), self.from_scratch if self.from_scratch is not None else '')
+        else:
+            if self.from_scratch is not None:
+                query_params.append((self._lowercase_first_letter('fromScratch'), self.from_scratch))  # noqa: E501
+        if self._lowercase_first_letter('outPath') in path:
+            path = path.replace('{' + self._lowercase_first_letter('outPath' + '}'), self.out_path if self.out_path is not None else '')
+        else:
+            if self.out_path is not None:
+                query_params.append((self._lowercase_first_letter('outPath'), self.out_path))  # noqa: E501
+        if self._lowercase_first_letter('folder') in path:
+            path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
+        else:
+            if self.folder is not None:
+                query_params.append((self._lowercase_first_letter('folder'), self.folder))  # noqa: E501
+        if self._lowercase_first_letter('storage') in path:
+            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
+        else:
+            if self.storage is not None:
+                query_params.append((self._lowercase_first_letter('storage'), self.storage))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = []
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self._select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self._select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)

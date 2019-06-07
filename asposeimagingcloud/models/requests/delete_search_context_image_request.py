@@ -24,11 +24,15 @@
 # </summary>
 # -----------------------------------------------------------------------------------
 
+from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
+from asposeimagingcloud.models.requests.http_request import HttpRequest
 
-class DeleteSearchContextImageRequest(object):
+
+class DeleteSearchContextImageRequest(ImagingRequest):
     """
     Request model for delete_search_context_image operation.
     Initializes a new instance.
+
     :param search_context_id Search context identifier.
     :param image_id Image identifier.
     :param folder Folder.
@@ -36,7 +40,68 @@ class DeleteSearchContextImageRequest(object):
     """
 
     def __init__(self, search_context_id, image_id, folder=None, storage=None):
+        ImagingRequest.__init__(self)
         self.search_context_id = search_context_id
         self.image_id = image_id
         self.folder = folder
         self.storage = storage
+
+    def to_http_info(self, config):
+        """
+        Prepares initial info for HTTP request
+
+        :param config: Imaging API configuration
+        :type: asposeimagingcloud.Configuration
+        :return: http_request configured http request
+        :rtype: Configuration.models.requests.HttpRequest
+        """
+        # verify the required parameter 'search_context_id' is set
+        if self.search_context_id is None:
+            raise ValueError("Missing the required parameter `search_context_id` when calling `delete_search_context_image`")  # noqa: E501
+        # verify the required parameter 'image_id' is set
+        if self.image_id is None:
+            raise ValueError("Missing the required parameter `image_id` when calling `delete_search_context_image`")  # noqa: E501
+
+        collection_formats = {}
+        path = '/imaging/ai/imageSearch/{searchContextId}/image'
+        path_params = {}
+        if self.search_context_id is not None:
+            path_params[self._lowercase_first_letter('searchContextId')] = self.search_context_id  # noqa: E501
+
+        query_params = []
+        if self._lowercase_first_letter('imageId') in path:
+            path = path.replace('{' + self._lowercase_first_letter('imageId' + '}'), self.image_id if self.image_id is not None else '')
+        else:
+            if self.image_id is not None:
+                query_params.append((self._lowercase_first_letter('imageId'), self.image_id))  # noqa: E501
+        if self._lowercase_first_letter('folder') in path:
+            path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
+        else:
+            if self.folder is not None:
+                query_params.append((self._lowercase_first_letter('folder'), self.folder))  # noqa: E501
+        if self._lowercase_first_letter('storage') in path:
+            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
+        else:
+            if self.storage is not None:
+                query_params.append((self._lowercase_first_letter('storage'), self.storage))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = []
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self._select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self._select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)

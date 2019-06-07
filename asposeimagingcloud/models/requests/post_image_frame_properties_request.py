@@ -24,15 +24,67 @@
 # </summary>
 # -----------------------------------------------------------------------------------
 
+from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
+from asposeimagingcloud.models.requests.http_request import HttpRequest
 
-class PostImageFramePropertiesRequest(object):
+
+class PostImageFramePropertiesRequest(ImagingRequest):
     """
     Request model for post_image_frame_properties operation.
     Initializes a new instance.
+
     :param image_data Input image
     :param frame_id Number of a frame.
     """
 
     def __init__(self, image_data, frame_id):
+        ImagingRequest.__init__(self)
         self.image_data = image_data
         self.frame_id = frame_id
+
+    def to_http_info(self, config):
+        """
+        Prepares initial info for HTTP request
+
+        :param config: Imaging API configuration
+        :type: asposeimagingcloud.Configuration
+        :return: http_request configured http request
+        :rtype: Configuration.models.requests.HttpRequest
+        """
+        # verify the required parameter 'image_data' is set
+        if self.image_data is None:
+            raise ValueError("Missing the required parameter `image_data` when calling `post_image_frame_properties`")  # noqa: E501
+        # verify the required parameter 'frame_id' is set
+        if self.frame_id is None:
+            raise ValueError("Missing the required parameter `frame_id` when calling `post_image_frame_properties`")  # noqa: E501
+
+        collection_formats = {}
+        path = '/imaging/frames/{frameId}/properties'
+        path_params = {}
+        if self.frame_id is not None:
+            path_params[self._lowercase_first_letter('frameId')] = self.frame_id  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = []
+        if self.image_data is not None:
+            local_var_files.append((self._lowercase_first_letter('imageData'), self.image_data))  # noqa: E501
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self._select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self._select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)

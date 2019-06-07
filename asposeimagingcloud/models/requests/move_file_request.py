@@ -24,11 +24,15 @@
 # </summary>
 # -----------------------------------------------------------------------------------
 
+from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
+from asposeimagingcloud.models.requests.http_request import HttpRequest
 
-class MoveFileRequest(object):
+
+class MoveFileRequest(ImagingRequest):
     """
     Request model for move_file operation.
     Initializes a new instance.
+
     :param src_path Source file path e.g. '/src.ext'
     :param dest_path Destination file path e.g. '/dest.ext'
     :param src_storage_name Source storage name
@@ -37,8 +41,74 @@ class MoveFileRequest(object):
     """
 
     def __init__(self, src_path, dest_path, src_storage_name=None, dest_storage_name=None, version_id=None):
+        ImagingRequest.__init__(self)
         self.src_path = src_path
         self.dest_path = dest_path
         self.src_storage_name = src_storage_name
         self.dest_storage_name = dest_storage_name
         self.version_id = version_id
+
+    def to_http_info(self, config):
+        """
+        Prepares initial info for HTTP request
+
+        :param config: Imaging API configuration
+        :type: asposeimagingcloud.Configuration
+        :return: http_request configured http request
+        :rtype: Configuration.models.requests.HttpRequest
+        """
+        # verify the required parameter 'src_path' is set
+        if self.src_path is None:
+            raise ValueError("Missing the required parameter `src_path` when calling `move_file`")  # noqa: E501
+        # verify the required parameter 'dest_path' is set
+        if self.dest_path is None:
+            raise ValueError("Missing the required parameter `dest_path` when calling `move_file`")  # noqa: E501
+
+        collection_formats = {}
+        path = '/imaging/storage/file/move/{srcPath}'
+        path_params = {}
+        if self.src_path is not None:
+            path_params[self._lowercase_first_letter('srcPath')] = self.src_path  # noqa: E501
+
+        query_params = []
+        if self._lowercase_first_letter('destPath') in path:
+            path = path.replace('{' + self._lowercase_first_letter('destPath' + '}'), self.dest_path if self.dest_path is not None else '')
+        else:
+            if self.dest_path is not None:
+                query_params.append((self._lowercase_first_letter('destPath'), self.dest_path))  # noqa: E501
+        if self._lowercase_first_letter('srcStorageName') in path:
+            path = path.replace('{' + self._lowercase_first_letter('srcStorageName' + '}'), self.src_storage_name if self.src_storage_name is not None else '')
+        else:
+            if self.src_storage_name is not None:
+                query_params.append((self._lowercase_first_letter('srcStorageName'), self.src_storage_name))  # noqa: E501
+        if self._lowercase_first_letter('destStorageName') in path:
+            path = path.replace('{' + self._lowercase_first_letter('destStorageName' + '}'), self.dest_storage_name if self.dest_storage_name is not None else '')
+        else:
+            if self.dest_storage_name is not None:
+                query_params.append((self._lowercase_first_letter('destStorageName'), self.dest_storage_name))  # noqa: E501
+        if self._lowercase_first_letter('versionId') in path:
+            path = path.replace('{' + self._lowercase_first_letter('versionId' + '}'), self.version_id if self.version_id is not None else '')
+        else:
+            if self.version_id is not None:
+                query_params.append((self._lowercase_first_letter('versionId'), self.version_id))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = []
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self._select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self._select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)

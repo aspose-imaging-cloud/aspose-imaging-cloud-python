@@ -24,11 +24,15 @@
 # </summary>
 # -----------------------------------------------------------------------------------
 
+from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
+from asposeimagingcloud.models.requests.http_request import HttpRequest
 
-class GetImageUpdateRequest(object):
+
+class GetImageUpdateRequest(ImagingRequest):
     """
     Request model for get_image_update operation.
     Initializes a new instance.
+
     :param name Filename of an image.
     :param format Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases.
     :param new_width New width of the scaled image.
@@ -44,6 +48,7 @@ class GetImageUpdateRequest(object):
     """
 
     def __init__(self, name, format, new_width, new_height, x, y, rect_width, rect_height, rotate_flip_method, out_path=None, folder=None, storage=None):
+        ImagingRequest.__init__(self)
         self.name = name
         self.format = format
         self.new_width = new_width
@@ -56,3 +61,124 @@ class GetImageUpdateRequest(object):
         self.out_path = out_path
         self.folder = folder
         self.storage = storage
+
+    def to_http_info(self, config):
+        """
+        Prepares initial info for HTTP request
+
+        :param config: Imaging API configuration
+        :type: asposeimagingcloud.Configuration
+        :return: http_request configured http request
+        :rtype: Configuration.models.requests.HttpRequest
+        """
+        # verify the required parameter 'name' is set
+        if self.name is None:
+            raise ValueError("Missing the required parameter `name` when calling `get_image_update`")  # noqa: E501
+        # verify the required parameter 'format' is set
+        if self.format is None:
+            raise ValueError("Missing the required parameter `format` when calling `get_image_update`")  # noqa: E501
+        # verify the required parameter 'new_width' is set
+        if self.new_width is None:
+            raise ValueError("Missing the required parameter `new_width` when calling `get_image_update`")  # noqa: E501
+        # verify the required parameter 'new_height' is set
+        if self.new_height is None:
+            raise ValueError("Missing the required parameter `new_height` when calling `get_image_update`")  # noqa: E501
+        # verify the required parameter 'x' is set
+        if self.x is None:
+            raise ValueError("Missing the required parameter `x` when calling `get_image_update`")  # noqa: E501
+        # verify the required parameter 'y' is set
+        if self.y is None:
+            raise ValueError("Missing the required parameter `y` when calling `get_image_update`")  # noqa: E501
+        # verify the required parameter 'rect_width' is set
+        if self.rect_width is None:
+            raise ValueError("Missing the required parameter `rect_width` when calling `get_image_update`")  # noqa: E501
+        # verify the required parameter 'rect_height' is set
+        if self.rect_height is None:
+            raise ValueError("Missing the required parameter `rect_height` when calling `get_image_update`")  # noqa: E501
+        # verify the required parameter 'rotate_flip_method' is set
+        if self.rotate_flip_method is None:
+            raise ValueError("Missing the required parameter `rotate_flip_method` when calling `get_image_update`")  # noqa: E501
+
+        collection_formats = {}
+        path = '/imaging/{name}/updateImage'
+        path_params = {}
+        if self.name is not None:
+            path_params[self._lowercase_first_letter('name')] = self.name  # noqa: E501
+
+        query_params = []
+        if self._lowercase_first_letter('format') in path:
+            path = path.replace('{' + self._lowercase_first_letter('format' + '}'), self.format if self.format is not None else '')
+        else:
+            if self.format is not None:
+                query_params.append((self._lowercase_first_letter('format'), self.format))  # noqa: E501
+        if self._lowercase_first_letter('newWidth') in path:
+            path = path.replace('{' + self._lowercase_first_letter('newWidth' + '}'), self.new_width if self.new_width is not None else '')
+        else:
+            if self.new_width is not None:
+                query_params.append((self._lowercase_first_letter('newWidth'), self.new_width))  # noqa: E501
+        if self._lowercase_first_letter('newHeight') in path:
+            path = path.replace('{' + self._lowercase_first_letter('newHeight' + '}'), self.new_height if self.new_height is not None else '')
+        else:
+            if self.new_height is not None:
+                query_params.append((self._lowercase_first_letter('newHeight'), self.new_height))  # noqa: E501
+        if self._lowercase_first_letter('x') in path:
+            path = path.replace('{' + self._lowercase_first_letter('x' + '}'), self.x if self.x is not None else '')
+        else:
+            if self.x is not None:
+                query_params.append((self._lowercase_first_letter('x'), self.x))  # noqa: E501
+        if self._lowercase_first_letter('y') in path:
+            path = path.replace('{' + self._lowercase_first_letter('y' + '}'), self.y if self.y is not None else '')
+        else:
+            if self.y is not None:
+                query_params.append((self._lowercase_first_letter('y'), self.y))  # noqa: E501
+        if self._lowercase_first_letter('rectWidth') in path:
+            path = path.replace('{' + self._lowercase_first_letter('rectWidth' + '}'), self.rect_width if self.rect_width is not None else '')
+        else:
+            if self.rect_width is not None:
+                query_params.append((self._lowercase_first_letter('rectWidth'), self.rect_width))  # noqa: E501
+        if self._lowercase_first_letter('rectHeight') in path:
+            path = path.replace('{' + self._lowercase_first_letter('rectHeight' + '}'), self.rect_height if self.rect_height is not None else '')
+        else:
+            if self.rect_height is not None:
+                query_params.append((self._lowercase_first_letter('rectHeight'), self.rect_height))  # noqa: E501
+        if self._lowercase_first_letter('rotateFlipMethod') in path:
+            path = path.replace('{' + self._lowercase_first_letter('rotateFlipMethod' + '}'), self.rotate_flip_method if self.rotate_flip_method is not None else '')
+        else:
+            if self.rotate_flip_method is not None:
+                query_params.append((self._lowercase_first_letter('rotateFlipMethod'), self.rotate_flip_method))  # noqa: E501
+        if self._lowercase_first_letter('outPath') in path:
+            path = path.replace('{' + self._lowercase_first_letter('outPath' + '}'), self.out_path if self.out_path is not None else '')
+        else:
+            if self.out_path is not None:
+                query_params.append((self._lowercase_first_letter('outPath'), self.out_path))  # noqa: E501
+        if self._lowercase_first_letter('folder') in path:
+            path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
+        else:
+            if self.folder is not None:
+                query_params.append((self._lowercase_first_letter('folder'), self.folder))  # noqa: E501
+        if self._lowercase_first_letter('storage') in path:
+            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
+        else:
+            if self.storage is not None:
+                query_params.append((self._lowercase_first_letter('storage'), self.storage))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = []
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self._select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self._select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)

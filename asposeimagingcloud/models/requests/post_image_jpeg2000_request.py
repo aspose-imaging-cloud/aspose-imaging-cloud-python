@@ -24,11 +24,15 @@
 # </summary>
 # -----------------------------------------------------------------------------------
 
+from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
+from asposeimagingcloud.models.requests.http_request import HttpRequest
 
-class PostImageJpeg2000Request(object):
+
+class PostImageJpeg2000Request(ImagingRequest):
     """
     Request model for post_image_jpeg2000 operation.
     Initializes a new instance.
+
     :param image_data Input image
     :param comment The comment (can be either single or comma-separated).
     :param codec The codec (j2k or jp2).
@@ -38,9 +42,80 @@ class PostImageJpeg2000Request(object):
     """
 
     def __init__(self, image_data, comment, codec=None, from_scratch=None, out_path=None, storage=None):
+        ImagingRequest.__init__(self)
         self.image_data = image_data
         self.comment = comment
         self.codec = codec
         self.from_scratch = from_scratch
         self.out_path = out_path
         self.storage = storage
+
+    def to_http_info(self, config):
+        """
+        Prepares initial info for HTTP request
+
+        :param config: Imaging API configuration
+        :type: asposeimagingcloud.Configuration
+        :return: http_request configured http request
+        :rtype: Configuration.models.requests.HttpRequest
+        """
+        # verify the required parameter 'image_data' is set
+        if self.image_data is None:
+            raise ValueError("Missing the required parameter `image_data` when calling `post_image_jpeg2000`")  # noqa: E501
+        # verify the required parameter 'comment' is set
+        if self.comment is None:
+            raise ValueError("Missing the required parameter `comment` when calling `post_image_jpeg2000`")  # noqa: E501
+
+        collection_formats = {}
+        path = '/imaging/jpg2000'
+        path_params = {}
+
+        query_params = []
+        if self._lowercase_first_letter('comment') in path:
+            path = path.replace('{' + self._lowercase_first_letter('comment' + '}'), self.comment if self.comment is not None else '')
+        else:
+            if self.comment is not None:
+                query_params.append((self._lowercase_first_letter('comment'), self.comment))  # noqa: E501
+        if self._lowercase_first_letter('codec') in path:
+            path = path.replace('{' + self._lowercase_first_letter('codec' + '}'), self.codec if self.codec is not None else '')
+        else:
+            if self.codec is not None:
+                query_params.append((self._lowercase_first_letter('codec'), self.codec))  # noqa: E501
+        if self._lowercase_first_letter('fromScratch') in path:
+            path = path.replace('{' + self._lowercase_first_letter('fromScratch' + '}'), self.from_scratch if self.from_scratch is not None else '')
+        else:
+            if self.from_scratch is not None:
+                query_params.append((self._lowercase_first_letter('fromScratch'), self.from_scratch))  # noqa: E501
+        if self._lowercase_first_letter('outPath') in path:
+            path = path.replace('{' + self._lowercase_first_letter('outPath' + '}'), self.out_path if self.out_path is not None else '')
+        else:
+            if self.out_path is not None:
+                query_params.append((self._lowercase_first_letter('outPath'), self.out_path))  # noqa: E501
+        if self._lowercase_first_letter('storage') in path:
+            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
+        else:
+            if self.storage is not None:
+                query_params.append((self._lowercase_first_letter('storage'), self.storage))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = []
+        if self.image_data is not None:
+            local_var_files.append((self._lowercase_first_letter('imageData'), self.image_data))  # noqa: E501
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self._select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self._select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)

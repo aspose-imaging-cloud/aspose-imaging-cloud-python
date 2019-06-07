@@ -24,11 +24,15 @@
 # </summary>
 # -----------------------------------------------------------------------------------
 
+from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
+from asposeimagingcloud.models.requests.http_request import HttpRequest
 
-class GetImageFramePropertiesRequest(object):
+
+class GetImageFramePropertiesRequest(ImagingRequest):
     """
     Request model for get_image_frame_properties operation.
     Initializes a new instance.
+
     :param name Filename with image.
     :param frame_id Number of a frame.
     :param folder Folder with image to process.
@@ -36,7 +40,65 @@ class GetImageFramePropertiesRequest(object):
     """
 
     def __init__(self, name, frame_id, folder=None, storage=None):
+        ImagingRequest.__init__(self)
         self.name = name
         self.frame_id = frame_id
         self.folder = folder
         self.storage = storage
+
+    def to_http_info(self, config):
+        """
+        Prepares initial info for HTTP request
+
+        :param config: Imaging API configuration
+        :type: asposeimagingcloud.Configuration
+        :return: http_request configured http request
+        :rtype: Configuration.models.requests.HttpRequest
+        """
+        # verify the required parameter 'name' is set
+        if self.name is None:
+            raise ValueError("Missing the required parameter `name` when calling `get_image_frame_properties`")  # noqa: E501
+        # verify the required parameter 'frame_id' is set
+        if self.frame_id is None:
+            raise ValueError("Missing the required parameter `frame_id` when calling `get_image_frame_properties`")  # noqa: E501
+
+        collection_formats = {}
+        path = '/imaging/{name}/frames/{frameId}/properties'
+        path_params = {}
+        if self.name is not None:
+            path_params[self._lowercase_first_letter('name')] = self.name  # noqa: E501
+        if self.frame_id is not None:
+            path_params[self._lowercase_first_letter('frameId')] = self.frame_id  # noqa: E501
+
+        query_params = []
+        if self._lowercase_first_letter('folder') in path:
+            path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
+        else:
+            if self.folder is not None:
+                query_params.append((self._lowercase_first_letter('folder'), self.folder))  # noqa: E501
+        if self._lowercase_first_letter('storage') in path:
+            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
+        else:
+            if self.storage is not None:
+                query_params.append((self._lowercase_first_letter('storage'), self.storage))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = []
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self._select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self._select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)

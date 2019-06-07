@@ -24,11 +24,15 @@
 # </summary>
 # -----------------------------------------------------------------------------------
 
+from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
+from asposeimagingcloud.models.requests.http_request import HttpRequest
 
-class GetImageJpgRequest(object):
+
+class GetImageJpgRequest(ImagingRequest):
     """
     Request model for get_image_jpg operation.
     Initializes a new instance.
+
     :param name Filename of image.
     :param quality Quality of an image from 0 to 100. Default is 75.
     :param compression_type Compression type: baseline (default), progressive, lossless or jpegls.
@@ -39,6 +43,7 @@ class GetImageJpgRequest(object):
     """
 
     def __init__(self, name, quality=None, compression_type=None, from_scratch=None, out_path=None, folder=None, storage=None):
+        ImagingRequest.__init__(self)
         self.name = name
         self.quality = quality
         self.compression_type = compression_type
@@ -46,3 +51,75 @@ class GetImageJpgRequest(object):
         self.out_path = out_path
         self.folder = folder
         self.storage = storage
+
+    def to_http_info(self, config):
+        """
+        Prepares initial info for HTTP request
+
+        :param config: Imaging API configuration
+        :type: asposeimagingcloud.Configuration
+        :return: http_request configured http request
+        :rtype: Configuration.models.requests.HttpRequest
+        """
+        # verify the required parameter 'name' is set
+        if self.name is None:
+            raise ValueError("Missing the required parameter `name` when calling `get_image_jpg`")  # noqa: E501
+
+        collection_formats = {}
+        path = '/imaging/{name}/jpg'
+        path_params = {}
+        if self.name is not None:
+            path_params[self._lowercase_first_letter('name')] = self.name  # noqa: E501
+
+        query_params = []
+        if self._lowercase_first_letter('quality') in path:
+            path = path.replace('{' + self._lowercase_first_letter('quality' + '}'), self.quality if self.quality is not None else '')
+        else:
+            if self.quality is not None:
+                query_params.append((self._lowercase_first_letter('quality'), self.quality))  # noqa: E501
+        if self._lowercase_first_letter('compressionType') in path:
+            path = path.replace('{' + self._lowercase_first_letter('compressionType' + '}'), self.compression_type if self.compression_type is not None else '')
+        else:
+            if self.compression_type is not None:
+                query_params.append((self._lowercase_first_letter('compressionType'), self.compression_type))  # noqa: E501
+        if self._lowercase_first_letter('fromScratch') in path:
+            path = path.replace('{' + self._lowercase_first_letter('fromScratch' + '}'), self.from_scratch if self.from_scratch is not None else '')
+        else:
+            if self.from_scratch is not None:
+                query_params.append((self._lowercase_first_letter('fromScratch'), self.from_scratch))  # noqa: E501
+        if self._lowercase_first_letter('outPath') in path:
+            path = path.replace('{' + self._lowercase_first_letter('outPath' + '}'), self.out_path if self.out_path is not None else '')
+        else:
+            if self.out_path is not None:
+                query_params.append((self._lowercase_first_letter('outPath'), self.out_path))  # noqa: E501
+        if self._lowercase_first_letter('folder') in path:
+            path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
+        else:
+            if self.folder is not None:
+                query_params.append((self._lowercase_first_letter('folder'), self.folder))  # noqa: E501
+        if self._lowercase_first_letter('storage') in path:
+            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
+        else:
+            if self.storage is not None:
+                query_params.append((self._lowercase_first_letter('storage'), self.storage))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = []
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self._select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self._select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)

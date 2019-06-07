@@ -24,11 +24,15 @@
 # </summary>
 # -----------------------------------------------------------------------------------
 
+from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
+from asposeimagingcloud.models.requests.http_request import HttpRequest
 
-class GetImageWmfRequest(object):
+
+class GetImageWmfRequest(ImagingRequest):
     """
     Request model for get_image_wmf operation.
     Initializes a new instance.
+
     :param name Filename of image.
     :param bk_color Color of the background.
     :param page_width Width of the page.
@@ -43,6 +47,7 @@ class GetImageWmfRequest(object):
     """
 
     def __init__(self, name, bk_color, page_width, page_height, border_x, border_y, from_scratch=None, out_path=None, folder=None, storage=None, format=None):
+        ImagingRequest.__init__(self)
         self.name = name
         self.bk_color = bk_color
         self.page_width = page_width
@@ -54,3 +59,110 @@ class GetImageWmfRequest(object):
         self.folder = folder
         self.storage = storage
         self.format = format
+
+    def to_http_info(self, config):
+        """
+        Prepares initial info for HTTP request
+
+        :param config: Imaging API configuration
+        :type: asposeimagingcloud.Configuration
+        :return: http_request configured http request
+        :rtype: Configuration.models.requests.HttpRequest
+        """
+        # verify the required parameter 'name' is set
+        if self.name is None:
+            raise ValueError("Missing the required parameter `name` when calling `get_image_wmf`")  # noqa: E501
+        # verify the required parameter 'bk_color' is set
+        if self.bk_color is None:
+            raise ValueError("Missing the required parameter `bk_color` when calling `get_image_wmf`")  # noqa: E501
+        # verify the required parameter 'page_width' is set
+        if self.page_width is None:
+            raise ValueError("Missing the required parameter `page_width` when calling `get_image_wmf`")  # noqa: E501
+        # verify the required parameter 'page_height' is set
+        if self.page_height is None:
+            raise ValueError("Missing the required parameter `page_height` when calling `get_image_wmf`")  # noqa: E501
+        # verify the required parameter 'border_x' is set
+        if self.border_x is None:
+            raise ValueError("Missing the required parameter `border_x` when calling `get_image_wmf`")  # noqa: E501
+        # verify the required parameter 'border_y' is set
+        if self.border_y is None:
+            raise ValueError("Missing the required parameter `border_y` when calling `get_image_wmf`")  # noqa: E501
+
+        collection_formats = {}
+        path = '/imaging/{name}/wmf'
+        path_params = {}
+        if self.name is not None:
+            path_params[self._lowercase_first_letter('name')] = self.name  # noqa: E501
+
+        query_params = []
+        if self._lowercase_first_letter('bkColor') in path:
+            path = path.replace('{' + self._lowercase_first_letter('bkColor' + '}'), self.bk_color if self.bk_color is not None else '')
+        else:
+            if self.bk_color is not None:
+                query_params.append((self._lowercase_first_letter('bkColor'), self.bk_color))  # noqa: E501
+        if self._lowercase_first_letter('pageWidth') in path:
+            path = path.replace('{' + self._lowercase_first_letter('pageWidth' + '}'), self.page_width if self.page_width is not None else '')
+        else:
+            if self.page_width is not None:
+                query_params.append((self._lowercase_first_letter('pageWidth'), self.page_width))  # noqa: E501
+        if self._lowercase_first_letter('pageHeight') in path:
+            path = path.replace('{' + self._lowercase_first_letter('pageHeight' + '}'), self.page_height if self.page_height is not None else '')
+        else:
+            if self.page_height is not None:
+                query_params.append((self._lowercase_first_letter('pageHeight'), self.page_height))  # noqa: E501
+        if self._lowercase_first_letter('borderX') in path:
+            path = path.replace('{' + self._lowercase_first_letter('borderX' + '}'), self.border_x if self.border_x is not None else '')
+        else:
+            if self.border_x is not None:
+                query_params.append((self._lowercase_first_letter('borderX'), self.border_x))  # noqa: E501
+        if self._lowercase_first_letter('borderY') in path:
+            path = path.replace('{' + self._lowercase_first_letter('borderY' + '}'), self.border_y if self.border_y is not None else '')
+        else:
+            if self.border_y is not None:
+                query_params.append((self._lowercase_first_letter('borderY'), self.border_y))  # noqa: E501
+        if self._lowercase_first_letter('fromScratch') in path:
+            path = path.replace('{' + self._lowercase_first_letter('fromScratch' + '}'), self.from_scratch if self.from_scratch is not None else '')
+        else:
+            if self.from_scratch is not None:
+                query_params.append((self._lowercase_first_letter('fromScratch'), self.from_scratch))  # noqa: E501
+        if self._lowercase_first_letter('outPath') in path:
+            path = path.replace('{' + self._lowercase_first_letter('outPath' + '}'), self.out_path if self.out_path is not None else '')
+        else:
+            if self.out_path is not None:
+                query_params.append((self._lowercase_first_letter('outPath'), self.out_path))  # noqa: E501
+        if self._lowercase_first_letter('folder') in path:
+            path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
+        else:
+            if self.folder is not None:
+                query_params.append((self._lowercase_first_letter('folder'), self.folder))  # noqa: E501
+        if self._lowercase_first_letter('storage') in path:
+            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
+        else:
+            if self.storage is not None:
+                query_params.append((self._lowercase_first_letter('storage'), self.storage))  # noqa: E501
+        if self._lowercase_first_letter('format') in path:
+            path = path.replace('{' + self._lowercase_first_letter('format' + '}'), self.format if self.format is not None else '')
+        else:
+            if self.format is not None:
+                query_params.append((self._lowercase_first_letter('format'), self.format))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = []
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self._select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self._select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)

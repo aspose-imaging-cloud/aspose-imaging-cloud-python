@@ -24,11 +24,15 @@
 # </summary>
 # -----------------------------------------------------------------------------------
 
+from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
+from asposeimagingcloud.models.requests.http_request import HttpRequest
 
-class GetImageTiffRequest(object):
+
+class GetImageTiffRequest(ImagingRequest):
     """
     Request model for get_image_tiff operation.
     Initializes a new instance.
+
     :param name Filename of image.
     :param bit_depth Bit depth.
     :param from_scratch Specifies where additional parameters we do not support should be taken from. If this is true – they will be taken from default values for standard image, if it is false – they will be saved from current image. Default is false.
@@ -42,6 +46,7 @@ class GetImageTiffRequest(object):
     """
 
     def __init__(self, name, bit_depth, from_scratch=None, compression=None, resolution_unit=None, horizontal_resolution=None, vertical_resolution=None, out_path=None, folder=None, storage=None):
+        ImagingRequest.__init__(self)
         self.name = name
         self.bit_depth = bit_depth
         self.from_scratch = from_scratch
@@ -52,3 +57,93 @@ class GetImageTiffRequest(object):
         self.out_path = out_path
         self.folder = folder
         self.storage = storage
+
+    def to_http_info(self, config):
+        """
+        Prepares initial info for HTTP request
+
+        :param config: Imaging API configuration
+        :type: asposeimagingcloud.Configuration
+        :return: http_request configured http request
+        :rtype: Configuration.models.requests.HttpRequest
+        """
+        # verify the required parameter 'name' is set
+        if self.name is None:
+            raise ValueError("Missing the required parameter `name` when calling `get_image_tiff`")  # noqa: E501
+        # verify the required parameter 'bit_depth' is set
+        if self.bit_depth is None:
+            raise ValueError("Missing the required parameter `bit_depth` when calling `get_image_tiff`")  # noqa: E501
+
+        collection_formats = {}
+        path = '/imaging/{name}/tiff'
+        path_params = {}
+        if self.name is not None:
+            path_params[self._lowercase_first_letter('name')] = self.name  # noqa: E501
+
+        query_params = []
+        if self._lowercase_first_letter('bitDepth') in path:
+            path = path.replace('{' + self._lowercase_first_letter('bitDepth' + '}'), self.bit_depth if self.bit_depth is not None else '')
+        else:
+            if self.bit_depth is not None:
+                query_params.append((self._lowercase_first_letter('bitDepth'), self.bit_depth))  # noqa: E501
+        if self._lowercase_first_letter('fromScratch') in path:
+            path = path.replace('{' + self._lowercase_first_letter('fromScratch' + '}'), self.from_scratch if self.from_scratch is not None else '')
+        else:
+            if self.from_scratch is not None:
+                query_params.append((self._lowercase_first_letter('fromScratch'), self.from_scratch))  # noqa: E501
+        if self._lowercase_first_letter('compression') in path:
+            path = path.replace('{' + self._lowercase_first_letter('compression' + '}'), self.compression if self.compression is not None else '')
+        else:
+            if self.compression is not None:
+                query_params.append((self._lowercase_first_letter('compression'), self.compression))  # noqa: E501
+        if self._lowercase_first_letter('resolutionUnit') in path:
+            path = path.replace('{' + self._lowercase_first_letter('resolutionUnit' + '}'), self.resolution_unit if self.resolution_unit is not None else '')
+        else:
+            if self.resolution_unit is not None:
+                query_params.append((self._lowercase_first_letter('resolutionUnit'), self.resolution_unit))  # noqa: E501
+        if self._lowercase_first_letter('horizontalResolution') in path:
+            path = path.replace('{' + self._lowercase_first_letter('horizontalResolution' + '}'), self.horizontal_resolution if self.horizontal_resolution is not None else '')
+        else:
+            if self.horizontal_resolution is not None:
+                query_params.append((self._lowercase_first_letter('horizontalResolution'), self.horizontal_resolution))  # noqa: E501
+        if self._lowercase_first_letter('verticalResolution') in path:
+            path = path.replace('{' + self._lowercase_first_letter('verticalResolution' + '}'), self.vertical_resolution if self.vertical_resolution is not None else '')
+        else:
+            if self.vertical_resolution is not None:
+                query_params.append((self._lowercase_first_letter('verticalResolution'), self.vertical_resolution))  # noqa: E501
+        if self._lowercase_first_letter('outPath') in path:
+            path = path.replace('{' + self._lowercase_first_letter('outPath' + '}'), self.out_path if self.out_path is not None else '')
+        else:
+            if self.out_path is not None:
+                query_params.append((self._lowercase_first_letter('outPath'), self.out_path))  # noqa: E501
+        if self._lowercase_first_letter('folder') in path:
+            path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
+        else:
+            if self.folder is not None:
+                query_params.append((self._lowercase_first_letter('folder'), self.folder))  # noqa: E501
+        if self._lowercase_first_letter('storage') in path:
+            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
+        else:
+            if self.storage is not None:
+                query_params.append((self._lowercase_first_letter('storage'), self.storage))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = []
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self._select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self._select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)

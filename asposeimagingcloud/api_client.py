@@ -309,6 +309,49 @@ class ApiClient(object):
         :param response: Response data type.
         :param files dict: key -> filename, value -> filepath,
             for `multipart/form-data`.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param collection_formats: dict of collection formats for path, query,
+            header, and post parameters.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: response from server.
+        """
+        return self.__call_api(resource_path, method,
+                               path_params, query_params, header_params,
+                               body, post_params, files,
+                               response_type, auth_settings,
+                               _return_http_data_only, collection_formats,
+                               _preload_content, _request_timeout)
+
+    def call_api_async(self, resource_path, method,
+                 path_params=None, query_params=None, header_params=None,
+                 body=None, post_params=None, files=None,
+                 response_type=None, auth_settings=None, is_async=None,
+                 _return_http_data_only=None, collection_formats=None,
+                 _preload_content=True, _request_timeout=None):
+        """Makes the HTTP request (synchronous) and returns deserialized data.
+
+        To make an async request, set the async parameter.
+
+        :param resource_path: Path to method endpoint.
+        :param method: Method to call.
+        :param path_params: Path parameters in the url.
+        :param query_params: Query parameters in the url.
+        :param header_params: Header parameters to be
+            placed in the request header.
+        :param body: Request body.
+        :param post_params dict: Request post form parameters,
+            for `application/x-www-form-urlencoded`, `multipart/form-data`.
+        :param auth_settings list: Auth Settings names for the request.
+        :param response: Response data type.
+        :param files dict: key -> filename, value -> filepath,
+            for `multipart/form-data`.
         :param is_async bool: execute request asynchronously
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -321,22 +364,9 @@ class ApiClient(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return:
-            If is_async parameter is True,
-            the request will be called asynchronously.
-            The method will return the request thread.
-            If parameter is_async is False or missing,
-            then the method will return the response directly.
+        :return: Request thread.
         """
-        if not is_async:
-            return self.__call_api(resource_path, method,
-                                   path_params, query_params, header_params,
-                                   body, post_params, files,
-                                   response_type, auth_settings,
-                                   _return_http_data_only, collection_formats,
-                                   _preload_content, _request_timeout)
-        else:
-            thread = self.pool.apply_async(self.__call_api, (resource_path,
+        return self.pool.apply_async(self.__call_api, (resource_path,
                                                              method, path_params, query_params,
                                                              header_params, body,
                                                              post_params, files,
@@ -344,7 +374,6 @@ class ApiClient(object):
                                                              _return_http_data_only,
                                                              collection_formats,
                                                              _preload_content, _request_timeout))
-        return thread
 
     def request(self, method, url, query_params=None, headers=None,
                 post_params=None, body=None, _preload_content=True,
@@ -464,38 +493,6 @@ class ApiClient(object):
                             tuple([k, tuple([filename, filedata, mimetype])]))
 
         return params
-
-    def select_header_accept(self, accepts):
-        """Returns `Accept` based on an array of accepts provided.
-
-        :param accepts: List of headers.
-        :return: Accept (e.g. application/json).
-        """
-        if not accepts:
-            return
-
-        accepts = [x.lower() for x in accepts]
-
-        if 'application/json' in accepts:
-            return 'application/json'
-        else:
-            return ', '.join(accepts)
-
-    def select_header_content_type(self, content_types):
-        """Returns `Content-Type` based on an array of content_types provided.
-
-        :param content_types: List of content-types.
-        :return: Content-Type (e.g. application/json).
-        """
-        if not content_types:
-            return 'application/json'
-
-        content_types = [x.lower() for x in content_types]
-
-        if 'application/json' in content_types or '*/*' in content_types:
-            return 'application/json'
-        else:
-            return content_types[0]
 
     def update_params_for_auth(self, headers, querys, auth_settings):
         """Updates header and query params based on authentication setting.

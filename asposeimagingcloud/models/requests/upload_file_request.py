@@ -24,18 +24,75 @@
 # </summary>
 # -----------------------------------------------------------------------------------
 
+from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
+from asposeimagingcloud.models.requests.http_request import HttpRequest
 
-class UploadFileRequest(object):
+
+class UploadFileRequest(ImagingRequest):
     """
     Request model for upload_file operation.
     Initializes a new instance.
+
     :param path Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.             
     :param file File to upload
     :param storage_name Storage name
     """
 
     def __init__(self, path, file, storage_name=None):
+        ImagingRequest.__init__(self)
         self.path = path
         self.file = file
         self.storage_name = storage_name
+
+    def to_http_info(self, config):
+        """
+        Prepares initial info for HTTP request
+
+        :param config: Imaging API configuration
+        :type: asposeimagingcloud.Configuration
+        :return: http_request configured http request
+        :rtype: Configuration.models.requests.HttpRequest
+        """
+        # verify the required parameter 'path' is set
+        if self.path is None:
+            raise ValueError("Missing the required parameter `path` when calling `upload_file`")  # noqa: E501
+        # verify the required parameter 'file' is set
+        if self.file is None:
+            raise ValueError("Missing the required parameter `file` when calling `upload_file`")  # noqa: E501
+
+        collection_formats = {}
+        path = '/imaging/storage/file/{path}'
+        path_params = {}
+        if self.path is not None:
+            path_params[self._lowercase_first_letter('path')] = self.path  # noqa: E501
+
+        query_params = []
+        if self._lowercase_first_letter('storageName') in path:
+            path = path.replace('{' + self._lowercase_first_letter('storageName' + '}'), self.storage_name if self.storage_name is not None else '')
+        else:
+            if self.storage_name is not None:
+                query_params.append((self._lowercase_first_letter('storageName'), self.storage_name))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = []
+        if self.file is not None:
+            local_var_files.append((self._lowercase_first_letter('File'), self.file))  # noqa: E501
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self._select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self._select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)
 

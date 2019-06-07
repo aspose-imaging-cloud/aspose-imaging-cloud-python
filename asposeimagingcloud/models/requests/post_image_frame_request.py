@@ -24,11 +24,15 @@
 # </summary>
 # -----------------------------------------------------------------------------------
 
+from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
+from asposeimagingcloud.models.requests.http_request import HttpRequest
 
-class PostImageFrameRequest(object):
+
+class PostImageFrameRequest(ImagingRequest):
     """
     Request model for post_image_frame operation.
     Initializes a new instance.
+
     :param image_data Input image
     :param frame_id Number of a frame.
     :param new_width New width.
@@ -44,6 +48,7 @@ class PostImageFrameRequest(object):
     """
 
     def __init__(self, image_data, frame_id, new_width=None, new_height=None, x=None, y=None, rect_width=None, rect_height=None, rotate_flip_method=None, save_other_frames=None, out_path=None, storage=None):
+        ImagingRequest.__init__(self)
         self.image_data = image_data
         self.frame_id = frame_id
         self.new_width = new_width
@@ -56,3 +61,100 @@ class PostImageFrameRequest(object):
         self.save_other_frames = save_other_frames
         self.out_path = out_path
         self.storage = storage
+
+    def to_http_info(self, config):
+        """
+        Prepares initial info for HTTP request
+
+        :param config: Imaging API configuration
+        :type: asposeimagingcloud.Configuration
+        :return: http_request configured http request
+        :rtype: Configuration.models.requests.HttpRequest
+        """
+        # verify the required parameter 'image_data' is set
+        if self.image_data is None:
+            raise ValueError("Missing the required parameter `image_data` when calling `post_image_frame`")  # noqa: E501
+        # verify the required parameter 'frame_id' is set
+        if self.frame_id is None:
+            raise ValueError("Missing the required parameter `frame_id` when calling `post_image_frame`")  # noqa: E501
+
+        collection_formats = {}
+        path = '/imaging/frames/{frameId}'
+        path_params = {}
+        if self.frame_id is not None:
+            path_params[self._lowercase_first_letter('frameId')] = self.frame_id  # noqa: E501
+
+        query_params = []
+        if self._lowercase_first_letter('newWidth') in path:
+            path = path.replace('{' + self._lowercase_first_letter('newWidth' + '}'), self.new_width if self.new_width is not None else '')
+        else:
+            if self.new_width is not None:
+                query_params.append((self._lowercase_first_letter('newWidth'), self.new_width))  # noqa: E501
+        if self._lowercase_first_letter('newHeight') in path:
+            path = path.replace('{' + self._lowercase_first_letter('newHeight' + '}'), self.new_height if self.new_height is not None else '')
+        else:
+            if self.new_height is not None:
+                query_params.append((self._lowercase_first_letter('newHeight'), self.new_height))  # noqa: E501
+        if self._lowercase_first_letter('x') in path:
+            path = path.replace('{' + self._lowercase_first_letter('x' + '}'), self.x if self.x is not None else '')
+        else:
+            if self.x is not None:
+                query_params.append((self._lowercase_first_letter('x'), self.x))  # noqa: E501
+        if self._lowercase_first_letter('y') in path:
+            path = path.replace('{' + self._lowercase_first_letter('y' + '}'), self.y if self.y is not None else '')
+        else:
+            if self.y is not None:
+                query_params.append((self._lowercase_first_letter('y'), self.y))  # noqa: E501
+        if self._lowercase_first_letter('rectWidth') in path:
+            path = path.replace('{' + self._lowercase_first_letter('rectWidth' + '}'), self.rect_width if self.rect_width is not None else '')
+        else:
+            if self.rect_width is not None:
+                query_params.append((self._lowercase_first_letter('rectWidth'), self.rect_width))  # noqa: E501
+        if self._lowercase_first_letter('rectHeight') in path:
+            path = path.replace('{' + self._lowercase_first_letter('rectHeight' + '}'), self.rect_height if self.rect_height is not None else '')
+        else:
+            if self.rect_height is not None:
+                query_params.append((self._lowercase_first_letter('rectHeight'), self.rect_height))  # noqa: E501
+        if self._lowercase_first_letter('rotateFlipMethod') in path:
+            path = path.replace('{' + self._lowercase_first_letter('rotateFlipMethod' + '}'), self.rotate_flip_method if self.rotate_flip_method is not None else '')
+        else:
+            if self.rotate_flip_method is not None:
+                query_params.append((self._lowercase_first_letter('rotateFlipMethod'), self.rotate_flip_method))  # noqa: E501
+        if self._lowercase_first_letter('saveOtherFrames') in path:
+            path = path.replace('{' + self._lowercase_first_letter('saveOtherFrames' + '}'), self.save_other_frames if self.save_other_frames is not None else '')
+        else:
+            if self.save_other_frames is not None:
+                query_params.append((self._lowercase_first_letter('saveOtherFrames'), self.save_other_frames))  # noqa: E501
+        if self._lowercase_first_letter('outPath') in path:
+            path = path.replace('{' + self._lowercase_first_letter('outPath' + '}'), self.out_path if self.out_path is not None else '')
+        else:
+            if self.out_path is not None:
+                query_params.append((self._lowercase_first_letter('outPath'), self.out_path))  # noqa: E501
+        if self._lowercase_first_letter('storage') in path:
+            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
+        else:
+            if self.storage is not None:
+                query_params.append((self._lowercase_first_letter('storage'), self.storage))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = []
+        if self.image_data is not None:
+            local_var_files.append((self._lowercase_first_letter('imageData'), self.image_data))  # noqa: E501
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self._select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self._select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)

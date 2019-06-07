@@ -24,11 +24,15 @@
 # </summary>
 # -----------------------------------------------------------------------------------
 
+from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
+from asposeimagingcloud.models.requests.http_request import HttpRequest
 
-class PostTiffAppendRequest(object):
+
+class PostTiffAppendRequest(ImagingRequest):
     """
     Request model for post_tiff_append operation.
     Initializes a new instance.
+
     :param name Original image file name.
     :param append_file Image file name to be appended to original one.
     :param storage Your Aspose Cloud Storage name.
@@ -36,7 +40,68 @@ class PostTiffAppendRequest(object):
     """
 
     def __init__(self, name, append_file, storage=None, folder=None):
+        ImagingRequest.__init__(self)
         self.name = name
         self.append_file = append_file
         self.storage = storage
         self.folder = folder
+
+    def to_http_info(self, config):
+        """
+        Prepares initial info for HTTP request
+
+        :param config: Imaging API configuration
+        :type: asposeimagingcloud.Configuration
+        :return: http_request configured http request
+        :rtype: Configuration.models.requests.HttpRequest
+        """
+        # verify the required parameter 'name' is set
+        if self.name is None:
+            raise ValueError("Missing the required parameter `name` when calling `post_tiff_append`")  # noqa: E501
+        # verify the required parameter 'append_file' is set
+        if self.append_file is None:
+            raise ValueError("Missing the required parameter `append_file` when calling `post_tiff_append`")  # noqa: E501
+
+        collection_formats = {}
+        path = '/imaging/tiff/{name}/appendTiff'
+        path_params = {}
+        if self.name is not None:
+            path_params[self._lowercase_first_letter('name')] = self.name  # noqa: E501
+
+        query_params = []
+        if self._lowercase_first_letter('appendFile') in path:
+            path = path.replace('{' + self._lowercase_first_letter('appendFile' + '}'), self.append_file if self.append_file is not None else '')
+        else:
+            if self.append_file is not None:
+                query_params.append((self._lowercase_first_letter('appendFile'), self.append_file))  # noqa: E501
+        if self._lowercase_first_letter('storage') in path:
+            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
+        else:
+            if self.storage is not None:
+                query_params.append((self._lowercase_first_letter('storage'), self.storage))  # noqa: E501
+        if self._lowercase_first_letter('folder') in path:
+            path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
+        else:
+            if self.folder is not None:
+                query_params.append((self._lowercase_first_letter('folder'), self.folder))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = []
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self._select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self._select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)

@@ -24,11 +24,15 @@
 # </summary>
 # -----------------------------------------------------------------------------------
 
+from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
+from asposeimagingcloud.models.requests.http_request import HttpRequest
 
-class GetImageJpeg2000Request(object):
+
+class GetImageJpeg2000Request(ImagingRequest):
     """
     Request model for get_image_jpeg2000 operation.
     Initializes a new instance.
+
     :param name Filename of image.
     :param comment The comment (can be either single or comma-separated).
     :param codec The codec (j2k or jp2).
@@ -39,6 +43,7 @@ class GetImageJpeg2000Request(object):
     """
 
     def __init__(self, name, comment, codec=None, from_scratch=None, out_path=None, folder=None, storage=None):
+        ImagingRequest.__init__(self)
         self.name = name
         self.comment = comment
         self.codec = codec
@@ -46,3 +51,78 @@ class GetImageJpeg2000Request(object):
         self.out_path = out_path
         self.folder = folder
         self.storage = storage
+
+    def to_http_info(self, config):
+        """
+        Prepares initial info for HTTP request
+
+        :param config: Imaging API configuration
+        :type: asposeimagingcloud.Configuration
+        :return: http_request configured http request
+        :rtype: Configuration.models.requests.HttpRequest
+        """
+        # verify the required parameter 'name' is set
+        if self.name is None:
+            raise ValueError("Missing the required parameter `name` when calling `get_image_jpeg2000`")  # noqa: E501
+        # verify the required parameter 'comment' is set
+        if self.comment is None:
+            raise ValueError("Missing the required parameter `comment` when calling `get_image_jpeg2000`")  # noqa: E501
+
+        collection_formats = {}
+        path = '/imaging/{name}/jpg2000'
+        path_params = {}
+        if self.name is not None:
+            path_params[self._lowercase_first_letter('name')] = self.name  # noqa: E501
+
+        query_params = []
+        if self._lowercase_first_letter('comment') in path:
+            path = path.replace('{' + self._lowercase_first_letter('comment' + '}'), self.comment if self.comment is not None else '')
+        else:
+            if self.comment is not None:
+                query_params.append((self._lowercase_first_letter('comment'), self.comment))  # noqa: E501
+        if self._lowercase_first_letter('codec') in path:
+            path = path.replace('{' + self._lowercase_first_letter('codec' + '}'), self.codec if self.codec is not None else '')
+        else:
+            if self.codec is not None:
+                query_params.append((self._lowercase_first_letter('codec'), self.codec))  # noqa: E501
+        if self._lowercase_first_letter('fromScratch') in path:
+            path = path.replace('{' + self._lowercase_first_letter('fromScratch' + '}'), self.from_scratch if self.from_scratch is not None else '')
+        else:
+            if self.from_scratch is not None:
+                query_params.append((self._lowercase_first_letter('fromScratch'), self.from_scratch))  # noqa: E501
+        if self._lowercase_first_letter('outPath') in path:
+            path = path.replace('{' + self._lowercase_first_letter('outPath' + '}'), self.out_path if self.out_path is not None else '')
+        else:
+            if self.out_path is not None:
+                query_params.append((self._lowercase_first_letter('outPath'), self.out_path))  # noqa: E501
+        if self._lowercase_first_letter('folder') in path:
+            path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
+        else:
+            if self.folder is not None:
+                query_params.append((self._lowercase_first_letter('folder'), self.folder))  # noqa: E501
+        if self._lowercase_first_letter('storage') in path:
+            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
+        else:
+            if self.storage is not None:
+                query_params.append((self._lowercase_first_letter('storage'), self.storage))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = []
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self._select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self._select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)
