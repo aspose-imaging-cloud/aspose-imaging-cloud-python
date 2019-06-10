@@ -4,6 +4,7 @@ import json
 import six
 from asposeimagingcloud import ImagingApi, ApiClient
 import asposeimagingcloud.models.requests as requests
+
 if six.PY2:
     import unittest2 as unittest
 else:
@@ -12,67 +13,70 @@ else:
 
 class ApiTester(unittest.TestCase):
     EXTENDED_TEST = False
+    imaging_api = None
+    failed_any_test = False
+    default_storage = 'Imaging-CI'
+    cloud_test_folder_prefix = 'ImagingCloudTestDotNet'
+    original_data_folder = 'ImagingIntegrationTestData'
+    _server_access_file = 'serverAccess.json'
+    _api_version = 'v3.0'
+    _app_key = 'xxx'
+    _app_sid = 'xxx'
+    _base_url = 'http://api.aspose.cloud/'
+    _local_test_folder = os.path.join(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'TestData/')
+    remove_result = True
 
-    def setUp(self):
-        # TODO: Move some of parameters to something like OneTimeSetUp?
-        self.failed_any_test = False
-        self.default_storage = 'Imaging-CI'
-        self.cloud_test_folder_prefix = 'ImagingCloudTestDotNet'
-        self.original_data_folder = 'ImagingIntegrationTestData'
-        self._server_access_file = 'serverAccess.json'
-        self._api_version = 'v3.0'
-        self._app_key = 'xxx'
-        self._app_sid = 'xxx'
-        self._base_url = 'http://api.aspose.cloud/'
-        self._local_test_folder = os.path.join(
-            os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'TestData/')
-        self.test_storage = None
-        self.remove_result = True
+    input_test_files = None
+    temp_folder = '{0}_{1}'.format(cloud_test_folder_prefix,
+                                   os.environ.get('BUILD_NUMBER') or getpass.getuser())
 
-        self.temp_folder = '{0}_{1}'.format(self.cloud_test_folder_prefix,
-                                            os.environ.get('BUILD_NUMBER') or getpass.getuser())
+    test_storage = os.environ.get('StorageName')
+    if not test_storage:
+        print('Storage name is not set by environment variable. Using the default one.')
+        test_storage = default_storage
 
-        self.test_storage = os.environ.get('StorageName')
-        if not self.test_storage:
-            print('Storage name is not set by environment variable. Using the default one.')
-            self.test_storage = self.default_storage
+    basic_export_formats = ['bmp',
+                            'gif',
+                            'jpg',
+                            'png',
+                            'psd',
+                            'tiff',
+                            'webp',
+                            'pdf']
 
-        self.basic_export_formats = ['bmp',
-                                     'gif',
-                                     'jpg',
-                                     'png',
-                                     'psd',
-                                     'tiff',
-                                     'webp',
-                                     'pdf']
+    @classmethod
+    def setUpClass(cls):
+        if not ApiTester.imaging_api:
+            ApiTester.create_api_instance()
 
-        self._create_api_instance()
+        if not cls.failed_any_test and cls.remove_result and cls.imaging_api.object_exists(
+                requests.ObjectExistsRequest(cls.temp_folder, cls.test_storage)).exists:
+            cls.imaging_api.delete_folder(requests.DeleteFolderRequest(cls.temp_folder, cls.test_storage, True))
+            cls.imaging_api.create_folder(requests.CreateFolderRequest(cls.temp_folder, cls.test_storage))
 
-        if not self.failed_any_test and self.remove_result and self.imaging_api.object_exists(
-                requests.ObjectExistsRequest(self.temp_folder, self.test_storage)).exists:
-            self.imaging_api.delete_folder(requests.DeleteFolderRequest(self.temp_folder, self.test_storage, True))
-            self.imaging_api.create_folder(requests.CreateFolderRequest(self.temp_folder, self.test_storage))
+    @classmethod
+    def tearDownClass(cls):
+        if not cls.failed_any_test and cls.remove_result and cls.imaging_api.object_exists(
+                requests.ObjectExistsRequest(cls.temp_folder, cls.test_storage)).exists:
+            cls.imaging_api.delete_folder(requests.DeleteFolderRequest(cls.temp_folder, cls.test_storage, True))
 
-    def tearDown(self):
-        if not self.failed_any_test and self.remove_result and self.imaging_api.object_exists(
-                requests.ObjectExistsRequest(self.temp_folder, self.test_storage)).exists:
-            self.imaging_api.delete_folder(requests.DeleteFolderRequest(self.temp_folder, self.test_storage, True))
-
-    def _create_api_instance(self, app_key=None, app_sid=None, base_url=None,
-                             api_version=None, debug=False):
+    @staticmethod
+    def create_api_instance(app_key=None, app_sid=None, base_url=None,
+                            api_version=None, debug=False):
         if not app_key:
-            app_key = self._app_key
+            app_key = ApiTester._app_key
 
         if not app_sid:
-            app_sid = self._app_sid
+            app_sid = ApiTester._app_sid
 
         if not base_url:
-            base_url = self._base_url
+            base_url = ApiTester._base_url
 
         if not api_version:
-            api_version = self._api_version
+            api_version = ApiTester._api_version
 
-        if app_key == self._app_key or app_sid == self._app_sid:
+        if app_key == ApiTester._app_key or app_sid == ApiTester._app_sid:
             print("Access data isn't set explicitly. Trying to obtain it from environment variables.")
 
             app_key = os.environ.get('AppKey')
@@ -85,10 +89,10 @@ class ApiTester(unittest.TestCase):
                 "Access data isn't set completely by environment variables. Filling unset data with default values.")
 
         if not api_version:
-            api_version = self._api_version
+            api_version = ApiTester._api_version
             print('Set default API version')
 
-        server_access_info = os.path.join(self._local_test_folder, self._server_access_file)
+        server_access_info = os.path.join(ApiTester._local_test_folder, ApiTester._server_access_file)
         with open(server_access_info) as f:
             server_file_info = json.load(f)
 
@@ -110,7 +114,7 @@ class ApiTester(unittest.TestCase):
 
         print('App key: ' + app_key)
         print('App SID: ' + app_sid)
-        print('Storage: ' + self.test_storage)
+        print('Storage: ' + ApiTester.test_storage)
         print('Base URL: ' + base_url)
         print('API version: ' + api_version)
 
@@ -120,10 +124,10 @@ class ApiTester(unittest.TestCase):
         api_client.configuration.api_key['app_sid'] = app_sid
         api_client.configuration.api_version = api_version
 
-        self.imaging_api = ImagingApi(api_client)
+        ApiTester.imaging_api = ImagingApi(api_client)
 
-        self.input_test_files = self.imaging_api.get_files_list(
-            requests.GetFilesListRequest(self.original_data_folder, self.test_storage)).value
+        ApiTester.input_test_files = ApiTester.imaging_api.get_files_list(
+            requests.GetFilesListRequest(ApiTester.original_data_folder, ApiTester.test_storage)).value
 
     def __request_tester(self, test_method_name, save_result_to_storage, parameters_line, input_file_name,
                          result_file_name, invoke_request_action, properties_tester, folder, storage=None):
@@ -233,7 +237,6 @@ class ApiTester(unittest.TestCase):
             return None
 
         self.assertIsNotNone(response)
-        # TODO: assert response length?
         return response
 
     def _obtain_post_response(self, input_path, out_path, storage, request_invoker):
