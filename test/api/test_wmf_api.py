@@ -28,19 +28,47 @@ class TestWmfApi(ImagingApiTester):
 
                 def request_invoker(file_name, out_path):
                     return self.imaging_api.get_image_wmf(
-                        requests.GetImageWmfRequest(name, bk_color, page_width, page_height, border_x, border_y,
-                                                    from_scratch, out_path, folder, storage))
+                        requests.GetImageWmfRequest(
+                            name,
+                            bk_color,
+                            page_width,
+                            page_height,
+                            border_x,
+                            border_y,
+                            from_scratch,
+                            out_path,
+                            folder,
+                            storage))
 
-                def properties_tester(original_properties, result_properties, result_stream):
+                def properties_tester(
+                        original_properties,
+                        result_properties,
+                        result_stream):
                     self.assertIsNotNone(result_properties.png_properties)
-                    self.assertEqual(page_width + border_x * 2, result_properties.width)
-                    self.assertEqual(page_height + border_y * 2, result_properties.height)
+                    self.assertEqual(
+                        page_width + border_x * 2,
+                        result_properties.width)
+                    self.assertEqual(
+                        page_height + border_y * 2,
+                        result_properties.height)
 
-                self.get_request_tester('GetImageWmfTest', save_result_to_storage,
-                                        'Input image: {0}; BackColor: {1}; Page width: {2}; Page height: {3}; '
-                                        'BorderX: {4}; BorderY: {5}'.format(name, bk_color, page_width, page_height,
-                                                                            border_x, border_y),
-                                        name, out_name, request_invoker, properties_tester, folder, storage)
+                self.get_request_tester(
+                    'GetImageWmfTest',
+                    save_result_to_storage,
+                    'Input image: {0}; BackColor: {1}; Page width: {2}; Page height: {3}; '
+                    'BorderX: {4}; BorderY: {5}'.format(
+                        name,
+                        bk_color,
+                        page_width,
+                        page_height,
+                        border_x,
+                        border_y),
+                    name,
+                    out_name,
+                    request_invoker,
+                    properties_tester,
+                    folder,
+                    storage)
 
     #
     # Test post_image_wmf
@@ -63,16 +91,43 @@ class TestWmfApi(ImagingApiTester):
 
                 def request_invoker(input_stream, out_path):
                     return self.imaging_api.post_image_wmf(
-                        requests.PostImageWmfRequest(input_stream, bk_color, page_width, page_height, border_x,
-                                                     border_y, from_scratch, out_path, storage))
+                        requests.PostImageWmfRequest(
+                            input_stream,
+                            bk_color,
+                            page_width,
+                            page_height,
+                            border_x,
+                            border_y,
+                            from_scratch,
+                            out_path,
+                            storage))
 
-                def properties_tester(original_properties, result_properties, result_stream):
+                def properties_tester(
+                        original_properties,
+                        result_properties,
+                        result_stream):
                     self.assertIsNotNone(result_properties.png_properties)
-                    self.assertEqual(page_width + border_x * 2, result_properties.width)
-                    self.assertEqual(page_height + border_y * 2, result_properties.height)
+                    self.assertEqual(
+                        page_width + border_x * 2,
+                        result_properties.width)
+                    self.assertEqual(
+                        page_height + border_y * 2,
+                        result_properties.height)
 
-                self.post_request_tester('PostImageWmfTest', save_result_to_storage,
-                                         'Input image: {0}; BackColor: {1}; Page width: {2}; Page height: {3}; '
-                                         'BorderX: {4}; BorderY: {5}'.format(name, bk_color, page_width, page_height,
-                                                                             border_x, border_y),
-                                         name, out_name, request_invoker, properties_tester, folder, storage)
+                self.post_request_tester(
+                    'PostImageWmfTest',
+                    save_result_to_storage,
+                    'Input image: {0}; BackColor: {1}; Page width: {2}; Page height: {3}; '
+                    'BorderX: {4}; BorderY: {5}'.format(
+                        name,
+                        bk_color,
+                        page_width,
+                        page_height,
+                        border_x,
+                        border_y),
+                    name,
+                    out_name,
+                    request_invoker,
+                    properties_tester,
+                    folder,
+                    storage)
