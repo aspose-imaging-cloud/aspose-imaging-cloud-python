@@ -9,4 +9,4 @@ class StorageApiTester(ImagingApiTester):
     def setUp(self):
         super(StorageApiTester, self).setUp()
         self.original_data_folder += '/Storage'
-        self.cloud_test_folder_prefix = 'ImagingStorageCloudTestDotNet'
+        self.cloud_test_folder_prefix = 'ImagingStorageCloudTestPython'

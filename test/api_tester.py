@@ -12,12 +12,12 @@ else:
 
 class ApiTester(unittest.TestCase):
     EXTENDED_TEST = False
+    imaging_api = None  # type: ImagingApi
 
     def setUp(self):
-        # TODO: Move some of parameters to something like OneTimeSetUp?
         self.failed_any_test = False
         self.default_storage = 'Imaging-CI'
-        self.cloud_test_folder_prefix = 'ImagingCloudTestDotNet'
+        self.cloud_test_folder_prefix = 'ImagingCloudTestPython'
         self.original_data_folder = 'ImagingIntegrationTestData'
         self._server_access_file = 'serverAccess.json'
         self._api_version = 'v3.0'
@@ -46,7 +46,8 @@ class ApiTester(unittest.TestCase):
                                      'webp',
                                      'pdf']
 
-        self._create_api_instance()
+        if not self.imaging_api:
+            self.__create_api_instance()
 
         if not self.failed_any_test and self.remove_result and self.imaging_api.object_exists(
                 requests.ObjectExistsRequest(self.temp_folder, self.test_storage)).exists:
@@ -58,8 +59,8 @@ class ApiTester(unittest.TestCase):
                 requests.ObjectExistsRequest(self.temp_folder, self.test_storage)).exists:
             self.imaging_api.delete_folder(requests.DeleteFolderRequest(self.temp_folder, self.test_storage, True))
 
-    def _create_api_instance(self, app_key=None, app_sid=None, base_url=None,
-                             api_version=None, debug=False):
+    def __create_api_instance(self, app_key=None, app_sid=None, base_url=None,
+                              api_version=None, debug=False):
         if not app_key:
             app_key = self._app_key
 
