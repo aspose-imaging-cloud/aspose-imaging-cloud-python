@@ -1,10 +1,13 @@
-import unittest
 import getpass
 import os
 import json
-
+import six
 from asposeimagingcloud import ImagingApi, ApiClient
 import asposeimagingcloud.models.requests as requests
+if six.PY2:
+    import unittest2 as unittest
+else:
+    import unittest
 
 
 class ApiTester(unittest.TestCase):

@@ -1,6 +1,10 @@
 import os
-import unittest
 import test
+import six
+if six.PY2:
+    import unittest2 as unittest
+else:
+    import unittest
 
 # set EXTENDED_TEST from env
 if os.environ.get('EXTENDED_TEST'):

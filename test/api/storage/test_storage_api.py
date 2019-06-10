@@ -1,8 +1,11 @@
-import unittest
-
 from asposeimagingcloud.rest import ApiException
 from test.api.storage.storage_api_tester import StorageApiTester
 import asposeimagingcloud.models.requests as requests
+import six
+if six.PY2:
+    import unittest2 as unittest
+else:
+    import unittest
 
 
 #
