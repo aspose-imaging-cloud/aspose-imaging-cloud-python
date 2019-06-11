@@ -1407,6 +1407,7 @@ class ImagingApi(object):
             if e.status == 401:
                 self.__request_token()
                 return call_api()
+            raise
 
     def __make_request_async(self, http_request, method, return_type):
         def call_api_async():
