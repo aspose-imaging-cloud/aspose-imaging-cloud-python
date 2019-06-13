@@ -1,3 +1,5 @@
+import os
+
 import six
 
 if six.PY2:
@@ -65,9 +67,9 @@ class TestSearchContext(AiApiTester):
             image = self.TEST_IMAGE
             self.__add_image(image)
 
-            response_stream = self.__get_image(image)
+            response_file = self.__get_image(image)
 
-            self.assertGreater(len(response_stream), 50000)
+            self.assertGreater(os.path.getsize(response_file), 50000)
 
         self._run_test_with_logging('GetImageTest', test)
 
@@ -75,8 +77,8 @@ class TestSearchContext(AiApiTester):
         def test():
             image = self.TEST_IMAGE
             self.__add_image(image)
-            response_stream = self.__get_image(image)
-            self.assertGreater(len(response_stream), 50000)
+            response_file = self.__get_image(image)
+            self.assertGreater(os.path.getsize(response_file), 50000)
 
             image = self.SMALL_TEST_IMAGE
             dest_server_path = self.temp_folder + '/' + image
@@ -91,8 +93,8 @@ class TestSearchContext(AiApiTester):
                                              dest_server_path, image_stream,
                                              storage=self.test_storage))
 
-            response_stream = self.__get_image(image)
-            self.assertLess(len(response_stream), 40000)
+            response_file = self.__get_image(image)
+            self.assertLess(os.path.getsize(response_file), 40000)
 
         self._run_test_with_logging('UpdateImageTest', test)
 
@@ -196,6 +198,8 @@ class TestSearchContext(AiApiTester):
             response = self.__get_image_features(image)
             self.assertTrue(self.TEST_IMAGE in response.image_id)
             self.assertNotEqual(features_length, len(response.features))
+
+        self._run_test_with_logging('ExtractImageFeaturesTest')
 
     def __add_image(self, image):
         dest_server_path = self.temp_folder + '/' + image

@@ -234,7 +234,7 @@ class ApiTester(unittest.TestCase):
             return None
 
         self.assertIsNotNone(response)
-        # TODO: assert response length?
+        self.assertGreater(os.path.getsize(response), 0)
         return response
 
     def _obtain_post_response(self, input_path, out_path, storage, request_invoker):
