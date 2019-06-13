@@ -1,30 +1,29 @@
 # coding: utf-8
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # <copyright company="Aspose" file="TiffOptions.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
-#   Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
-# 
-#  The above copyright notice and this permission notice shall be included in all
-#  copies or substantial portions of the Software.
-# 
+#   Permission is hereby granted, free of charge, to any person obtaining a
+#  copy  of this software and associated documentation files (the "Software"),
+#  to deal  in the Software without restriction, including without limitation
+#  the rights  to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell  copies of the Software, and to permit persons to whom the
+#  Software is  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in
+#  all  copies or substantial portions of the Software.
+#
 #  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 #  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#  SOFTWARE.
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
 # </summary>
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 import pprint
-import re  # noqa: F401
 
 import six
 
@@ -138,8 +137,8 @@ class TiffOptions(object):
         'bits_per_pixel': 'BitsPerPixel'
     }
 
-    def __init__(self, is_valid=None, artist=None, byte_order=None, bits_per_sample=None, compression=None, copyright=None, color_map=None, date_time=None, document_name=None, alpha_storage=None, fill_order=None, half_tone_hints=None, image_description=None, ink_names=None, scanner_manufacturer=None, max_sample_value=None, min_sample_value=None, scanner_model=None, page_name=None, orientation=None, page_number=None, photometric=None, planar_configuration=None, resolution_unit=None, rows_per_strip=None, sample_format=None, samples_per_pixel=None, smax_sample_value=None, smin_sample_value=None, software_type=None, strip_byte_counts=None, strip_offsets=None, sub_file_type=None, target_printer=None, threshholding=None, total_pages=None, xposition=None, xresolution=None, yposition=None, yresolution=None, fax_t4_options=None, predictor=None, image_length=None, image_width=None, valid_tag_count=None, bits_per_pixel=None):  # noqa: E501
-        """TiffOptions - a model defined in Swagger"""  # noqa: E501
+    def __init__(self, is_valid=None, artist=None, byte_order=None, bits_per_sample=None, compression=None, copyright=None, color_map=None, date_time=None, document_name=None, alpha_storage=None, fill_order=None, half_tone_hints=None, image_description=None, ink_names=None, scanner_manufacturer=None, max_sample_value=None, min_sample_value=None, scanner_model=None, page_name=None, orientation=None, page_number=None, photometric=None, planar_configuration=None, resolution_unit=None, rows_per_strip=None, sample_format=None, samples_per_pixel=None, smax_sample_value=None, smin_sample_value=None, software_type=None, strip_byte_counts=None, strip_offsets=None, sub_file_type=None, target_printer=None, threshholding=None, total_pages=None, xposition=None, xresolution=None, yposition=None, yresolution=None, fax_t4_options=None, predictor=None, image_length=None, image_width=None, valid_tag_count=None, bits_per_pixel=None):
+        """TiffOptions - a model defined in Swagger"""
 
         self._is_valid = None
         self._artist = None
@@ -284,11 +283,11 @@ class TiffOptions(object):
 
     @property
     def is_valid(self):
-        """Gets the is_valid of this TiffOptions.  # noqa: E501
+        """Gets the is_valid of this TiffOptions.
 
-        Gets or sets a value indicating whether TIFF image has valid data.  # noqa: E501
+        Gets or sets a value indicating whether TIFF image has valid data.
 
-        :return: The is_valid of this TiffOptions.  # noqa: E501
+        :return: The is_valid of this TiffOptions.
         :rtype: bool
         """
         return self._is_valid
@@ -297,22 +296,22 @@ class TiffOptions(object):
     def is_valid(self, is_valid):
         """Sets the is_valid of this TiffOptions.
 
-        Gets or sets a value indicating whether TIFF image has valid data.  # noqa: E501
+        Gets or sets a value indicating whether TIFF image has valid data.
 
-        :param is_valid: The is_valid of this TiffOptions.  # noqa: E501
+        :param is_valid: The is_valid of this TiffOptions.
         :type: bool
         """
         if is_valid is None:
-            raise ValueError("Invalid value for `is_valid`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `is_valid`, must not be `None`")
         self._is_valid = is_valid
 
     @property
     def artist(self):
-        """Gets the artist of this TiffOptions.  # noqa: E501
+        """Gets the artist of this TiffOptions.
 
-        Gets or sets the artist.  # noqa: E501
+        Gets or sets the artist.
 
-        :return: The artist of this TiffOptions.  # noqa: E501
+        :return: The artist of this TiffOptions.
         :rtype: str
         """
         return self._artist
@@ -321,20 +320,20 @@ class TiffOptions(object):
     def artist(self, artist):
         """Sets the artist of this TiffOptions.
 
-        Gets or sets the artist.  # noqa: E501
+        Gets or sets the artist.
 
-        :param artist: The artist of this TiffOptions.  # noqa: E501
+        :param artist: The artist of this TiffOptions.
         :type: str
         """
         self._artist = artist
 
     @property
     def byte_order(self):
-        """Gets the byte_order of this TiffOptions.  # noqa: E501
+        """Gets the byte_order of this TiffOptions.
 
-        Gets or sets the byte order.  # noqa: E501
+        Gets or sets the byte order.
 
-        :return: The byte_order of this TiffOptions.  # noqa: E501
+        :return: The byte_order of this TiffOptions.
         :rtype: str
         """
         return self._byte_order
@@ -343,20 +342,20 @@ class TiffOptions(object):
     def byte_order(self, byte_order):
         """Sets the byte_order of this TiffOptions.
 
-        Gets or sets the byte order.  # noqa: E501
+        Gets or sets the byte order.
 
-        :param byte_order: The byte_order of this TiffOptions.  # noqa: E501
+        :param byte_order: The byte_order of this TiffOptions.
         :type: str
         """
         self._byte_order = byte_order
 
     @property
     def bits_per_sample(self):
-        """Gets the bits_per_sample of this TiffOptions.  # noqa: E501
+        """Gets the bits_per_sample of this TiffOptions.
 
-        Gets or sets the bits per sample.  # noqa: E501
+        Gets or sets the bits per sample.
 
-        :return: The bits_per_sample of this TiffOptions.  # noqa: E501
+        :return: The bits_per_sample of this TiffOptions.
         :rtype: list[int]
         """
         return self._bits_per_sample
@@ -365,20 +364,20 @@ class TiffOptions(object):
     def bits_per_sample(self, bits_per_sample):
         """Sets the bits_per_sample of this TiffOptions.
 
-        Gets or sets the bits per sample.  # noqa: E501
+        Gets or sets the bits per sample.
 
-        :param bits_per_sample: The bits_per_sample of this TiffOptions.  # noqa: E501
+        :param bits_per_sample: The bits_per_sample of this TiffOptions.
         :type: list[int]
         """
         self._bits_per_sample = bits_per_sample
 
     @property
     def compression(self):
-        """Gets the compression of this TiffOptions.  # noqa: E501
+        """Gets the compression of this TiffOptions.
 
-        Gets or sets the compression.  # noqa: E501
+        Gets or sets the compression.
 
-        :return: The compression of this TiffOptions.  # noqa: E501
+        :return: The compression of this TiffOptions.
         :rtype: str
         """
         return self._compression
@@ -387,20 +386,20 @@ class TiffOptions(object):
     def compression(self, compression):
         """Sets the compression of this TiffOptions.
 
-        Gets or sets the compression.  # noqa: E501
+        Gets or sets the compression.
 
-        :param compression: The compression of this TiffOptions.  # noqa: E501
+        :param compression: The compression of this TiffOptions.
         :type: str
         """
         self._compression = compression
 
     @property
     def copyright(self):
-        """Gets the copyright of this TiffOptions.  # noqa: E501
+        """Gets the copyright of this TiffOptions.
 
-        Gets or sets the copyright info.  # noqa: E501
+        Gets or sets the copyright info.
 
-        :return: The copyright of this TiffOptions.  # noqa: E501
+        :return: The copyright of this TiffOptions.
         :rtype: str
         """
         return self._copyright
@@ -409,20 +408,20 @@ class TiffOptions(object):
     def copyright(self, copyright):
         """Sets the copyright of this TiffOptions.
 
-        Gets or sets the copyright info.  # noqa: E501
+        Gets or sets the copyright info.
 
-        :param copyright: The copyright of this TiffOptions.  # noqa: E501
+        :param copyright: The copyright of this TiffOptions.
         :type: str
         """
         self._copyright = copyright
 
     @property
     def color_map(self):
-        """Gets the color_map of this TiffOptions.  # noqa: E501
+        """Gets the color_map of this TiffOptions.
 
-        Gets or sets the color map.  # noqa: E501
+        Gets or sets the color map.
 
-        :return: The color_map of this TiffOptions.  # noqa: E501
+        :return: The color_map of this TiffOptions.
         :rtype: list[int]
         """
         return self._color_map
@@ -431,20 +430,20 @@ class TiffOptions(object):
     def color_map(self, color_map):
         """Sets the color_map of this TiffOptions.
 
-        Gets or sets the color map.  # noqa: E501
+        Gets or sets the color map.
 
-        :param color_map: The color_map of this TiffOptions.  # noqa: E501
+        :param color_map: The color_map of this TiffOptions.
         :type: list[int]
         """
         self._color_map = color_map
 
     @property
     def date_time(self):
-        """Gets the date_time of this TiffOptions.  # noqa: E501
+        """Gets the date_time of this TiffOptions.
 
-        Gets or sets the date and time.  # noqa: E501
+        Gets or sets the date and time.
 
-        :return: The date_time of this TiffOptions.  # noqa: E501
+        :return: The date_time of this TiffOptions.
         :rtype: str
         """
         return self._date_time
@@ -453,20 +452,20 @@ class TiffOptions(object):
     def date_time(self, date_time):
         """Sets the date_time of this TiffOptions.
 
-        Gets or sets the date and time.  # noqa: E501
+        Gets or sets the date and time.
 
-        :param date_time: The date_time of this TiffOptions.  # noqa: E501
+        :param date_time: The date_time of this TiffOptions.
         :type: str
         """
         self._date_time = date_time
 
     @property
     def document_name(self):
-        """Gets the document_name of this TiffOptions.  # noqa: E501
+        """Gets the document_name of this TiffOptions.
 
-        Gets or sets the document name.  # noqa: E501
+        Gets or sets the document name.
 
-        :return: The document_name of this TiffOptions.  # noqa: E501
+        :return: The document_name of this TiffOptions.
         :rtype: str
         """
         return self._document_name
@@ -475,20 +474,20 @@ class TiffOptions(object):
     def document_name(self, document_name):
         """Sets the document_name of this TiffOptions.
 
-        Gets or sets the document name.  # noqa: E501
+        Gets or sets the document name.
 
-        :param document_name: The document_name of this TiffOptions.  # noqa: E501
+        :param document_name: The document_name of this TiffOptions.
         :type: str
         """
         self._document_name = document_name
 
     @property
     def alpha_storage(self):
-        """Gets the alpha_storage of this TiffOptions.  # noqa: E501
+        """Gets the alpha_storage of this TiffOptions.
 
-        Gets or sets the alpha storage.  # noqa: E501
+        Gets or sets the alpha storage.
 
-        :return: The alpha_storage of this TiffOptions.  # noqa: E501
+        :return: The alpha_storage of this TiffOptions.
         :rtype: str
         """
         return self._alpha_storage
@@ -497,20 +496,20 @@ class TiffOptions(object):
     def alpha_storage(self, alpha_storage):
         """Sets the alpha_storage of this TiffOptions.
 
-        Gets or sets the alpha storage.  # noqa: E501
+        Gets or sets the alpha storage.
 
-        :param alpha_storage: The alpha_storage of this TiffOptions.  # noqa: E501
+        :param alpha_storage: The alpha_storage of this TiffOptions.
         :type: str
         """
         self._alpha_storage = alpha_storage
 
     @property
     def fill_order(self):
-        """Gets the fill_order of this TiffOptions.  # noqa: E501
+        """Gets the fill_order of this TiffOptions.
 
-        Gets or sets the fill order.  # noqa: E501
+        Gets or sets the fill order.
 
-        :return: The fill_order of this TiffOptions.  # noqa: E501
+        :return: The fill_order of this TiffOptions.
         :rtype: str
         """
         return self._fill_order
@@ -519,20 +518,20 @@ class TiffOptions(object):
     def fill_order(self, fill_order):
         """Sets the fill_order of this TiffOptions.
 
-        Gets or sets the fill order.  # noqa: E501
+        Gets or sets the fill order.
 
-        :param fill_order: The fill_order of this TiffOptions.  # noqa: E501
+        :param fill_order: The fill_order of this TiffOptions.
         :type: str
         """
         self._fill_order = fill_order
 
     @property
     def half_tone_hints(self):
-        """Gets the half_tone_hints of this TiffOptions.  # noqa: E501
+        """Gets the half_tone_hints of this TiffOptions.
 
-        Gets or sets the half-tone hints.  # noqa: E501
+        Gets or sets the half-tone hints.
 
-        :return: The half_tone_hints of this TiffOptions.  # noqa: E501
+        :return: The half_tone_hints of this TiffOptions.
         :rtype: list[int]
         """
         return self._half_tone_hints
@@ -541,20 +540,20 @@ class TiffOptions(object):
     def half_tone_hints(self, half_tone_hints):
         """Sets the half_tone_hints of this TiffOptions.
 
-        Gets or sets the half-tone hints.  # noqa: E501
+        Gets or sets the half-tone hints.
 
-        :param half_tone_hints: The half_tone_hints of this TiffOptions.  # noqa: E501
+        :param half_tone_hints: The half_tone_hints of this TiffOptions.
         :type: list[int]
         """
         self._half_tone_hints = half_tone_hints
 
     @property
     def image_description(self):
-        """Gets the image_description of this TiffOptions.  # noqa: E501
+        """Gets the image_description of this TiffOptions.
 
-        Gets or sets the image description.  # noqa: E501
+        Gets or sets the image description.
 
-        :return: The image_description of this TiffOptions.  # noqa: E501
+        :return: The image_description of this TiffOptions.
         :rtype: str
         """
         return self._image_description
@@ -563,20 +562,20 @@ class TiffOptions(object):
     def image_description(self, image_description):
         """Sets the image_description of this TiffOptions.
 
-        Gets or sets the image description.  # noqa: E501
+        Gets or sets the image description.
 
-        :param image_description: The image_description of this TiffOptions.  # noqa: E501
+        :param image_description: The image_description of this TiffOptions.
         :type: str
         """
         self._image_description = image_description
 
     @property
     def ink_names(self):
-        """Gets the ink_names of this TiffOptions.  # noqa: E501
+        """Gets the ink_names of this TiffOptions.
 
-        Gets or sets the ink names.  # noqa: E501
+        Gets or sets the ink names.
 
-        :return: The ink_names of this TiffOptions.  # noqa: E501
+        :return: The ink_names of this TiffOptions.
         :rtype: str
         """
         return self._ink_names
@@ -585,20 +584,20 @@ class TiffOptions(object):
     def ink_names(self, ink_names):
         """Sets the ink_names of this TiffOptions.
 
-        Gets or sets the ink names.  # noqa: E501
+        Gets or sets the ink names.
 
-        :param ink_names: The ink_names of this TiffOptions.  # noqa: E501
+        :param ink_names: The ink_names of this TiffOptions.
         :type: str
         """
         self._ink_names = ink_names
 
     @property
     def scanner_manufacturer(self):
-        """Gets the scanner_manufacturer of this TiffOptions.  # noqa: E501
+        """Gets the scanner_manufacturer of this TiffOptions.
 
-        Gets or sets the scanner manufacturer.  # noqa: E501
+        Gets or sets the scanner manufacturer.
 
-        :return: The scanner_manufacturer of this TiffOptions.  # noqa: E501
+        :return: The scanner_manufacturer of this TiffOptions.
         :rtype: str
         """
         return self._scanner_manufacturer
@@ -607,20 +606,20 @@ class TiffOptions(object):
     def scanner_manufacturer(self, scanner_manufacturer):
         """Sets the scanner_manufacturer of this TiffOptions.
 
-        Gets or sets the scanner manufacturer.  # noqa: E501
+        Gets or sets the scanner manufacturer.
 
-        :param scanner_manufacturer: The scanner_manufacturer of this TiffOptions.  # noqa: E501
+        :param scanner_manufacturer: The scanner_manufacturer of this TiffOptions.
         :type: str
         """
         self._scanner_manufacturer = scanner_manufacturer
 
     @property
     def max_sample_value(self):
-        """Gets the max_sample_value of this TiffOptions.  # noqa: E501
+        """Gets the max_sample_value of this TiffOptions.
 
-        Gets or sets the max sample value.  # noqa: E501
+        Gets or sets the max sample value.
 
-        :return: The max_sample_value of this TiffOptions.  # noqa: E501
+        :return: The max_sample_value of this TiffOptions.
         :rtype: list[int]
         """
         return self._max_sample_value
@@ -629,20 +628,20 @@ class TiffOptions(object):
     def max_sample_value(self, max_sample_value):
         """Sets the max_sample_value of this TiffOptions.
 
-        Gets or sets the max sample value.  # noqa: E501
+        Gets or sets the max sample value.
 
-        :param max_sample_value: The max_sample_value of this TiffOptions.  # noqa: E501
+        :param max_sample_value: The max_sample_value of this TiffOptions.
         :type: list[int]
         """
         self._max_sample_value = max_sample_value
 
     @property
     def min_sample_value(self):
-        """Gets the min_sample_value of this TiffOptions.  # noqa: E501
+        """Gets the min_sample_value of this TiffOptions.
 
-        Gets or sets the min sample value.  # noqa: E501
+        Gets or sets the min sample value.
 
-        :return: The min_sample_value of this TiffOptions.  # noqa: E501
+        :return: The min_sample_value of this TiffOptions.
         :rtype: list[int]
         """
         return self._min_sample_value
@@ -651,20 +650,20 @@ class TiffOptions(object):
     def min_sample_value(self, min_sample_value):
         """Sets the min_sample_value of this TiffOptions.
 
-        Gets or sets the min sample value.  # noqa: E501
+        Gets or sets the min sample value.
 
-        :param min_sample_value: The min_sample_value of this TiffOptions.  # noqa: E501
+        :param min_sample_value: The min_sample_value of this TiffOptions.
         :type: list[int]
         """
         self._min_sample_value = min_sample_value
 
     @property
     def scanner_model(self):
-        """Gets the scanner_model of this TiffOptions.  # noqa: E501
+        """Gets the scanner_model of this TiffOptions.
 
-        Gets or sets the scanner model.  # noqa: E501
+        Gets or sets the scanner model.
 
-        :return: The scanner_model of this TiffOptions.  # noqa: E501
+        :return: The scanner_model of this TiffOptions.
         :rtype: str
         """
         return self._scanner_model
@@ -673,20 +672,20 @@ class TiffOptions(object):
     def scanner_model(self, scanner_model):
         """Sets the scanner_model of this TiffOptions.
 
-        Gets or sets the scanner model.  # noqa: E501
+        Gets or sets the scanner model.
 
-        :param scanner_model: The scanner_model of this TiffOptions.  # noqa: E501
+        :param scanner_model: The scanner_model of this TiffOptions.
         :type: str
         """
         self._scanner_model = scanner_model
 
     @property
     def page_name(self):
-        """Gets the page_name of this TiffOptions.  # noqa: E501
+        """Gets the page_name of this TiffOptions.
 
-        Gets or sets the page name.  # noqa: E501
+        Gets or sets the page name.
 
-        :return: The page_name of this TiffOptions.  # noqa: E501
+        :return: The page_name of this TiffOptions.
         :rtype: str
         """
         return self._page_name
@@ -695,20 +694,20 @@ class TiffOptions(object):
     def page_name(self, page_name):
         """Sets the page_name of this TiffOptions.
 
-        Gets or sets the page name.  # noqa: E501
+        Gets or sets the page name.
 
-        :param page_name: The page_name of this TiffOptions.  # noqa: E501
+        :param page_name: The page_name of this TiffOptions.
         :type: str
         """
         self._page_name = page_name
 
     @property
     def orientation(self):
-        """Gets the orientation of this TiffOptions.  # noqa: E501
+        """Gets the orientation of this TiffOptions.
 
-        Gets or sets the orientation.  # noqa: E501
+        Gets or sets the orientation.
 
-        :return: The orientation of this TiffOptions.  # noqa: E501
+        :return: The orientation of this TiffOptions.
         :rtype: str
         """
         return self._orientation
@@ -717,20 +716,20 @@ class TiffOptions(object):
     def orientation(self, orientation):
         """Sets the orientation of this TiffOptions.
 
-        Gets or sets the orientation.  # noqa: E501
+        Gets or sets the orientation.
 
-        :param orientation: The orientation of this TiffOptions.  # noqa: E501
+        :param orientation: The orientation of this TiffOptions.
         :type: str
         """
         self._orientation = orientation
 
     @property
     def page_number(self):
-        """Gets the page_number of this TiffOptions.  # noqa: E501
+        """Gets the page_number of this TiffOptions.
 
-        Gets or sets the page number.  # noqa: E501
+        Gets or sets the page number.
 
-        :return: The page_number of this TiffOptions.  # noqa: E501
+        :return: The page_number of this TiffOptions.
         :rtype: list[int]
         """
         return self._page_number
@@ -739,20 +738,20 @@ class TiffOptions(object):
     def page_number(self, page_number):
         """Sets the page_number of this TiffOptions.
 
-        Gets or sets the page number.  # noqa: E501
+        Gets or sets the page number.
 
-        :param page_number: The page_number of this TiffOptions.  # noqa: E501
+        :param page_number: The page_number of this TiffOptions.
         :type: list[int]
         """
         self._page_number = page_number
 
     @property
     def photometric(self):
-        """Gets the photometric of this TiffOptions.  # noqa: E501
+        """Gets the photometric of this TiffOptions.
 
-        Gets or sets the photometric interpretation.  # noqa: E501
+        Gets or sets the photometric interpretation.
 
-        :return: The photometric of this TiffOptions.  # noqa: E501
+        :return: The photometric of this TiffOptions.
         :rtype: str
         """
         return self._photometric
@@ -761,20 +760,20 @@ class TiffOptions(object):
     def photometric(self, photometric):
         """Sets the photometric of this TiffOptions.
 
-        Gets or sets the photometric interpretation.  # noqa: E501
+        Gets or sets the photometric interpretation.
 
-        :param photometric: The photometric of this TiffOptions.  # noqa: E501
+        :param photometric: The photometric of this TiffOptions.
         :type: str
         """
         self._photometric = photometric
 
     @property
     def planar_configuration(self):
-        """Gets the planar_configuration of this TiffOptions.  # noqa: E501
+        """Gets the planar_configuration of this TiffOptions.
 
-        Gets or sets the planar configuration.  # noqa: E501
+        Gets or sets the planar configuration.
 
-        :return: The planar_configuration of this TiffOptions.  # noqa: E501
+        :return: The planar_configuration of this TiffOptions.
         :rtype: str
         """
         return self._planar_configuration
@@ -783,20 +782,20 @@ class TiffOptions(object):
     def planar_configuration(self, planar_configuration):
         """Sets the planar_configuration of this TiffOptions.
 
-        Gets or sets the planar configuration.  # noqa: E501
+        Gets or sets the planar configuration.
 
-        :param planar_configuration: The planar_configuration of this TiffOptions.  # noqa: E501
+        :param planar_configuration: The planar_configuration of this TiffOptions.
         :type: str
         """
         self._planar_configuration = planar_configuration
 
     @property
     def resolution_unit(self):
-        """Gets the resolution_unit of this TiffOptions.  # noqa: E501
+        """Gets the resolution_unit of this TiffOptions.
 
-        Gets or sets the resolution unit.  # noqa: E501
+        Gets or sets the resolution unit.
 
-        :return: The resolution_unit of this TiffOptions.  # noqa: E501
+        :return: The resolution_unit of this TiffOptions.
         :rtype: str
         """
         return self._resolution_unit
@@ -805,20 +804,20 @@ class TiffOptions(object):
     def resolution_unit(self, resolution_unit):
         """Sets the resolution_unit of this TiffOptions.
 
-        Gets or sets the resolution unit.  # noqa: E501
+        Gets or sets the resolution unit.
 
-        :param resolution_unit: The resolution_unit of this TiffOptions.  # noqa: E501
+        :param resolution_unit: The resolution_unit of this TiffOptions.
         :type: str
         """
         self._resolution_unit = resolution_unit
 
     @property
     def rows_per_strip(self):
-        """Gets the rows_per_strip of this TiffOptions.  # noqa: E501
+        """Gets the rows_per_strip of this TiffOptions.
 
-        Gets or sets the rows per strip.  # noqa: E501
+        Gets or sets the rows per strip.
 
-        :return: The rows_per_strip of this TiffOptions.  # noqa: E501
+        :return: The rows_per_strip of this TiffOptions.
         :rtype: int
         """
         return self._rows_per_strip
@@ -827,22 +826,22 @@ class TiffOptions(object):
     def rows_per_strip(self, rows_per_strip):
         """Sets the rows_per_strip of this TiffOptions.
 
-        Gets or sets the rows per strip.  # noqa: E501
+        Gets or sets the rows per strip.
 
-        :param rows_per_strip: The rows_per_strip of this TiffOptions.  # noqa: E501
+        :param rows_per_strip: The rows_per_strip of this TiffOptions.
         :type: int
         """
         if rows_per_strip is None:
-            raise ValueError("Invalid value for `rows_per_strip`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `rows_per_strip`, must not be `None`")
         self._rows_per_strip = rows_per_strip
 
     @property
     def sample_format(self):
-        """Gets the sample_format of this TiffOptions.  # noqa: E501
+        """Gets the sample_format of this TiffOptions.
 
-        Gets or sets the sample format.  # noqa: E501
+        Gets or sets the sample format.
 
-        :return: The sample_format of this TiffOptions.  # noqa: E501
+        :return: The sample_format of this TiffOptions.
         :rtype: list[str]
         """
         return self._sample_format
@@ -851,20 +850,20 @@ class TiffOptions(object):
     def sample_format(self, sample_format):
         """Sets the sample_format of this TiffOptions.
 
-        Gets or sets the sample format.  # noqa: E501
+        Gets or sets the sample format.
 
-        :param sample_format: The sample_format of this TiffOptions.  # noqa: E501
+        :param sample_format: The sample_format of this TiffOptions.
         :type: list[str]
         """
         self._sample_format = sample_format
 
     @property
     def samples_per_pixel(self):
-        """Gets the samples_per_pixel of this TiffOptions.  # noqa: E501
+        """Gets the samples_per_pixel of this TiffOptions.
 
-        Gets or sets the samples per pixel.  # noqa: E501
+        Gets or sets the samples per pixel.
 
-        :return: The samples_per_pixel of this TiffOptions.  # noqa: E501
+        :return: The samples_per_pixel of this TiffOptions.
         :rtype: int
         """
         return self._samples_per_pixel
@@ -873,22 +872,22 @@ class TiffOptions(object):
     def samples_per_pixel(self, samples_per_pixel):
         """Sets the samples_per_pixel of this TiffOptions.
 
-        Gets or sets the samples per pixel.  # noqa: E501
+        Gets or sets the samples per pixel.
 
-        :param samples_per_pixel: The samples_per_pixel of this TiffOptions.  # noqa: E501
+        :param samples_per_pixel: The samples_per_pixel of this TiffOptions.
         :type: int
         """
         if samples_per_pixel is None:
-            raise ValueError("Invalid value for `samples_per_pixel`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `samples_per_pixel`, must not be `None`")
         self._samples_per_pixel = samples_per_pixel
 
     @property
     def smax_sample_value(self):
-        """Gets the smax_sample_value of this TiffOptions.  # noqa: E501
+        """Gets the smax_sample_value of this TiffOptions.
 
-        Gets or sets the Smax sample value.  # noqa: E501
+        Gets or sets the Smax sample value.
 
-        :return: The smax_sample_value of this TiffOptions.  # noqa: E501
+        :return: The smax_sample_value of this TiffOptions.
         :rtype: list[int]
         """
         return self._smax_sample_value
@@ -897,20 +896,20 @@ class TiffOptions(object):
     def smax_sample_value(self, smax_sample_value):
         """Sets the smax_sample_value of this TiffOptions.
 
-        Gets or sets the Smax sample value.  # noqa: E501
+        Gets or sets the Smax sample value.
 
-        :param smax_sample_value: The smax_sample_value of this TiffOptions.  # noqa: E501
+        :param smax_sample_value: The smax_sample_value of this TiffOptions.
         :type: list[int]
         """
         self._smax_sample_value = smax_sample_value
 
     @property
     def smin_sample_value(self):
-        """Gets the smin_sample_value of this TiffOptions.  # noqa: E501
+        """Gets the smin_sample_value of this TiffOptions.
 
-        Gets or sets the Smin sample value.  # noqa: E501
+        Gets or sets the Smin sample value.
 
-        :return: The smin_sample_value of this TiffOptions.  # noqa: E501
+        :return: The smin_sample_value of this TiffOptions.
         :rtype: list[int]
         """
         return self._smin_sample_value
@@ -919,20 +918,20 @@ class TiffOptions(object):
     def smin_sample_value(self, smin_sample_value):
         """Sets the smin_sample_value of this TiffOptions.
 
-        Gets or sets the Smin sample value.  # noqa: E501
+        Gets or sets the Smin sample value.
 
-        :param smin_sample_value: The smin_sample_value of this TiffOptions.  # noqa: E501
+        :param smin_sample_value: The smin_sample_value of this TiffOptions.
         :type: list[int]
         """
         self._smin_sample_value = smin_sample_value
 
     @property
     def software_type(self):
-        """Gets the software_type of this TiffOptions.  # noqa: E501
+        """Gets the software_type of this TiffOptions.
 
-        Gets or sets the software type.  # noqa: E501
+        Gets or sets the software type.
 
-        :return: The software_type of this TiffOptions.  # noqa: E501
+        :return: The software_type of this TiffOptions.
         :rtype: str
         """
         return self._software_type
@@ -941,20 +940,20 @@ class TiffOptions(object):
     def software_type(self, software_type):
         """Sets the software_type of this TiffOptions.
 
-        Gets or sets the software type.  # noqa: E501
+        Gets or sets the software type.
 
-        :param software_type: The software_type of this TiffOptions.  # noqa: E501
+        :param software_type: The software_type of this TiffOptions.
         :type: str
         """
         self._software_type = software_type
 
     @property
     def strip_byte_counts(self):
-        """Gets the strip_byte_counts of this TiffOptions.  # noqa: E501
+        """Gets the strip_byte_counts of this TiffOptions.
 
-        Gets or sets the strip byte counts.  # noqa: E501
+        Gets or sets the strip byte counts.
 
-        :return: The strip_byte_counts of this TiffOptions.  # noqa: E501
+        :return: The strip_byte_counts of this TiffOptions.
         :rtype: list[int]
         """
         return self._strip_byte_counts
@@ -963,20 +962,20 @@ class TiffOptions(object):
     def strip_byte_counts(self, strip_byte_counts):
         """Sets the strip_byte_counts of this TiffOptions.
 
-        Gets or sets the strip byte counts.  # noqa: E501
+        Gets or sets the strip byte counts.
 
-        :param strip_byte_counts: The strip_byte_counts of this TiffOptions.  # noqa: E501
+        :param strip_byte_counts: The strip_byte_counts of this TiffOptions.
         :type: list[int]
         """
         self._strip_byte_counts = strip_byte_counts
 
     @property
     def strip_offsets(self):
-        """Gets the strip_offsets of this TiffOptions.  # noqa: E501
+        """Gets the strip_offsets of this TiffOptions.
 
-        Gets or sets the strip offsets.  # noqa: E501
+        Gets or sets the strip offsets.
 
-        :return: The strip_offsets of this TiffOptions.  # noqa: E501
+        :return: The strip_offsets of this TiffOptions.
         :rtype: list[int]
         """
         return self._strip_offsets
@@ -985,20 +984,20 @@ class TiffOptions(object):
     def strip_offsets(self, strip_offsets):
         """Sets the strip_offsets of this TiffOptions.
 
-        Gets or sets the strip offsets.  # noqa: E501
+        Gets or sets the strip offsets.
 
-        :param strip_offsets: The strip_offsets of this TiffOptions.  # noqa: E501
+        :param strip_offsets: The strip_offsets of this TiffOptions.
         :type: list[int]
         """
         self._strip_offsets = strip_offsets
 
     @property
     def sub_file_type(self):
-        """Gets the sub_file_type of this TiffOptions.  # noqa: E501
+        """Gets the sub_file_type of this TiffOptions.
 
-        Gets or sets the subfile type.  # noqa: E501
+        Gets or sets the subfile type.
 
-        :return: The sub_file_type of this TiffOptions.  # noqa: E501
+        :return: The sub_file_type of this TiffOptions.
         :rtype: str
         """
         return self._sub_file_type
@@ -1007,20 +1006,20 @@ class TiffOptions(object):
     def sub_file_type(self, sub_file_type):
         """Sets the sub_file_type of this TiffOptions.
 
-        Gets or sets the subfile type.  # noqa: E501
+        Gets or sets the subfile type.
 
-        :param sub_file_type: The sub_file_type of this TiffOptions.  # noqa: E501
+        :param sub_file_type: The sub_file_type of this TiffOptions.
         :type: str
         """
         self._sub_file_type = sub_file_type
 
     @property
     def target_printer(self):
-        """Gets the target_printer of this TiffOptions.  # noqa: E501
+        """Gets the target_printer of this TiffOptions.
 
-        Gets or sets the target printer.  # noqa: E501
+        Gets or sets the target printer.
 
-        :return: The target_printer of this TiffOptions.  # noqa: E501
+        :return: The target_printer of this TiffOptions.
         :rtype: str
         """
         return self._target_printer
@@ -1029,20 +1028,20 @@ class TiffOptions(object):
     def target_printer(self, target_printer):
         """Sets the target_printer of this TiffOptions.
 
-        Gets or sets the target printer.  # noqa: E501
+        Gets or sets the target printer.
 
-        :param target_printer: The target_printer of this TiffOptions.  # noqa: E501
+        :param target_printer: The target_printer of this TiffOptions.
         :type: str
         """
         self._target_printer = target_printer
 
     @property
     def threshholding(self):
-        """Gets the threshholding of this TiffOptions.  # noqa: E501
+        """Gets the threshholding of this TiffOptions.
 
-        Gets or sets the threshholding.  # noqa: E501
+        Gets or sets the threshholding.
 
-        :return: The threshholding of this TiffOptions.  # noqa: E501
+        :return: The threshholding of this TiffOptions.
         :rtype: str
         """
         return self._threshholding
@@ -1051,20 +1050,20 @@ class TiffOptions(object):
     def threshholding(self, threshholding):
         """Sets the threshholding of this TiffOptions.
 
-        Gets or sets the threshholding.  # noqa: E501
+        Gets or sets the threshholding.
 
-        :param threshholding: The threshholding of this TiffOptions.  # noqa: E501
+        :param threshholding: The threshholding of this TiffOptions.
         :type: str
         """
         self._threshholding = threshholding
 
     @property
     def total_pages(self):
-        """Gets the total_pages of this TiffOptions.  # noqa: E501
+        """Gets the total_pages of this TiffOptions.
 
-        Gets or sets the total pages count.  # noqa: E501
+        Gets or sets the total pages count.
 
-        :return: The total_pages of this TiffOptions.  # noqa: E501
+        :return: The total_pages of this TiffOptions.
         :rtype: int
         """
         return self._total_pages
@@ -1073,22 +1072,22 @@ class TiffOptions(object):
     def total_pages(self, total_pages):
         """Sets the total_pages of this TiffOptions.
 
-        Gets or sets the total pages count.  # noqa: E501
+        Gets or sets the total pages count.
 
-        :param total_pages: The total_pages of this TiffOptions.  # noqa: E501
+        :param total_pages: The total_pages of this TiffOptions.
         :type: int
         """
         if total_pages is None:
-            raise ValueError("Invalid value for `total_pages`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `total_pages`, must not be `None`")
         self._total_pages = total_pages
 
     @property
     def xposition(self):
-        """Gets the xposition of this TiffOptions.  # noqa: E501
+        """Gets the xposition of this TiffOptions.
 
-        Gets or sets the X position.  # noqa: E501
+        Gets or sets the X position.
 
-        :return: The xposition of this TiffOptions.  # noqa: E501
+        :return: The xposition of this TiffOptions.
         :rtype: float
         """
         return self._xposition
@@ -1097,22 +1096,22 @@ class TiffOptions(object):
     def xposition(self, xposition):
         """Sets the xposition of this TiffOptions.
 
-        Gets or sets the X position.  # noqa: E501
+        Gets or sets the X position.
 
-        :param xposition: The xposition of this TiffOptions.  # noqa: E501
+        :param xposition: The xposition of this TiffOptions.
         :type: float
         """
         if xposition is None:
-            raise ValueError("Invalid value for `xposition`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `xposition`, must not be `None`")
         self._xposition = xposition
 
     @property
     def xresolution(self):
-        """Gets the xresolution of this TiffOptions.  # noqa: E501
+        """Gets the xresolution of this TiffOptions.
 
-        Gets or sets the X resolution.  # noqa: E501
+        Gets or sets the X resolution.
 
-        :return: The xresolution of this TiffOptions.  # noqa: E501
+        :return: The xresolution of this TiffOptions.
         :rtype: float
         """
         return self._xresolution
@@ -1121,22 +1120,22 @@ class TiffOptions(object):
     def xresolution(self, xresolution):
         """Sets the xresolution of this TiffOptions.
 
-        Gets or sets the X resolution.  # noqa: E501
+        Gets or sets the X resolution.
 
-        :param xresolution: The xresolution of this TiffOptions.  # noqa: E501
+        :param xresolution: The xresolution of this TiffOptions.
         :type: float
         """
         if xresolution is None:
-            raise ValueError("Invalid value for `xresolution`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `xresolution`, must not be `None`")
         self._xresolution = xresolution
 
     @property
     def yposition(self):
-        """Gets the yposition of this TiffOptions.  # noqa: E501
+        """Gets the yposition of this TiffOptions.
 
-        Gets or sets the Y position.  # noqa: E501
+        Gets or sets the Y position.
 
-        :return: The yposition of this TiffOptions.  # noqa: E501
+        :return: The yposition of this TiffOptions.
         :rtype: float
         """
         return self._yposition
@@ -1145,22 +1144,22 @@ class TiffOptions(object):
     def yposition(self, yposition):
         """Sets the yposition of this TiffOptions.
 
-        Gets or sets the Y position.  # noqa: E501
+        Gets or sets the Y position.
 
-        :param yposition: The yposition of this TiffOptions.  # noqa: E501
+        :param yposition: The yposition of this TiffOptions.
         :type: float
         """
         if yposition is None:
-            raise ValueError("Invalid value for `yposition`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `yposition`, must not be `None`")
         self._yposition = yposition
 
     @property
     def yresolution(self):
-        """Gets the yresolution of this TiffOptions.  # noqa: E501
+        """Gets the yresolution of this TiffOptions.
 
-        Gets or sets the Y resolution.  # noqa: E501
+        Gets or sets the Y resolution.
 
-        :return: The yresolution of this TiffOptions.  # noqa: E501
+        :return: The yresolution of this TiffOptions.
         :rtype: float
         """
         return self._yresolution
@@ -1169,22 +1168,22 @@ class TiffOptions(object):
     def yresolution(self, yresolution):
         """Sets the yresolution of this TiffOptions.
 
-        Gets or sets the Y resolution.  # noqa: E501
+        Gets or sets the Y resolution.
 
-        :param yresolution: The yresolution of this TiffOptions.  # noqa: E501
+        :param yresolution: The yresolution of this TiffOptions.
         :type: float
         """
         if yresolution is None:
-            raise ValueError("Invalid value for `yresolution`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `yresolution`, must not be `None`")
         self._yresolution = yresolution
 
     @property
     def fax_t4_options(self):
-        """Gets the fax_t4_options of this TiffOptions.  # noqa: E501
+        """Gets the fax_t4_options of this TiffOptions.
 
-        Gets or sets the FaxT4 Options.  # noqa: E501
+        Gets or sets the FaxT4 Options.
 
-        :return: The fax_t4_options of this TiffOptions.  # noqa: E501
+        :return: The fax_t4_options of this TiffOptions.
         :rtype: str
         """
         return self._fax_t4_options
@@ -1193,20 +1192,20 @@ class TiffOptions(object):
     def fax_t4_options(self, fax_t4_options):
         """Sets the fax_t4_options of this TiffOptions.
 
-        Gets or sets the FaxT4 Options.  # noqa: E501
+        Gets or sets the FaxT4 Options.
 
-        :param fax_t4_options: The fax_t4_options of this TiffOptions.  # noqa: E501
+        :param fax_t4_options: The fax_t4_options of this TiffOptions.
         :type: str
         """
         self._fax_t4_options = fax_t4_options
 
     @property
     def predictor(self):
-        """Gets the predictor of this TiffOptions.  # noqa: E501
+        """Gets the predictor of this TiffOptions.
 
-        Gets or sets the predictor (a mathematical operator that is applied to the image data before an encoding scheme is applied).  # noqa: E501
+        Gets or sets the predictor (a mathematical operator that is applied to the image data before an encoding scheme is applied).
 
-        :return: The predictor of this TiffOptions.  # noqa: E501
+        :return: The predictor of this TiffOptions.
         :rtype: str
         """
         return self._predictor
@@ -1215,20 +1214,20 @@ class TiffOptions(object):
     def predictor(self, predictor):
         """Sets the predictor of this TiffOptions.
 
-        Gets or sets the predictor (a mathematical operator that is applied to the image data before an encoding scheme is applied).  # noqa: E501
+        Gets or sets the predictor (a mathematical operator that is applied to the image data before an encoding scheme is applied).
 
-        :param predictor: The predictor of this TiffOptions.  # noqa: E501
+        :param predictor: The predictor of this TiffOptions.
         :type: str
         """
         self._predictor = predictor
 
     @property
     def image_length(self):
-        """Gets the image_length of this TiffOptions.  # noqa: E501
+        """Gets the image_length of this TiffOptions.
 
-        Gets or sets the image length.  # noqa: E501
+        Gets or sets the image length.
 
-        :return: The image_length of this TiffOptions.  # noqa: E501
+        :return: The image_length of this TiffOptions.
         :rtype: int
         """
         return self._image_length
@@ -1237,22 +1236,22 @@ class TiffOptions(object):
     def image_length(self, image_length):
         """Sets the image_length of this TiffOptions.
 
-        Gets or sets the image length.  # noqa: E501
+        Gets or sets the image length.
 
-        :param image_length: The image_length of this TiffOptions.  # noqa: E501
+        :param image_length: The image_length of this TiffOptions.
         :type: int
         """
         if image_length is None:
-            raise ValueError("Invalid value for `image_length`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `image_length`, must not be `None`")
         self._image_length = image_length
 
     @property
     def image_width(self):
-        """Gets the image_width of this TiffOptions.  # noqa: E501
+        """Gets the image_width of this TiffOptions.
 
-        Gets or sets the image width.  # noqa: E501
+        Gets or sets the image width.
 
-        :return: The image_width of this TiffOptions.  # noqa: E501
+        :return: The image_width of this TiffOptions.
         :rtype: int
         """
         return self._image_width
@@ -1261,22 +1260,22 @@ class TiffOptions(object):
     def image_width(self, image_width):
         """Sets the image_width of this TiffOptions.
 
-        Gets or sets the image width.  # noqa: E501
+        Gets or sets the image width.
 
-        :param image_width: The image_width of this TiffOptions.  # noqa: E501
+        :param image_width: The image_width of this TiffOptions.
         :type: int
         """
         if image_width is None:
-            raise ValueError("Invalid value for `image_width`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `image_width`, must not be `None`")
         self._image_width = image_width
 
     @property
     def valid_tag_count(self):
-        """Gets the valid_tag_count of this TiffOptions.  # noqa: E501
+        """Gets the valid_tag_count of this TiffOptions.
 
-        Gets or sets the valid tag count.  # noqa: E501
+        Gets or sets the valid tag count.
 
-        :return: The valid_tag_count of this TiffOptions.  # noqa: E501
+        :return: The valid_tag_count of this TiffOptions.
         :rtype: int
         """
         return self._valid_tag_count
@@ -1285,22 +1284,22 @@ class TiffOptions(object):
     def valid_tag_count(self, valid_tag_count):
         """Sets the valid_tag_count of this TiffOptions.
 
-        Gets or sets the valid tag count.  # noqa: E501
+        Gets or sets the valid tag count.
 
-        :param valid_tag_count: The valid_tag_count of this TiffOptions.  # noqa: E501
+        :param valid_tag_count: The valid_tag_count of this TiffOptions.
         :type: int
         """
         if valid_tag_count is None:
-            raise ValueError("Invalid value for `valid_tag_count`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `valid_tag_count`, must not be `None`")
         self._valid_tag_count = valid_tag_count
 
     @property
     def bits_per_pixel(self):
-        """Gets the bits_per_pixel of this TiffOptions.  # noqa: E501
+        """Gets the bits_per_pixel of this TiffOptions.
 
-        Gets or sets the bits per pixel.  # noqa: E501
+        Gets or sets the bits per pixel.
 
-        :return: The bits_per_pixel of this TiffOptions.  # noqa: E501
+        :return: The bits_per_pixel of this TiffOptions.
         :rtype: int
         """
         return self._bits_per_pixel
@@ -1309,13 +1308,13 @@ class TiffOptions(object):
     def bits_per_pixel(self, bits_per_pixel):
         """Sets the bits_per_pixel of this TiffOptions.
 
-        Gets or sets the bits per pixel.  # noqa: E501
+        Gets or sets the bits per pixel.
 
-        :param bits_per_pixel: The bits_per_pixel of this TiffOptions.  # noqa: E501
+        :param bits_per_pixel: The bits_per_pixel of this TiffOptions.
         :type: int
         """
         if bits_per_pixel is None:
-            raise ValueError("Invalid value for `bits_per_pixel`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `bits_per_pixel`, must not be `None`")
         self._bits_per_pixel = bits_per_pixel
 
     def to_dict(self):

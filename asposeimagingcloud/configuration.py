@@ -1,28 +1,28 @@
 # coding: utf-8
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # <copyright company="Aspose" file="configuration.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
-#   Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
+#   Permission is hereby granted, free of charge, to any person obtaining a
+#  copy  of this software and associated documentation files (the "Software"),
+#  to deal  in the Software without restriction, including without limitation
+#  the rights  to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell  copies of the Software, and to permit persons to whom the
+#  Software is  furnished to do so, subject to the following conditions:
 #
-#  The above copyright notice and this permission notice shall be included in all
-#  copies or substantial portions of the Software.
+#  The above copyright notice and this permission notice shall be included in
+#  all  copies or substantial portions of the Software.
 #
 #  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 #  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#  SOFTWARE.
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
 # </summary>
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 from __future__ import absolute_import
 
 import copy
@@ -64,9 +64,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
 
         # Authentication Settings
         # dict to store API key(s)
-        self.api_key = {}
-        self.api_key['api_key'] = ""
-        self.api_key['app_sid'] = ""
+        self.api_key = {'api_key': "", 'app_sid': ""}
         # dict to store API prefix (e.g. Bearer)
         self.api_key_prefix = {}
         # Username for HTTP basic authentication
@@ -78,19 +76,23 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         self.access_token = ""
 
         # Logging Settings
-        self.logger = {}
-        self.logger["package_logger"] = logging.getLogger("asposeimagingcloud")
-        self.logger["urllib3_logger"] = logging.getLogger("urllib3")
+        self.logger = {
+            "package_logger": logging.getLogger("asposeimagingcloud"),
+            "urllib3_logger": logging.getLogger("urllib3")}
         # Log format
+        self.logger_formatter = None
+        self.__logger_format = None
         self.logger_format = '%(asctime)s %(levelname)s %(message)s'
         # Log stream handler
         self.logger_stream_handler = None
         # Log file handler
         self.logger_file_handler = None
         # Debug file location
+        self.__logger_file = None
         self.logger_file = None
         # Debug switch
         self.debug = False
+        self.__debug = False
 
         # SSL/TLS verification
         # Set this to false to skip verifying SSL certificate when calling API
@@ -221,7 +223,8 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         """
         if (self.api_key.get(identifier) and
                 self.api_key_prefix.get(identifier)):
-            return self.api_key_prefix[identifier] + ' ' + self.api_key[identifier]  # noqa: E501
+            return self.api_key_prefix[identifier] + ' ' + self.api_key[
+                identifier]
         elif self.api_key.get(identifier):
             return self.api_key[identifier]
 
@@ -251,14 +254,15 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
 
         }
 
-    def to_debug_report(self):
+    @staticmethod
+    def to_debug_report():
         """Gets the essential information for debugging.
 
         :return: The report for debugging.
         """
-        return "Python SDK Debug Report:\n"\
-               "OS: {env}\n"\
-               "Python Version: {pyversion}\n"\
-               "Version of the API: 3.0\n"\
-               "SDK Package Version: 1.0.0".\
-               format(env=sys.platform, pyversion=sys.version)
+        return "Python SDK Debug Report:\n" \
+               "OS: {env}\n" \
+               "Python Version: {pyversion}\n" \
+               "Version of the API: 3.0\n" \
+               "SDK Package Version: 1.0.0". \
+            format(env=sys.platform, pyversion=sys.version)

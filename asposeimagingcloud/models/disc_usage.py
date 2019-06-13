@@ -1,30 +1,29 @@
 # coding: utf-8
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # <copyright company="Aspose" file="DiscUsage.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
-#   Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
-# 
-#  The above copyright notice and this permission notice shall be included in all
-#  copies or substantial portions of the Software.
-# 
+#   Permission is hereby granted, free of charge, to any person obtaining a
+#  copy  of this software and associated documentation files (the "Software"),
+#  to deal  in the Software without restriction, including without limitation
+#  the rights  to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell  copies of the Software, and to permit persons to whom the
+#  Software is  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in
+#  all  copies or substantial portions of the Software.
+#
 #  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 #  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#  SOFTWARE.
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
 # </summary>
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 import pprint
-import re  # noqa: F401
 
 import six
 
@@ -50,8 +49,8 @@ class DiscUsage(object):
         'total_size': 'TotalSize'
     }
 
-    def __init__(self, used_size=None, total_size=None):  # noqa: E501
-        """DiscUsage - a model defined in Swagger"""  # noqa: E501
+    def __init__(self, used_size=None, total_size=None):
+        """DiscUsage - a model defined in Swagger"""
 
         self._used_size = None
         self._total_size = None
@@ -64,11 +63,11 @@ class DiscUsage(object):
 
     @property
     def used_size(self):
-        """Gets the used_size of this DiscUsage.  # noqa: E501
+        """Gets the used_size of this DiscUsage.
 
-        Application used disc space.  # noqa: E501
+        Application used disc space.
 
-        :return: The used_size of this DiscUsage.  # noqa: E501
+        :return: The used_size of this DiscUsage.
         :rtype: int
         """
         return self._used_size
@@ -77,22 +76,22 @@ class DiscUsage(object):
     def used_size(self, used_size):
         """Sets the used_size of this DiscUsage.
 
-        Application used disc space.  # noqa: E501
+        Application used disc space.
 
-        :param used_size: The used_size of this DiscUsage.  # noqa: E501
+        :param used_size: The used_size of this DiscUsage.
         :type: int
         """
         if used_size is None:
-            raise ValueError("Invalid value for `used_size`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `used_size`, must not be `None`")
         self._used_size = used_size
 
     @property
     def total_size(self):
-        """Gets the total_size of this DiscUsage.  # noqa: E501
+        """Gets the total_size of this DiscUsage.
 
-        Total disc space.  # noqa: E501
+        Total disc space.
 
-        :return: The total_size of this DiscUsage.  # noqa: E501
+        :return: The total_size of this DiscUsage.
         :rtype: int
         """
         return self._total_size
@@ -101,13 +100,13 @@ class DiscUsage(object):
     def total_size(self, total_size):
         """Sets the total_size of this DiscUsage.
 
-        Total disc space.  # noqa: E501
+        Total disc space.
 
-        :param total_size: The total_size of this DiscUsage.  # noqa: E501
+        :param total_size: The total_size of this DiscUsage.
         :type: int
         """
         if total_size is None:
-            raise ValueError("Invalid value for `total_size`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `total_size`, must not be `None`")
         self._total_size = total_size
 
     def to_dict(self):

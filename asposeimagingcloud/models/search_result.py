@@ -1,30 +1,29 @@
 # coding: utf-8
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # <copyright company="Aspose" file="SearchResult.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
-#   Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
-# 
-#  The above copyright notice and this permission notice shall be included in all
-#  copies or substantial portions of the Software.
-# 
+#   Permission is hereby granted, free of charge, to any person obtaining a
+#  copy  of this software and associated documentation files (the "Software"),
+#  to deal  in the Software without restriction, including without limitation
+#  the rights  to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell  copies of the Software, and to permit persons to whom the
+#  Software is  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in
+#  all  copies or substantial portions of the Software.
+#
 #  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 #  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#  SOFTWARE.
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
 # </summary>
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 import pprint
-import re  # noqa: F401
 
 import six
 
@@ -50,8 +49,8 @@ class SearchResult(object):
         'similarity': 'Similarity'
     }
 
-    def __init__(self, image_id=None, similarity=None):  # noqa: E501
-        """SearchResult - a model defined in Swagger"""  # noqa: E501
+    def __init__(self, image_id=None, similarity=None):
+        """SearchResult - a model defined in Swagger"""
 
         self._image_id = None
         self._similarity = None
@@ -64,11 +63,11 @@ class SearchResult(object):
 
     @property
     def image_id(self):
-        """Gets the image_id of this SearchResult.  # noqa: E501
+        """Gets the image_id of this SearchResult.
 
-        Gets or sets the image identifier.  # noqa: E501
+        Gets or sets the image identifier.
 
-        :return: The image_id of this SearchResult.  # noqa: E501
+        :return: The image_id of this SearchResult.
         :rtype: str
         """
         return self._image_id
@@ -77,20 +76,20 @@ class SearchResult(object):
     def image_id(self, image_id):
         """Sets the image_id of this SearchResult.
 
-        Gets or sets the image identifier.  # noqa: E501
+        Gets or sets the image identifier.
 
-        :param image_id: The image_id of this SearchResult.  # noqa: E501
+        :param image_id: The image_id of this SearchResult.
         :type: str
         """
         self._image_id = image_id
 
     @property
     def similarity(self):
-        """Gets the similarity of this SearchResult.  # noqa: E501
+        """Gets the similarity of this SearchResult.
 
-        Gets or sets the similarity.  # noqa: E501
+        Gets or sets the similarity.
 
-        :return: The similarity of this SearchResult.  # noqa: E501
+        :return: The similarity of this SearchResult.
         :rtype: float
         """
         return self._similarity
@@ -99,13 +98,13 @@ class SearchResult(object):
     def similarity(self, similarity):
         """Sets the similarity of this SearchResult.
 
-        Gets or sets the similarity.  # noqa: E501
+        Gets or sets the similarity.
 
-        :param similarity: The similarity of this SearchResult.  # noqa: E501
+        :param similarity: The similarity of this SearchResult.
         :type: float
         """
         if similarity is None:
-            raise ValueError("Invalid value for `similarity`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `similarity`, must not be `None`")
         self._similarity = similarity
 
     def to_dict(self):

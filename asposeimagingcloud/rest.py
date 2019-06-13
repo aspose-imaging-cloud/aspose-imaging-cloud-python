@@ -1,28 +1,28 @@
 # coding: utf-8
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # <copyright company="Aspose" file="rest.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
-#   Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
+#   Permission is hereby granted, free of charge, to any person obtaining a
+#  copy  of this software and associated documentation files (the "Software"),
+#  to deal  in the Software without restriction, including without limitation
+#  the rights  to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell  copies of the Software, and to permit persons to whom the
+#  Software is  furnished to do so, subject to the following conditions:
 #
-#  The above copyright notice and this permission notice shall be included in all
-#  copies or substantial portions of the Software.
+#  The above copyright notice and this permission notice shall be included in
+#  all  copies or substantial portions of the Software.
 #
 #  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 #  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#  SOFTWARE.
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
 # </summary>
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 from __future__ import absolute_import
 
 import io
@@ -42,7 +42,7 @@ except ImportError:
     raise ImportError('Swagger python client requires urllib3.')
 
 
-logger = logging.getLogger(__name__)
+LOGGER = logging.getLogger(__name__)
 
 
 class RESTResponse(io.IOBase):
@@ -65,11 +65,13 @@ class RESTResponse(io.IOBase):
 class RESTClientObject(object):
 
     def __init__(self, configuration, pools_size=4, maxsize=None):
+        # pylint: disable=line-too-long
         # urllib3.PoolManager will pass all kw parameters to connectionpool
-        # https://github.com/shazow/urllib3/blob/f9409436f83aeb79fbaf090181cd81b784f1b8ce/urllib3/poolmanager.py#L75  # noqa: E501
-        # https://github.com/shazow/urllib3/blob/f9409436f83aeb79fbaf090181cd81b784f1b8ce/urllib3/connectionpool.py#L680  # noqa: E501
-        # maxsize is the number of requests to host that are allowed in parallel  # noqa: E501
-        # Custom SSL certificates and client certificates: http://urllib3.readthedocs.io/en/latest/advanced-usage.html  # noqa: E501
+        # https://github.com/shazow/urllib3/blob/f9409436f83aeb79fbaf090181cd81b784f1b8ce/urllib3/poolmanager.py#L75
+        # https://github.com/shazow/urllib3/blob/f9409436f83aeb79fbaf090181cd81b784f1b8ce/urllib3/connectionpool.py#L680
+        # maxsize is the number of requests to host that are allowed in parallel
+        # Custom SSL certificates and client certificates: http://urllib3.readthedocs.io/en/latest/advanced-usage.html
+        # pylint: enable=line-too-long
 
         # cert_reqs
         if configuration.verify_ssl:
@@ -86,7 +88,7 @@ class RESTClientObject(object):
 
         addition_pool_args = {}
         if configuration.assert_hostname is not None:
-            addition_pool_args['assert_hostname'] = configuration.assert_hostname  # noqa: E501
+            addition_pool_args['assert_hostname'] = configuration.assert_hostname
 
         if maxsize is None:
             if configuration.connection_pool_maxsize is not None:
@@ -152,7 +154,8 @@ class RESTClientObject(object):
 
         timeout = None
         if _request_timeout:
-            if isinstance(_request_timeout, (int, ) if six.PY3 else (int, long)):  #pylint: disable=undefined-variable
+            if isinstance(_request_timeout, (int, ) if six.PY3 else (
+                    int, long)):  # pylint: disable=undefined-variable
                 timeout = urllib3.Timeout(total=_request_timeout)
             elif (isinstance(_request_timeout, tuple) and
                   len(_request_timeout) == 2):
@@ -173,14 +176,14 @@ class RESTClientObject(object):
                     request_body = ''
                     if body is not None:
                         request_body = json.dumps(body)
-                    r = self.pool_manager.request(
+                    req = self.pool_manager.request(
                         method, url,
                         body=request_body,
                         preload_content=_preload_content,
                         timeout=timeout,
                         headers=headers)
-                elif headers['Content-Type'] == 'application/x-www-form-urlencoded':  # noqa: E501
-                    r = self.pool_manager.request(
+                elif headers['Content-Type'] == 'application/x-www-form-urlencoded':
+                    req = self.pool_manager.request(
                         method, url,
                         fields=post_params,
                         encode_multipart=False,
@@ -192,7 +195,7 @@ class RESTClientObject(object):
                     # Content-Type which generated by urllib3 will be
                     # overwritten.
                     del headers['Content-Type']
-                    r = self.pool_manager.request(
+                    req = self.pool_manager.request(
                         method, url,
                         fields=post_params,
                         encode_multipart=True,
@@ -204,7 +207,7 @@ class RESTClientObject(object):
                 # provided in serialized form
                 elif isinstance(body, str):
                     request_body = body
-                    r = self.pool_manager.request(
+                    req = self.pool_manager.request(
                         method, url,
                         body=request_body,
                         preload_content=_preload_content,
@@ -218,27 +221,28 @@ class RESTClientObject(object):
                     raise ApiException(status=0, reason=msg)
             # For `GET`, `HEAD`
             else:
-                r = self.pool_manager.request(method, url,
-                                              fields=query_params,
-                                              preload_content=_preload_content,
-                                              timeout=timeout,
-                                              headers=headers)
-        except urllib3.exceptions.SSLError as e:
-            msg = "{0}\n{1}".format(type(e).__name__, str(e))
+                req = self.pool_manager.request(
+                    method, url,
+                    fields=query_params,
+                    preload_content=_preload_content,
+                    timeout=timeout,
+                    headers=headers)
+        except urllib3.exceptions.SSLError as ex:
+            msg = "{0}\n{1}".format(type(ex).__name__, str(ex))
             raise ApiException(status=0, reason=msg)
 
         if _preload_content:
-            r = RESTResponse(r)
+            req = RESTResponse(req)
 
             # log response body
-            logger.debug("response body: %s", r.data)
+            LOGGER.debug("response body: %s", req.data)
 
-        if not 200 <= r.status <= 299:
-            raise ApiException(http_resp=r)
+        if not 200 <= req.status <= 299:
+            raise ApiException(http_resp=req)
 
-        return r
+        return req
 
-    def GET(self, url, headers=None, query_params=None, _preload_content=True,
+    def get(self, url, headers=None, query_params=None, _preload_content=True,
             _request_timeout=None):
         return self.request("GET", url,
                             headers=headers,
@@ -246,7 +250,7 @@ class RESTClientObject(object):
                             _request_timeout=_request_timeout,
                             query_params=query_params)
 
-    def HEAD(self, url, headers=None, query_params=None, _preload_content=True,
+    def head(self, url, headers=None, query_params=None, _preload_content=True,
              _request_timeout=None):
         return self.request("HEAD", url,
                             headers=headers,
@@ -254,7 +258,7 @@ class RESTClientObject(object):
                             _request_timeout=_request_timeout,
                             query_params=query_params)
 
-    def OPTIONS(self, url, headers=None, query_params=None, post_params=None,
+    def options(self, url, headers=None, query_params=None, post_params=None,
                 body=None, _preload_content=True, _request_timeout=None):
         return self.request("OPTIONS", url,
                             headers=headers,
@@ -264,7 +268,7 @@ class RESTClientObject(object):
                             _request_timeout=_request_timeout,
                             body=body)
 
-    def DELETE(self, url, headers=None, query_params=None, body=None,
+    def delete(self, url, headers=None, query_params=None, body=None,
                _preload_content=True, _request_timeout=None):
         return self.request("DELETE", url,
                             headers=headers,
@@ -273,7 +277,7 @@ class RESTClientObject(object):
                             _request_timeout=_request_timeout,
                             body=body)
 
-    def POST(self, url, headers=None, query_params=None, post_params=None,
+    def post(self, url, headers=None, query_params=None, post_params=None,
              body=None, _preload_content=True, _request_timeout=None):
         return self.request("POST", url,
                             headers=headers,
@@ -283,7 +287,7 @@ class RESTClientObject(object):
                             _request_timeout=_request_timeout,
                             body=body)
 
-    def PUT(self, url, headers=None, query_params=None, post_params=None,
+    def put(self, url, headers=None, query_params=None, post_params=None,
             body=None, _preload_content=True, _request_timeout=None):
         return self.request("PUT", url,
                             headers=headers,
@@ -293,7 +297,7 @@ class RESTClientObject(object):
                             _request_timeout=_request_timeout,
                             body=body)
 
-    def PATCH(self, url, headers=None, query_params=None, post_params=None,
+    def patch(self, url, headers=None, query_params=None, post_params=None,
               body=None, _preload_content=True, _request_timeout=None):
         return self.request("PATCH", url,
                             headers=headers,

@@ -1,28 +1,28 @@
 # coding: utf-8
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # <copyright company="Aspose" file="get_image_frame_properties_request.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
-#   Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
+#   Permission is hereby granted, free of charge, to any person obtaining a
+#  copy  of this software and associated documentation files (the "Software"),
+#  to deal  in the Software without restriction, including without limitation
+#  the rights  to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell  copies of the Software, and to permit persons to whom the
+#  Software is  furnished to do so, subject to the following conditions:
 #
-#  The above copyright notice and this permission notice shall be included in all
-#  copies or substantial portions of the Software.
+#  The above copyright notice and this permission notice shall be included in
+#  all  copies or substantial portions of the Software.
 #
 #  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 #  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#  SOFTWARE.
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
 # </summary>
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 
 from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
 from asposeimagingcloud.models.requests.http_request import HttpRequest
@@ -57,30 +57,30 @@ class GetImageFramePropertiesRequest(ImagingRequest):
         """
         # verify the required parameter 'name' is set
         if self.name is None:
-            raise ValueError("Missing the required parameter `name` when calling `get_image_frame_properties`")  # noqa: E501
+            raise ValueError("Missing the required parameter `name` when calling `get_image_frame_properties`")
         # verify the required parameter 'frame_id' is set
         if self.frame_id is None:
-            raise ValueError("Missing the required parameter `frame_id` when calling `get_image_frame_properties`")  # noqa: E501
+            raise ValueError("Missing the required parameter `frame_id` when calling `get_image_frame_properties`")
 
         collection_formats = {}
         path = '/imaging/{name}/frames/{frameId}/properties'
         path_params = {}
         if self.name is not None:
-            path_params[self._lowercase_first_letter('name')] = self.name  # noqa: E501
+            path_params[self._lowercase_first_letter('name')] = self.name
         if self.frame_id is not None:
-            path_params[self._lowercase_first_letter('frameId')] = self.frame_id  # noqa: E501
+            path_params[self._lowercase_first_letter('frameId')] = self.frame_id
 
         query_params = []
         if self._lowercase_first_letter('folder') in path:
             path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
         else:
             if self.folder is not None:
-                query_params.append((self._lowercase_first_letter('folder'), self.folder))  # noqa: E501
+                query_params.append((self._lowercase_first_letter('folder'), self.folder))
         if self._lowercase_first_letter('storage') in path:
             path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
         else:
             if self.storage is not None:
-                query_params.append((self._lowercase_first_letter('storage'), self.storage))  # noqa: E501
+                query_params.append((self._lowercase_first_letter('storage'), self.storage))
 
         header_params = {}
 
@@ -91,14 +91,14 @@ class GetImageFramePropertiesRequest(ImagingRequest):
 
         # HTTP header `Accept`
         header_params['Accept'] = self._select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['application/json'])
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self._select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params['Content-Type'] = self._select_header_content_type(
+            ['application/json'])
 
         # Authentication setting
-        auth_settings = ['JWT']  # noqa: E501
+        auth_settings = ['JWT']
 
         return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
                            collection_formats, auth_settings)

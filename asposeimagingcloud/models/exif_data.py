@@ -1,30 +1,29 @@
 # coding: utf-8
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # <copyright company="Aspose" file="ExifData.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
-#   Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
-# 
-#  The above copyright notice and this permission notice shall be included in all
-#  copies or substantial portions of the Software.
-# 
+#   Permission is hereby granted, free of charge, to any person obtaining a
+#  copy  of this software and associated documentation files (the "Software"),
+#  to deal  in the Software without restriction, including without limitation
+#  the rights  to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell  copies of the Software, and to permit persons to whom the
+#  Software is  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in
+#  all  copies or substantial portions of the Software.
+#
 #  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 #  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#  SOFTWARE.
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
 # </summary>
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 import pprint
-import re  # noqa: F401
 
 import six
 
@@ -252,8 +251,8 @@ class ExifData(object):
         'JpegExifData': 'JpegExifData'
     }
 
-    def __init__(self, aperture_value=None, body_serial_number=None, brightness_value=None, cfa_pattern=None, camera_owner_name=None, color_space=None, components_configuration=None, compressed_bits_per_pixel=None, contrast=None, custom_rendered=None, date_time_digitized=None, date_time_original=None, device_setting_description=None, digital_zoom_ratio=None, exif_version=None, exposure_bias_value=None, exposure_index=None, exposure_mode=None, exposure_program=None, exposure_time=None, f_number=None, file_source=None, flash=None, flash_energy=None, flashpix_version=None, focal_length=None, focal_length_in35_mm_film=None, focal_plane_resolution_unit=None, focal_plane_x_resolution=None, focal_plane_y_resolution=None, gps_altitude=None, gps_altitude_ref=None, gps_area_information=None, gpsdop=None, gps_dest_bearing=None, gps_dest_bearing_ref=None, gps_dest_distance=None, gps_dest_distance_ref=None, gps_dest_latitude=None, gps_dest_latitude_ref=None, gps_dest_longitude=None, gps_dest_longitude_ref=None, gps_differential=None, gps_img_direction=None, gps_img_direction_ref=None, gps_date_stamp=None, gps_latitude=None, gps_latitude_ref=None, gps_longitude=None, gps_longitude_ref=None, gps_map_datum=None, gps_measure_mode=None, gps_processing_method=None, gps_satellites=None, gps_speed=None, gps_speed_ref=None, gps_status=None, gps_timestamp=None, gps_track=None, gps_track_ref=None, gps_version_id=None, gain_control=None, gamma=None, iso_speed=None, iso_speed_latitude_yyy=None, iso_speed_latitude_zzz=None, photographic_sensitivity=None, image_unique_id=None, lens_make=None, lens_model=None, lens_serial_number=None, lens_specification=None, light_source=None, maker_note_raw_data=None, max_aperture_value=None, metering_mode=None, oecf=None, pixel_x_dimension=None, pixel_y_dimension=None, recommended_exposure_index=None, related_sound_file=None, saturation=None, scene_capture_type=None, scene_type=None, sensing_method=None, sensitivity_type=None, sharpness=None, shutter_speed_value=None, spatial_frequency_response=None, spectral_sensitivity=None, standard_output_sensitivity=None, subject_area=None, subject_distance=None, subject_distance_range=None, subject_location=None, subsec_time=None, subsec_time_digitized=None, subsec_time_original=None, user_comment=None, white_balance=None, white_point=None):  # noqa: E501
-        """ExifData - a model defined in Swagger"""  # noqa: E501
+    def __init__(self, aperture_value=None, body_serial_number=None, brightness_value=None, cfa_pattern=None, camera_owner_name=None, color_space=None, components_configuration=None, compressed_bits_per_pixel=None, contrast=None, custom_rendered=None, date_time_digitized=None, date_time_original=None, device_setting_description=None, digital_zoom_ratio=None, exif_version=None, exposure_bias_value=None, exposure_index=None, exposure_mode=None, exposure_program=None, exposure_time=None, f_number=None, file_source=None, flash=None, flash_energy=None, flashpix_version=None, focal_length=None, focal_length_in35_mm_film=None, focal_plane_resolution_unit=None, focal_plane_x_resolution=None, focal_plane_y_resolution=None, gps_altitude=None, gps_altitude_ref=None, gps_area_information=None, gpsdop=None, gps_dest_bearing=None, gps_dest_bearing_ref=None, gps_dest_distance=None, gps_dest_distance_ref=None, gps_dest_latitude=None, gps_dest_latitude_ref=None, gps_dest_longitude=None, gps_dest_longitude_ref=None, gps_differential=None, gps_img_direction=None, gps_img_direction_ref=None, gps_date_stamp=None, gps_latitude=None, gps_latitude_ref=None, gps_longitude=None, gps_longitude_ref=None, gps_map_datum=None, gps_measure_mode=None, gps_processing_method=None, gps_satellites=None, gps_speed=None, gps_speed_ref=None, gps_status=None, gps_timestamp=None, gps_track=None, gps_track_ref=None, gps_version_id=None, gain_control=None, gamma=None, iso_speed=None, iso_speed_latitude_yyy=None, iso_speed_latitude_zzz=None, photographic_sensitivity=None, image_unique_id=None, lens_make=None, lens_model=None, lens_serial_number=None, lens_specification=None, light_source=None, maker_note_raw_data=None, max_aperture_value=None, metering_mode=None, oecf=None, pixel_x_dimension=None, pixel_y_dimension=None, recommended_exposure_index=None, related_sound_file=None, saturation=None, scene_capture_type=None, scene_type=None, sensing_method=None, sensitivity_type=None, sharpness=None, shutter_speed_value=None, spatial_frequency_response=None, spectral_sensitivity=None, standard_output_sensitivity=None, subject_area=None, subject_distance=None, subject_distance_range=None, subject_location=None, subsec_time=None, subsec_time_digitized=None, subsec_time_original=None, user_comment=None, white_balance=None, white_point=None):
+        """ExifData - a model defined in Swagger"""
 
         self._aperture_value = None
         self._body_serial_number = None
@@ -563,11 +562,11 @@ class ExifData(object):
 
     @property
     def aperture_value(self):
-        """Gets the aperture_value of this ExifData.  # noqa: E501
+        """Gets the aperture_value of this ExifData.
 
-        Gets or sets the aperture.  # noqa: E501
+        Gets or sets the aperture.
 
-        :return: The aperture_value of this ExifData.  # noqa: E501
+        :return: The aperture_value of this ExifData.
         :rtype: float
         """
         return self._aperture_value
@@ -576,22 +575,22 @@ class ExifData(object):
     def aperture_value(self, aperture_value):
         """Sets the aperture_value of this ExifData.
 
-        Gets or sets the aperture.  # noqa: E501
+        Gets or sets the aperture.
 
-        :param aperture_value: The aperture_value of this ExifData.  # noqa: E501
+        :param aperture_value: The aperture_value of this ExifData.
         :type: float
         """
         if aperture_value is None:
-            raise ValueError("Invalid value for `aperture_value`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `aperture_value`, must not be `None`")
         self._aperture_value = aperture_value
 
     @property
     def body_serial_number(self):
-        """Gets the body_serial_number of this ExifData.  # noqa: E501
+        """Gets the body_serial_number of this ExifData.
 
-        Gets or sets the body serial number.  # noqa: E501
+        Gets or sets the body serial number.
 
-        :return: The body_serial_number of this ExifData.  # noqa: E501
+        :return: The body_serial_number of this ExifData.
         :rtype: str
         """
         return self._body_serial_number
@@ -600,20 +599,20 @@ class ExifData(object):
     def body_serial_number(self, body_serial_number):
         """Sets the body_serial_number of this ExifData.
 
-        Gets or sets the body serial number.  # noqa: E501
+        Gets or sets the body serial number.
 
-        :param body_serial_number: The body_serial_number of this ExifData.  # noqa: E501
+        :param body_serial_number: The body_serial_number of this ExifData.
         :type: str
         """
         self._body_serial_number = body_serial_number
 
     @property
     def brightness_value(self):
-        """Gets the brightness_value of this ExifData.  # noqa: E501
+        """Gets the brightness_value of this ExifData.
 
-        Gets or sets the brightness.  # noqa: E501
+        Gets or sets the brightness.
 
-        :return: The brightness_value of this ExifData.  # noqa: E501
+        :return: The brightness_value of this ExifData.
         :rtype: float
         """
         return self._brightness_value
@@ -622,22 +621,22 @@ class ExifData(object):
     def brightness_value(self, brightness_value):
         """Sets the brightness_value of this ExifData.
 
-        Gets or sets the brightness.  # noqa: E501
+        Gets or sets the brightness.
 
-        :param brightness_value: The brightness_value of this ExifData.  # noqa: E501
+        :param brightness_value: The brightness_value of this ExifData.
         :type: float
         """
         if brightness_value is None:
-            raise ValueError("Invalid value for `brightness_value`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `brightness_value`, must not be `None`")
         self._brightness_value = brightness_value
 
     @property
     def cfa_pattern(self):
-        """Gets the cfa_pattern of this ExifData.  # noqa: E501
+        """Gets the cfa_pattern of this ExifData.
 
-        Gets or sets the CFA pattern.  # noqa: E501
+        Gets or sets the CFA pattern.
 
-        :return: The cfa_pattern of this ExifData.  # noqa: E501
+        :return: The cfa_pattern of this ExifData.
         :rtype: str
         """
         return self._cfa_pattern
@@ -646,22 +645,22 @@ class ExifData(object):
     def cfa_pattern(self, cfa_pattern):
         """Sets the cfa_pattern of this ExifData.
 
-        Gets or sets the CFA pattern.  # noqa: E501
+        Gets or sets the CFA pattern.
 
-        :param cfa_pattern: The cfa_pattern of this ExifData.  # noqa: E501
+        :param cfa_pattern: The cfa_pattern of this ExifData.
         :type: str
         """
-        if cfa_pattern is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', cfa_pattern):  # noqa: E501
-            raise ValueError("Invalid value for `cfa_pattern`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")  # noqa: E501
+        if cfa_pattern is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', cfa_pattern):
+            raise ValueError("Invalid value for `cfa_pattern`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._cfa_pattern = cfa_pattern
 
     @property
     def camera_owner_name(self):
-        """Gets the camera_owner_name of this ExifData.  # noqa: E501
+        """Gets the camera_owner_name of this ExifData.
 
-        Gets or sets the camera owner name.  # noqa: E501
+        Gets or sets the camera owner name.
 
-        :return: The camera_owner_name of this ExifData.  # noqa: E501
+        :return: The camera_owner_name of this ExifData.
         :rtype: str
         """
         return self._camera_owner_name
@@ -670,20 +669,20 @@ class ExifData(object):
     def camera_owner_name(self, camera_owner_name):
         """Sets the camera_owner_name of this ExifData.
 
-        Gets or sets the camera owner name.  # noqa: E501
+        Gets or sets the camera owner name.
 
-        :param camera_owner_name: The camera_owner_name of this ExifData.  # noqa: E501
+        :param camera_owner_name: The camera_owner_name of this ExifData.
         :type: str
         """
         self._camera_owner_name = camera_owner_name
 
     @property
     def color_space(self):
-        """Gets the color_space of this ExifData.  # noqa: E501
+        """Gets the color_space of this ExifData.
 
-        Gets or sets the color space.  # noqa: E501
+        Gets or sets the color space.
 
-        :return: The color_space of this ExifData.  # noqa: E501
+        :return: The color_space of this ExifData.
         :rtype: str
         """
         return self._color_space
@@ -692,20 +691,20 @@ class ExifData(object):
     def color_space(self, color_space):
         """Sets the color_space of this ExifData.
 
-        Gets or sets the color space.  # noqa: E501
+        Gets or sets the color space.
 
-        :param color_space: The color_space of this ExifData.  # noqa: E501
+        :param color_space: The color_space of this ExifData.
         :type: str
         """
         self._color_space = color_space
 
     @property
     def components_configuration(self):
-        """Gets the components_configuration of this ExifData.  # noqa: E501
+        """Gets the components_configuration of this ExifData.
 
-        Gets or sets the components configuration.  # noqa: E501
+        Gets or sets the components configuration.
 
-        :return: The components_configuration of this ExifData.  # noqa: E501
+        :return: The components_configuration of this ExifData.
         :rtype: str
         """
         return self._components_configuration
@@ -714,22 +713,22 @@ class ExifData(object):
     def components_configuration(self, components_configuration):
         """Sets the components_configuration of this ExifData.
 
-        Gets or sets the components configuration.  # noqa: E501
+        Gets or sets the components configuration.
 
-        :param components_configuration: The components_configuration of this ExifData.  # noqa: E501
+        :param components_configuration: The components_configuration of this ExifData.
         :type: str
         """
-        if components_configuration is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', components_configuration):  # noqa: E501
-            raise ValueError("Invalid value for `components_configuration`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")  # noqa: E501
+        if components_configuration is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', components_configuration):
+            raise ValueError("Invalid value for `components_configuration`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._components_configuration = components_configuration
 
     @property
     def compressed_bits_per_pixel(self):
-        """Gets the compressed_bits_per_pixel of this ExifData.  # noqa: E501
+        """Gets the compressed_bits_per_pixel of this ExifData.
 
-        Gets or sets the compressed bits per pixel.  # noqa: E501
+        Gets or sets the compressed bits per pixel.
 
-        :return: The compressed_bits_per_pixel of this ExifData.  # noqa: E501
+        :return: The compressed_bits_per_pixel of this ExifData.
         :rtype: float
         """
         return self._compressed_bits_per_pixel
@@ -738,22 +737,22 @@ class ExifData(object):
     def compressed_bits_per_pixel(self, compressed_bits_per_pixel):
         """Sets the compressed_bits_per_pixel of this ExifData.
 
-        Gets or sets the compressed bits per pixel.  # noqa: E501
+        Gets or sets the compressed bits per pixel.
 
-        :param compressed_bits_per_pixel: The compressed_bits_per_pixel of this ExifData.  # noqa: E501
+        :param compressed_bits_per_pixel: The compressed_bits_per_pixel of this ExifData.
         :type: float
         """
         if compressed_bits_per_pixel is None:
-            raise ValueError("Invalid value for `compressed_bits_per_pixel`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `compressed_bits_per_pixel`, must not be `None`")
         self._compressed_bits_per_pixel = compressed_bits_per_pixel
 
     @property
     def contrast(self):
-        """Gets the contrast of this ExifData.  # noqa: E501
+        """Gets the contrast of this ExifData.
 
-        Gets or sets the contrast.  # noqa: E501
+        Gets or sets the contrast.
 
-        :return: The contrast of this ExifData.  # noqa: E501
+        :return: The contrast of this ExifData.
         :rtype: str
         """
         return self._contrast
@@ -762,20 +761,20 @@ class ExifData(object):
     def contrast(self, contrast):
         """Sets the contrast of this ExifData.
 
-        Gets or sets the contrast.  # noqa: E501
+        Gets or sets the contrast.
 
-        :param contrast: The contrast of this ExifData.  # noqa: E501
+        :param contrast: The contrast of this ExifData.
         :type: str
         """
         self._contrast = contrast
 
     @property
     def custom_rendered(self):
-        """Gets the custom_rendered of this ExifData.  # noqa: E501
+        """Gets the custom_rendered of this ExifData.
 
-        Gets or sets the value indincating if custom rendering is performed.  # noqa: E501
+        Gets or sets the value indincating if custom rendering is performed.
 
-        :return: The custom_rendered of this ExifData.  # noqa: E501
+        :return: The custom_rendered of this ExifData.
         :rtype: str
         """
         return self._custom_rendered
@@ -784,20 +783,20 @@ class ExifData(object):
     def custom_rendered(self, custom_rendered):
         """Sets the custom_rendered of this ExifData.
 
-        Gets or sets the value indincating if custom rendering is performed.  # noqa: E501
+        Gets or sets the value indincating if custom rendering is performed.
 
-        :param custom_rendered: The custom_rendered of this ExifData.  # noqa: E501
+        :param custom_rendered: The custom_rendered of this ExifData.
         :type: str
         """
         self._custom_rendered = custom_rendered
 
     @property
     def date_time_digitized(self):
-        """Gets the date_time_digitized of this ExifData.  # noqa: E501
+        """Gets the date_time_digitized of this ExifData.
 
-        Gets or sets date and time when image was digitized.  # noqa: E501
+        Gets or sets date and time when image was digitized.
 
-        :return: The date_time_digitized of this ExifData.  # noqa: E501
+        :return: The date_time_digitized of this ExifData.
         :rtype: str
         """
         return self._date_time_digitized
@@ -806,20 +805,20 @@ class ExifData(object):
     def date_time_digitized(self, date_time_digitized):
         """Sets the date_time_digitized of this ExifData.
 
-        Gets or sets date and time when image was digitized.  # noqa: E501
+        Gets or sets date and time when image was digitized.
 
-        :param date_time_digitized: The date_time_digitized of this ExifData.  # noqa: E501
+        :param date_time_digitized: The date_time_digitized of this ExifData.
         :type: str
         """
         self._date_time_digitized = date_time_digitized
 
     @property
     def date_time_original(self):
-        """Gets the date_time_original of this ExifData.  # noqa: E501
+        """Gets the date_time_original of this ExifData.
 
-        Gets or sets date and time of the original image.  # noqa: E501
+        Gets or sets date and time of the original image.
 
-        :return: The date_time_original of this ExifData.  # noqa: E501
+        :return: The date_time_original of this ExifData.
         :rtype: str
         """
         return self._date_time_original
@@ -828,20 +827,20 @@ class ExifData(object):
     def date_time_original(self, date_time_original):
         """Sets the date_time_original of this ExifData.
 
-        Gets or sets date and time of the original image.  # noqa: E501
+        Gets or sets date and time of the original image.
 
-        :param date_time_original: The date_time_original of this ExifData.  # noqa: E501
+        :param date_time_original: The date_time_original of this ExifData.
         :type: str
         """
         self._date_time_original = date_time_original
 
     @property
     def device_setting_description(self):
-        """Gets the device_setting_description of this ExifData.  # noqa: E501
+        """Gets the device_setting_description of this ExifData.
 
-        Gets or sets the device setting description.  # noqa: E501
+        Gets or sets the device setting description.
 
-        :return: The device_setting_description of this ExifData.  # noqa: E501
+        :return: The device_setting_description of this ExifData.
         :rtype: str
         """
         return self._device_setting_description
@@ -850,22 +849,22 @@ class ExifData(object):
     def device_setting_description(self, device_setting_description):
         """Sets the device_setting_description of this ExifData.
 
-        Gets or sets the device setting description.  # noqa: E501
+        Gets or sets the device setting description.
 
-        :param device_setting_description: The device_setting_description of this ExifData.  # noqa: E501
+        :param device_setting_description: The device_setting_description of this ExifData.
         :type: str
         """
-        if device_setting_description is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', device_setting_description):  # noqa: E501
-            raise ValueError("Invalid value for `device_setting_description`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")  # noqa: E501
+        if device_setting_description is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', device_setting_description):
+            raise ValueError("Invalid value for `device_setting_description`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._device_setting_description = device_setting_description
 
     @property
     def digital_zoom_ratio(self):
-        """Gets the digital_zoom_ratio of this ExifData.  # noqa: E501
+        """Gets the digital_zoom_ratio of this ExifData.
 
-        Gets or sets the digital zoom ratio.  # noqa: E501
+        Gets or sets the digital zoom ratio.
 
-        :return: The digital_zoom_ratio of this ExifData.  # noqa: E501
+        :return: The digital_zoom_ratio of this ExifData.
         :rtype: float
         """
         return self._digital_zoom_ratio
@@ -874,22 +873,22 @@ class ExifData(object):
     def digital_zoom_ratio(self, digital_zoom_ratio):
         """Sets the digital_zoom_ratio of this ExifData.
 
-        Gets or sets the digital zoom ratio.  # noqa: E501
+        Gets or sets the digital zoom ratio.
 
-        :param digital_zoom_ratio: The digital_zoom_ratio of this ExifData.  # noqa: E501
+        :param digital_zoom_ratio: The digital_zoom_ratio of this ExifData.
         :type: float
         """
         if digital_zoom_ratio is None:
-            raise ValueError("Invalid value for `digital_zoom_ratio`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `digital_zoom_ratio`, must not be `None`")
         self._digital_zoom_ratio = digital_zoom_ratio
 
     @property
     def exif_version(self):
-        """Gets the exif_version of this ExifData.  # noqa: E501
+        """Gets the exif_version of this ExifData.
 
-        Gets or sets EXIF version.  # noqa: E501
+        Gets or sets EXIF version.
 
-        :return: The exif_version of this ExifData.  # noqa: E501
+        :return: The exif_version of this ExifData.
         :rtype: str
         """
         return self._exif_version
@@ -898,22 +897,22 @@ class ExifData(object):
     def exif_version(self, exif_version):
         """Sets the exif_version of this ExifData.
 
-        Gets or sets EXIF version.  # noqa: E501
+        Gets or sets EXIF version.
 
-        :param exif_version: The exif_version of this ExifData.  # noqa: E501
+        :param exif_version: The exif_version of this ExifData.
         :type: str
         """
-        if exif_version is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', exif_version):  # noqa: E501
-            raise ValueError("Invalid value for `exif_version`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")  # noqa: E501
+        if exif_version is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', exif_version):
+            raise ValueError("Invalid value for `exif_version`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._exif_version = exif_version
 
     @property
     def exposure_bias_value(self):
-        """Gets the exposure_bias_value of this ExifData.  # noqa: E501
+        """Gets the exposure_bias_value of this ExifData.
 
-        Gets or sets the exposure bias.  # noqa: E501
+        Gets or sets the exposure bias.
 
-        :return: The exposure_bias_value of this ExifData.  # noqa: E501
+        :return: The exposure_bias_value of this ExifData.
         :rtype: float
         """
         return self._exposure_bias_value
@@ -922,22 +921,22 @@ class ExifData(object):
     def exposure_bias_value(self, exposure_bias_value):
         """Sets the exposure_bias_value of this ExifData.
 
-        Gets or sets the exposure bias.  # noqa: E501
+        Gets or sets the exposure bias.
 
-        :param exposure_bias_value: The exposure_bias_value of this ExifData.  # noqa: E501
+        :param exposure_bias_value: The exposure_bias_value of this ExifData.
         :type: float
         """
         if exposure_bias_value is None:
-            raise ValueError("Invalid value for `exposure_bias_value`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `exposure_bias_value`, must not be `None`")
         self._exposure_bias_value = exposure_bias_value
 
     @property
     def exposure_index(self):
-        """Gets the exposure_index of this ExifData.  # noqa: E501
+        """Gets the exposure_index of this ExifData.
 
-        Gets or sets the exposure index.  # noqa: E501
+        Gets or sets the exposure index.
 
-        :return: The exposure_index of this ExifData.  # noqa: E501
+        :return: The exposure_index of this ExifData.
         :rtype: float
         """
         return self._exposure_index
@@ -946,22 +945,22 @@ class ExifData(object):
     def exposure_index(self, exposure_index):
         """Sets the exposure_index of this ExifData.
 
-        Gets or sets the exposure index.  # noqa: E501
+        Gets or sets the exposure index.
 
-        :param exposure_index: The exposure_index of this ExifData.  # noqa: E501
+        :param exposure_index: The exposure_index of this ExifData.
         :type: float
         """
         if exposure_index is None:
-            raise ValueError("Invalid value for `exposure_index`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `exposure_index`, must not be `None`")
         self._exposure_index = exposure_index
 
     @property
     def exposure_mode(self):
-        """Gets the exposure_mode of this ExifData.  # noqa: E501
+        """Gets the exposure_mode of this ExifData.
 
-        Gets or sets the exposure mode.  # noqa: E501
+        Gets or sets the exposure mode.
 
-        :return: The exposure_mode of this ExifData.  # noqa: E501
+        :return: The exposure_mode of this ExifData.
         :rtype: str
         """
         return self._exposure_mode
@@ -970,20 +969,20 @@ class ExifData(object):
     def exposure_mode(self, exposure_mode):
         """Sets the exposure_mode of this ExifData.
 
-        Gets or sets the exposure mode.  # noqa: E501
+        Gets or sets the exposure mode.
 
-        :param exposure_mode: The exposure_mode of this ExifData.  # noqa: E501
+        :param exposure_mode: The exposure_mode of this ExifData.
         :type: str
         """
         self._exposure_mode = exposure_mode
 
     @property
     def exposure_program(self):
-        """Gets the exposure_program of this ExifData.  # noqa: E501
+        """Gets the exposure_program of this ExifData.
 
-        Gets or sets the exposure program.  # noqa: E501
+        Gets or sets the exposure program.
 
-        :return: The exposure_program of this ExifData.  # noqa: E501
+        :return: The exposure_program of this ExifData.
         :rtype: str
         """
         return self._exposure_program
@@ -992,20 +991,20 @@ class ExifData(object):
     def exposure_program(self, exposure_program):
         """Sets the exposure_program of this ExifData.
 
-        Gets or sets the exposure program.  # noqa: E501
+        Gets or sets the exposure program.
 
-        :param exposure_program: The exposure_program of this ExifData.  # noqa: E501
+        :param exposure_program: The exposure_program of this ExifData.
         :type: str
         """
         self._exposure_program = exposure_program
 
     @property
     def exposure_time(self):
-        """Gets the exposure_time of this ExifData.  # noqa: E501
+        """Gets the exposure_time of this ExifData.
 
-        Gets or sets the exposure time.  # noqa: E501
+        Gets or sets the exposure time.
 
-        :return: The exposure_time of this ExifData.  # noqa: E501
+        :return: The exposure_time of this ExifData.
         :rtype: float
         """
         return self._exposure_time
@@ -1014,22 +1013,22 @@ class ExifData(object):
     def exposure_time(self, exposure_time):
         """Sets the exposure_time of this ExifData.
 
-        Gets or sets the exposure time.  # noqa: E501
+        Gets or sets the exposure time.
 
-        :param exposure_time: The exposure_time of this ExifData.  # noqa: E501
+        :param exposure_time: The exposure_time of this ExifData.
         :type: float
         """
         if exposure_time is None:
-            raise ValueError("Invalid value for `exposure_time`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `exposure_time`, must not be `None`")
         self._exposure_time = exposure_time
 
     @property
     def f_number(self):
-        """Gets the f_number of this ExifData.  # noqa: E501
+        """Gets the f_number of this ExifData.
 
-        Gets or sets the focal number.  # noqa: E501
+        Gets or sets the focal number.
 
-        :return: The f_number of this ExifData.  # noqa: E501
+        :return: The f_number of this ExifData.
         :rtype: float
         """
         return self._f_number
@@ -1038,22 +1037,22 @@ class ExifData(object):
     def f_number(self, f_number):
         """Sets the f_number of this ExifData.
 
-        Gets or sets the focal number.  # noqa: E501
+        Gets or sets the focal number.
 
-        :param f_number: The f_number of this ExifData.  # noqa: E501
+        :param f_number: The f_number of this ExifData.
         :type: float
         """
         if f_number is None:
-            raise ValueError("Invalid value for `f_number`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `f_number`, must not be `None`")
         self._f_number = f_number
 
     @property
     def file_source(self):
-        """Gets the file_source of this ExifData.  # noqa: E501
+        """Gets the file_source of this ExifData.
 
-        Gets or sets the file source.  # noqa: E501
+        Gets or sets the file source.
 
-        :return: The file_source of this ExifData.  # noqa: E501
+        :return: The file_source of this ExifData.
         :rtype: str
         """
         return self._file_source
@@ -1062,20 +1061,20 @@ class ExifData(object):
     def file_source(self, file_source):
         """Sets the file_source of this ExifData.
 
-        Gets or sets the file source.  # noqa: E501
+        Gets or sets the file source.
 
-        :param file_source: The file_source of this ExifData.  # noqa: E501
+        :param file_source: The file_source of this ExifData.
         :type: str
         """
         self._file_source = file_source
 
     @property
     def flash(self):
-        """Gets the flash of this ExifData.  # noqa: E501
+        """Gets the flash of this ExifData.
 
-        Gets or sets the flash.  # noqa: E501
+        Gets or sets the flash.
 
-        :return: The flash of this ExifData.  # noqa: E501
+        :return: The flash of this ExifData.
         :rtype: str
         """
         return self._flash
@@ -1084,20 +1083,20 @@ class ExifData(object):
     def flash(self, flash):
         """Sets the flash of this ExifData.
 
-        Gets or sets the flash.  # noqa: E501
+        Gets or sets the flash.
 
-        :param flash: The flash of this ExifData.  # noqa: E501
+        :param flash: The flash of this ExifData.
         :type: str
         """
         self._flash = flash
 
     @property
     def flash_energy(self):
-        """Gets the flash_energy of this ExifData.  # noqa: E501
+        """Gets the flash_energy of this ExifData.
 
-        Gets or sets the flash energy.  # noqa: E501
+        Gets or sets the flash energy.
 
-        :return: The flash_energy of this ExifData.  # noqa: E501
+        :return: The flash_energy of this ExifData.
         :rtype: float
         """
         return self._flash_energy
@@ -1106,22 +1105,22 @@ class ExifData(object):
     def flash_energy(self, flash_energy):
         """Sets the flash_energy of this ExifData.
 
-        Gets or sets the flash energy.  # noqa: E501
+        Gets or sets the flash energy.
 
-        :param flash_energy: The flash_energy of this ExifData.  # noqa: E501
+        :param flash_energy: The flash_energy of this ExifData.
         :type: float
         """
         if flash_energy is None:
-            raise ValueError("Invalid value for `flash_energy`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `flash_energy`, must not be `None`")
         self._flash_energy = flash_energy
 
     @property
     def flashpix_version(self):
-        """Gets the flashpix_version of this ExifData.  # noqa: E501
+        """Gets the flashpix_version of this ExifData.
 
-        Gets or sets the Flashpix version.  # noqa: E501
+        Gets or sets the Flashpix version.
 
-        :return: The flashpix_version of this ExifData.  # noqa: E501
+        :return: The flashpix_version of this ExifData.
         :rtype: str
         """
         return self._flashpix_version
@@ -1130,22 +1129,22 @@ class ExifData(object):
     def flashpix_version(self, flashpix_version):
         """Sets the flashpix_version of this ExifData.
 
-        Gets or sets the Flashpix version.  # noqa: E501
+        Gets or sets the Flashpix version.
 
-        :param flashpix_version: The flashpix_version of this ExifData.  # noqa: E501
+        :param flashpix_version: The flashpix_version of this ExifData.
         :type: str
         """
-        if flashpix_version is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', flashpix_version):  # noqa: E501
-            raise ValueError("Invalid value for `flashpix_version`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")  # noqa: E501
+        if flashpix_version is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', flashpix_version):
+            raise ValueError("Invalid value for `flashpix_version`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._flashpix_version = flashpix_version
 
     @property
     def focal_length(self):
-        """Gets the focal_length of this ExifData.  # noqa: E501
+        """Gets the focal_length of this ExifData.
 
-        Gets or sets the focal length.  # noqa: E501
+        Gets or sets the focal length.
 
-        :return: The focal_length of this ExifData.  # noqa: E501
+        :return: The focal_length of this ExifData.
         :rtype: float
         """
         return self._focal_length
@@ -1154,22 +1153,22 @@ class ExifData(object):
     def focal_length(self, focal_length):
         """Sets the focal_length of this ExifData.
 
-        Gets or sets the focal length.  # noqa: E501
+        Gets or sets the focal length.
 
-        :param focal_length: The focal_length of this ExifData.  # noqa: E501
+        :param focal_length: The focal_length of this ExifData.
         :type: float
         """
         if focal_length is None:
-            raise ValueError("Invalid value for `focal_length`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `focal_length`, must not be `None`")
         self._focal_length = focal_length
 
     @property
     def focal_length_in35_mm_film(self):
-        """Gets the focal_length_in35_mm_film of this ExifData.  # noqa: E501
+        """Gets the focal_length_in35_mm_film of this ExifData.
 
-        Gets or sets the focal length in 35mm film.  # noqa: E501
+        Gets or sets the focal length in 35mm film.
 
-        :return: The focal_length_in35_mm_film of this ExifData.  # noqa: E501
+        :return: The focal_length_in35_mm_film of this ExifData.
         :rtype: int
         """
         return self._focal_length_in35_mm_film
@@ -1178,22 +1177,22 @@ class ExifData(object):
     def focal_length_in35_mm_film(self, focal_length_in35_mm_film):
         """Sets the focal_length_in35_mm_film of this ExifData.
 
-        Gets or sets the focal length in 35mm film.  # noqa: E501
+        Gets or sets the focal length in 35mm film.
 
-        :param focal_length_in35_mm_film: The focal_length_in35_mm_film of this ExifData.  # noqa: E501
+        :param focal_length_in35_mm_film: The focal_length_in35_mm_film of this ExifData.
         :type: int
         """
         if focal_length_in35_mm_film is None:
-            raise ValueError("Invalid value for `focal_length_in35_mm_film`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `focal_length_in35_mm_film`, must not be `None`")
         self._focal_length_in35_mm_film = focal_length_in35_mm_film
 
     @property
     def focal_plane_resolution_unit(self):
-        """Gets the focal_plane_resolution_unit of this ExifData.  # noqa: E501
+        """Gets the focal_plane_resolution_unit of this ExifData.
 
-        Gets or sets the focal plane resolution unit.  # noqa: E501
+        Gets or sets the focal plane resolution unit.
 
-        :return: The focal_plane_resolution_unit of this ExifData.  # noqa: E501
+        :return: The focal_plane_resolution_unit of this ExifData.
         :rtype: str
         """
         return self._focal_plane_resolution_unit
@@ -1202,20 +1201,20 @@ class ExifData(object):
     def focal_plane_resolution_unit(self, focal_plane_resolution_unit):
         """Sets the focal_plane_resolution_unit of this ExifData.
 
-        Gets or sets the focal plane resolution unit.  # noqa: E501
+        Gets or sets the focal plane resolution unit.
 
-        :param focal_plane_resolution_unit: The focal_plane_resolution_unit of this ExifData.  # noqa: E501
+        :param focal_plane_resolution_unit: The focal_plane_resolution_unit of this ExifData.
         :type: str
         """
         self._focal_plane_resolution_unit = focal_plane_resolution_unit
 
     @property
     def focal_plane_x_resolution(self):
-        """Gets the focal_plane_x_resolution of this ExifData.  # noqa: E501
+        """Gets the focal_plane_x_resolution of this ExifData.
 
-        Gets or sets the focal plane X resolution.  # noqa: E501
+        Gets or sets the focal plane X resolution.
 
-        :return: The focal_plane_x_resolution of this ExifData.  # noqa: E501
+        :return: The focal_plane_x_resolution of this ExifData.
         :rtype: float
         """
         return self._focal_plane_x_resolution
@@ -1224,22 +1223,22 @@ class ExifData(object):
     def focal_plane_x_resolution(self, focal_plane_x_resolution):
         """Sets the focal_plane_x_resolution of this ExifData.
 
-        Gets or sets the focal plane X resolution.  # noqa: E501
+        Gets or sets the focal plane X resolution.
 
-        :param focal_plane_x_resolution: The focal_plane_x_resolution of this ExifData.  # noqa: E501
+        :param focal_plane_x_resolution: The focal_plane_x_resolution of this ExifData.
         :type: float
         """
         if focal_plane_x_resolution is None:
-            raise ValueError("Invalid value for `focal_plane_x_resolution`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `focal_plane_x_resolution`, must not be `None`")
         self._focal_plane_x_resolution = focal_plane_x_resolution
 
     @property
     def focal_plane_y_resolution(self):
-        """Gets the focal_plane_y_resolution of this ExifData.  # noqa: E501
+        """Gets the focal_plane_y_resolution of this ExifData.
 
-        Gets or sets the focal plane Y resolution.  # noqa: E501
+        Gets or sets the focal plane Y resolution.
 
-        :return: The focal_plane_y_resolution of this ExifData.  # noqa: E501
+        :return: The focal_plane_y_resolution of this ExifData.
         :rtype: float
         """
         return self._focal_plane_y_resolution
@@ -1248,22 +1247,22 @@ class ExifData(object):
     def focal_plane_y_resolution(self, focal_plane_y_resolution):
         """Sets the focal_plane_y_resolution of this ExifData.
 
-        Gets or sets the focal plane Y resolution.  # noqa: E501
+        Gets or sets the focal plane Y resolution.
 
-        :param focal_plane_y_resolution: The focal_plane_y_resolution of this ExifData.  # noqa: E501
+        :param focal_plane_y_resolution: The focal_plane_y_resolution of this ExifData.
         :type: float
         """
         if focal_plane_y_resolution is None:
-            raise ValueError("Invalid value for `focal_plane_y_resolution`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `focal_plane_y_resolution`, must not be `None`")
         self._focal_plane_y_resolution = focal_plane_y_resolution
 
     @property
     def gps_altitude(self):
-        """Gets the gps_altitude of this ExifData.  # noqa: E501
+        """Gets the gps_altitude of this ExifData.
 
-        Gets or sets the GPS altitude.  # noqa: E501
+        Gets or sets the GPS altitude.
 
-        :return: The gps_altitude of this ExifData.  # noqa: E501
+        :return: The gps_altitude of this ExifData.
         :rtype: float
         """
         return self._gps_altitude
@@ -1272,22 +1271,22 @@ class ExifData(object):
     def gps_altitude(self, gps_altitude):
         """Sets the gps_altitude of this ExifData.
 
-        Gets or sets the GPS altitude.  # noqa: E501
+        Gets or sets the GPS altitude.
 
-        :param gps_altitude: The gps_altitude of this ExifData.  # noqa: E501
+        :param gps_altitude: The gps_altitude of this ExifData.
         :type: float
         """
         if gps_altitude is None:
-            raise ValueError("Invalid value for `gps_altitude`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `gps_altitude`, must not be `None`")
         self._gps_altitude = gps_altitude
 
     @property
     def gps_altitude_ref(self):
-        """Gets the gps_altitude_ref of this ExifData.  # noqa: E501
+        """Gets the gps_altitude_ref of this ExifData.
 
-        Gets or sets the GPS altitude reference (if it's above or below sea level).  # noqa: E501
+        Gets or sets the GPS altitude reference (if it's above or below sea level).
 
-        :return: The gps_altitude_ref of this ExifData.  # noqa: E501
+        :return: The gps_altitude_ref of this ExifData.
         :rtype: str
         """
         return self._gps_altitude_ref
@@ -1296,20 +1295,20 @@ class ExifData(object):
     def gps_altitude_ref(self, gps_altitude_ref):
         """Sets the gps_altitude_ref of this ExifData.
 
-        Gets or sets the GPS altitude reference (if it's above or below sea level).  # noqa: E501
+        Gets or sets the GPS altitude reference (if it's above or below sea level).
 
-        :param gps_altitude_ref: The gps_altitude_ref of this ExifData.  # noqa: E501
+        :param gps_altitude_ref: The gps_altitude_ref of this ExifData.
         :type: str
         """
         self._gps_altitude_ref = gps_altitude_ref
 
     @property
     def gps_area_information(self):
-        """Gets the gps_area_information of this ExifData.  # noqa: E501
+        """Gets the gps_area_information of this ExifData.
 
-        Gets or sets the GPS area information.  # noqa: E501
+        Gets or sets the GPS area information.
 
-        :return: The gps_area_information of this ExifData.  # noqa: E501
+        :return: The gps_area_information of this ExifData.
         :rtype: str
         """
         return self._gps_area_information
@@ -1318,22 +1317,22 @@ class ExifData(object):
     def gps_area_information(self, gps_area_information):
         """Sets the gps_area_information of this ExifData.
 
-        Gets or sets the GPS area information.  # noqa: E501
+        Gets or sets the GPS area information.
 
-        :param gps_area_information: The gps_area_information of this ExifData.  # noqa: E501
+        :param gps_area_information: The gps_area_information of this ExifData.
         :type: str
         """
-        if gps_area_information is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', gps_area_information):  # noqa: E501
-            raise ValueError("Invalid value for `gps_area_information`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")  # noqa: E501
+        if gps_area_information is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', gps_area_information):
+            raise ValueError("Invalid value for `gps_area_information`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._gps_area_information = gps_area_information
 
     @property
     def gpsdop(self):
-        """Gets the gpsdop of this ExifData.  # noqa: E501
+        """Gets the gpsdop of this ExifData.
 
-        Gets or sets the GPS DOP (data degree of precision).  # noqa: E501
+        Gets or sets the GPS DOP (data degree of precision).
 
-        :return: The gpsdop of this ExifData.  # noqa: E501
+        :return: The gpsdop of this ExifData.
         :rtype: float
         """
         return self._gpsdop
@@ -1342,22 +1341,22 @@ class ExifData(object):
     def gpsdop(self, gpsdop):
         """Sets the gpsdop of this ExifData.
 
-        Gets or sets the GPS DOP (data degree of precision).  # noqa: E501
+        Gets or sets the GPS DOP (data degree of precision).
 
-        :param gpsdop: The gpsdop of this ExifData.  # noqa: E501
+        :param gpsdop: The gpsdop of this ExifData.
         :type: float
         """
         if gpsdop is None:
-            raise ValueError("Invalid value for `gpsdop`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `gpsdop`, must not be `None`")
         self._gpsdop = gpsdop
 
     @property
     def gps_dest_bearing(self):
-        """Gets the gps_dest_bearing of this ExifData.  # noqa: E501
+        """Gets the gps_dest_bearing of this ExifData.
 
-        Gets or sets the GPS bearing of the destination.  # noqa: E501
+        Gets or sets the GPS bearing of the destination.
 
-        :return: The gps_dest_bearing of this ExifData.  # noqa: E501
+        :return: The gps_dest_bearing of this ExifData.
         :rtype: float
         """
         return self._gps_dest_bearing
@@ -1366,22 +1365,22 @@ class ExifData(object):
     def gps_dest_bearing(self, gps_dest_bearing):
         """Sets the gps_dest_bearing of this ExifData.
 
-        Gets or sets the GPS bearing of the destination.  # noqa: E501
+        Gets or sets the GPS bearing of the destination.
 
-        :param gps_dest_bearing: The gps_dest_bearing of this ExifData.  # noqa: E501
+        :param gps_dest_bearing: The gps_dest_bearing of this ExifData.
         :type: float
         """
         if gps_dest_bearing is None:
-            raise ValueError("Invalid value for `gps_dest_bearing`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `gps_dest_bearing`, must not be `None`")
         self._gps_dest_bearing = gps_dest_bearing
 
     @property
     def gps_dest_bearing_ref(self):
-        """Gets the gps_dest_bearing_ref of this ExifData.  # noqa: E501
+        """Gets the gps_dest_bearing_ref of this ExifData.
 
-        Gets or sets the GPS reference unit for bearing of the destination.  # noqa: E501
+        Gets or sets the GPS reference unit for bearing of the destination.
 
-        :return: The gps_dest_bearing_ref of this ExifData.  # noqa: E501
+        :return: The gps_dest_bearing_ref of this ExifData.
         :rtype: str
         """
         return self._gps_dest_bearing_ref
@@ -1390,20 +1389,20 @@ class ExifData(object):
     def gps_dest_bearing_ref(self, gps_dest_bearing_ref):
         """Sets the gps_dest_bearing_ref of this ExifData.
 
-        Gets or sets the GPS reference unit for bearing of the destination.  # noqa: E501
+        Gets or sets the GPS reference unit for bearing of the destination.
 
-        :param gps_dest_bearing_ref: The gps_dest_bearing_ref of this ExifData.  # noqa: E501
+        :param gps_dest_bearing_ref: The gps_dest_bearing_ref of this ExifData.
         :type: str
         """
         self._gps_dest_bearing_ref = gps_dest_bearing_ref
 
     @property
     def gps_dest_distance(self):
-        """Gets the gps_dest_distance of this ExifData.  # noqa: E501
+        """Gets the gps_dest_distance of this ExifData.
 
-        Gets or sets the GPS destination distance.  # noqa: E501
+        Gets or sets the GPS destination distance.
 
-        :return: The gps_dest_distance of this ExifData.  # noqa: E501
+        :return: The gps_dest_distance of this ExifData.
         :rtype: float
         """
         return self._gps_dest_distance
@@ -1412,22 +1411,22 @@ class ExifData(object):
     def gps_dest_distance(self, gps_dest_distance):
         """Sets the gps_dest_distance of this ExifData.
 
-        Gets or sets the GPS destination distance.  # noqa: E501
+        Gets or sets the GPS destination distance.
 
-        :param gps_dest_distance: The gps_dest_distance of this ExifData.  # noqa: E501
+        :param gps_dest_distance: The gps_dest_distance of this ExifData.
         :type: float
         """
         if gps_dest_distance is None:
-            raise ValueError("Invalid value for `gps_dest_distance`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `gps_dest_distance`, must not be `None`")
         self._gps_dest_distance = gps_dest_distance
 
     @property
     def gps_dest_distance_ref(self):
-        """Gets the gps_dest_distance_ref of this ExifData.  # noqa: E501
+        """Gets the gps_dest_distance_ref of this ExifData.
 
-        Gets or sets the GPS reference unit for destination distance.  # noqa: E501
+        Gets or sets the GPS reference unit for destination distance.
 
-        :return: The gps_dest_distance_ref of this ExifData.  # noqa: E501
+        :return: The gps_dest_distance_ref of this ExifData.
         :rtype: str
         """
         return self._gps_dest_distance_ref
@@ -1436,20 +1435,20 @@ class ExifData(object):
     def gps_dest_distance_ref(self, gps_dest_distance_ref):
         """Sets the gps_dest_distance_ref of this ExifData.
 
-        Gets or sets the GPS reference unit for destination distance.  # noqa: E501
+        Gets or sets the GPS reference unit for destination distance.
 
-        :param gps_dest_distance_ref: The gps_dest_distance_ref of this ExifData.  # noqa: E501
+        :param gps_dest_distance_ref: The gps_dest_distance_ref of this ExifData.
         :type: str
         """
         self._gps_dest_distance_ref = gps_dest_distance_ref
 
     @property
     def gps_dest_latitude(self):
-        """Gets the gps_dest_latitude of this ExifData.  # noqa: E501
+        """Gets the gps_dest_latitude of this ExifData.
 
-        Gets or sets the GPS destination latitude.  # noqa: E501
+        Gets or sets the GPS destination latitude.
 
-        :return: The gps_dest_latitude of this ExifData.  # noqa: E501
+        :return: The gps_dest_latitude of this ExifData.
         :rtype: list[float]
         """
         return self._gps_dest_latitude
@@ -1458,20 +1457,20 @@ class ExifData(object):
     def gps_dest_latitude(self, gps_dest_latitude):
         """Sets the gps_dest_latitude of this ExifData.
 
-        Gets or sets the GPS destination latitude.  # noqa: E501
+        Gets or sets the GPS destination latitude.
 
-        :param gps_dest_latitude: The gps_dest_latitude of this ExifData.  # noqa: E501
+        :param gps_dest_latitude: The gps_dest_latitude of this ExifData.
         :type: list[float]
         """
         self._gps_dest_latitude = gps_dest_latitude
 
     @property
     def gps_dest_latitude_ref(self):
-        """Gets the gps_dest_latitude_ref of this ExifData.  # noqa: E501
+        """Gets the gps_dest_latitude_ref of this ExifData.
 
-        Gets or sets the GPS reference destination latitude (north or south).  # noqa: E501
+        Gets or sets the GPS reference destination latitude (north or south).
 
-        :return: The gps_dest_latitude_ref of this ExifData.  # noqa: E501
+        :return: The gps_dest_latitude_ref of this ExifData.
         :rtype: str
         """
         return self._gps_dest_latitude_ref
@@ -1480,20 +1479,20 @@ class ExifData(object):
     def gps_dest_latitude_ref(self, gps_dest_latitude_ref):
         """Sets the gps_dest_latitude_ref of this ExifData.
 
-        Gets or sets the GPS reference destination latitude (north or south).  # noqa: E501
+        Gets or sets the GPS reference destination latitude (north or south).
 
-        :param gps_dest_latitude_ref: The gps_dest_latitude_ref of this ExifData.  # noqa: E501
+        :param gps_dest_latitude_ref: The gps_dest_latitude_ref of this ExifData.
         :type: str
         """
         self._gps_dest_latitude_ref = gps_dest_latitude_ref
 
     @property
     def gps_dest_longitude(self):
-        """Gets the gps_dest_longitude of this ExifData.  # noqa: E501
+        """Gets the gps_dest_longitude of this ExifData.
 
-        Gets or sets the GPS destination longtitude.  # noqa: E501
+        Gets or sets the GPS destination longtitude.
 
-        :return: The gps_dest_longitude of this ExifData.  # noqa: E501
+        :return: The gps_dest_longitude of this ExifData.
         :rtype: list[float]
         """
         return self._gps_dest_longitude
@@ -1502,20 +1501,20 @@ class ExifData(object):
     def gps_dest_longitude(self, gps_dest_longitude):
         """Sets the gps_dest_longitude of this ExifData.
 
-        Gets or sets the GPS destination longtitude.  # noqa: E501
+        Gets or sets the GPS destination longtitude.
 
-        :param gps_dest_longitude: The gps_dest_longitude of this ExifData.  # noqa: E501
+        :param gps_dest_longitude: The gps_dest_longitude of this ExifData.
         :type: list[float]
         """
         self._gps_dest_longitude = gps_dest_longitude
 
     @property
     def gps_dest_longitude_ref(self):
-        """Gets the gps_dest_longitude_ref of this ExifData.  # noqa: E501
+        """Gets the gps_dest_longitude_ref of this ExifData.
 
-        Gets or sets the GPS reference destination longtitude (east or west).  # noqa: E501
+        Gets or sets the GPS reference destination longtitude (east or west).
 
-        :return: The gps_dest_longitude_ref of this ExifData.  # noqa: E501
+        :return: The gps_dest_longitude_ref of this ExifData.
         :rtype: str
         """
         return self._gps_dest_longitude_ref
@@ -1524,20 +1523,20 @@ class ExifData(object):
     def gps_dest_longitude_ref(self, gps_dest_longitude_ref):
         """Sets the gps_dest_longitude_ref of this ExifData.
 
-        Gets or sets the GPS reference destination longtitude (east or west).  # noqa: E501
+        Gets or sets the GPS reference destination longtitude (east or west).
 
-        :param gps_dest_longitude_ref: The gps_dest_longitude_ref of this ExifData.  # noqa: E501
+        :param gps_dest_longitude_ref: The gps_dest_longitude_ref of this ExifData.
         :type: str
         """
         self._gps_dest_longitude_ref = gps_dest_longitude_ref
 
     @property
     def gps_differential(self):
-        """Gets the gps_differential of this ExifData.  # noqa: E501
+        """Gets the gps_differential of this ExifData.
 
-        Gets or sets the GPS differential.  # noqa: E501
+        Gets or sets the GPS differential.
 
-        :return: The gps_differential of this ExifData.  # noqa: E501
+        :return: The gps_differential of this ExifData.
         :rtype: int
         """
         return self._gps_differential
@@ -1546,22 +1545,22 @@ class ExifData(object):
     def gps_differential(self, gps_differential):
         """Sets the gps_differential of this ExifData.
 
-        Gets or sets the GPS differential.  # noqa: E501
+        Gets or sets the GPS differential.
 
-        :param gps_differential: The gps_differential of this ExifData.  # noqa: E501
+        :param gps_differential: The gps_differential of this ExifData.
         :type: int
         """
         if gps_differential is None:
-            raise ValueError("Invalid value for `gps_differential`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `gps_differential`, must not be `None`")
         self._gps_differential = gps_differential
 
     @property
     def gps_img_direction(self):
-        """Gets the gps_img_direction of this ExifData.  # noqa: E501
+        """Gets the gps_img_direction of this ExifData.
 
-        Gets or sets the GPS image direction.  # noqa: E501
+        Gets or sets the GPS image direction.
 
-        :return: The gps_img_direction of this ExifData.  # noqa: E501
+        :return: The gps_img_direction of this ExifData.
         :rtype: float
         """
         return self._gps_img_direction
@@ -1570,22 +1569,22 @@ class ExifData(object):
     def gps_img_direction(self, gps_img_direction):
         """Sets the gps_img_direction of this ExifData.
 
-        Gets or sets the GPS image direction.  # noqa: E501
+        Gets or sets the GPS image direction.
 
-        :param gps_img_direction: The gps_img_direction of this ExifData.  # noqa: E501
+        :param gps_img_direction: The gps_img_direction of this ExifData.
         :type: float
         """
         if gps_img_direction is None:
-            raise ValueError("Invalid value for `gps_img_direction`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `gps_img_direction`, must not be `None`")
         self._gps_img_direction = gps_img_direction
 
     @property
     def gps_img_direction_ref(self):
-        """Gets the gps_img_direction_ref of this ExifData.  # noqa: E501
+        """Gets the gps_img_direction_ref of this ExifData.
 
-        Gets or sets the GPS reference image direction.  # noqa: E501
+        Gets or sets the GPS reference image direction.
 
-        :return: The gps_img_direction_ref of this ExifData.  # noqa: E501
+        :return: The gps_img_direction_ref of this ExifData.
         :rtype: str
         """
         return self._gps_img_direction_ref
@@ -1594,20 +1593,20 @@ class ExifData(object):
     def gps_img_direction_ref(self, gps_img_direction_ref):
         """Sets the gps_img_direction_ref of this ExifData.
 
-        Gets or sets the GPS reference image direction.  # noqa: E501
+        Gets or sets the GPS reference image direction.
 
-        :param gps_img_direction_ref: The gps_img_direction_ref of this ExifData.  # noqa: E501
+        :param gps_img_direction_ref: The gps_img_direction_ref of this ExifData.
         :type: str
         """
         self._gps_img_direction_ref = gps_img_direction_ref
 
     @property
     def gps_date_stamp(self):
-        """Gets the gps_date_stamp of this ExifData.  # noqa: E501
+        """Gets the gps_date_stamp of this ExifData.
 
-        Gets or sets the GPS date stamp.  # noqa: E501
+        Gets or sets the GPS date stamp.
 
-        :return: The gps_date_stamp of this ExifData.  # noqa: E501
+        :return: The gps_date_stamp of this ExifData.
         :rtype: str
         """
         return self._gps_date_stamp
@@ -1616,20 +1615,20 @@ class ExifData(object):
     def gps_date_stamp(self, gps_date_stamp):
         """Sets the gps_date_stamp of this ExifData.
 
-        Gets or sets the GPS date stamp.  # noqa: E501
+        Gets or sets the GPS date stamp.
 
-        :param gps_date_stamp: The gps_date_stamp of this ExifData.  # noqa: E501
+        :param gps_date_stamp: The gps_date_stamp of this ExifData.
         :type: str
         """
         self._gps_date_stamp = gps_date_stamp
 
     @property
     def gps_latitude(self):
-        """Gets the gps_latitude of this ExifData.  # noqa: E501
+        """Gets the gps_latitude of this ExifData.
 
-        Gets or sets the GPS latitude.  # noqa: E501
+        Gets or sets the GPS latitude.
 
-        :return: The gps_latitude of this ExifData.  # noqa: E501
+        :return: The gps_latitude of this ExifData.
         :rtype: list[float]
         """
         return self._gps_latitude
@@ -1638,20 +1637,20 @@ class ExifData(object):
     def gps_latitude(self, gps_latitude):
         """Sets the gps_latitude of this ExifData.
 
-        Gets or sets the GPS latitude.  # noqa: E501
+        Gets or sets the GPS latitude.
 
-        :param gps_latitude: The gps_latitude of this ExifData.  # noqa: E501
+        :param gps_latitude: The gps_latitude of this ExifData.
         :type: list[float]
         """
         self._gps_latitude = gps_latitude
 
     @property
     def gps_latitude_ref(self):
-        """Gets the gps_latitude_ref of this ExifData.  # noqa: E501
+        """Gets the gps_latitude_ref of this ExifData.
 
-        Gets or sets the GPS latitude reference (north or south).  # noqa: E501
+        Gets or sets the GPS latitude reference (north or south).
 
-        :return: The gps_latitude_ref of this ExifData.  # noqa: E501
+        :return: The gps_latitude_ref of this ExifData.
         :rtype: str
         """
         return self._gps_latitude_ref
@@ -1660,20 +1659,20 @@ class ExifData(object):
     def gps_latitude_ref(self, gps_latitude_ref):
         """Sets the gps_latitude_ref of this ExifData.
 
-        Gets or sets the GPS latitude reference (north or south).  # noqa: E501
+        Gets or sets the GPS latitude reference (north or south).
 
-        :param gps_latitude_ref: The gps_latitude_ref of this ExifData.  # noqa: E501
+        :param gps_latitude_ref: The gps_latitude_ref of this ExifData.
         :type: str
         """
         self._gps_latitude_ref = gps_latitude_ref
 
     @property
     def gps_longitude(self):
-        """Gets the gps_longitude of this ExifData.  # noqa: E501
+        """Gets the gps_longitude of this ExifData.
 
-        Gets or sets the GPS longitude.  # noqa: E501
+        Gets or sets the GPS longitude.
 
-        :return: The gps_longitude of this ExifData.  # noqa: E501
+        :return: The gps_longitude of this ExifData.
         :rtype: list[float]
         """
         return self._gps_longitude
@@ -1682,20 +1681,20 @@ class ExifData(object):
     def gps_longitude(self, gps_longitude):
         """Sets the gps_longitude of this ExifData.
 
-        Gets or sets the GPS longitude.  # noqa: E501
+        Gets or sets the GPS longitude.
 
-        :param gps_longitude: The gps_longitude of this ExifData.  # noqa: E501
+        :param gps_longitude: The gps_longitude of this ExifData.
         :type: list[float]
         """
         self._gps_longitude = gps_longitude
 
     @property
     def gps_longitude_ref(self):
-        """Gets the gps_longitude_ref of this ExifData.  # noqa: E501
+        """Gets the gps_longitude_ref of this ExifData.
 
-        Gets or sets the GPS longitude reference (east or west).  # noqa: E501
+        Gets or sets the GPS longitude reference (east or west).
 
-        :return: The gps_longitude_ref of this ExifData.  # noqa: E501
+        :return: The gps_longitude_ref of this ExifData.
         :rtype: str
         """
         return self._gps_longitude_ref
@@ -1704,20 +1703,20 @@ class ExifData(object):
     def gps_longitude_ref(self, gps_longitude_ref):
         """Sets the gps_longitude_ref of this ExifData.
 
-        Gets or sets the GPS longitude reference (east or west).  # noqa: E501
+        Gets or sets the GPS longitude reference (east or west).
 
-        :param gps_longitude_ref: The gps_longitude_ref of this ExifData.  # noqa: E501
+        :param gps_longitude_ref: The gps_longitude_ref of this ExifData.
         :type: str
         """
         self._gps_longitude_ref = gps_longitude_ref
 
     @property
     def gps_map_datum(self):
-        """Gets the gps_map_datum of this ExifData.  # noqa: E501
+        """Gets the gps_map_datum of this ExifData.
 
-        Gets or sets the geodetic survey data used by the GPS receiver.  # noqa: E501
+        Gets or sets the geodetic survey data used by the GPS receiver.
 
-        :return: The gps_map_datum of this ExifData.  # noqa: E501
+        :return: The gps_map_datum of this ExifData.
         :rtype: str
         """
         return self._gps_map_datum
@@ -1726,20 +1725,20 @@ class ExifData(object):
     def gps_map_datum(self, gps_map_datum):
         """Sets the gps_map_datum of this ExifData.
 
-        Gets or sets the geodetic survey data used by the GPS receiver.  # noqa: E501
+        Gets or sets the geodetic survey data used by the GPS receiver.
 
-        :param gps_map_datum: The gps_map_datum of this ExifData.  # noqa: E501
+        :param gps_map_datum: The gps_map_datum of this ExifData.
         :type: str
         """
         self._gps_map_datum = gps_map_datum
 
     @property
     def gps_measure_mode(self):
-        """Gets the gps_measure_mode of this ExifData.  # noqa: E501
+        """Gets the gps_measure_mode of this ExifData.
 
-        Gets or sets the GPS measure mode.  # noqa: E501
+        Gets or sets the GPS measure mode.
 
-        :return: The gps_measure_mode of this ExifData.  # noqa: E501
+        :return: The gps_measure_mode of this ExifData.
         :rtype: str
         """
         return self._gps_measure_mode
@@ -1748,20 +1747,20 @@ class ExifData(object):
     def gps_measure_mode(self, gps_measure_mode):
         """Sets the gps_measure_mode of this ExifData.
 
-        Gets or sets the GPS measure mode.  # noqa: E501
+        Gets or sets the GPS measure mode.
 
-        :param gps_measure_mode: The gps_measure_mode of this ExifData.  # noqa: E501
+        :param gps_measure_mode: The gps_measure_mode of this ExifData.
         :type: str
         """
         self._gps_measure_mode = gps_measure_mode
 
     @property
     def gps_processing_method(self):
-        """Gets the gps_processing_method of this ExifData.  # noqa: E501
+        """Gets the gps_processing_method of this ExifData.
 
-        Gets or setsthe GPS processing method.  # noqa: E501
+        Gets or setsthe GPS processing method.
 
-        :return: The gps_processing_method of this ExifData.  # noqa: E501
+        :return: The gps_processing_method of this ExifData.
         :rtype: str
         """
         return self._gps_processing_method
@@ -1770,22 +1769,22 @@ class ExifData(object):
     def gps_processing_method(self, gps_processing_method):
         """Sets the gps_processing_method of this ExifData.
 
-        Gets or setsthe GPS processing method.  # noqa: E501
+        Gets or setsthe GPS processing method.
 
-        :param gps_processing_method: The gps_processing_method of this ExifData.  # noqa: E501
+        :param gps_processing_method: The gps_processing_method of this ExifData.
         :type: str
         """
-        if gps_processing_method is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', gps_processing_method):  # noqa: E501
-            raise ValueError("Invalid value for `gps_processing_method`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")  # noqa: E501
+        if gps_processing_method is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', gps_processing_method):
+            raise ValueError("Invalid value for `gps_processing_method`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._gps_processing_method = gps_processing_method
 
     @property
     def gps_satellites(self):
-        """Gets the gps_satellites of this ExifData.  # noqa: E501
+        """Gets the gps_satellites of this ExifData.
 
-        Gets or sets the GPS satellites info.  # noqa: E501
+        Gets or sets the GPS satellites info.
 
-        :return: The gps_satellites of this ExifData.  # noqa: E501
+        :return: The gps_satellites of this ExifData.
         :rtype: str
         """
         return self._gps_satellites
@@ -1794,20 +1793,20 @@ class ExifData(object):
     def gps_satellites(self, gps_satellites):
         """Sets the gps_satellites of this ExifData.
 
-        Gets or sets the GPS satellites info.  # noqa: E501
+        Gets or sets the GPS satellites info.
 
-        :param gps_satellites: The gps_satellites of this ExifData.  # noqa: E501
+        :param gps_satellites: The gps_satellites of this ExifData.
         :type: str
         """
         self._gps_satellites = gps_satellites
 
     @property
     def gps_speed(self):
-        """Gets the gps_speed of this ExifData.  # noqa: E501
+        """Gets the gps_speed of this ExifData.
 
-        Gets or sets the GPS speed.  # noqa: E501
+        Gets or sets the GPS speed.
 
-        :return: The gps_speed of this ExifData.  # noqa: E501
+        :return: The gps_speed of this ExifData.
         :rtype: float
         """
         return self._gps_speed
@@ -1816,22 +1815,22 @@ class ExifData(object):
     def gps_speed(self, gps_speed):
         """Sets the gps_speed of this ExifData.
 
-        Gets or sets the GPS speed.  # noqa: E501
+        Gets or sets the GPS speed.
 
-        :param gps_speed: The gps_speed of this ExifData.  # noqa: E501
+        :param gps_speed: The gps_speed of this ExifData.
         :type: float
         """
         if gps_speed is None:
-            raise ValueError("Invalid value for `gps_speed`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `gps_speed`, must not be `None`")
         self._gps_speed = gps_speed
 
     @property
     def gps_speed_ref(self):
-        """Gets the gps_speed_ref of this ExifData.  # noqa: E501
+        """Gets the gps_speed_ref of this ExifData.
 
-        Gets or sets the GPS speed reference unit.  # noqa: E501
+        Gets or sets the GPS speed reference unit.
 
-        :return: The gps_speed_ref of this ExifData.  # noqa: E501
+        :return: The gps_speed_ref of this ExifData.
         :rtype: str
         """
         return self._gps_speed_ref
@@ -1840,20 +1839,20 @@ class ExifData(object):
     def gps_speed_ref(self, gps_speed_ref):
         """Sets the gps_speed_ref of this ExifData.
 
-        Gets or sets the GPS speed reference unit.  # noqa: E501
+        Gets or sets the GPS speed reference unit.
 
-        :param gps_speed_ref: The gps_speed_ref of this ExifData.  # noqa: E501
+        :param gps_speed_ref: The gps_speed_ref of this ExifData.
         :type: str
         """
         self._gps_speed_ref = gps_speed_ref
 
     @property
     def gps_status(self):
-        """Gets the gps_status of this ExifData.  # noqa: E501
+        """Gets the gps_status of this ExifData.
 
-        Gets or sets the GPS status.  # noqa: E501
+        Gets or sets the GPS status.
 
-        :return: The gps_status of this ExifData.  # noqa: E501
+        :return: The gps_status of this ExifData.
         :rtype: str
         """
         return self._gps_status
@@ -1862,20 +1861,20 @@ class ExifData(object):
     def gps_status(self, gps_status):
         """Sets the gps_status of this ExifData.
 
-        Gets or sets the GPS status.  # noqa: E501
+        Gets or sets the GPS status.
 
-        :param gps_status: The gps_status of this ExifData.  # noqa: E501
+        :param gps_status: The gps_status of this ExifData.
         :type: str
         """
         self._gps_status = gps_status
 
     @property
     def gps_timestamp(self):
-        """Gets the gps_timestamp of this ExifData.  # noqa: E501
+        """Gets the gps_timestamp of this ExifData.
 
-        Gets or sets the GPS times tamp.  # noqa: E501
+        Gets or sets the GPS times tamp.
 
-        :return: The gps_timestamp of this ExifData.  # noqa: E501
+        :return: The gps_timestamp of this ExifData.
         :rtype: list[float]
         """
         return self._gps_timestamp
@@ -1884,20 +1883,20 @@ class ExifData(object):
     def gps_timestamp(self, gps_timestamp):
         """Sets the gps_timestamp of this ExifData.
 
-        Gets or sets the GPS times tamp.  # noqa: E501
+        Gets or sets the GPS times tamp.
 
-        :param gps_timestamp: The gps_timestamp of this ExifData.  # noqa: E501
+        :param gps_timestamp: The gps_timestamp of this ExifData.
         :type: list[float]
         """
         self._gps_timestamp = gps_timestamp
 
     @property
     def gps_track(self):
-        """Gets the gps_track of this ExifData.  # noqa: E501
+        """Gets the gps_track of this ExifData.
 
-        Gets or sets the GPS track.  # noqa: E501
+        Gets or sets the GPS track.
 
-        :return: The gps_track of this ExifData.  # noqa: E501
+        :return: The gps_track of this ExifData.
         :rtype: str
         """
         return self._gps_track
@@ -1906,20 +1905,20 @@ class ExifData(object):
     def gps_track(self, gps_track):
         """Sets the gps_track of this ExifData.
 
-        Gets or sets the GPS track.  # noqa: E501
+        Gets or sets the GPS track.
 
-        :param gps_track: The gps_track of this ExifData.  # noqa: E501
+        :param gps_track: The gps_track of this ExifData.
         :type: str
         """
         self._gps_track = gps_track
 
     @property
     def gps_track_ref(self):
-        """Gets the gps_track_ref of this ExifData.  # noqa: E501
+        """Gets the gps_track_ref of this ExifData.
 
-        Gets or sets the GPS track reference.  # noqa: E501
+        Gets or sets the GPS track reference.
 
-        :return: The gps_track_ref of this ExifData.  # noqa: E501
+        :return: The gps_track_ref of this ExifData.
         :rtype: str
         """
         return self._gps_track_ref
@@ -1928,20 +1927,20 @@ class ExifData(object):
     def gps_track_ref(self, gps_track_ref):
         """Sets the gps_track_ref of this ExifData.
 
-        Gets or sets the GPS track reference.  # noqa: E501
+        Gets or sets the GPS track reference.
 
-        :param gps_track_ref: The gps_track_ref of this ExifData.  # noqa: E501
+        :param gps_track_ref: The gps_track_ref of this ExifData.
         :type: str
         """
         self._gps_track_ref = gps_track_ref
 
     @property
     def gps_version_id(self):
-        """Gets the gps_version_id of this ExifData.  # noqa: E501
+        """Gets the gps_version_id of this ExifData.
 
-        Gets or sets the GPS version ID.  # noqa: E501
+        Gets or sets the GPS version ID.
 
-        :return: The gps_version_id of this ExifData.  # noqa: E501
+        :return: The gps_version_id of this ExifData.
         :rtype: str
         """
         return self._gps_version_id
@@ -1950,22 +1949,22 @@ class ExifData(object):
     def gps_version_id(self, gps_version_id):
         """Sets the gps_version_id of this ExifData.
 
-        Gets or sets the GPS version ID.  # noqa: E501
+        Gets or sets the GPS version ID.
 
-        :param gps_version_id: The gps_version_id of this ExifData.  # noqa: E501
+        :param gps_version_id: The gps_version_id of this ExifData.
         :type: str
         """
-        if gps_version_id is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', gps_version_id):  # noqa: E501
-            raise ValueError("Invalid value for `gps_version_id`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")  # noqa: E501
+        if gps_version_id is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', gps_version_id):
+            raise ValueError("Invalid value for `gps_version_id`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._gps_version_id = gps_version_id
 
     @property
     def gain_control(self):
-        """Gets the gain_control of this ExifData.  # noqa: E501
+        """Gets the gain_control of this ExifData.
 
-        Gets or sets the gain control.  # noqa: E501
+        Gets or sets the gain control.
 
-        :return: The gain_control of this ExifData.  # noqa: E501
+        :return: The gain_control of this ExifData.
         :rtype: str
         """
         return self._gain_control
@@ -1974,20 +1973,20 @@ class ExifData(object):
     def gain_control(self, gain_control):
         """Sets the gain_control of this ExifData.
 
-        Gets or sets the gain control.  # noqa: E501
+        Gets or sets the gain control.
 
-        :param gain_control: The gain_control of this ExifData.  # noqa: E501
+        :param gain_control: The gain_control of this ExifData.
         :type: str
         """
         self._gain_control = gain_control
 
     @property
     def gamma(self):
-        """Gets the gamma of this ExifData.  # noqa: E501
+        """Gets the gamma of this ExifData.
 
-        Gets or sets the gamma.  # noqa: E501
+        Gets or sets the gamma.
 
-        :return: The gamma of this ExifData.  # noqa: E501
+        :return: The gamma of this ExifData.
         :rtype: float
         """
         return self._gamma
@@ -1996,22 +1995,22 @@ class ExifData(object):
     def gamma(self, gamma):
         """Sets the gamma of this ExifData.
 
-        Gets or sets the gamma.  # noqa: E501
+        Gets or sets the gamma.
 
-        :param gamma: The gamma of this ExifData.  # noqa: E501
+        :param gamma: The gamma of this ExifData.
         :type: float
         """
         if gamma is None:
-            raise ValueError("Invalid value for `gamma`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `gamma`, must not be `None`")
         self._gamma = gamma
 
     @property
     def iso_speed(self):
-        """Gets the iso_speed of this ExifData.  # noqa: E501
+        """Gets the iso_speed of this ExifData.
 
-        Gets or sets the ISO speed.  # noqa: E501
+        Gets or sets the ISO speed.
 
-        :return: The iso_speed of this ExifData.  # noqa: E501
+        :return: The iso_speed of this ExifData.
         :rtype: int
         """
         return self._iso_speed
@@ -2020,22 +2019,22 @@ class ExifData(object):
     def iso_speed(self, iso_speed):
         """Sets the iso_speed of this ExifData.
 
-        Gets or sets the ISO speed.  # noqa: E501
+        Gets or sets the ISO speed.
 
-        :param iso_speed: The iso_speed of this ExifData.  # noqa: E501
+        :param iso_speed: The iso_speed of this ExifData.
         :type: int
         """
         if iso_speed is None:
-            raise ValueError("Invalid value for `iso_speed`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `iso_speed`, must not be `None`")
         self._iso_speed = iso_speed
 
     @property
     def iso_speed_latitude_yyy(self):
-        """Gets the iso_speed_latitude_yyy of this ExifData.  # noqa: E501
+        """Gets the iso_speed_latitude_yyy of this ExifData.
 
-        Gets or sets the ISO speed latitude YYY value.  # noqa: E501
+        Gets or sets the ISO speed latitude YYY value.
 
-        :return: The iso_speed_latitude_yyy of this ExifData.  # noqa: E501
+        :return: The iso_speed_latitude_yyy of this ExifData.
         :rtype: int
         """
         return self._iso_speed_latitude_yyy
@@ -2044,22 +2043,22 @@ class ExifData(object):
     def iso_speed_latitude_yyy(self, iso_speed_latitude_yyy):
         """Sets the iso_speed_latitude_yyy of this ExifData.
 
-        Gets or sets the ISO speed latitude YYY value.  # noqa: E501
+        Gets or sets the ISO speed latitude YYY value.
 
-        :param iso_speed_latitude_yyy: The iso_speed_latitude_yyy of this ExifData.  # noqa: E501
+        :param iso_speed_latitude_yyy: The iso_speed_latitude_yyy of this ExifData.
         :type: int
         """
         if iso_speed_latitude_yyy is None:
-            raise ValueError("Invalid value for `iso_speed_latitude_yyy`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `iso_speed_latitude_yyy`, must not be `None`")
         self._iso_speed_latitude_yyy = iso_speed_latitude_yyy
 
     @property
     def iso_speed_latitude_zzz(self):
-        """Gets the iso_speed_latitude_zzz of this ExifData.  # noqa: E501
+        """Gets the iso_speed_latitude_zzz of this ExifData.
 
-        Gets or sets the ISO speed latitude ZZZ value.  # noqa: E501
+        Gets or sets the ISO speed latitude ZZZ value.
 
-        :return: The iso_speed_latitude_zzz of this ExifData.  # noqa: E501
+        :return: The iso_speed_latitude_zzz of this ExifData.
         :rtype: int
         """
         return self._iso_speed_latitude_zzz
@@ -2068,22 +2067,22 @@ class ExifData(object):
     def iso_speed_latitude_zzz(self, iso_speed_latitude_zzz):
         """Sets the iso_speed_latitude_zzz of this ExifData.
 
-        Gets or sets the ISO speed latitude ZZZ value.  # noqa: E501
+        Gets or sets the ISO speed latitude ZZZ value.
 
-        :param iso_speed_latitude_zzz: The iso_speed_latitude_zzz of this ExifData.  # noqa: E501
+        :param iso_speed_latitude_zzz: The iso_speed_latitude_zzz of this ExifData.
         :type: int
         """
         if iso_speed_latitude_zzz is None:
-            raise ValueError("Invalid value for `iso_speed_latitude_zzz`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `iso_speed_latitude_zzz`, must not be `None`")
         self._iso_speed_latitude_zzz = iso_speed_latitude_zzz
 
     @property
     def photographic_sensitivity(self):
-        """Gets the photographic_sensitivity of this ExifData.  # noqa: E501
+        """Gets the photographic_sensitivity of this ExifData.
 
-        Gets or sets the photographic sensitivity.  # noqa: E501
+        Gets or sets the photographic sensitivity.
 
-        :return: The photographic_sensitivity of this ExifData.  # noqa: E501
+        :return: The photographic_sensitivity of this ExifData.
         :rtype: int
         """
         return self._photographic_sensitivity
@@ -2092,22 +2091,22 @@ class ExifData(object):
     def photographic_sensitivity(self, photographic_sensitivity):
         """Sets the photographic_sensitivity of this ExifData.
 
-        Gets or sets the photographic sensitivity.  # noqa: E501
+        Gets or sets the photographic sensitivity.
 
-        :param photographic_sensitivity: The photographic_sensitivity of this ExifData.  # noqa: E501
+        :param photographic_sensitivity: The photographic_sensitivity of this ExifData.
         :type: int
         """
         if photographic_sensitivity is None:
-            raise ValueError("Invalid value for `photographic_sensitivity`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `photographic_sensitivity`, must not be `None`")
         self._photographic_sensitivity = photographic_sensitivity
 
     @property
     def image_unique_id(self):
-        """Gets the image_unique_id of this ExifData.  # noqa: E501
+        """Gets the image_unique_id of this ExifData.
 
-        Gets or sets the image unique ID.  # noqa: E501
+        Gets or sets the image unique ID.
 
-        :return: The image_unique_id of this ExifData.  # noqa: E501
+        :return: The image_unique_id of this ExifData.
         :rtype: str
         """
         return self._image_unique_id
@@ -2116,20 +2115,20 @@ class ExifData(object):
     def image_unique_id(self, image_unique_id):
         """Sets the image_unique_id of this ExifData.
 
-        Gets or sets the image unique ID.  # noqa: E501
+        Gets or sets the image unique ID.
 
-        :param image_unique_id: The image_unique_id of this ExifData.  # noqa: E501
+        :param image_unique_id: The image_unique_id of this ExifData.
         :type: str
         """
         self._image_unique_id = image_unique_id
 
     @property
     def lens_make(self):
-        """Gets the lens_make of this ExifData.  # noqa: E501
+        """Gets the lens_make of this ExifData.
 
-        Gets or sets the lens manufacturer.  # noqa: E501
+        Gets or sets the lens manufacturer.
 
-        :return: The lens_make of this ExifData.  # noqa: E501
+        :return: The lens_make of this ExifData.
         :rtype: str
         """
         return self._lens_make
@@ -2138,20 +2137,20 @@ class ExifData(object):
     def lens_make(self, lens_make):
         """Sets the lens_make of this ExifData.
 
-        Gets or sets the lens manufacturer.  # noqa: E501
+        Gets or sets the lens manufacturer.
 
-        :param lens_make: The lens_make of this ExifData.  # noqa: E501
+        :param lens_make: The lens_make of this ExifData.
         :type: str
         """
         self._lens_make = lens_make
 
     @property
     def lens_model(self):
-        """Gets the lens_model of this ExifData.  # noqa: E501
+        """Gets the lens_model of this ExifData.
 
-        Gets or sets the lens model.  # noqa: E501
+        Gets or sets the lens model.
 
-        :return: The lens_model of this ExifData.  # noqa: E501
+        :return: The lens_model of this ExifData.
         :rtype: str
         """
         return self._lens_model
@@ -2160,20 +2159,20 @@ class ExifData(object):
     def lens_model(self, lens_model):
         """Sets the lens_model of this ExifData.
 
-        Gets or sets the lens model.  # noqa: E501
+        Gets or sets the lens model.
 
-        :param lens_model: The lens_model of this ExifData.  # noqa: E501
+        :param lens_model: The lens_model of this ExifData.
         :type: str
         """
         self._lens_model = lens_model
 
     @property
     def lens_serial_number(self):
-        """Gets the lens_serial_number of this ExifData.  # noqa: E501
+        """Gets the lens_serial_number of this ExifData.
 
-        Gets or sets the lens serial number.  # noqa: E501
+        Gets or sets the lens serial number.
 
-        :return: The lens_serial_number of this ExifData.  # noqa: E501
+        :return: The lens_serial_number of this ExifData.
         :rtype: str
         """
         return self._lens_serial_number
@@ -2182,20 +2181,20 @@ class ExifData(object):
     def lens_serial_number(self, lens_serial_number):
         """Sets the lens_serial_number of this ExifData.
 
-        Gets or sets the lens serial number.  # noqa: E501
+        Gets or sets the lens serial number.
 
-        :param lens_serial_number: The lens_serial_number of this ExifData.  # noqa: E501
+        :param lens_serial_number: The lens_serial_number of this ExifData.
         :type: str
         """
         self._lens_serial_number = lens_serial_number
 
     @property
     def lens_specification(self):
-        """Gets the lens_specification of this ExifData.  # noqa: E501
+        """Gets the lens_specification of this ExifData.
 
-        Gets or sets the lens specification.  # noqa: E501
+        Gets or sets the lens specification.
 
-        :return: The lens_specification of this ExifData.  # noqa: E501
+        :return: The lens_specification of this ExifData.
         :rtype: list[float]
         """
         return self._lens_specification
@@ -2204,20 +2203,20 @@ class ExifData(object):
     def lens_specification(self, lens_specification):
         """Sets the lens_specification of this ExifData.
 
-        Gets or sets the lens specification.  # noqa: E501
+        Gets or sets the lens specification.
 
-        :param lens_specification: The lens_specification of this ExifData.  # noqa: E501
+        :param lens_specification: The lens_specification of this ExifData.
         :type: list[float]
         """
         self._lens_specification = lens_specification
 
     @property
     def light_source(self):
-        """Gets the light_source of this ExifData.  # noqa: E501
+        """Gets the light_source of this ExifData.
 
-        Gets or sets the light source.  # noqa: E501
+        Gets or sets the light source.
 
-        :return: The light_source of this ExifData.  # noqa: E501
+        :return: The light_source of this ExifData.
         :rtype: str
         """
         return self._light_source
@@ -2226,20 +2225,20 @@ class ExifData(object):
     def light_source(self, light_source):
         """Sets the light_source of this ExifData.
 
-        Gets or sets the light source.  # noqa: E501
+        Gets or sets the light source.
 
-        :param light_source: The light_source of this ExifData.  # noqa: E501
+        :param light_source: The light_source of this ExifData.
         :type: str
         """
         self._light_source = light_source
 
     @property
     def maker_note_raw_data(self):
-        """Gets the maker_note_raw_data of this ExifData.  # noqa: E501
+        """Gets the maker_note_raw_data of this ExifData.
 
-        Gets or sets the maker note raw data.  # noqa: E501
+        Gets or sets the maker note raw data.
 
-        :return: The maker_note_raw_data of this ExifData.  # noqa: E501
+        :return: The maker_note_raw_data of this ExifData.
         :rtype: str
         """
         return self._maker_note_raw_data
@@ -2248,22 +2247,22 @@ class ExifData(object):
     def maker_note_raw_data(self, maker_note_raw_data):
         """Sets the maker_note_raw_data of this ExifData.
 
-        Gets or sets the maker note raw data.  # noqa: E501
+        Gets or sets the maker note raw data.
 
-        :param maker_note_raw_data: The maker_note_raw_data of this ExifData.  # noqa: E501
+        :param maker_note_raw_data: The maker_note_raw_data of this ExifData.
         :type: str
         """
-        if maker_note_raw_data is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', maker_note_raw_data):  # noqa: E501
-            raise ValueError("Invalid value for `maker_note_raw_data`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")  # noqa: E501
+        if maker_note_raw_data is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', maker_note_raw_data):
+            raise ValueError("Invalid value for `maker_note_raw_data`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._maker_note_raw_data = maker_note_raw_data
 
     @property
     def max_aperture_value(self):
-        """Gets the max_aperture_value of this ExifData.  # noqa: E501
+        """Gets the max_aperture_value of this ExifData.
 
-        Gets or sets the max aperture.  # noqa: E501
+        Gets or sets the max aperture.
 
-        :return: The max_aperture_value of this ExifData.  # noqa: E501
+        :return: The max_aperture_value of this ExifData.
         :rtype: float
         """
         return self._max_aperture_value
@@ -2272,22 +2271,22 @@ class ExifData(object):
     def max_aperture_value(self, max_aperture_value):
         """Sets the max_aperture_value of this ExifData.
 
-        Gets or sets the max aperture.  # noqa: E501
+        Gets or sets the max aperture.
 
-        :param max_aperture_value: The max_aperture_value of this ExifData.  # noqa: E501
+        :param max_aperture_value: The max_aperture_value of this ExifData.
         :type: float
         """
         if max_aperture_value is None:
-            raise ValueError("Invalid value for `max_aperture_value`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `max_aperture_value`, must not be `None`")
         self._max_aperture_value = max_aperture_value
 
     @property
     def metering_mode(self):
-        """Gets the metering_mode of this ExifData.  # noqa: E501
+        """Gets the metering_mode of this ExifData.
 
-        Gets or sets the metering mode.  # noqa: E501
+        Gets or sets the metering mode.
 
-        :return: The metering_mode of this ExifData.  # noqa: E501
+        :return: The metering_mode of this ExifData.
         :rtype: str
         """
         return self._metering_mode
@@ -2296,20 +2295,20 @@ class ExifData(object):
     def metering_mode(self, metering_mode):
         """Sets the metering_mode of this ExifData.
 
-        Gets or sets the metering mode.  # noqa: E501
+        Gets or sets the metering mode.
 
-        :param metering_mode: The metering_mode of this ExifData.  # noqa: E501
+        :param metering_mode: The metering_mode of this ExifData.
         :type: str
         """
         self._metering_mode = metering_mode
 
     @property
     def oecf(self):
-        """Gets the oecf of this ExifData.  # noqa: E501
+        """Gets the oecf of this ExifData.
 
-        Gets or sets the OECF (Opto-Electric Conversion Function).  # noqa: E501
+        Gets or sets the OECF (Opto-Electric Conversion Function).
 
-        :return: The oecf of this ExifData.  # noqa: E501
+        :return: The oecf of this ExifData.
         :rtype: str
         """
         return self._oecf
@@ -2318,22 +2317,22 @@ class ExifData(object):
     def oecf(self, oecf):
         """Sets the oecf of this ExifData.
 
-        Gets or sets the OECF (Opto-Electric Conversion Function).  # noqa: E501
+        Gets or sets the OECF (Opto-Electric Conversion Function).
 
-        :param oecf: The oecf of this ExifData.  # noqa: E501
+        :param oecf: The oecf of this ExifData.
         :type: str
         """
-        if oecf is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', oecf):  # noqa: E501
-            raise ValueError("Invalid value for `oecf`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")  # noqa: E501
+        if oecf is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', oecf):
+            raise ValueError("Invalid value for `oecf`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._oecf = oecf
 
     @property
     def pixel_x_dimension(self):
-        """Gets the pixel_x_dimension of this ExifData.  # noqa: E501
+        """Gets the pixel_x_dimension of this ExifData.
 
-        Gets or sets the pixel X dimension.  # noqa: E501
+        Gets or sets the pixel X dimension.
 
-        :return: The pixel_x_dimension of this ExifData.  # noqa: E501
+        :return: The pixel_x_dimension of this ExifData.
         :rtype: int
         """
         return self._pixel_x_dimension
@@ -2342,22 +2341,22 @@ class ExifData(object):
     def pixel_x_dimension(self, pixel_x_dimension):
         """Sets the pixel_x_dimension of this ExifData.
 
-        Gets or sets the pixel X dimension.  # noqa: E501
+        Gets or sets the pixel X dimension.
 
-        :param pixel_x_dimension: The pixel_x_dimension of this ExifData.  # noqa: E501
+        :param pixel_x_dimension: The pixel_x_dimension of this ExifData.
         :type: int
         """
         if pixel_x_dimension is None:
-            raise ValueError("Invalid value for `pixel_x_dimension`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `pixel_x_dimension`, must not be `None`")
         self._pixel_x_dimension = pixel_x_dimension
 
     @property
     def pixel_y_dimension(self):
-        """Gets the pixel_y_dimension of this ExifData.  # noqa: E501
+        """Gets the pixel_y_dimension of this ExifData.
 
-        Gets or sets the pixel Y dimension.  # noqa: E501
+        Gets or sets the pixel Y dimension.
 
-        :return: The pixel_y_dimension of this ExifData.  # noqa: E501
+        :return: The pixel_y_dimension of this ExifData.
         :rtype: int
         """
         return self._pixel_y_dimension
@@ -2366,22 +2365,22 @@ class ExifData(object):
     def pixel_y_dimension(self, pixel_y_dimension):
         """Sets the pixel_y_dimension of this ExifData.
 
-        Gets or sets the pixel Y dimension.  # noqa: E501
+        Gets or sets the pixel Y dimension.
 
-        :param pixel_y_dimension: The pixel_y_dimension of this ExifData.  # noqa: E501
+        :param pixel_y_dimension: The pixel_y_dimension of this ExifData.
         :type: int
         """
         if pixel_y_dimension is None:
-            raise ValueError("Invalid value for `pixel_y_dimension`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `pixel_y_dimension`, must not be `None`")
         self._pixel_y_dimension = pixel_y_dimension
 
     @property
     def recommended_exposure_index(self):
-        """Gets the recommended_exposure_index of this ExifData.  # noqa: E501
+        """Gets the recommended_exposure_index of this ExifData.
 
-        Gets or sets the recommended exposure index.  # noqa: E501
+        Gets or sets the recommended exposure index.
 
-        :return: The recommended_exposure_index of this ExifData.  # noqa: E501
+        :return: The recommended_exposure_index of this ExifData.
         :rtype: int
         """
         return self._recommended_exposure_index
@@ -2390,22 +2389,22 @@ class ExifData(object):
     def recommended_exposure_index(self, recommended_exposure_index):
         """Sets the recommended_exposure_index of this ExifData.
 
-        Gets or sets the recommended exposure index.  # noqa: E501
+        Gets or sets the recommended exposure index.
 
-        :param recommended_exposure_index: The recommended_exposure_index of this ExifData.  # noqa: E501
+        :param recommended_exposure_index: The recommended_exposure_index of this ExifData.
         :type: int
         """
         if recommended_exposure_index is None:
-            raise ValueError("Invalid value for `recommended_exposure_index`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `recommended_exposure_index`, must not be `None`")
         self._recommended_exposure_index = recommended_exposure_index
 
     @property
     def related_sound_file(self):
-        """Gets the related_sound_file of this ExifData.  # noqa: E501
+        """Gets the related_sound_file of this ExifData.
 
-        Gets or sets the related sound file.  # noqa: E501
+        Gets or sets the related sound file.
 
-        :return: The related_sound_file of this ExifData.  # noqa: E501
+        :return: The related_sound_file of this ExifData.
         :rtype: str
         """
         return self._related_sound_file
@@ -2414,20 +2413,20 @@ class ExifData(object):
     def related_sound_file(self, related_sound_file):
         """Sets the related_sound_file of this ExifData.
 
-        Gets or sets the related sound file.  # noqa: E501
+        Gets or sets the related sound file.
 
-        :param related_sound_file: The related_sound_file of this ExifData.  # noqa: E501
+        :param related_sound_file: The related_sound_file of this ExifData.
         :type: str
         """
         self._related_sound_file = related_sound_file
 
     @property
     def saturation(self):
-        """Gets the saturation of this ExifData.  # noqa: E501
+        """Gets the saturation of this ExifData.
 
-        Gets or sets the saturation.  # noqa: E501
+        Gets or sets the saturation.
 
-        :return: The saturation of this ExifData.  # noqa: E501
+        :return: The saturation of this ExifData.
         :rtype: str
         """
         return self._saturation
@@ -2436,20 +2435,20 @@ class ExifData(object):
     def saturation(self, saturation):
         """Sets the saturation of this ExifData.
 
-        Gets or sets the saturation.  # noqa: E501
+        Gets or sets the saturation.
 
-        :param saturation: The saturation of this ExifData.  # noqa: E501
+        :param saturation: The saturation of this ExifData.
         :type: str
         """
         self._saturation = saturation
 
     @property
     def scene_capture_type(self):
-        """Gets the scene_capture_type of this ExifData.  # noqa: E501
+        """Gets the scene_capture_type of this ExifData.
 
-        Gets or sets the scene capture type.  # noqa: E501
+        Gets or sets the scene capture type.
 
-        :return: The scene_capture_type of this ExifData.  # noqa: E501
+        :return: The scene_capture_type of this ExifData.
         :rtype: str
         """
         return self._scene_capture_type
@@ -2458,20 +2457,20 @@ class ExifData(object):
     def scene_capture_type(self, scene_capture_type):
         """Sets the scene_capture_type of this ExifData.
 
-        Gets or sets the scene capture type.  # noqa: E501
+        Gets or sets the scene capture type.
 
-        :param scene_capture_type: The scene_capture_type of this ExifData.  # noqa: E501
+        :param scene_capture_type: The scene_capture_type of this ExifData.
         :type: str
         """
         self._scene_capture_type = scene_capture_type
 
     @property
     def scene_type(self):
-        """Gets the scene_type of this ExifData.  # noqa: E501
+        """Gets the scene_type of this ExifData.
 
-        Gets or sets the scene type.  # noqa: E501
+        Gets or sets the scene type.
 
-        :return: The scene_type of this ExifData.  # noqa: E501
+        :return: The scene_type of this ExifData.
         :rtype: int
         """
         return self._scene_type
@@ -2480,22 +2479,22 @@ class ExifData(object):
     def scene_type(self, scene_type):
         """Sets the scene_type of this ExifData.
 
-        Gets or sets the scene type.  # noqa: E501
+        Gets or sets the scene type.
 
-        :param scene_type: The scene_type of this ExifData.  # noqa: E501
+        :param scene_type: The scene_type of this ExifData.
         :type: int
         """
         if scene_type is None:
-            raise ValueError("Invalid value for `scene_type`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `scene_type`, must not be `None`")
         self._scene_type = scene_type
 
     @property
     def sensing_method(self):
-        """Gets the sensing_method of this ExifData.  # noqa: E501
+        """Gets the sensing_method of this ExifData.
 
-        Gets or sets the sensing method.  # noqa: E501
+        Gets or sets the sensing method.
 
-        :return: The sensing_method of this ExifData.  # noqa: E501
+        :return: The sensing_method of this ExifData.
         :rtype: str
         """
         return self._sensing_method
@@ -2504,20 +2503,20 @@ class ExifData(object):
     def sensing_method(self, sensing_method):
         """Sets the sensing_method of this ExifData.
 
-        Gets or sets the sensing method.  # noqa: E501
+        Gets or sets the sensing method.
 
-        :param sensing_method: The sensing_method of this ExifData.  # noqa: E501
+        :param sensing_method: The sensing_method of this ExifData.
         :type: str
         """
         self._sensing_method = sensing_method
 
     @property
     def sensitivity_type(self):
-        """Gets the sensitivity_type of this ExifData.  # noqa: E501
+        """Gets the sensitivity_type of this ExifData.
 
-        Gets or sets the sensitivity type.  # noqa: E501
+        Gets or sets the sensitivity type.
 
-        :return: The sensitivity_type of this ExifData.  # noqa: E501
+        :return: The sensitivity_type of this ExifData.
         :rtype: int
         """
         return self._sensitivity_type
@@ -2526,22 +2525,22 @@ class ExifData(object):
     def sensitivity_type(self, sensitivity_type):
         """Sets the sensitivity_type of this ExifData.
 
-        Gets or sets the sensitivity type.  # noqa: E501
+        Gets or sets the sensitivity type.
 
-        :param sensitivity_type: The sensitivity_type of this ExifData.  # noqa: E501
+        :param sensitivity_type: The sensitivity_type of this ExifData.
         :type: int
         """
         if sensitivity_type is None:
-            raise ValueError("Invalid value for `sensitivity_type`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `sensitivity_type`, must not be `None`")
         self._sensitivity_type = sensitivity_type
 
     @property
     def sharpness(self):
-        """Gets the sharpness of this ExifData.  # noqa: E501
+        """Gets the sharpness of this ExifData.
 
-        Gets or sets the sharpness.  # noqa: E501
+        Gets or sets the sharpness.
 
-        :return: The sharpness of this ExifData.  # noqa: E501
+        :return: The sharpness of this ExifData.
         :rtype: int
         """
         return self._sharpness
@@ -2550,22 +2549,22 @@ class ExifData(object):
     def sharpness(self, sharpness):
         """Sets the sharpness of this ExifData.
 
-        Gets or sets the sharpness.  # noqa: E501
+        Gets or sets the sharpness.
 
-        :param sharpness: The sharpness of this ExifData.  # noqa: E501
+        :param sharpness: The sharpness of this ExifData.
         :type: int
         """
         if sharpness is None:
-            raise ValueError("Invalid value for `sharpness`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `sharpness`, must not be `None`")
         self._sharpness = sharpness
 
     @property
     def shutter_speed_value(self):
-        """Gets the shutter_speed_value of this ExifData.  # noqa: E501
+        """Gets the shutter_speed_value of this ExifData.
 
-        Gets or sets the shutter speed.  # noqa: E501
+        Gets or sets the shutter speed.
 
-        :return: The shutter_speed_value of this ExifData.  # noqa: E501
+        :return: The shutter_speed_value of this ExifData.
         :rtype: float
         """
         return self._shutter_speed_value
@@ -2574,22 +2573,22 @@ class ExifData(object):
     def shutter_speed_value(self, shutter_speed_value):
         """Sets the shutter_speed_value of this ExifData.
 
-        Gets or sets the shutter speed.  # noqa: E501
+        Gets or sets the shutter speed.
 
-        :param shutter_speed_value: The shutter_speed_value of this ExifData.  # noqa: E501
+        :param shutter_speed_value: The shutter_speed_value of this ExifData.
         :type: float
         """
         if shutter_speed_value is None:
-            raise ValueError("Invalid value for `shutter_speed_value`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `shutter_speed_value`, must not be `None`")
         self._shutter_speed_value = shutter_speed_value
 
     @property
     def spatial_frequency_response(self):
-        """Gets the spatial_frequency_response of this ExifData.  # noqa: E501
+        """Gets the spatial_frequency_response of this ExifData.
 
-        Gets or sets the spatial frequency response.  # noqa: E501
+        Gets or sets the spatial frequency response.
 
-        :return: The spatial_frequency_response of this ExifData.  # noqa: E501
+        :return: The spatial_frequency_response of this ExifData.
         :rtype: str
         """
         return self._spatial_frequency_response
@@ -2598,22 +2597,22 @@ class ExifData(object):
     def spatial_frequency_response(self, spatial_frequency_response):
         """Sets the spatial_frequency_response of this ExifData.
 
-        Gets or sets the spatial frequency response.  # noqa: E501
+        Gets or sets the spatial frequency response.
 
-        :param spatial_frequency_response: The spatial_frequency_response of this ExifData.  # noqa: E501
+        :param spatial_frequency_response: The spatial_frequency_response of this ExifData.
         :type: str
         """
-        if spatial_frequency_response is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', spatial_frequency_response):  # noqa: E501
-            raise ValueError("Invalid value for `spatial_frequency_response`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")  # noqa: E501
+        if spatial_frequency_response is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', spatial_frequency_response):
+            raise ValueError("Invalid value for `spatial_frequency_response`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._spatial_frequency_response = spatial_frequency_response
 
     @property
     def spectral_sensitivity(self):
-        """Gets the spectral_sensitivity of this ExifData.  # noqa: E501
+        """Gets the spectral_sensitivity of this ExifData.
 
-        Gets or sets the spectral sensitivity.  # noqa: E501
+        Gets or sets the spectral sensitivity.
 
-        :return: The spectral_sensitivity of this ExifData.  # noqa: E501
+        :return: The spectral_sensitivity of this ExifData.
         :rtype: str
         """
         return self._spectral_sensitivity
@@ -2622,20 +2621,20 @@ class ExifData(object):
     def spectral_sensitivity(self, spectral_sensitivity):
         """Sets the spectral_sensitivity of this ExifData.
 
-        Gets or sets the spectral sensitivity.  # noqa: E501
+        Gets or sets the spectral sensitivity.
 
-        :param spectral_sensitivity: The spectral_sensitivity of this ExifData.  # noqa: E501
+        :param spectral_sensitivity: The spectral_sensitivity of this ExifData.
         :type: str
         """
         self._spectral_sensitivity = spectral_sensitivity
 
     @property
     def standard_output_sensitivity(self):
-        """Gets the standard_output_sensitivity of this ExifData.  # noqa: E501
+        """Gets the standard_output_sensitivity of this ExifData.
 
-        Gets or sets the standard output sensitivity.  # noqa: E501
+        Gets or sets the standard output sensitivity.
 
-        :return: The standard_output_sensitivity of this ExifData.  # noqa: E501
+        :return: The standard_output_sensitivity of this ExifData.
         :rtype: int
         """
         return self._standard_output_sensitivity
@@ -2644,22 +2643,22 @@ class ExifData(object):
     def standard_output_sensitivity(self, standard_output_sensitivity):
         """Sets the standard_output_sensitivity of this ExifData.
 
-        Gets or sets the standard output sensitivity.  # noqa: E501
+        Gets or sets the standard output sensitivity.
 
-        :param standard_output_sensitivity: The standard_output_sensitivity of this ExifData.  # noqa: E501
+        :param standard_output_sensitivity: The standard_output_sensitivity of this ExifData.
         :type: int
         """
         if standard_output_sensitivity is None:
-            raise ValueError("Invalid value for `standard_output_sensitivity`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `standard_output_sensitivity`, must not be `None`")
         self._standard_output_sensitivity = standard_output_sensitivity
 
     @property
     def subject_area(self):
-        """Gets the subject_area of this ExifData.  # noqa: E501
+        """Gets the subject_area of this ExifData.
 
-        Gets or sets the subject area.  # noqa: E501
+        Gets or sets the subject area.
 
-        :return: The subject_area of this ExifData.  # noqa: E501
+        :return: The subject_area of this ExifData.
         :rtype: list[int]
         """
         return self._subject_area
@@ -2668,20 +2667,20 @@ class ExifData(object):
     def subject_area(self, subject_area):
         """Sets the subject_area of this ExifData.
 
-        Gets or sets the subject area.  # noqa: E501
+        Gets or sets the subject area.
 
-        :param subject_area: The subject_area of this ExifData.  # noqa: E501
+        :param subject_area: The subject_area of this ExifData.
         :type: list[int]
         """
         self._subject_area = subject_area
 
     @property
     def subject_distance(self):
-        """Gets the subject_distance of this ExifData.  # noqa: E501
+        """Gets the subject_distance of this ExifData.
 
-        Gets or sets the subject distance.  # noqa: E501
+        Gets or sets the subject distance.
 
-        :return: The subject_distance of this ExifData.  # noqa: E501
+        :return: The subject_distance of this ExifData.
         :rtype: float
         """
         return self._subject_distance
@@ -2690,22 +2689,22 @@ class ExifData(object):
     def subject_distance(self, subject_distance):
         """Sets the subject_distance of this ExifData.
 
-        Gets or sets the subject distance.  # noqa: E501
+        Gets or sets the subject distance.
 
-        :param subject_distance: The subject_distance of this ExifData.  # noqa: E501
+        :param subject_distance: The subject_distance of this ExifData.
         :type: float
         """
         if subject_distance is None:
-            raise ValueError("Invalid value for `subject_distance`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `subject_distance`, must not be `None`")
         self._subject_distance = subject_distance
 
     @property
     def subject_distance_range(self):
-        """Gets the subject_distance_range of this ExifData.  # noqa: E501
+        """Gets the subject_distance_range of this ExifData.
 
-        Gets or sets the subject distance range.  # noqa: E501
+        Gets or sets the subject distance range.
 
-        :return: The subject_distance_range of this ExifData.  # noqa: E501
+        :return: The subject_distance_range of this ExifData.
         :rtype: str
         """
         return self._subject_distance_range
@@ -2714,20 +2713,20 @@ class ExifData(object):
     def subject_distance_range(self, subject_distance_range):
         """Sets the subject_distance_range of this ExifData.
 
-        Gets or sets the subject distance range.  # noqa: E501
+        Gets or sets the subject distance range.
 
-        :param subject_distance_range: The subject_distance_range of this ExifData.  # noqa: E501
+        :param subject_distance_range: The subject_distance_range of this ExifData.
         :type: str
         """
         self._subject_distance_range = subject_distance_range
 
     @property
     def subject_location(self):
-        """Gets the subject_location of this ExifData.  # noqa: E501
+        """Gets the subject_location of this ExifData.
 
-        Gets or sets the subject location.  # noqa: E501
+        Gets or sets the subject location.
 
-        :return: The subject_location of this ExifData.  # noqa: E501
+        :return: The subject_location of this ExifData.
         :rtype: list[int]
         """
         return self._subject_location
@@ -2736,20 +2735,20 @@ class ExifData(object):
     def subject_location(self, subject_location):
         """Sets the subject_location of this ExifData.
 
-        Gets or sets the subject location.  # noqa: E501
+        Gets or sets the subject location.
 
-        :param subject_location: The subject_location of this ExifData.  # noqa: E501
+        :param subject_location: The subject_location of this ExifData.
         :type: list[int]
         """
         self._subject_location = subject_location
 
     @property
     def subsec_time(self):
-        """Gets the subsec_time of this ExifData.  # noqa: E501
+        """Gets the subsec_time of this ExifData.
 
-        Gets or sets the fractions of seconds for the DateTime tag.  # noqa: E501
+        Gets or sets the fractions of seconds for the DateTime tag.
 
-        :return: The subsec_time of this ExifData.  # noqa: E501
+        :return: The subsec_time of this ExifData.
         :rtype: str
         """
         return self._subsec_time
@@ -2758,20 +2757,20 @@ class ExifData(object):
     def subsec_time(self, subsec_time):
         """Sets the subsec_time of this ExifData.
 
-        Gets or sets the fractions of seconds for the DateTime tag.  # noqa: E501
+        Gets or sets the fractions of seconds for the DateTime tag.
 
-        :param subsec_time: The subsec_time of this ExifData.  # noqa: E501
+        :param subsec_time: The subsec_time of this ExifData.
         :type: str
         """
         self._subsec_time = subsec_time
 
     @property
     def subsec_time_digitized(self):
-        """Gets the subsec_time_digitized of this ExifData.  # noqa: E501
+        """Gets the subsec_time_digitized of this ExifData.
 
-        Gets or sets the fractions of seconds for the DateTimeDigitized tag.  # noqa: E501
+        Gets or sets the fractions of seconds for the DateTimeDigitized tag.
 
-        :return: The subsec_time_digitized of this ExifData.  # noqa: E501
+        :return: The subsec_time_digitized of this ExifData.
         :rtype: str
         """
         return self._subsec_time_digitized
@@ -2780,20 +2779,20 @@ class ExifData(object):
     def subsec_time_digitized(self, subsec_time_digitized):
         """Sets the subsec_time_digitized of this ExifData.
 
-        Gets or sets the fractions of seconds for the DateTimeDigitized tag.  # noqa: E501
+        Gets or sets the fractions of seconds for the DateTimeDigitized tag.
 
-        :param subsec_time_digitized: The subsec_time_digitized of this ExifData.  # noqa: E501
+        :param subsec_time_digitized: The subsec_time_digitized of this ExifData.
         :type: str
         """
         self._subsec_time_digitized = subsec_time_digitized
 
     @property
     def subsec_time_original(self):
-        """Gets the subsec_time_original of this ExifData.  # noqa: E501
+        """Gets the subsec_time_original of this ExifData.
 
-        Gets or sets the fractions of seconds for the DateTimeOriginal tag.  # noqa: E501
+        Gets or sets the fractions of seconds for the DateTimeOriginal tag.
 
-        :return: The subsec_time_original of this ExifData.  # noqa: E501
+        :return: The subsec_time_original of this ExifData.
         :rtype: str
         """
         return self._subsec_time_original
@@ -2802,20 +2801,20 @@ class ExifData(object):
     def subsec_time_original(self, subsec_time_original):
         """Sets the subsec_time_original of this ExifData.
 
-        Gets or sets the fractions of seconds for the DateTimeOriginal tag.  # noqa: E501
+        Gets or sets the fractions of seconds for the DateTimeOriginal tag.
 
-        :param subsec_time_original: The subsec_time_original of this ExifData.  # noqa: E501
+        :param subsec_time_original: The subsec_time_original of this ExifData.
         :type: str
         """
         self._subsec_time_original = subsec_time_original
 
     @property
     def user_comment(self):
-        """Gets the user_comment of this ExifData.  # noqa: E501
+        """Gets the user_comment of this ExifData.
 
-        Gets or sets the user comment.  # noqa: E501
+        Gets or sets the user comment.
 
-        :return: The user_comment of this ExifData.  # noqa: E501
+        :return: The user_comment of this ExifData.
         :rtype: str
         """
         return self._user_comment
@@ -2824,20 +2823,20 @@ class ExifData(object):
     def user_comment(self, user_comment):
         """Sets the user_comment of this ExifData.
 
-        Gets or sets the user comment.  # noqa: E501
+        Gets or sets the user comment.
 
-        :param user_comment: The user_comment of this ExifData.  # noqa: E501
+        :param user_comment: The user_comment of this ExifData.
         :type: str
         """
         self._user_comment = user_comment
 
     @property
     def white_balance(self):
-        """Gets the white_balance of this ExifData.  # noqa: E501
+        """Gets the white_balance of this ExifData.
 
-        Gets or sets the white balance.  # noqa: E501
+        Gets or sets the white balance.
 
-        :return: The white_balance of this ExifData.  # noqa: E501
+        :return: The white_balance of this ExifData.
         :rtype: str
         """
         return self._white_balance
@@ -2846,20 +2845,20 @@ class ExifData(object):
     def white_balance(self, white_balance):
         """Sets the white_balance of this ExifData.
 
-        Gets or sets the white balance.  # noqa: E501
+        Gets or sets the white balance.
 
-        :param white_balance: The white_balance of this ExifData.  # noqa: E501
+        :param white_balance: The white_balance of this ExifData.
         :type: str
         """
         self._white_balance = white_balance
 
     @property
     def white_point(self):
-        """Gets the white_point of this ExifData.  # noqa: E501
+        """Gets the white_point of this ExifData.
 
-        Gets or sets the white point.  # noqa: E501
+        Gets or sets the white point.
 
-        :return: The white_point of this ExifData.  # noqa: E501
+        :return: The white_point of this ExifData.
         :rtype: list[float]
         """
         return self._white_point
@@ -2868,9 +2867,9 @@ class ExifData(object):
     def white_point(self, white_point):
         """Sets the white_point of this ExifData.
 
-        Gets or sets the white point.  # noqa: E501
+        Gets or sets the white point.
 
-        :param white_point: The white_point of this ExifData.  # noqa: E501
+        :param white_point: The white_point of this ExifData.
         :type: list[float]
         """
         self._white_point = white_point

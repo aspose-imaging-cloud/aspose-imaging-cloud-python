@@ -1,34 +1,33 @@
 # coding: utf-8
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # <copyright company="Aspose" file="ImageDuplicates.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
-#   Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
-# 
-#  The above copyright notice and this permission notice shall be included in all
-#  copies or substantial portions of the Software.
-# 
+#   Permission is hereby granted, free of charge, to any person obtaining a
+#  copy  of this software and associated documentation files (the "Software"),
+#  to deal  in the Software without restriction, including without limitation
+#  the rights  to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell  copies of the Software, and to permit persons to whom the
+#  Software is  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in
+#  all  copies or substantial portions of the Software.
+#
 #  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 #  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#  SOFTWARE.
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
 # </summary>
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 import pprint
-import re  # noqa: F401
 
 import six
 
-from asposeimagingcloud.models.search_result import SearchResult  # noqa: F401,E501
+from asposeimagingcloud.models.search_result import SearchResult
 
 
 class ImageDuplicates(object):
@@ -50,8 +49,8 @@ class ImageDuplicates(object):
         'duplicate_images': 'DuplicateImages'
     }
 
-    def __init__(self, duplicate_images=None):  # noqa: E501
-        """ImageDuplicates - a model defined in Swagger"""  # noqa: E501
+    def __init__(self, duplicate_images=None):
+        """ImageDuplicates - a model defined in Swagger"""
 
         self._duplicate_images = None
         self.discriminator = None
@@ -61,11 +60,11 @@ class ImageDuplicates(object):
 
     @property
     def duplicate_images(self):
-        """Gets the duplicate_images of this ImageDuplicates.  # noqa: E501
+        """Gets the duplicate_images of this ImageDuplicates.
 
-        Gets or sets the duplicate images.  # noqa: E501
+        Gets or sets the duplicate images.
 
-        :return: The duplicate_images of this ImageDuplicates.  # noqa: E501
+        :return: The duplicate_images of this ImageDuplicates.
         :rtype: list[SearchResult]
         """
         return self._duplicate_images
@@ -74,9 +73,9 @@ class ImageDuplicates(object):
     def duplicate_images(self, duplicate_images):
         """Sets the duplicate_images of this ImageDuplicates.
 
-        Gets or sets the duplicate images.  # noqa: E501
+        Gets or sets the duplicate images.
 
-        :param duplicate_images: The duplicate_images of this ImageDuplicates.  # noqa: E501
+        :param duplicate_images: The duplicate_images of this ImageDuplicates.
         :type: list[SearchResult]
         """
         self._duplicate_images = duplicate_images

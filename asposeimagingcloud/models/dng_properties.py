@@ -1,30 +1,29 @@
 # coding: utf-8
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # <copyright company="Aspose" file="DngProperties.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
-#   Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
-# 
-#  The above copyright notice and this permission notice shall be included in all
-#  copies or substantial portions of the Software.
-# 
+#   Permission is hereby granted, free of charge, to any person obtaining a
+#  copy  of this software and associated documentation files (the "Software"),
+#  to deal  in the Software without restriction, including without limitation
+#  the rights  to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell  copies of the Software, and to permit persons to whom the
+#  Software is  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in
+#  all  copies or substantial portions of the Software.
+#
 #  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 #  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#  SOFTWARE.
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
 # </summary>
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 import pprint
-import re  # noqa: F401
 
 import six
 
@@ -68,8 +67,8 @@ class DngProperties(object):
         'translation_cfa_dng': 'TranslationCfaDng'
     }
 
-    def __init__(self, dng_version=None, description=None, model=None, camera_manufacturer=None, is_foveon=None, software=None, raw_count=None, filters=None, colors_count=None, xmp_data=None, translation_cfa_dng=None):  # noqa: E501
-        """DngProperties - a model defined in Swagger"""  # noqa: E501
+    def __init__(self, dng_version=None, description=None, model=None, camera_manufacturer=None, is_foveon=None, software=None, raw_count=None, filters=None, colors_count=None, xmp_data=None, translation_cfa_dng=None):
+        """DngProperties - a model defined in Swagger"""
 
         self._dng_version = None
         self._description = None
@@ -109,11 +108,11 @@ class DngProperties(object):
 
     @property
     def dng_version(self):
-        """Gets the dng_version of this DngProperties.  # noqa: E501
+        """Gets the dng_version of this DngProperties.
 
-        Gets or sets the DNG version.  # noqa: E501
+        Gets or sets the DNG version.
 
-        :return: The dng_version of this DngProperties.  # noqa: E501
+        :return: The dng_version of this DngProperties.
         :rtype: int
         """
         return self._dng_version
@@ -122,22 +121,22 @@ class DngProperties(object):
     def dng_version(self, dng_version):
         """Sets the dng_version of this DngProperties.
 
-        Gets or sets the DNG version.  # noqa: E501
+        Gets or sets the DNG version.
 
-        :param dng_version: The dng_version of this DngProperties.  # noqa: E501
+        :param dng_version: The dng_version of this DngProperties.
         :type: int
         """
         if dng_version is None:
-            raise ValueError("Invalid value for `dng_version`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `dng_version`, must not be `None`")
         self._dng_version = dng_version
 
     @property
     def description(self):
-        """Gets the description of this DngProperties.  # noqa: E501
+        """Gets the description of this DngProperties.
 
-        Gets or sets the description of colors (RGBG, RGBE, GMCY or GBTG).  # noqa: E501
+        Gets or sets the description of colors (RGBG, RGBE, GMCY or GBTG).
 
-        :return: The description of this DngProperties.  # noqa: E501
+        :return: The description of this DngProperties.
         :rtype: str
         """
         return self._description
@@ -146,20 +145,20 @@ class DngProperties(object):
     def description(self, description):
         """Sets the description of this DngProperties.
 
-        Gets or sets the description of colors (RGBG, RGBE, GMCY or GBTG).  # noqa: E501
+        Gets or sets the description of colors (RGBG, RGBE, GMCY or GBTG).
 
-        :param description: The description of this DngProperties.  # noqa: E501
+        :param description: The description of this DngProperties.
         :type: str
         """
         self._description = description
 
     @property
     def model(self):
-        """Gets the model of this DngProperties.  # noqa: E501
+        """Gets the model of this DngProperties.
 
-        Gets or sets the camera model.  # noqa: E501
+        Gets or sets the camera model.
 
-        :return: The model of this DngProperties.  # noqa: E501
+        :return: The model of this DngProperties.
         :rtype: str
         """
         return self._model
@@ -168,20 +167,20 @@ class DngProperties(object):
     def model(self, model):
         """Sets the model of this DngProperties.
 
-        Gets or sets the camera model.  # noqa: E501
+        Gets or sets the camera model.
 
-        :param model: The model of this DngProperties.  # noqa: E501
+        :param model: The model of this DngProperties.
         :type: str
         """
         self._model = model
 
     @property
     def camera_manufacturer(self):
-        """Gets the camera_manufacturer of this DngProperties.  # noqa: E501
+        """Gets the camera_manufacturer of this DngProperties.
 
-        Gets or sets the camera manufacturer.  # noqa: E501
+        Gets or sets the camera manufacturer.
 
-        :return: The camera_manufacturer of this DngProperties.  # noqa: E501
+        :return: The camera_manufacturer of this DngProperties.
         :rtype: str
         """
         return self._camera_manufacturer
@@ -190,20 +189,20 @@ class DngProperties(object):
     def camera_manufacturer(self, camera_manufacturer):
         """Sets the camera_manufacturer of this DngProperties.
 
-        Gets or sets the camera manufacturer.  # noqa: E501
+        Gets or sets the camera manufacturer.
 
-        :param camera_manufacturer: The camera_manufacturer of this DngProperties.  # noqa: E501
+        :param camera_manufacturer: The camera_manufacturer of this DngProperties.
         :type: str
         """
         self._camera_manufacturer = camera_manufacturer
 
     @property
     def is_foveon(self):
-        """Gets the is_foveon of this DngProperties.  # noqa: E501
+        """Gets the is_foveon of this DngProperties.
 
-        Gets or sets the value indicating whether it's a Foveon matrix.  # noqa: E501
+        Gets or sets the value indicating whether it's a Foveon matrix.
 
-        :return: The is_foveon of this DngProperties.  # noqa: E501
+        :return: The is_foveon of this DngProperties.
         :rtype: int
         """
         return self._is_foveon
@@ -212,22 +211,22 @@ class DngProperties(object):
     def is_foveon(self, is_foveon):
         """Sets the is_foveon of this DngProperties.
 
-        Gets or sets the value indicating whether it's a Foveon matrix.  # noqa: E501
+        Gets or sets the value indicating whether it's a Foveon matrix.
 
-        :param is_foveon: The is_foveon of this DngProperties.  # noqa: E501
+        :param is_foveon: The is_foveon of this DngProperties.
         :type: int
         """
         if is_foveon is None:
-            raise ValueError("Invalid value for `is_foveon`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `is_foveon`, must not be `None`")
         self._is_foveon = is_foveon
 
     @property
     def software(self):
-        """Gets the software of this DngProperties.  # noqa: E501
+        """Gets the software of this DngProperties.
 
-        Gets or sets the software.  # noqa: E501
+        Gets or sets the software.
 
-        :return: The software of this DngProperties.  # noqa: E501
+        :return: The software of this DngProperties.
         :rtype: str
         """
         return self._software
@@ -236,20 +235,20 @@ class DngProperties(object):
     def software(self, software):
         """Sets the software of this DngProperties.
 
-        Gets or sets the software.  # noqa: E501
+        Gets or sets the software.
 
-        :param software: The software of this DngProperties.  # noqa: E501
+        :param software: The software of this DngProperties.
         :type: str
         """
         self._software = software
 
     @property
     def raw_count(self):
-        """Gets the raw_count of this DngProperties.  # noqa: E501
+        """Gets the raw_count of this DngProperties.
 
-        Gets or sets the number of RAW images in file (0 means that the file has not been recognized).  # noqa: E501
+        Gets or sets the number of RAW images in file (0 means that the file has not been recognized).
 
-        :return: The raw_count of this DngProperties.  # noqa: E501
+        :return: The raw_count of this DngProperties.
         :rtype: int
         """
         return self._raw_count
@@ -258,22 +257,22 @@ class DngProperties(object):
     def raw_count(self, raw_count):
         """Sets the raw_count of this DngProperties.
 
-        Gets or sets the number of RAW images in file (0 means that the file has not been recognized).  # noqa: E501
+        Gets or sets the number of RAW images in file (0 means that the file has not been recognized).
 
-        :param raw_count: The raw_count of this DngProperties.  # noqa: E501
+        :param raw_count: The raw_count of this DngProperties.
         :type: int
         """
         if raw_count is None:
-            raise ValueError("Invalid value for `raw_count`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `raw_count`, must not be `None`")
         self._raw_count = raw_count
 
     @property
     def filters(self):
-        """Gets the filters of this DngProperties.  # noqa: E501
+        """Gets the filters of this DngProperties.
 
-        Gets or sets the bit mask describing the order of color pixels in the matrix.  # noqa: E501
+        Gets or sets the bit mask describing the order of color pixels in the matrix.
 
-        :return: The filters of this DngProperties.  # noqa: E501
+        :return: The filters of this DngProperties.
         :rtype: int
         """
         return self._filters
@@ -282,22 +281,22 @@ class DngProperties(object):
     def filters(self, filters):
         """Sets the filters of this DngProperties.
 
-        Gets or sets the bit mask describing the order of color pixels in the matrix.  # noqa: E501
+        Gets or sets the bit mask describing the order of color pixels in the matrix.
 
-        :param filters: The filters of this DngProperties.  # noqa: E501
+        :param filters: The filters of this DngProperties.
         :type: int
         """
         if filters is None:
-            raise ValueError("Invalid value for `filters`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `filters`, must not be `None`")
         self._filters = filters
 
     @property
     def colors_count(self):
-        """Gets the colors_count of this DngProperties.  # noqa: E501
+        """Gets the colors_count of this DngProperties.
 
-        Gets or sets the colors count.  # noqa: E501
+        Gets or sets the colors count.
 
-        :return: The colors_count of this DngProperties.  # noqa: E501
+        :return: The colors_count of this DngProperties.
         :rtype: int
         """
         return self._colors_count
@@ -306,22 +305,22 @@ class DngProperties(object):
     def colors_count(self, colors_count):
         """Sets the colors_count of this DngProperties.
 
-        Gets or sets the colors count.  # noqa: E501
+        Gets or sets the colors count.
 
-        :param colors_count: The colors_count of this DngProperties.  # noqa: E501
+        :param colors_count: The colors_count of this DngProperties.
         :type: int
         """
         if colors_count is None:
-            raise ValueError("Invalid value for `colors_count`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `colors_count`, must not be `None`")
         self._colors_count = colors_count
 
     @property
     def xmp_data(self):
-        """Gets the xmp_data of this DngProperties.  # noqa: E501
+        """Gets the xmp_data of this DngProperties.
 
-        Gets or sets the XMP data.  # noqa: E501
+        Gets or sets the XMP data.
 
-        :return: The xmp_data of this DngProperties.  # noqa: E501
+        :return: The xmp_data of this DngProperties.
         :rtype: str
         """
         return self._xmp_data
@@ -330,20 +329,20 @@ class DngProperties(object):
     def xmp_data(self, xmp_data):
         """Sets the xmp_data of this DngProperties.
 
-        Gets or sets the XMP data.  # noqa: E501
+        Gets or sets the XMP data.
 
-        :param xmp_data: The xmp_data of this DngProperties.  # noqa: E501
+        :param xmp_data: The xmp_data of this DngProperties.
         :type: str
         """
         self._xmp_data = xmp_data
 
     @property
     def translation_cfa_dng(self):
-        """Gets the translation_cfa_dng of this DngProperties.  # noqa: E501
+        """Gets the translation_cfa_dng of this DngProperties.
 
-        Gets or sets the translation array for CFA mosaic of DNG format.  # noqa: E501
+        Gets or sets the translation array for CFA mosaic of DNG format.
 
-        :return: The translation_cfa_dng of this DngProperties.  # noqa: E501
+        :return: The translation_cfa_dng of this DngProperties.
         :rtype: list[str]
         """
         return self._translation_cfa_dng
@@ -352,9 +351,9 @@ class DngProperties(object):
     def translation_cfa_dng(self, translation_cfa_dng):
         """Sets the translation_cfa_dng of this DngProperties.
 
-        Gets or sets the translation array for CFA mosaic of DNG format.  # noqa: E501
+        Gets or sets the translation array for CFA mosaic of DNG format.
 
-        :param translation_cfa_dng: The translation_cfa_dng of this DngProperties.  # noqa: E501
+        :param translation_cfa_dng: The translation_cfa_dng of this DngProperties.
         :type: list[str]
         """
         self._translation_cfa_dng = translation_cfa_dng

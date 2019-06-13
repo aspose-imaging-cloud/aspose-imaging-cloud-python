@@ -1,30 +1,29 @@
 # coding: utf-8
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # <copyright company="Aspose" file="StorageExist.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
-#   Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
-# 
-#  The above copyright notice and this permission notice shall be included in all
-#  copies or substantial portions of the Software.
-# 
+#   Permission is hereby granted, free of charge, to any person obtaining a
+#  copy  of this software and associated documentation files (the "Software"),
+#  to deal  in the Software without restriction, including without limitation
+#  the rights  to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell  copies of the Software, and to permit persons to whom the
+#  Software is  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in
+#  all  copies or substantial portions of the Software.
+#
 #  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 #  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#  SOFTWARE.
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
 # </summary>
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 import pprint
-import re  # noqa: F401
 
 import six
 
@@ -48,8 +47,8 @@ class StorageExist(object):
         'exists': 'Exists'
     }
 
-    def __init__(self, exists=None):  # noqa: E501
-        """StorageExist - a model defined in Swagger"""  # noqa: E501
+    def __init__(self, exists=None):
+        """StorageExist - a model defined in Swagger"""
 
         self._exists = None
         self.discriminator = None
@@ -59,11 +58,11 @@ class StorageExist(object):
 
     @property
     def exists(self):
-        """Gets the exists of this StorageExist.  # noqa: E501
+        """Gets the exists of this StorageExist.
 
-        Shows that the storage exists.               # noqa: E501
+        Shows that the storage exists.             
 
-        :return: The exists of this StorageExist.  # noqa: E501
+        :return: The exists of this StorageExist.
         :rtype: bool
         """
         return self._exists
@@ -72,13 +71,13 @@ class StorageExist(object):
     def exists(self, exists):
         """Sets the exists of this StorageExist.
 
-        Shows that the storage exists.               # noqa: E501
+        Shows that the storage exists.             
 
-        :param exists: The exists of this StorageExist.  # noqa: E501
+        :param exists: The exists of this StorageExist.
         :type: bool
         """
         if exists is None:
-            raise ValueError("Invalid value for `exists`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `exists`, must not be `None`")
         self._exists = exists
 
     def to_dict(self):

@@ -1,30 +1,29 @@
 # coding: utf-8
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # <copyright company="Aspose" file="SearchContextStatus.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
-#   Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
-# 
-#  The above copyright notice and this permission notice shall be included in all
-#  copies or substantial portions of the Software.
-# 
+#   Permission is hereby granted, free of charge, to any person obtaining a
+#  copy  of this software and associated documentation files (the "Software"),
+#  to deal  in the Software without restriction, including without limitation
+#  the rights  to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell  copies of the Software, and to permit persons to whom the
+#  Software is  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in
+#  all  copies or substantial portions of the Software.
+#
 #  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 #  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#  SOFTWARE.
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
 # </summary>
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 import pprint
-import re  # noqa: F401
 
 import six
 
@@ -50,8 +49,8 @@ class SearchContextStatus(object):
         'search_status': 'SearchStatus'
     }
 
-    def __init__(self, id=None, search_status=None):  # noqa: E501
-        """SearchContextStatus - a model defined in Swagger"""  # noqa: E501
+    def __init__(self, id=None, search_status=None):
+        """SearchContextStatus - a model defined in Swagger"""
 
         self._id = None
         self._search_status = None
@@ -64,11 +63,11 @@ class SearchContextStatus(object):
 
     @property
     def id(self):
-        """Gets the id of this SearchContextStatus.  # noqa: E501
+        """Gets the id of this SearchContextStatus.
 
-        Gets or sets the identifier.  # noqa: E501
+        Gets or sets the identifier.
 
-        :return: The id of this SearchContextStatus.  # noqa: E501
+        :return: The id of this SearchContextStatus.
         :rtype: str
         """
         return self._id
@@ -77,20 +76,20 @@ class SearchContextStatus(object):
     def id(self, id):
         """Sets the id of this SearchContextStatus.
 
-        Gets or sets the identifier.  # noqa: E501
+        Gets or sets the identifier.
 
-        :param id: The id of this SearchContextStatus.  # noqa: E501
+        :param id: The id of this SearchContextStatus.
         :type: str
         """
         self._id = id
 
     @property
     def search_status(self):
-        """Gets the search_status of this SearchContextStatus.  # noqa: E501
+        """Gets the search_status of this SearchContextStatus.
 
-        Gets or sets the status.  # noqa: E501
+        Gets or sets the status.
 
-        :return: The search_status of this SearchContextStatus.  # noqa: E501
+        :return: The search_status of this SearchContextStatus.
         :rtype: str
         """
         return self._search_status
@@ -99,9 +98,9 @@ class SearchContextStatus(object):
     def search_status(self, search_status):
         """Sets the search_status of this SearchContextStatus.
 
-        Gets or sets the status.  # noqa: E501
+        Gets or sets the status.
 
-        :param search_status: The search_status of this SearchContextStatus.  # noqa: E501
+        :param search_status: The search_status of this SearchContextStatus.
         :type: str
         """
         self._search_status = search_status

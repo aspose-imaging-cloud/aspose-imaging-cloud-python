@@ -1,35 +1,34 @@
 # coding: utf-8
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # <copyright company="Aspose" file="OdgProperties.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
-#   Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
-# 
-#  The above copyright notice and this permission notice shall be included in all
-#  copies or substantial portions of the Software.
-# 
+#   Permission is hereby granted, free of charge, to any person obtaining a
+#  copy  of this software and associated documentation files (the "Software"),
+#  to deal  in the Software without restriction, including without limitation
+#  the rights  to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell  copies of the Software, and to permit persons to whom the
+#  Software is  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in
+#  all  copies or substantial portions of the Software.
+#
 #  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 #  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#  SOFTWARE.
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
 # </summary>
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 import pprint
-import re  # noqa: F401
 
 import six
 
-from asposeimagingcloud.models.odg_metadata import OdgMetadata  # noqa: F401,E501
-from asposeimagingcloud.models.odg_page import OdgPage  # noqa: F401,E501
+from asposeimagingcloud.models.odg_metadata import OdgMetadata
+from asposeimagingcloud.models.odg_page import OdgPage
 
 
 class OdgProperties(object):
@@ -55,8 +54,8 @@ class OdgProperties(object):
         'pages': 'Pages'
     }
 
-    def __init__(self, page_count=None, metadata=None, pages=None):  # noqa: E501
-        """OdgProperties - a model defined in Swagger"""  # noqa: E501
+    def __init__(self, page_count=None, metadata=None, pages=None):
+        """OdgProperties - a model defined in Swagger"""
 
         self._page_count = None
         self._metadata = None
@@ -72,11 +71,11 @@ class OdgProperties(object):
 
     @property
     def page_count(self):
-        """Gets the page_count of this OdgProperties.  # noqa: E501
+        """Gets the page_count of this OdgProperties.
 
-        Gets or sets the page count.  # noqa: E501
+        Gets or sets the page count.
 
-        :return: The page_count of this OdgProperties.  # noqa: E501
+        :return: The page_count of this OdgProperties.
         :rtype: int
         """
         return self._page_count
@@ -85,22 +84,22 @@ class OdgProperties(object):
     def page_count(self, page_count):
         """Sets the page_count of this OdgProperties.
 
-        Gets or sets the page count.  # noqa: E501
+        Gets or sets the page count.
 
-        :param page_count: The page_count of this OdgProperties.  # noqa: E501
+        :param page_count: The page_count of this OdgProperties.
         :type: int
         """
         if page_count is None:
-            raise ValueError("Invalid value for `page_count`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `page_count`, must not be `None`")
         self._page_count = page_count
 
     @property
     def metadata(self):
-        """Gets the metadata of this OdgProperties.  # noqa: E501
+        """Gets the metadata of this OdgProperties.
 
-        Gets or sets the metadata.  # noqa: E501
+        Gets or sets the metadata.
 
-        :return: The metadata of this OdgProperties.  # noqa: E501
+        :return: The metadata of this OdgProperties.
         :rtype: OdgMetadata
         """
         return self._metadata
@@ -109,20 +108,20 @@ class OdgProperties(object):
     def metadata(self, metadata):
         """Sets the metadata of this OdgProperties.
 
-        Gets or sets the metadata.  # noqa: E501
+        Gets or sets the metadata.
 
-        :param metadata: The metadata of this OdgProperties.  # noqa: E501
+        :param metadata: The metadata of this OdgProperties.
         :type: OdgMetadata
         """
         self._metadata = metadata
 
     @property
     def pages(self):
-        """Gets the pages of this OdgProperties.  # noqa: E501
+        """Gets the pages of this OdgProperties.
 
-        Gets or sets the pages.  # noqa: E501
+        Gets or sets the pages.
 
-        :return: The pages of this OdgProperties.  # noqa: E501
+        :return: The pages of this OdgProperties.
         :rtype: list[OdgPage]
         """
         return self._pages
@@ -131,9 +130,9 @@ class OdgProperties(object):
     def pages(self, pages):
         """Sets the pages of this OdgProperties.
 
-        Gets or sets the pages.  # noqa: E501
+        Gets or sets the pages.
 
-        :param pages: The pages of this OdgProperties.  # noqa: E501
+        :param pages: The pages of this OdgProperties.
         :type: list[OdgPage]
         """
         self._pages = pages

@@ -1,45 +1,44 @@
 # coding: utf-8
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # <copyright company="Aspose" file="ImagingResponse.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
-#   Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
-# 
-#  The above copyright notice and this permission notice shall be included in all
-#  copies or substantial portions of the Software.
-# 
+#   Permission is hereby granted, free of charge, to any person obtaining a
+#  copy  of this software and associated documentation files (the "Software"),
+#  to deal  in the Software without restriction, including without limitation
+#  the rights  to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell  copies of the Software, and to permit persons to whom the
+#  Software is  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in
+#  all  copies or substantial portions of the Software.
+#
 #  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 #  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#  SOFTWARE.
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
 # </summary>
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 import pprint
-import re  # noqa: F401
 
 import six
 
-from asposeimagingcloud.models.bmp_properties import BmpProperties  # noqa: F401,E501
-from asposeimagingcloud.models.dicom_properties import DicomProperties  # noqa: F401,E501
-from asposeimagingcloud.models.djvu_properties import DjvuProperties  # noqa: F401,E501
-from asposeimagingcloud.models.dng_properties import DngProperties  # noqa: F401,E501
-from asposeimagingcloud.models.gif_properties import GifProperties  # noqa: F401,E501
-from asposeimagingcloud.models.jpeg2000_properties import Jpeg2000Properties  # noqa: F401,E501
-from asposeimagingcloud.models.jpeg_properties import JpegProperties  # noqa: F401,E501
-from asposeimagingcloud.models.odg_properties import OdgProperties  # noqa: F401,E501
-from asposeimagingcloud.models.png_properties import PngProperties  # noqa: F401,E501
-from asposeimagingcloud.models.psd_properties import PsdProperties  # noqa: F401,E501
-from asposeimagingcloud.models.tiff_properties import TiffProperties  # noqa: F401,E501
-from asposeimagingcloud.models.web_p_properties import WebPProperties  # noqa: F401,E501
+from asposeimagingcloud.models.bmp_properties import BmpProperties
+from asposeimagingcloud.models.dicom_properties import DicomProperties
+from asposeimagingcloud.models.djvu_properties import DjvuProperties
+from asposeimagingcloud.models.dng_properties import DngProperties
+from asposeimagingcloud.models.gif_properties import GifProperties
+from asposeimagingcloud.models.jpeg2000_properties import Jpeg2000Properties
+from asposeimagingcloud.models.jpeg_properties import JpegProperties
+from asposeimagingcloud.models.odg_properties import OdgProperties
+from asposeimagingcloud.models.png_properties import PngProperties
+from asposeimagingcloud.models.psd_properties import PsdProperties
+from asposeimagingcloud.models.tiff_properties import TiffProperties
+from asposeimagingcloud.models.web_p_properties import WebPProperties
 
 
 class ImagingResponse(object):
@@ -95,8 +94,8 @@ class ImagingResponse(object):
         'is_cached': 'IsCached'
     }
 
-    def __init__(self, height=None, width=None, bits_per_pixel=None, bmp_properties=None, gif_properties=None, jpeg_properties=None, png_properties=None, tiff_properties=None, psd_properties=None, djvu_properties=None, web_p_properties=None, jpeg2000_properties=None, dicom_properties=None, dng_properties=None, odg_properties=None, horizontal_resolution=None, vertical_resolution=None, is_cached=None):  # noqa: E501
-        """ImagingResponse - a model defined in Swagger"""  # noqa: E501
+    def __init__(self, height=None, width=None, bits_per_pixel=None, bmp_properties=None, gif_properties=None, jpeg_properties=None, png_properties=None, tiff_properties=None, psd_properties=None, djvu_properties=None, web_p_properties=None, jpeg2000_properties=None, dicom_properties=None, dng_properties=None, odg_properties=None, horizontal_resolution=None, vertical_resolution=None, is_cached=None):
+        """ImagingResponse - a model defined in Swagger"""
 
         self._height = None
         self._width = None
@@ -157,11 +156,11 @@ class ImagingResponse(object):
 
     @property
     def height(self):
-        """Gets the height of this ImagingResponse.  # noqa: E501
+        """Gets the height of this ImagingResponse.
 
-        Gets or sets the height of image.  # noqa: E501
+        Gets or sets the height of image.
 
-        :return: The height of this ImagingResponse.  # noqa: E501
+        :return: The height of this ImagingResponse.
         :rtype: int
         """
         return self._height
@@ -170,22 +169,22 @@ class ImagingResponse(object):
     def height(self, height):
         """Sets the height of this ImagingResponse.
 
-        Gets or sets the height of image.  # noqa: E501
+        Gets or sets the height of image.
 
-        :param height: The height of this ImagingResponse.  # noqa: E501
+        :param height: The height of this ImagingResponse.
         :type: int
         """
         if height is None:
-            raise ValueError("Invalid value for `height`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `height`, must not be `None`")
         self._height = height
 
     @property
     def width(self):
-        """Gets the width of this ImagingResponse.  # noqa: E501
+        """Gets the width of this ImagingResponse.
 
-        Gets or sets the width of image.  # noqa: E501
+        Gets or sets the width of image.
 
-        :return: The width of this ImagingResponse.  # noqa: E501
+        :return: The width of this ImagingResponse.
         :rtype: int
         """
         return self._width
@@ -194,22 +193,22 @@ class ImagingResponse(object):
     def width(self, width):
         """Sets the width of this ImagingResponse.
 
-        Gets or sets the width of image.  # noqa: E501
+        Gets or sets the width of image.
 
-        :param width: The width of this ImagingResponse.  # noqa: E501
+        :param width: The width of this ImagingResponse.
         :type: int
         """
         if width is None:
-            raise ValueError("Invalid value for `width`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `width`, must not be `None`")
         self._width = width
 
     @property
     def bits_per_pixel(self):
-        """Gets the bits_per_pixel of this ImagingResponse.  # noqa: E501
+        """Gets the bits_per_pixel of this ImagingResponse.
 
-        Gets or sets the bits per pixel for image.  # noqa: E501
+        Gets or sets the bits per pixel for image.
 
-        :return: The bits_per_pixel of this ImagingResponse.  # noqa: E501
+        :return: The bits_per_pixel of this ImagingResponse.
         :rtype: int
         """
         return self._bits_per_pixel
@@ -218,22 +217,22 @@ class ImagingResponse(object):
     def bits_per_pixel(self, bits_per_pixel):
         """Sets the bits_per_pixel of this ImagingResponse.
 
-        Gets or sets the bits per pixel for image.  # noqa: E501
+        Gets or sets the bits per pixel for image.
 
-        :param bits_per_pixel: The bits_per_pixel of this ImagingResponse.  # noqa: E501
+        :param bits_per_pixel: The bits_per_pixel of this ImagingResponse.
         :type: int
         """
         if bits_per_pixel is None:
-            raise ValueError("Invalid value for `bits_per_pixel`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `bits_per_pixel`, must not be `None`")
         self._bits_per_pixel = bits_per_pixel
 
     @property
     def bmp_properties(self):
-        """Gets the bmp_properties of this ImagingResponse.  # noqa: E501
+        """Gets the bmp_properties of this ImagingResponse.
 
-        Gets or sets the BMP properties.  # noqa: E501
+        Gets or sets the BMP properties.
 
-        :return: The bmp_properties of this ImagingResponse.  # noqa: E501
+        :return: The bmp_properties of this ImagingResponse.
         :rtype: BmpProperties
         """
         return self._bmp_properties
@@ -242,20 +241,20 @@ class ImagingResponse(object):
     def bmp_properties(self, bmp_properties):
         """Sets the bmp_properties of this ImagingResponse.
 
-        Gets or sets the BMP properties.  # noqa: E501
+        Gets or sets the BMP properties.
 
-        :param bmp_properties: The bmp_properties of this ImagingResponse.  # noqa: E501
+        :param bmp_properties: The bmp_properties of this ImagingResponse.
         :type: BmpProperties
         """
         self._bmp_properties = bmp_properties
 
     @property
     def gif_properties(self):
-        """Gets the gif_properties of this ImagingResponse.  # noqa: E501
+        """Gets the gif_properties of this ImagingResponse.
 
-        Gets or sets the GIF properties.  # noqa: E501
+        Gets or sets the GIF properties.
 
-        :return: The gif_properties of this ImagingResponse.  # noqa: E501
+        :return: The gif_properties of this ImagingResponse.
         :rtype: GifProperties
         """
         return self._gif_properties
@@ -264,20 +263,20 @@ class ImagingResponse(object):
     def gif_properties(self, gif_properties):
         """Sets the gif_properties of this ImagingResponse.
 
-        Gets or sets the GIF properties.  # noqa: E501
+        Gets or sets the GIF properties.
 
-        :param gif_properties: The gif_properties of this ImagingResponse.  # noqa: E501
+        :param gif_properties: The gif_properties of this ImagingResponse.
         :type: GifProperties
         """
         self._gif_properties = gif_properties
 
     @property
     def jpeg_properties(self):
-        """Gets the jpeg_properties of this ImagingResponse.  # noqa: E501
+        """Gets the jpeg_properties of this ImagingResponse.
 
-        Gets or sets the JPEG properties.  # noqa: E501
+        Gets or sets the JPEG properties.
 
-        :return: The jpeg_properties of this ImagingResponse.  # noqa: E501
+        :return: The jpeg_properties of this ImagingResponse.
         :rtype: JpegProperties
         """
         return self._jpeg_properties
@@ -286,20 +285,20 @@ class ImagingResponse(object):
     def jpeg_properties(self, jpeg_properties):
         """Sets the jpeg_properties of this ImagingResponse.
 
-        Gets or sets the JPEG properties.  # noqa: E501
+        Gets or sets the JPEG properties.
 
-        :param jpeg_properties: The jpeg_properties of this ImagingResponse.  # noqa: E501
+        :param jpeg_properties: The jpeg_properties of this ImagingResponse.
         :type: JpegProperties
         """
         self._jpeg_properties = jpeg_properties
 
     @property
     def png_properties(self):
-        """Gets the png_properties of this ImagingResponse.  # noqa: E501
+        """Gets the png_properties of this ImagingResponse.
 
-        Gets or sets the PNG properties.  # noqa: E501
+        Gets or sets the PNG properties.
 
-        :return: The png_properties of this ImagingResponse.  # noqa: E501
+        :return: The png_properties of this ImagingResponse.
         :rtype: PngProperties
         """
         return self._png_properties
@@ -308,20 +307,20 @@ class ImagingResponse(object):
     def png_properties(self, png_properties):
         """Sets the png_properties of this ImagingResponse.
 
-        Gets or sets the PNG properties.  # noqa: E501
+        Gets or sets the PNG properties.
 
-        :param png_properties: The png_properties of this ImagingResponse.  # noqa: E501
+        :param png_properties: The png_properties of this ImagingResponse.
         :type: PngProperties
         """
         self._png_properties = png_properties
 
     @property
     def tiff_properties(self):
-        """Gets the tiff_properties of this ImagingResponse.  # noqa: E501
+        """Gets the tiff_properties of this ImagingResponse.
 
-        Gets or sets the TIFF properties.  # noqa: E501
+        Gets or sets the TIFF properties.
 
-        :return: The tiff_properties of this ImagingResponse.  # noqa: E501
+        :return: The tiff_properties of this ImagingResponse.
         :rtype: TiffProperties
         """
         return self._tiff_properties
@@ -330,20 +329,20 @@ class ImagingResponse(object):
     def tiff_properties(self, tiff_properties):
         """Sets the tiff_properties of this ImagingResponse.
 
-        Gets or sets the TIFF properties.  # noqa: E501
+        Gets or sets the TIFF properties.
 
-        :param tiff_properties: The tiff_properties of this ImagingResponse.  # noqa: E501
+        :param tiff_properties: The tiff_properties of this ImagingResponse.
         :type: TiffProperties
         """
         self._tiff_properties = tiff_properties
 
     @property
     def psd_properties(self):
-        """Gets the psd_properties of this ImagingResponse.  # noqa: E501
+        """Gets the psd_properties of this ImagingResponse.
 
-        Gets or sets the PSD properties.  # noqa: E501
+        Gets or sets the PSD properties.
 
-        :return: The psd_properties of this ImagingResponse.  # noqa: E501
+        :return: The psd_properties of this ImagingResponse.
         :rtype: PsdProperties
         """
         return self._psd_properties
@@ -352,20 +351,20 @@ class ImagingResponse(object):
     def psd_properties(self, psd_properties):
         """Sets the psd_properties of this ImagingResponse.
 
-        Gets or sets the PSD properties.  # noqa: E501
+        Gets or sets the PSD properties.
 
-        :param psd_properties: The psd_properties of this ImagingResponse.  # noqa: E501
+        :param psd_properties: The psd_properties of this ImagingResponse.
         :type: PsdProperties
         """
         self._psd_properties = psd_properties
 
     @property
     def djvu_properties(self):
-        """Gets the djvu_properties of this ImagingResponse.  # noqa: E501
+        """Gets the djvu_properties of this ImagingResponse.
 
-        Gets or sets the DJVU properties.  # noqa: E501
+        Gets or sets the DJVU properties.
 
-        :return: The djvu_properties of this ImagingResponse.  # noqa: E501
+        :return: The djvu_properties of this ImagingResponse.
         :rtype: DjvuProperties
         """
         return self._djvu_properties
@@ -374,20 +373,20 @@ class ImagingResponse(object):
     def djvu_properties(self, djvu_properties):
         """Sets the djvu_properties of this ImagingResponse.
 
-        Gets or sets the DJVU properties.  # noqa: E501
+        Gets or sets the DJVU properties.
 
-        :param djvu_properties: The djvu_properties of this ImagingResponse.  # noqa: E501
+        :param djvu_properties: The djvu_properties of this ImagingResponse.
         :type: DjvuProperties
         """
         self._djvu_properties = djvu_properties
 
     @property
     def web_p_properties(self):
-        """Gets the web_p_properties of this ImagingResponse.  # noqa: E501
+        """Gets the web_p_properties of this ImagingResponse.
 
-        Gets or sets the WEBP properties.  # noqa: E501
+        Gets or sets the WEBP properties.
 
-        :return: The web_p_properties of this ImagingResponse.  # noqa: E501
+        :return: The web_p_properties of this ImagingResponse.
         :rtype: WebPProperties
         """
         return self._web_p_properties
@@ -396,20 +395,20 @@ class ImagingResponse(object):
     def web_p_properties(self, web_p_properties):
         """Sets the web_p_properties of this ImagingResponse.
 
-        Gets or sets the WEBP properties.  # noqa: E501
+        Gets or sets the WEBP properties.
 
-        :param web_p_properties: The web_p_properties of this ImagingResponse.  # noqa: E501
+        :param web_p_properties: The web_p_properties of this ImagingResponse.
         :type: WebPProperties
         """
         self._web_p_properties = web_p_properties
 
     @property
     def jpeg2000_properties(self):
-        """Gets the jpeg2000_properties of this ImagingResponse.  # noqa: E501
+        """Gets the jpeg2000_properties of this ImagingResponse.
 
-        Gets or sets the JPEG2000 properties.  # noqa: E501
+        Gets or sets the JPEG2000 properties.
 
-        :return: The jpeg2000_properties of this ImagingResponse.  # noqa: E501
+        :return: The jpeg2000_properties of this ImagingResponse.
         :rtype: Jpeg2000Properties
         """
         return self._jpeg2000_properties
@@ -418,20 +417,20 @@ class ImagingResponse(object):
     def jpeg2000_properties(self, jpeg2000_properties):
         """Sets the jpeg2000_properties of this ImagingResponse.
 
-        Gets or sets the JPEG2000 properties.  # noqa: E501
+        Gets or sets the JPEG2000 properties.
 
-        :param jpeg2000_properties: The jpeg2000_properties of this ImagingResponse.  # noqa: E501
+        :param jpeg2000_properties: The jpeg2000_properties of this ImagingResponse.
         :type: Jpeg2000Properties
         """
         self._jpeg2000_properties = jpeg2000_properties
 
     @property
     def dicom_properties(self):
-        """Gets the dicom_properties of this ImagingResponse.  # noqa: E501
+        """Gets the dicom_properties of this ImagingResponse.
 
-        Gets or sets the DICOM properties.  # noqa: E501
+        Gets or sets the DICOM properties.
 
-        :return: The dicom_properties of this ImagingResponse.  # noqa: E501
+        :return: The dicom_properties of this ImagingResponse.
         :rtype: DicomProperties
         """
         return self._dicom_properties
@@ -440,20 +439,20 @@ class ImagingResponse(object):
     def dicom_properties(self, dicom_properties):
         """Sets the dicom_properties of this ImagingResponse.
 
-        Gets or sets the DICOM properties.  # noqa: E501
+        Gets or sets the DICOM properties.
 
-        :param dicom_properties: The dicom_properties of this ImagingResponse.  # noqa: E501
+        :param dicom_properties: The dicom_properties of this ImagingResponse.
         :type: DicomProperties
         """
         self._dicom_properties = dicom_properties
 
     @property
     def dng_properties(self):
-        """Gets the dng_properties of this ImagingResponse.  # noqa: E501
+        """Gets the dng_properties of this ImagingResponse.
 
-        Gets or sets the DNG properties.  # noqa: E501
+        Gets or sets the DNG properties.
 
-        :return: The dng_properties of this ImagingResponse.  # noqa: E501
+        :return: The dng_properties of this ImagingResponse.
         :rtype: DngProperties
         """
         return self._dng_properties
@@ -462,20 +461,20 @@ class ImagingResponse(object):
     def dng_properties(self, dng_properties):
         """Sets the dng_properties of this ImagingResponse.
 
-        Gets or sets the DNG properties.  # noqa: E501
+        Gets or sets the DNG properties.
 
-        :param dng_properties: The dng_properties of this ImagingResponse.  # noqa: E501
+        :param dng_properties: The dng_properties of this ImagingResponse.
         :type: DngProperties
         """
         self._dng_properties = dng_properties
 
     @property
     def odg_properties(self):
-        """Gets the odg_properties of this ImagingResponse.  # noqa: E501
+        """Gets the odg_properties of this ImagingResponse.
 
-        Gets or sets the the ODG properties.  # noqa: E501
+        Gets or sets the the ODG properties.
 
-        :return: The odg_properties of this ImagingResponse.  # noqa: E501
+        :return: The odg_properties of this ImagingResponse.
         :rtype: OdgProperties
         """
         return self._odg_properties
@@ -484,20 +483,20 @@ class ImagingResponse(object):
     def odg_properties(self, odg_properties):
         """Sets the odg_properties of this ImagingResponse.
 
-        Gets or sets the the ODG properties.  # noqa: E501
+        Gets or sets the the ODG properties.
 
-        :param odg_properties: The odg_properties of this ImagingResponse.  # noqa: E501
+        :param odg_properties: The odg_properties of this ImagingResponse.
         :type: OdgProperties
         """
         self._odg_properties = odg_properties
 
     @property
     def horizontal_resolution(self):
-        """Gets the horizontal_resolution of this ImagingResponse.  # noqa: E501
+        """Gets the horizontal_resolution of this ImagingResponse.
 
-        Gets or sets the horizontal resolution of an image.  # noqa: E501
+        Gets or sets the horizontal resolution of an image.
 
-        :return: The horizontal_resolution of this ImagingResponse.  # noqa: E501
+        :return: The horizontal_resolution of this ImagingResponse.
         :rtype: float
         """
         return self._horizontal_resolution
@@ -506,22 +505,22 @@ class ImagingResponse(object):
     def horizontal_resolution(self, horizontal_resolution):
         """Sets the horizontal_resolution of this ImagingResponse.
 
-        Gets or sets the horizontal resolution of an image.  # noqa: E501
+        Gets or sets the horizontal resolution of an image.
 
-        :param horizontal_resolution: The horizontal_resolution of this ImagingResponse.  # noqa: E501
+        :param horizontal_resolution: The horizontal_resolution of this ImagingResponse.
         :type: float
         """
         if horizontal_resolution is None:
-            raise ValueError("Invalid value for `horizontal_resolution`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `horizontal_resolution`, must not be `None`")
         self._horizontal_resolution = horizontal_resolution
 
     @property
     def vertical_resolution(self):
-        """Gets the vertical_resolution of this ImagingResponse.  # noqa: E501
+        """Gets the vertical_resolution of this ImagingResponse.
 
-        Gets or sets the vertical resolution of an image.  # noqa: E501
+        Gets or sets the vertical resolution of an image.
 
-        :return: The vertical_resolution of this ImagingResponse.  # noqa: E501
+        :return: The vertical_resolution of this ImagingResponse.
         :rtype: float
         """
         return self._vertical_resolution
@@ -530,22 +529,22 @@ class ImagingResponse(object):
     def vertical_resolution(self, vertical_resolution):
         """Sets the vertical_resolution of this ImagingResponse.
 
-        Gets or sets the vertical resolution of an image.  # noqa: E501
+        Gets or sets the vertical resolution of an image.
 
-        :param vertical_resolution: The vertical_resolution of this ImagingResponse.  # noqa: E501
+        :param vertical_resolution: The vertical_resolution of this ImagingResponse.
         :type: float
         """
         if vertical_resolution is None:
-            raise ValueError("Invalid value for `vertical_resolution`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `vertical_resolution`, must not be `None`")
         self._vertical_resolution = vertical_resolution
 
     @property
     def is_cached(self):
-        """Gets the is_cached of this ImagingResponse.  # noqa: E501
+        """Gets the is_cached of this ImagingResponse.
 
-        Gets or sets a value indicating whether image is cached.  # noqa: E501
+        Gets or sets a value indicating whether image is cached.
 
-        :return: The is_cached of this ImagingResponse.  # noqa: E501
+        :return: The is_cached of this ImagingResponse.
         :rtype: bool
         """
         return self._is_cached
@@ -554,13 +553,13 @@ class ImagingResponse(object):
     def is_cached(self, is_cached):
         """Sets the is_cached of this ImagingResponse.
 
-        Gets or sets a value indicating whether image is cached.  # noqa: E501
+        Gets or sets a value indicating whether image is cached.
 
-        :param is_cached: The is_cached of this ImagingResponse.  # noqa: E501
+        :param is_cached: The is_cached of this ImagingResponse.
         :type: bool
         """
         if is_cached is None:
-            raise ValueError("Invalid value for `is_cached`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `is_cached`, must not be `None`")
         self._is_cached = is_cached
 
     def to_dict(self):

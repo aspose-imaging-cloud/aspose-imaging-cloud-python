@@ -1,30 +1,29 @@
 # coding: utf-8
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # <copyright company="Aspose" file="PsdProperties.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
-#   Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
-# 
-#  The above copyright notice and this permission notice shall be included in all
-#  copies or substantial portions of the Software.
-# 
+#   Permission is hereby granted, free of charge, to any person obtaining a
+#  copy  of this software and associated documentation files (the "Software"),
+#  to deal  in the Software without restriction, including without limitation
+#  the rights  to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell  copies of the Software, and to permit persons to whom the
+#  Software is  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in
+#  all  copies or substantial portions of the Software.
+#
 #  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 #  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#  SOFTWARE.
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
 # </summary>
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 import pprint
-import re  # noqa: F401
 
 import six
 
@@ -54,8 +53,8 @@ class PsdProperties(object):
         'compression': 'Compression'
     }
 
-    def __init__(self, bits_per_channel=None, channels_count=None, color_mode=None, compression=None):  # noqa: E501
-        """PsdProperties - a model defined in Swagger"""  # noqa: E501
+    def __init__(self, bits_per_channel=None, channels_count=None, color_mode=None, compression=None):
+        """PsdProperties - a model defined in Swagger"""
 
         self._bits_per_channel = None
         self._channels_count = None
@@ -74,11 +73,11 @@ class PsdProperties(object):
 
     @property
     def bits_per_channel(self):
-        """Gets the bits_per_channel of this PsdProperties.  # noqa: E501
+        """Gets the bits_per_channel of this PsdProperties.
 
-        Gets or sets the bits per channel.  # noqa: E501
+        Gets or sets the bits per channel.
 
-        :return: The bits_per_channel of this PsdProperties.  # noqa: E501
+        :return: The bits_per_channel of this PsdProperties.
         :rtype: int
         """
         return self._bits_per_channel
@@ -87,22 +86,22 @@ class PsdProperties(object):
     def bits_per_channel(self, bits_per_channel):
         """Sets the bits_per_channel of this PsdProperties.
 
-        Gets or sets the bits per channel.  # noqa: E501
+        Gets or sets the bits per channel.
 
-        :param bits_per_channel: The bits_per_channel of this PsdProperties.  # noqa: E501
+        :param bits_per_channel: The bits_per_channel of this PsdProperties.
         :type: int
         """
         if bits_per_channel is None:
-            raise ValueError("Invalid value for `bits_per_channel`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `bits_per_channel`, must not be `None`")
         self._bits_per_channel = bits_per_channel
 
     @property
     def channels_count(self):
-        """Gets the channels_count of this PsdProperties.  # noqa: E501
+        """Gets the channels_count of this PsdProperties.
 
-        Gets or sets the channels count.  # noqa: E501
+        Gets or sets the channels count.
 
-        :return: The channels_count of this PsdProperties.  # noqa: E501
+        :return: The channels_count of this PsdProperties.
         :rtype: int
         """
         return self._channels_count
@@ -111,22 +110,22 @@ class PsdProperties(object):
     def channels_count(self, channels_count):
         """Sets the channels_count of this PsdProperties.
 
-        Gets or sets the channels count.  # noqa: E501
+        Gets or sets the channels count.
 
-        :param channels_count: The channels_count of this PsdProperties.  # noqa: E501
+        :param channels_count: The channels_count of this PsdProperties.
         :type: int
         """
         if channels_count is None:
-            raise ValueError("Invalid value for `channels_count`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `channels_count`, must not be `None`")
         self._channels_count = channels_count
 
     @property
     def color_mode(self):
-        """Gets the color_mode of this PsdProperties.  # noqa: E501
+        """Gets the color_mode of this PsdProperties.
 
-        Gets or sets the color mode.  # noqa: E501
+        Gets or sets the color mode.
 
-        :return: The color_mode of this PsdProperties.  # noqa: E501
+        :return: The color_mode of this PsdProperties.
         :rtype: str
         """
         return self._color_mode
@@ -135,20 +134,20 @@ class PsdProperties(object):
     def color_mode(self, color_mode):
         """Sets the color_mode of this PsdProperties.
 
-        Gets or sets the color mode.  # noqa: E501
+        Gets or sets the color mode.
 
-        :param color_mode: The color_mode of this PsdProperties.  # noqa: E501
+        :param color_mode: The color_mode of this PsdProperties.
         :type: str
         """
         self._color_mode = color_mode
 
     @property
     def compression(self):
-        """Gets the compression of this PsdProperties.  # noqa: E501
+        """Gets the compression of this PsdProperties.
 
-        Gets or sets the compression.  # noqa: E501
+        Gets or sets the compression.
 
-        :return: The compression of this PsdProperties.  # noqa: E501
+        :return: The compression of this PsdProperties.
         :rtype: str
         """
         return self._compression
@@ -157,9 +156,9 @@ class PsdProperties(object):
     def compression(self, compression):
         """Sets the compression of this PsdProperties.
 
-        Gets or sets the compression.  # noqa: E501
+        Gets or sets the compression.
 
-        :param compression: The compression of this PsdProperties.  # noqa: E501
+        :param compression: The compression of this PsdProperties.
         :type: str
         """
         self._compression = compression

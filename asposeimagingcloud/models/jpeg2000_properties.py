@@ -1,30 +1,29 @@
 # coding: utf-8
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # <copyright company="Aspose" file="Jpeg2000Properties.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
-#   Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
-# 
-#  The above copyright notice and this permission notice shall be included in all
-#  copies or substantial portions of the Software.
-# 
+#   Permission is hereby granted, free of charge, to any person obtaining a
+#  copy  of this software and associated documentation files (the "Software"),
+#  to deal  in the Software without restriction, including without limitation
+#  the rights  to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell  copies of the Software, and to permit persons to whom the
+#  Software is  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in
+#  all  copies or substantial portions of the Software.
+#
 #  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 #  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#  SOFTWARE.
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
 # </summary>
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 import pprint
-import re  # noqa: F401
 
 import six
 
@@ -50,8 +49,8 @@ class Jpeg2000Properties(object):
         'codec': 'Codec'
     }
 
-    def __init__(self, comments=None, codec=None):  # noqa: E501
-        """Jpeg2000Properties - a model defined in Swagger"""  # noqa: E501
+    def __init__(self, comments=None, codec=None):
+        """Jpeg2000Properties - a model defined in Swagger"""
 
         self._comments = None
         self._codec = None
@@ -64,11 +63,11 @@ class Jpeg2000Properties(object):
 
     @property
     def comments(self):
-        """Gets the comments of this Jpeg2000Properties.  # noqa: E501
+        """Gets the comments of this Jpeg2000Properties.
 
-        Gets or sets the JPEG comment markers.  # noqa: E501
+        Gets or sets the JPEG comment markers.
 
-        :return: The comments of this Jpeg2000Properties.  # noqa: E501
+        :return: The comments of this Jpeg2000Properties.
         :rtype: list[str]
         """
         return self._comments
@@ -77,20 +76,20 @@ class Jpeg2000Properties(object):
     def comments(self, comments):
         """Sets the comments of this Jpeg2000Properties.
 
-        Gets or sets the JPEG comment markers.  # noqa: E501
+        Gets or sets the JPEG comment markers.
 
-        :param comments: The comments of this Jpeg2000Properties.  # noqa: E501
+        :param comments: The comments of this Jpeg2000Properties.
         :type: list[str]
         """
         self._comments = comments
 
     @property
     def codec(self):
-        """Gets the codec of this Jpeg2000Properties.  # noqa: E501
+        """Gets the codec of this Jpeg2000Properties.
 
-        Gets or sets the JPEG2000 codec  # noqa: E501
+        Gets or sets the JPEG2000 codec
 
-        :return: The codec of this Jpeg2000Properties.  # noqa: E501
+        :return: The codec of this Jpeg2000Properties.
         :rtype: str
         """
         return self._codec
@@ -99,9 +98,9 @@ class Jpeg2000Properties(object):
     def codec(self, codec):
         """Sets the codec of this Jpeg2000Properties.
 
-        Gets or sets the JPEG2000 codec  # noqa: E501
+        Gets or sets the JPEG2000 codec
 
-        :param codec: The codec of this Jpeg2000Properties.  # noqa: E501
+        :param codec: The codec of this Jpeg2000Properties.
         :type: str
         """
         self._codec = codec

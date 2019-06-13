@@ -1,34 +1,33 @@
 # coding: utf-8
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # <copyright company="Aspose" file="SearchResultsSet.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
-#   Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
-# 
-#  The above copyright notice and this permission notice shall be included in all
-#  copies or substantial portions of the Software.
-# 
+#   Permission is hereby granted, free of charge, to any person obtaining a
+#  copy  of this software and associated documentation files (the "Software"),
+#  to deal  in the Software without restriction, including without limitation
+#  the rights  to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell  copies of the Software, and to permit persons to whom the
+#  Software is  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in
+#  all  copies or substantial portions of the Software.
+#
 #  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 #  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#  SOFTWARE.
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
 # </summary>
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 import pprint
-import re  # noqa: F401
 
 import six
 
-from asposeimagingcloud.models.search_result import SearchResult  # noqa: F401,E501
+from asposeimagingcloud.models.search_result import SearchResult
 
 
 class SearchResultsSet(object):
@@ -50,8 +49,8 @@ class SearchResultsSet(object):
         'results': 'Results'
     }
 
-    def __init__(self, results=None):  # noqa: E501
-        """SearchResultsSet - a model defined in Swagger"""  # noqa: E501
+    def __init__(self, results=None):
+        """SearchResultsSet - a model defined in Swagger"""
 
         self._results = None
         self.discriminator = None
@@ -61,11 +60,11 @@ class SearchResultsSet(object):
 
     @property
     def results(self):
-        """Gets the results of this SearchResultsSet.  # noqa: E501
+        """Gets the results of this SearchResultsSet.
 
-        Gets the results.  # noqa: E501
+        Gets the results.
 
-        :return: The results of this SearchResultsSet.  # noqa: E501
+        :return: The results of this SearchResultsSet.
         :rtype: list[SearchResult]
         """
         return self._results
@@ -74,9 +73,9 @@ class SearchResultsSet(object):
     def results(self, results):
         """Sets the results of this SearchResultsSet.
 
-        Gets the results.  # noqa: E501
+        Gets the results.
 
-        :param results: The results of this SearchResultsSet.  # noqa: E501
+        :param results: The results of this SearchResultsSet.
         :type: list[SearchResult]
         """
         self._results = results

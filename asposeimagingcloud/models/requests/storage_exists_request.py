@@ -1,28 +1,28 @@
 # coding: utf-8
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # <copyright company="Aspose" file="storage_exists_request.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
-#   Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
+#   Permission is hereby granted, free of charge, to any person obtaining a
+#  copy  of this software and associated documentation files (the "Software"),
+#  to deal  in the Software without restriction, including without limitation
+#  the rights  to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell  copies of the Software, and to permit persons to whom the
+#  Software is  furnished to do so, subject to the following conditions:
 #
-#  The above copyright notice and this permission notice shall be included in all
-#  copies or substantial portions of the Software.
+#  The above copyright notice and this permission notice shall be included in
+#  all  copies or substantial portions of the Software.
 #
 #  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 #  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#  SOFTWARE.
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
 # </summary>
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 
 from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
 from asposeimagingcloud.models.requests.http_request import HttpRequest
@@ -51,13 +51,13 @@ class StorageExistsRequest(ImagingRequest):
         """
         # verify the required parameter 'storage_name' is set
         if self.storage_name is None:
-            raise ValueError("Missing the required parameter `storage_name` when calling `storage_exists`")  # noqa: E501
+            raise ValueError("Missing the required parameter `storage_name` when calling `storage_exists`")
 
         collection_formats = {}
         path = '/imaging/storage/{storageName}/exist'
         path_params = {}
         if self.storage_name is not None:
-            path_params[self._lowercase_first_letter('storageName')] = self.storage_name  # noqa: E501
+            path_params[self._lowercase_first_letter('storageName')] = self.storage_name
 
         query_params = []
 
@@ -70,14 +70,14 @@ class StorageExistsRequest(ImagingRequest):
 
         # HTTP header `Accept`
         header_params['Accept'] = self._select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['application/json'])
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self._select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params['Content-Type'] = self._select_header_content_type(
+            ['application/json'])
 
         # Authentication setting
-        auth_settings = ['JWT']  # noqa: E501
+        auth_settings = ['JWT']
 
         return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
                            collection_formats, auth_settings)

@@ -1,30 +1,29 @@
 # coding: utf-8
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # <copyright company="Aspose" file="GifProperties.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
-#   Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
-# 
-#  The above copyright notice and this permission notice shall be included in all
-#  copies or substantial portions of the Software.
-# 
+#   Permission is hereby granted, free of charge, to any person obtaining a
+#  copy  of this software and associated documentation files (the "Software"),
+#  to deal  in the Software without restriction, including without limitation
+#  the rights  to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell  copies of the Software, and to permit persons to whom the
+#  Software is  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in
+#  all  copies or substantial portions of the Software.
+#
 #  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 #  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#  SOFTWARE.
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
 # </summary>
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 import pprint
-import re  # noqa: F401
 
 import six
 
@@ -54,8 +53,8 @@ class GifProperties(object):
         'pixel_aspect_ratio': 'PixelAspectRatio'
     }
 
-    def __init__(self, background_color=None, has_background_color=None, has_trailer=None, pixel_aspect_ratio=None):  # noqa: E501
-        """GifProperties - a model defined in Swagger"""  # noqa: E501
+    def __init__(self, background_color=None, has_background_color=None, has_trailer=None, pixel_aspect_ratio=None):
+        """GifProperties - a model defined in Swagger"""
 
         self._background_color = None
         self._has_background_color = None
@@ -74,11 +73,11 @@ class GifProperties(object):
 
     @property
     def background_color(self):
-        """Gets the background_color of this GifProperties.  # noqa: E501
+        """Gets the background_color of this GifProperties.
 
-        Gets or sets the background color.  # noqa: E501
+        Gets or sets the background color.
 
-        :return: The background_color of this GifProperties.  # noqa: E501
+        :return: The background_color of this GifProperties.
         :rtype: str
         """
         return self._background_color
@@ -87,20 +86,20 @@ class GifProperties(object):
     def background_color(self, background_color):
         """Sets the background_color of this GifProperties.
 
-        Gets or sets the background color.  # noqa: E501
+        Gets or sets the background color.
 
-        :param background_color: The background_color of this GifProperties.  # noqa: E501
+        :param background_color: The background_color of this GifProperties.
         :type: str
         """
         self._background_color = background_color
 
     @property
     def has_background_color(self):
-        """Gets the has_background_color of this GifProperties.  # noqa: E501
+        """Gets the has_background_color of this GifProperties.
 
-        Gets or sets a value indicating whether background color is used.  # noqa: E501
+        Gets or sets a value indicating whether background color is used.
 
-        :return: The has_background_color of this GifProperties.  # noqa: E501
+        :return: The has_background_color of this GifProperties.
         :rtype: bool
         """
         return self._has_background_color
@@ -109,22 +108,22 @@ class GifProperties(object):
     def has_background_color(self, has_background_color):
         """Sets the has_background_color of this GifProperties.
 
-        Gets or sets a value indicating whether background color is used.  # noqa: E501
+        Gets or sets a value indicating whether background color is used.
 
-        :param has_background_color: The has_background_color of this GifProperties.  # noqa: E501
+        :param has_background_color: The has_background_color of this GifProperties.
         :type: bool
         """
         if has_background_color is None:
-            raise ValueError("Invalid value for `has_background_color`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `has_background_color`, must not be `None`")
         self._has_background_color = has_background_color
 
     @property
     def has_trailer(self):
-        """Gets the has_trailer of this GifProperties.  # noqa: E501
+        """Gets the has_trailer of this GifProperties.
 
-        Gets or sets a value indicating whether image has trailer.  # noqa: E501
+        Gets or sets a value indicating whether image has trailer.
 
-        :return: The has_trailer of this GifProperties.  # noqa: E501
+        :return: The has_trailer of this GifProperties.
         :rtype: bool
         """
         return self._has_trailer
@@ -133,22 +132,22 @@ class GifProperties(object):
     def has_trailer(self, has_trailer):
         """Sets the has_trailer of this GifProperties.
 
-        Gets or sets a value indicating whether image has trailer.  # noqa: E501
+        Gets or sets a value indicating whether image has trailer.
 
-        :param has_trailer: The has_trailer of this GifProperties.  # noqa: E501
+        :param has_trailer: The has_trailer of this GifProperties.
         :type: bool
         """
         if has_trailer is None:
-            raise ValueError("Invalid value for `has_trailer`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `has_trailer`, must not be `None`")
         self._has_trailer = has_trailer
 
     @property
     def pixel_aspect_ratio(self):
-        """Gets the pixel_aspect_ratio of this GifProperties.  # noqa: E501
+        """Gets the pixel_aspect_ratio of this GifProperties.
 
-        Gets or sets the pixel aspect ratio.  # noqa: E501
+        Gets or sets the pixel aspect ratio.
 
-        :return: The pixel_aspect_ratio of this GifProperties.  # noqa: E501
+        :return: The pixel_aspect_ratio of this GifProperties.
         :rtype: int
         """
         return self._pixel_aspect_ratio
@@ -157,13 +156,13 @@ class GifProperties(object):
     def pixel_aspect_ratio(self, pixel_aspect_ratio):
         """Sets the pixel_aspect_ratio of this GifProperties.
 
-        Gets or sets the pixel aspect ratio.  # noqa: E501
+        Gets or sets the pixel aspect ratio.
 
-        :param pixel_aspect_ratio: The pixel_aspect_ratio of this GifProperties.  # noqa: E501
+        :param pixel_aspect_ratio: The pixel_aspect_ratio of this GifProperties.
         :type: int
         """
         if pixel_aspect_ratio is None:
-            raise ValueError("Invalid value for `pixel_aspect_ratio`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `pixel_aspect_ratio`, must not be `None`")
         self._pixel_aspect_ratio = pixel_aspect_ratio
 
     def to_dict(self):

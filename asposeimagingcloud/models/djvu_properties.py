@@ -1,30 +1,29 @@
 # coding: utf-8
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # <copyright company="Aspose" file="DjvuProperties.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
-#   Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
-# 
-#  The above copyright notice and this permission notice shall be included in all
-#  copies or substantial portions of the Software.
-# 
+#   Permission is hereby granted, free of charge, to any person obtaining a
+#  copy  of this software and associated documentation files (the "Software"),
+#  to deal  in the Software without restriction, including without limitation
+#  the rights  to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell  copies of the Software, and to permit persons to whom the
+#  Software is  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in
+#  all  copies or substantial portions of the Software.
+#
 #  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 #  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#  SOFTWARE.
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
 # </summary>
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 import pprint
-import re  # noqa: F401
 
 import six
 
@@ -52,8 +51,8 @@ class DjvuProperties(object):
         'pages_count': 'PagesCount'
     }
 
-    def __init__(self, background_color=None, has_background_color=None, pages_count=None):  # noqa: E501
-        """DjvuProperties - a model defined in Swagger"""  # noqa: E501
+    def __init__(self, background_color=None, has_background_color=None, pages_count=None):
+        """DjvuProperties - a model defined in Swagger"""
 
         self._background_color = None
         self._has_background_color = None
@@ -69,11 +68,11 @@ class DjvuProperties(object):
 
     @property
     def background_color(self):
-        """Gets the background_color of this DjvuProperties.  # noqa: E501
+        """Gets the background_color of this DjvuProperties.
 
-        Gets or sets background color.  # noqa: E501
+        Gets or sets background color.
 
-        :return: The background_color of this DjvuProperties.  # noqa: E501
+        :return: The background_color of this DjvuProperties.
         :rtype: str
         """
         return self._background_color
@@ -82,20 +81,20 @@ class DjvuProperties(object):
     def background_color(self, background_color):
         """Sets the background_color of this DjvuProperties.
 
-        Gets or sets background color.  # noqa: E501
+        Gets or sets background color.
 
-        :param background_color: The background_color of this DjvuProperties.  # noqa: E501
+        :param background_color: The background_color of this DjvuProperties.
         :type: str
         """
         self._background_color = background_color
 
     @property
     def has_background_color(self):
-        """Gets the has_background_color of this DjvuProperties.  # noqa: E501
+        """Gets the has_background_color of this DjvuProperties.
 
-        Gets or sets a value indicating whether background color is used.  # noqa: E501
+        Gets or sets a value indicating whether background color is used.
 
-        :return: The has_background_color of this DjvuProperties.  # noqa: E501
+        :return: The has_background_color of this DjvuProperties.
         :rtype: bool
         """
         return self._has_background_color
@@ -104,22 +103,22 @@ class DjvuProperties(object):
     def has_background_color(self, has_background_color):
         """Sets the has_background_color of this DjvuProperties.
 
-        Gets or sets a value indicating whether background color is used.  # noqa: E501
+        Gets or sets a value indicating whether background color is used.
 
-        :param has_background_color: The has_background_color of this DjvuProperties.  # noqa: E501
+        :param has_background_color: The has_background_color of this DjvuProperties.
         :type: bool
         """
         if has_background_color is None:
-            raise ValueError("Invalid value for `has_background_color`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `has_background_color`, must not be `None`")
         self._has_background_color = has_background_color
 
     @property
     def pages_count(self):
-        """Gets the pages_count of this DjvuProperties.  # noqa: E501
+        """Gets the pages_count of this DjvuProperties.
 
-        Gets or sets pages count.  # noqa: E501
+        Gets or sets pages count.
 
-        :return: The pages_count of this DjvuProperties.  # noqa: E501
+        :return: The pages_count of this DjvuProperties.
         :rtype: int
         """
         return self._pages_count
@@ -128,13 +127,13 @@ class DjvuProperties(object):
     def pages_count(self, pages_count):
         """Sets the pages_count of this DjvuProperties.
 
-        Gets or sets pages count.  # noqa: E501
+        Gets or sets pages count.
 
-        :param pages_count: The pages_count of this DjvuProperties.  # noqa: E501
+        :param pages_count: The pages_count of this DjvuProperties.
         :type: int
         """
         if pages_count is None:
-            raise ValueError("Invalid value for `pages_count`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `pages_count`, must not be `None`")
         self._pages_count = pages_count
 
     def to_dict(self):

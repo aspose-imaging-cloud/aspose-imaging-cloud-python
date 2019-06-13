@@ -1,35 +1,34 @@
 # coding: utf-8
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # <copyright company="Aspose" file="TiffFrame.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
-#   Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
-# 
-#  The above copyright notice and this permission notice shall be included in all
-#  copies or substantial portions of the Software.
-# 
+#   Permission is hereby granted, free of charge, to any person obtaining a
+#  copy  of this software and associated documentation files (the "Software"),
+#  to deal  in the Software without restriction, including without limitation
+#  the rights  to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell  copies of the Software, and to permit persons to whom the
+#  Software is  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in
+#  all  copies or substantial portions of the Software.
+#
 #  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 #  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#  SOFTWARE.
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
 # </summary>
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 import pprint
-import re  # noqa: F401
 
 import six
 
-from asposeimagingcloud.models.exif_data import ExifData  # noqa: F401,E501
-from asposeimagingcloud.models.tiff_options import TiffOptions  # noqa: F401,E501
+from asposeimagingcloud.models.exif_data import ExifData
+from asposeimagingcloud.models.tiff_options import TiffOptions
 
 
 class TiffFrame(object):
@@ -57,8 +56,8 @@ class TiffFrame(object):
         'exif_data': 'ExifData'
     }
 
-    def __init__(self, frame_options=None, height=None, width=None, exif_data=None):  # noqa: E501
-        """TiffFrame - a model defined in Swagger"""  # noqa: E501
+    def __init__(self, frame_options=None, height=None, width=None, exif_data=None):
+        """TiffFrame - a model defined in Swagger"""
 
         self._frame_options = None
         self._height = None
@@ -77,11 +76,11 @@ class TiffFrame(object):
 
     @property
     def frame_options(self):
-        """Gets the frame_options of this TiffFrame.  # noqa: E501
+        """Gets the frame_options of this TiffFrame.
 
-        Gets or sets options for the frame.  # noqa: E501
+        Gets or sets options for the frame.
 
-        :return: The frame_options of this TiffFrame.  # noqa: E501
+        :return: The frame_options of this TiffFrame.
         :rtype: TiffOptions
         """
         return self._frame_options
@@ -90,20 +89,20 @@ class TiffFrame(object):
     def frame_options(self, frame_options):
         """Sets the frame_options of this TiffFrame.
 
-        Gets or sets options for the frame.  # noqa: E501
+        Gets or sets options for the frame.
 
-        :param frame_options: The frame_options of this TiffFrame.  # noqa: E501
+        :param frame_options: The frame_options of this TiffFrame.
         :type: TiffOptions
         """
         self._frame_options = frame_options
 
     @property
     def height(self):
-        """Gets the height of this TiffFrame.  # noqa: E501
+        """Gets the height of this TiffFrame.
 
-        Gets or sets the frame height.  # noqa: E501
+        Gets or sets the frame height.
 
-        :return: The height of this TiffFrame.  # noqa: E501
+        :return: The height of this TiffFrame.
         :rtype: int
         """
         return self._height
@@ -112,22 +111,22 @@ class TiffFrame(object):
     def height(self, height):
         """Sets the height of this TiffFrame.
 
-        Gets or sets the frame height.  # noqa: E501
+        Gets or sets the frame height.
 
-        :param height: The height of this TiffFrame.  # noqa: E501
+        :param height: The height of this TiffFrame.
         :type: int
         """
         if height is None:
-            raise ValueError("Invalid value for `height`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `height`, must not be `None`")
         self._height = height
 
     @property
     def width(self):
-        """Gets the width of this TiffFrame.  # noqa: E501
+        """Gets the width of this TiffFrame.
 
-        Gets or sets the frame width.  # noqa: E501
+        Gets or sets the frame width.
 
-        :return: The width of this TiffFrame.  # noqa: E501
+        :return: The width of this TiffFrame.
         :rtype: int
         """
         return self._width
@@ -136,22 +135,22 @@ class TiffFrame(object):
     def width(self, width):
         """Sets the width of this TiffFrame.
 
-        Gets or sets the frame width.  # noqa: E501
+        Gets or sets the frame width.
 
-        :param width: The width of this TiffFrame.  # noqa: E501
+        :param width: The width of this TiffFrame.
         :type: int
         """
         if width is None:
-            raise ValueError("Invalid value for `width`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `width`, must not be `None`")
         self._width = width
 
     @property
     def exif_data(self):
-        """Gets the exif_data of this TiffFrame.  # noqa: E501
+        """Gets the exif_data of this TiffFrame.
 
-        Gets or sets the EXIF data.  # noqa: E501
+        Gets or sets the EXIF data.
 
-        :return: The exif_data of this TiffFrame.  # noqa: E501
+        :return: The exif_data of this TiffFrame.
         :rtype: ExifData
         """
         return self._exif_data
@@ -160,9 +159,9 @@ class TiffFrame(object):
     def exif_data(self, exif_data):
         """Sets the exif_data of this TiffFrame.
 
-        Gets or sets the EXIF data.  # noqa: E501
+        Gets or sets the EXIF data.
 
-        :param exif_data: The exif_data of this TiffFrame.  # noqa: E501
+        :param exif_data: The exif_data of this TiffFrame.
         :type: ExifData
         """
         self._exif_data = exif_data

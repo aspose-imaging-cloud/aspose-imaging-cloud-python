@@ -1,30 +1,29 @@
 # coding: utf-8
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # <copyright company="Aspose" file="ErrorDetails.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
-#   Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
-# 
-#  The above copyright notice and this permission notice shall be included in all
-#  copies or substantial portions of the Software.
-# 
+#   Permission is hereby granted, free of charge, to any person obtaining a
+#  copy  of this software and associated documentation files (the "Software"),
+#  to deal  in the Software without restriction, including without limitation
+#  the rights  to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell  copies of the Software, and to permit persons to whom the
+#  Software is  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in
+#  all  copies or substantial portions of the Software.
+#
 #  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 #  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#  SOFTWARE.
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
 # </summary>
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 import pprint
-import re  # noqa: F401
 
 import six
 
@@ -50,8 +49,8 @@ class ErrorDetails(object):
         '_date': 'Date'
     }
 
-    def __init__(self, request_id=None, _date=None):  # noqa: E501
-        """ErrorDetails - a model defined in Swagger"""  # noqa: E501
+    def __init__(self, request_id=None, _date=None):
+        """ErrorDetails - a model defined in Swagger"""
 
         self._request_id = None
         self.__date = None
@@ -64,11 +63,11 @@ class ErrorDetails(object):
 
     @property
     def request_id(self):
-        """Gets the request_id of this ErrorDetails.  # noqa: E501
+        """Gets the request_id of this ErrorDetails.
 
-        The request id  # noqa: E501
+        The request id
 
-        :return: The request_id of this ErrorDetails.  # noqa: E501
+        :return: The request_id of this ErrorDetails.
         :rtype: str
         """
         return self._request_id
@@ -77,20 +76,20 @@ class ErrorDetails(object):
     def request_id(self, request_id):
         """Sets the request_id of this ErrorDetails.
 
-        The request id  # noqa: E501
+        The request id
 
-        :param request_id: The request_id of this ErrorDetails.  # noqa: E501
+        :param request_id: The request_id of this ErrorDetails.
         :type: str
         """
         self._request_id = request_id
 
     @property
     def _date(self):
-        """Gets the _date of this ErrorDetails.  # noqa: E501
+        """Gets the _date of this ErrorDetails.
 
-        Date  # noqa: E501
+        Date
 
-        :return: The _date of this ErrorDetails.  # noqa: E501
+        :return: The _date of this ErrorDetails.
         :rtype: datetime
         """
         return self.__date
@@ -99,13 +98,13 @@ class ErrorDetails(object):
     def _date(self, _date):
         """Sets the _date of this ErrorDetails.
 
-        Date  # noqa: E501
+        Date
 
-        :param _date: The _date of this ErrorDetails.  # noqa: E501
+        :param _date: The _date of this ErrorDetails.
         :type: datetime
         """
         if _date is None:
-            raise ValueError("Invalid value for `_date`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `_date`, must not be `None`")
         self.__date = _date
 
     def to_dict(self):

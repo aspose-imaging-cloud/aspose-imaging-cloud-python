@@ -1,30 +1,29 @@
 # coding: utf-8
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # <copyright company="Aspose" file="DicomProperties.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
-#   Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
-# 
-#  The above copyright notice and this permission notice shall be included in all
-#  copies or substantial portions of the Software.
-# 
+#   Permission is hereby granted, free of charge, to any person obtaining a
+#  copy  of this software and associated documentation files (the "Software"),
+#  to deal  in the Software without restriction, including without limitation
+#  the rights  to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell  copies of the Software, and to permit persons to whom the
+#  Software is  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in
+#  all  copies or substantial portions of the Software.
+#
 #  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 #  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#  SOFTWARE.
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
 # </summary>
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 import pprint
-import re  # noqa: F401
 
 import six
 
@@ -94,8 +93,8 @@ class DicomProperties(object):
         'dicom_found': 'DicomFound'
     }
 
-    def __init__(self, planar_configuration=None, reds=None, greens=None, blues=None, dicom_header_info_by_bytes=None, signed_image=None, dicom_info=None, samples_per_pixel=None, bits_allocated=None, photo_interpretation=None, width_tag_found=None, height_tag_found=None, width=None, height=None, window_centre=None, window_width=None, pixel_representation=None, rescale_intercept=None, rescale_slope=None, number_of_frames=None, length_value=None, is_little_endian=None, offset=None, dicom_found=None):  # noqa: E501
-        """DicomProperties - a model defined in Swagger"""  # noqa: E501
+    def __init__(self, planar_configuration=None, reds=None, greens=None, blues=None, dicom_header_info_by_bytes=None, signed_image=None, dicom_info=None, samples_per_pixel=None, bits_allocated=None, photo_interpretation=None, width_tag_found=None, height_tag_found=None, width=None, height=None, window_centre=None, window_width=None, pixel_representation=None, rescale_intercept=None, rescale_slope=None, number_of_frames=None, length_value=None, is_little_endian=None, offset=None, dicom_found=None):
+        """DicomProperties - a model defined in Swagger"""
 
         self._planar_configuration = None
         self._reds = None
@@ -174,11 +173,11 @@ class DicomProperties(object):
 
     @property
     def planar_configuration(self):
-        """Gets the planar_configuration of this DicomProperties.  # noqa: E501
+        """Gets the planar_configuration of this DicomProperties.
 
-        Gets or sets the planar configuration.  # noqa: E501
+        Gets or sets the planar configuration.
 
-        :return: The planar_configuration of this DicomProperties.  # noqa: E501
+        :return: The planar_configuration of this DicomProperties.
         :rtype: int
         """
         return self._planar_configuration
@@ -187,22 +186,22 @@ class DicomProperties(object):
     def planar_configuration(self, planar_configuration):
         """Sets the planar_configuration of this DicomProperties.
 
-        Gets or sets the planar configuration.  # noqa: E501
+        Gets or sets the planar configuration.
 
-        :param planar_configuration: The planar_configuration of this DicomProperties.  # noqa: E501
+        :param planar_configuration: The planar_configuration of this DicomProperties.
         :type: int
         """
         if planar_configuration is None:
-            raise ValueError("Invalid value for `planar_configuration`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `planar_configuration`, must not be `None`")
         self._planar_configuration = planar_configuration
 
     @property
     def reds(self):
-        """Gets the reds of this DicomProperties.  # noqa: E501
+        """Gets the reds of this DicomProperties.
 
-        Gets or sets the array of red colors.  # noqa: E501
+        Gets or sets the array of red colors.
 
-        :return: The reds of this DicomProperties.  # noqa: E501
+        :return: The reds of this DicomProperties.
         :rtype: str
         """
         return self._reds
@@ -211,22 +210,22 @@ class DicomProperties(object):
     def reds(self, reds):
         """Sets the reds of this DicomProperties.
 
-        Gets or sets the array of red colors.  # noqa: E501
+        Gets or sets the array of red colors.
 
-        :param reds: The reds of this DicomProperties.  # noqa: E501
+        :param reds: The reds of this DicomProperties.
         :type: str
         """
-        if reds is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', reds):  # noqa: E501
-            raise ValueError("Invalid value for `reds`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")  # noqa: E501
+        if reds is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', reds):
+            raise ValueError("Invalid value for `reds`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._reds = reds
 
     @property
     def greens(self):
-        """Gets the greens of this DicomProperties.  # noqa: E501
+        """Gets the greens of this DicomProperties.
 
-        Gets or sets the array of green colors.  # noqa: E501
+        Gets or sets the array of green colors.
 
-        :return: The greens of this DicomProperties.  # noqa: E501
+        :return: The greens of this DicomProperties.
         :rtype: str
         """
         return self._greens
@@ -235,22 +234,22 @@ class DicomProperties(object):
     def greens(self, greens):
         """Sets the greens of this DicomProperties.
 
-        Gets or sets the array of green colors.  # noqa: E501
+        Gets or sets the array of green colors.
 
-        :param greens: The greens of this DicomProperties.  # noqa: E501
+        :param greens: The greens of this DicomProperties.
         :type: str
         """
-        if greens is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', greens):  # noqa: E501
-            raise ValueError("Invalid value for `greens`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")  # noqa: E501
+        if greens is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', greens):
+            raise ValueError("Invalid value for `greens`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._greens = greens
 
     @property
     def blues(self):
-        """Gets the blues of this DicomProperties.  # noqa: E501
+        """Gets the blues of this DicomProperties.
 
-        Gets or sets the array of blue colors.  # noqa: E501
+        Gets or sets the array of blue colors.
 
-        :return: The blues of this DicomProperties.  # noqa: E501
+        :return: The blues of this DicomProperties.
         :rtype: str
         """
         return self._blues
@@ -259,22 +258,22 @@ class DicomProperties(object):
     def blues(self, blues):
         """Sets the blues of this DicomProperties.
 
-        Gets or sets the array of blue colors.  # noqa: E501
+        Gets or sets the array of blue colors.
 
-        :param blues: The blues of this DicomProperties.  # noqa: E501
+        :param blues: The blues of this DicomProperties.
         :type: str
         """
-        if blues is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', blues):  # noqa: E501
-            raise ValueError("Invalid value for `blues`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")  # noqa: E501
+        if blues is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', blues):
+            raise ValueError("Invalid value for `blues`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._blues = blues
 
     @property
     def dicom_header_info_by_bytes(self):
-        """Gets the dicom_header_info_by_bytes of this DicomProperties.  # noqa: E501
+        """Gets the dicom_header_info_by_bytes of this DicomProperties.
 
-        Gets or sets the header information by bytes.  # noqa: E501
+        Gets or sets the header information by bytes.
 
-        :return: The dicom_header_info_by_bytes of this DicomProperties.  # noqa: E501
+        :return: The dicom_header_info_by_bytes of this DicomProperties.
         :rtype: str
         """
         return self._dicom_header_info_by_bytes
@@ -283,22 +282,22 @@ class DicomProperties(object):
     def dicom_header_info_by_bytes(self, dicom_header_info_by_bytes):
         """Sets the dicom_header_info_by_bytes of this DicomProperties.
 
-        Gets or sets the header information by bytes.  # noqa: E501
+        Gets or sets the header information by bytes.
 
-        :param dicom_header_info_by_bytes: The dicom_header_info_by_bytes of this DicomProperties.  # noqa: E501
+        :param dicom_header_info_by_bytes: The dicom_header_info_by_bytes of this DicomProperties.
         :type: str
         """
-        if dicom_header_info_by_bytes is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', dicom_header_info_by_bytes):  # noqa: E501
-            raise ValueError("Invalid value for `dicom_header_info_by_bytes`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")  # noqa: E501
+        if dicom_header_info_by_bytes is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', dicom_header_info_by_bytes):
+            raise ValueError("Invalid value for `dicom_header_info_by_bytes`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._dicom_header_info_by_bytes = dicom_header_info_by_bytes
 
     @property
     def signed_image(self):
-        """Gets the signed_image of this DicomProperties.  # noqa: E501
+        """Gets the signed_image of this DicomProperties.
 
-        Gets or sets a value indicating whether it's a signed image.  # noqa: E501
+        Gets or sets a value indicating whether it's a signed image.
 
-        :return: The signed_image of this DicomProperties.  # noqa: E501
+        :return: The signed_image of this DicomProperties.
         :rtype: bool
         """
         return self._signed_image
@@ -307,22 +306,22 @@ class DicomProperties(object):
     def signed_image(self, signed_image):
         """Sets the signed_image of this DicomProperties.
 
-        Gets or sets a value indicating whether it's a signed image.  # noqa: E501
+        Gets or sets a value indicating whether it's a signed image.
 
-        :param signed_image: The signed_image of this DicomProperties.  # noqa: E501
+        :param signed_image: The signed_image of this DicomProperties.
         :type: bool
         """
         if signed_image is None:
-            raise ValueError("Invalid value for `signed_image`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `signed_image`, must not be `None`")
         self._signed_image = signed_image
 
     @property
     def dicom_info(self):
-        """Gets the dicom_info of this DicomProperties.  # noqa: E501
+        """Gets the dicom_info of this DicomProperties.
 
-        Gets or sets the header information of the DICOM file.  # noqa: E501
+        Gets or sets the header information of the DICOM file.
 
-        :return: The dicom_info of this DicomProperties.  # noqa: E501
+        :return: The dicom_info of this DicomProperties.
         :rtype: list[str]
         """
         return self._dicom_info
@@ -331,20 +330,20 @@ class DicomProperties(object):
     def dicom_info(self, dicom_info):
         """Sets the dicom_info of this DicomProperties.
 
-        Gets or sets the header information of the DICOM file.  # noqa: E501
+        Gets or sets the header information of the DICOM file.
 
-        :param dicom_info: The dicom_info of this DicomProperties.  # noqa: E501
+        :param dicom_info: The dicom_info of this DicomProperties.
         :type: list[str]
         """
         self._dicom_info = dicom_info
 
     @property
     def samples_per_pixel(self):
-        """Gets the samples_per_pixel of this DicomProperties.  # noqa: E501
+        """Gets the samples_per_pixel of this DicomProperties.
 
-        Gets or sets samples per pixel count.  # noqa: E501
+        Gets or sets samples per pixel count.
 
-        :return: The samples_per_pixel of this DicomProperties.  # noqa: E501
+        :return: The samples_per_pixel of this DicomProperties.
         :rtype: int
         """
         return self._samples_per_pixel
@@ -353,22 +352,22 @@ class DicomProperties(object):
     def samples_per_pixel(self, samples_per_pixel):
         """Sets the samples_per_pixel of this DicomProperties.
 
-        Gets or sets samples per pixel count.  # noqa: E501
+        Gets or sets samples per pixel count.
 
-        :param samples_per_pixel: The samples_per_pixel of this DicomProperties.  # noqa: E501
+        :param samples_per_pixel: The samples_per_pixel of this DicomProperties.
         :type: int
         """
         if samples_per_pixel is None:
-            raise ValueError("Invalid value for `samples_per_pixel`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `samples_per_pixel`, must not be `None`")
         self._samples_per_pixel = samples_per_pixel
 
     @property
     def bits_allocated(self):
-        """Gets the bits_allocated of this DicomProperties.  # noqa: E501
+        """Gets the bits_allocated of this DicomProperties.
 
-        Gets or sets allocated bits count.  # noqa: E501
+        Gets or sets allocated bits count.
 
-        :return: The bits_allocated of this DicomProperties.  # noqa: E501
+        :return: The bits_allocated of this DicomProperties.
         :rtype: int
         """
         return self._bits_allocated
@@ -377,22 +376,22 @@ class DicomProperties(object):
     def bits_allocated(self, bits_allocated):
         """Sets the bits_allocated of this DicomProperties.
 
-        Gets or sets allocated bits count.  # noqa: E501
+        Gets or sets allocated bits count.
 
-        :param bits_allocated: The bits_allocated of this DicomProperties.  # noqa: E501
+        :param bits_allocated: The bits_allocated of this DicomProperties.
         :type: int
         """
         if bits_allocated is None:
-            raise ValueError("Invalid value for `bits_allocated`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `bits_allocated`, must not be `None`")
         self._bits_allocated = bits_allocated
 
     @property
     def photo_interpretation(self):
-        """Gets the photo_interpretation of this DicomProperties.  # noqa: E501
+        """Gets the photo_interpretation of this DicomProperties.
 
-        Gets or sets the photo interpretation.  # noqa: E501
+        Gets or sets the photo interpretation.
 
-        :return: The photo_interpretation of this DicomProperties.  # noqa: E501
+        :return: The photo_interpretation of this DicomProperties.
         :rtype: str
         """
         return self._photo_interpretation
@@ -401,20 +400,20 @@ class DicomProperties(object):
     def photo_interpretation(self, photo_interpretation):
         """Sets the photo_interpretation of this DicomProperties.
 
-        Gets or sets the photo interpretation.  # noqa: E501
+        Gets or sets the photo interpretation.
 
-        :param photo_interpretation: The photo_interpretation of this DicomProperties.  # noqa: E501
+        :param photo_interpretation: The photo_interpretation of this DicomProperties.
         :type: str
         """
         self._photo_interpretation = photo_interpretation
 
     @property
     def width_tag_found(self):
-        """Gets the width_tag_found of this DicomProperties.  # noqa: E501
+        """Gets the width_tag_found of this DicomProperties.
 
-        Gets or sets a value indicating whether width tag found.  # noqa: E501
+        Gets or sets a value indicating whether width tag found.
 
-        :return: The width_tag_found of this DicomProperties.  # noqa: E501
+        :return: The width_tag_found of this DicomProperties.
         :rtype: bool
         """
         return self._width_tag_found
@@ -423,22 +422,22 @@ class DicomProperties(object):
     def width_tag_found(self, width_tag_found):
         """Sets the width_tag_found of this DicomProperties.
 
-        Gets or sets a value indicating whether width tag found.  # noqa: E501
+        Gets or sets a value indicating whether width tag found.
 
-        :param width_tag_found: The width_tag_found of this DicomProperties.  # noqa: E501
+        :param width_tag_found: The width_tag_found of this DicomProperties.
         :type: bool
         """
         if width_tag_found is None:
-            raise ValueError("Invalid value for `width_tag_found`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `width_tag_found`, must not be `None`")
         self._width_tag_found = width_tag_found
 
     @property
     def height_tag_found(self):
-        """Gets the height_tag_found of this DicomProperties.  # noqa: E501
+        """Gets the height_tag_found of this DicomProperties.
 
-        Gets or sets a value indicating whether height tag found.  # noqa: E501
+        Gets or sets a value indicating whether height tag found.
 
-        :return: The height_tag_found of this DicomProperties.  # noqa: E501
+        :return: The height_tag_found of this DicomProperties.
         :rtype: bool
         """
         return self._height_tag_found
@@ -447,22 +446,22 @@ class DicomProperties(object):
     def height_tag_found(self, height_tag_found):
         """Sets the height_tag_found of this DicomProperties.
 
-        Gets or sets a value indicating whether height tag found.  # noqa: E501
+        Gets or sets a value indicating whether height tag found.
 
-        :param height_tag_found: The height_tag_found of this DicomProperties.  # noqa: E501
+        :param height_tag_found: The height_tag_found of this DicomProperties.
         :type: bool
         """
         if height_tag_found is None:
-            raise ValueError("Invalid value for `height_tag_found`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `height_tag_found`, must not be `None`")
         self._height_tag_found = height_tag_found
 
     @property
     def width(self):
-        """Gets the width of this DicomProperties.  # noqa: E501
+        """Gets the width of this DicomProperties.
 
-        Gets or sets the width.  # noqa: E501
+        Gets or sets the width.
 
-        :return: The width of this DicomProperties.  # noqa: E501
+        :return: The width of this DicomProperties.
         :rtype: int
         """
         return self._width
@@ -471,22 +470,22 @@ class DicomProperties(object):
     def width(self, width):
         """Sets the width of this DicomProperties.
 
-        Gets or sets the width.  # noqa: E501
+        Gets or sets the width.
 
-        :param width: The width of this DicomProperties.  # noqa: E501
+        :param width: The width of this DicomProperties.
         :type: int
         """
         if width is None:
-            raise ValueError("Invalid value for `width`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `width`, must not be `None`")
         self._width = width
 
     @property
     def height(self):
-        """Gets the height of this DicomProperties.  # noqa: E501
+        """Gets the height of this DicomProperties.
 
-        Gets or sets the height.  # noqa: E501
+        Gets or sets the height.
 
-        :return: The height of this DicomProperties.  # noqa: E501
+        :return: The height of this DicomProperties.
         :rtype: int
         """
         return self._height
@@ -495,22 +494,22 @@ class DicomProperties(object):
     def height(self, height):
         """Sets the height of this DicomProperties.
 
-        Gets or sets the height.  # noqa: E501
+        Gets or sets the height.
 
-        :param height: The height of this DicomProperties.  # noqa: E501
+        :param height: The height of this DicomProperties.
         :type: int
         """
         if height is None:
-            raise ValueError("Invalid value for `height`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `height`, must not be `None`")
         self._height = height
 
     @property
     def window_centre(self):
-        """Gets the window_centre of this DicomProperties.  # noqa: E501
+        """Gets the window_centre of this DicomProperties.
 
-        Gets or sets the window centre.  # noqa: E501
+        Gets or sets the window centre.
 
-        :return: The window_centre of this DicomProperties.  # noqa: E501
+        :return: The window_centre of this DicomProperties.
         :rtype: float
         """
         return self._window_centre
@@ -519,22 +518,22 @@ class DicomProperties(object):
     def window_centre(self, window_centre):
         """Sets the window_centre of this DicomProperties.
 
-        Gets or sets the window centre.  # noqa: E501
+        Gets or sets the window centre.
 
-        :param window_centre: The window_centre of this DicomProperties.  # noqa: E501
+        :param window_centre: The window_centre of this DicomProperties.
         :type: float
         """
         if window_centre is None:
-            raise ValueError("Invalid value for `window_centre`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `window_centre`, must not be `None`")
         self._window_centre = window_centre
 
     @property
     def window_width(self):
-        """Gets the window_width of this DicomProperties.  # noqa: E501
+        """Gets the window_width of this DicomProperties.
 
-        Gets or sets the width of the window.  # noqa: E501
+        Gets or sets the width of the window.
 
-        :return: The window_width of this DicomProperties.  # noqa: E501
+        :return: The window_width of this DicomProperties.
         :rtype: float
         """
         return self._window_width
@@ -543,22 +542,22 @@ class DicomProperties(object):
     def window_width(self, window_width):
         """Sets the window_width of this DicomProperties.
 
-        Gets or sets the width of the window.  # noqa: E501
+        Gets or sets the width of the window.
 
-        :param window_width: The window_width of this DicomProperties.  # noqa: E501
+        :param window_width: The window_width of this DicomProperties.
         :type: float
         """
         if window_width is None:
-            raise ValueError("Invalid value for `window_width`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `window_width`, must not be `None`")
         self._window_width = window_width
 
     @property
     def pixel_representation(self):
-        """Gets the pixel_representation of this DicomProperties.  # noqa: E501
+        """Gets the pixel_representation of this DicomProperties.
 
-        Gets or sets data representation of the pixel samples.  # noqa: E501
+        Gets or sets data representation of the pixel samples.
 
-        :return: The pixel_representation of this DicomProperties.  # noqa: E501
+        :return: The pixel_representation of this DicomProperties.
         :rtype: int
         """
         return self._pixel_representation
@@ -567,22 +566,22 @@ class DicomProperties(object):
     def pixel_representation(self, pixel_representation):
         """Sets the pixel_representation of this DicomProperties.
 
-        Gets or sets data representation of the pixel samples.  # noqa: E501
+        Gets or sets data representation of the pixel samples.
 
-        :param pixel_representation: The pixel_representation of this DicomProperties.  # noqa: E501
+        :param pixel_representation: The pixel_representation of this DicomProperties.
         :type: int
         """
         if pixel_representation is None:
-            raise ValueError("Invalid value for `pixel_representation`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `pixel_representation`, must not be `None`")
         self._pixel_representation = pixel_representation
 
     @property
     def rescale_intercept(self):
-        """Gets the rescale_intercept of this DicomProperties.  # noqa: E501
+        """Gets the rescale_intercept of this DicomProperties.
 
-        Gets or sets a value of the rescale intercept.  # noqa: E501
+        Gets or sets a value of the rescale intercept.
 
-        :return: The rescale_intercept of this DicomProperties.  # noqa: E501
+        :return: The rescale_intercept of this DicomProperties.
         :rtype: float
         """
         return self._rescale_intercept
@@ -591,22 +590,22 @@ class DicomProperties(object):
     def rescale_intercept(self, rescale_intercept):
         """Sets the rescale_intercept of this DicomProperties.
 
-        Gets or sets a value of the rescale intercept.  # noqa: E501
+        Gets or sets a value of the rescale intercept.
 
-        :param rescale_intercept: The rescale_intercept of this DicomProperties.  # noqa: E501
+        :param rescale_intercept: The rescale_intercept of this DicomProperties.
         :type: float
         """
         if rescale_intercept is None:
-            raise ValueError("Invalid value for `rescale_intercept`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `rescale_intercept`, must not be `None`")
         self._rescale_intercept = rescale_intercept
 
     @property
     def rescale_slope(self):
-        """Gets the rescale_slope of this DicomProperties.  # noqa: E501
+        """Gets the rescale_slope of this DicomProperties.
 
-        Gets or sets a value of the rescale slope.  # noqa: E501
+        Gets or sets a value of the rescale slope.
 
-        :return: The rescale_slope of this DicomProperties.  # noqa: E501
+        :return: The rescale_slope of this DicomProperties.
         :rtype: float
         """
         return self._rescale_slope
@@ -615,22 +614,22 @@ class DicomProperties(object):
     def rescale_slope(self, rescale_slope):
         """Sets the rescale_slope of this DicomProperties.
 
-        Gets or sets a value of the rescale slope.  # noqa: E501
+        Gets or sets a value of the rescale slope.
 
-        :param rescale_slope: The rescale_slope of this DicomProperties.  # noqa: E501
+        :param rescale_slope: The rescale_slope of this DicomProperties.
         :type: float
         """
         if rescale_slope is None:
-            raise ValueError("Invalid value for `rescale_slope`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `rescale_slope`, must not be `None`")
         self._rescale_slope = rescale_slope
 
     @property
     def number_of_frames(self):
-        """Gets the number_of_frames of this DicomProperties.  # noqa: E501
+        """Gets the number_of_frames of this DicomProperties.
 
-        Gets or sets the number of frames.  # noqa: E501
+        Gets or sets the number of frames.
 
-        :return: The number_of_frames of this DicomProperties.  # noqa: E501
+        :return: The number_of_frames of this DicomProperties.
         :rtype: int
         """
         return self._number_of_frames
@@ -639,22 +638,22 @@ class DicomProperties(object):
     def number_of_frames(self, number_of_frames):
         """Sets the number_of_frames of this DicomProperties.
 
-        Gets or sets the number of frames.  # noqa: E501
+        Gets or sets the number of frames.
 
-        :param number_of_frames: The number_of_frames of this DicomProperties.  # noqa: E501
+        :param number_of_frames: The number_of_frames of this DicomProperties.
         :type: int
         """
         if number_of_frames is None:
-            raise ValueError("Invalid value for `number_of_frames`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `number_of_frames`, must not be `None`")
         self._number_of_frames = number_of_frames
 
     @property
     def length_value(self):
-        """Gets the length_value of this DicomProperties.  # noqa: E501
+        """Gets the length_value of this DicomProperties.
 
-        Gets or sets the length of element.  # noqa: E501
+        Gets or sets the length of element.
 
-        :return: The length_value of this DicomProperties.  # noqa: E501
+        :return: The length_value of this DicomProperties.
         :rtype: int
         """
         return self._length_value
@@ -663,22 +662,22 @@ class DicomProperties(object):
     def length_value(self, length_value):
         """Sets the length_value of this DicomProperties.
 
-        Gets or sets the length of element.  # noqa: E501
+        Gets or sets the length of element.
 
-        :param length_value: The length_value of this DicomProperties.  # noqa: E501
+        :param length_value: The length_value of this DicomProperties.
         :type: int
         """
         if length_value is None:
-            raise ValueError("Invalid value for `length_value`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `length_value`, must not be `None`")
         self._length_value = length_value
 
     @property
     def is_little_endian(self):
-        """Gets the is_little_endian of this DicomProperties.  # noqa: E501
+        """Gets the is_little_endian of this DicomProperties.
 
-        Indicates if DICOM image has little endian byte order.  # noqa: E501
+        Indicates if DICOM image has little endian byte order.
 
-        :return: The is_little_endian of this DicomProperties.  # noqa: E501
+        :return: The is_little_endian of this DicomProperties.
         :rtype: bool
         """
         return self._is_little_endian
@@ -687,22 +686,22 @@ class DicomProperties(object):
     def is_little_endian(self, is_little_endian):
         """Sets the is_little_endian of this DicomProperties.
 
-        Indicates if DICOM image has little endian byte order.  # noqa: E501
+        Indicates if DICOM image has little endian byte order.
 
-        :param is_little_endian: The is_little_endian of this DicomProperties.  # noqa: E501
+        :param is_little_endian: The is_little_endian of this DicomProperties.
         :type: bool
         """
         if is_little_endian is None:
-            raise ValueError("Invalid value for `is_little_endian`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `is_little_endian`, must not be `None`")
         self._is_little_endian = is_little_endian
 
     @property
     def offset(self):
-        """Gets the offset of this DicomProperties.  # noqa: E501
+        """Gets the offset of this DicomProperties.
 
-        Gets or sets the offset.  # noqa: E501
+        Gets or sets the offset.
 
-        :return: The offset of this DicomProperties.  # noqa: E501
+        :return: The offset of this DicomProperties.
         :rtype: int
         """
         return self._offset
@@ -711,22 +710,22 @@ class DicomProperties(object):
     def offset(self, offset):
         """Sets the offset of this DicomProperties.
 
-        Gets or sets the offset.  # noqa: E501
+        Gets or sets the offset.
 
-        :param offset: The offset of this DicomProperties.  # noqa: E501
+        :param offset: The offset of this DicomProperties.
         :type: int
         """
         if offset is None:
-            raise ValueError("Invalid value for `offset`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `offset`, must not be `None`")
         self._offset = offset
 
     @property
     def dicom_found(self):
-        """Gets the dicom_found of this DicomProperties.  # noqa: E501
+        """Gets the dicom_found of this DicomProperties.
 
-        Gets or sets a value indicating whether \"DICOM\" data is found.  # noqa: E501
+        Gets or sets a value indicating whether \"DICOM\" data is found.
 
-        :return: The dicom_found of this DicomProperties.  # noqa: E501
+        :return: The dicom_found of this DicomProperties.
         :rtype: bool
         """
         return self._dicom_found
@@ -735,13 +734,13 @@ class DicomProperties(object):
     def dicom_found(self, dicom_found):
         """Sets the dicom_found of this DicomProperties.
 
-        Gets or sets a value indicating whether \"DICOM\" data is found.  # noqa: E501
+        Gets or sets a value indicating whether \"DICOM\" data is found.
 
-        :param dicom_found: The dicom_found of this DicomProperties.  # noqa: E501
+        :param dicom_found: The dicom_found of this DicomProperties.
         :type: bool
         """
         if dicom_found is None:
-            raise ValueError("Invalid value for `dicom_found`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `dicom_found`, must not be `None`")
         self._dicom_found = dicom_found
 
     def to_dict(self):

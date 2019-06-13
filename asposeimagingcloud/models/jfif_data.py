@@ -1,30 +1,29 @@
 # coding: utf-8
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # <copyright company="Aspose" file="JfifData.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
-#   Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
-# 
-#  The above copyright notice and this permission notice shall be included in all
-#  copies or substantial portions of the Software.
-# 
+#   Permission is hereby granted, free of charge, to any person obtaining a
+#  copy  of this software and associated documentation files (the "Software"),
+#  to deal  in the Software without restriction, including without limitation
+#  the rights  to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell  copies of the Software, and to permit persons to whom the
+#  Software is  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in
+#  all  copies or substantial portions of the Software.
+#
 #  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 #  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#  SOFTWARE.
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
 # </summary>
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 import pprint
-import re  # noqa: F401
 
 import six
 
@@ -54,8 +53,8 @@ class JfifData(object):
         'y_density': 'YDensity'
     }
 
-    def __init__(self, density_units=None, version=None, x_density=None, y_density=None):  # noqa: E501
-        """JfifData - a model defined in Swagger"""  # noqa: E501
+    def __init__(self, density_units=None, version=None, x_density=None, y_density=None):
+        """JfifData - a model defined in Swagger"""
 
         self._density_units = None
         self._version = None
@@ -74,11 +73,11 @@ class JfifData(object):
 
     @property
     def density_units(self):
-        """Gets the density_units of this JfifData.  # noqa: E501
+        """Gets the density_units of this JfifData.
 
-        Gets or sets the density units.  # noqa: E501
+        Gets or sets the density units.
 
-        :return: The density_units of this JfifData.  # noqa: E501
+        :return: The density_units of this JfifData.
         :rtype: str
         """
         return self._density_units
@@ -87,20 +86,20 @@ class JfifData(object):
     def density_units(self, density_units):
         """Sets the density_units of this JfifData.
 
-        Gets or sets the density units.  # noqa: E501
+        Gets or sets the density units.
 
-        :param density_units: The density_units of this JfifData.  # noqa: E501
+        :param density_units: The density_units of this JfifData.
         :type: str
         """
         self._density_units = density_units
 
     @property
     def version(self):
-        """Gets the version of this JfifData.  # noqa: E501
+        """Gets the version of this JfifData.
 
-        Gets or sets the version.  # noqa: E501
+        Gets or sets the version.
 
-        :return: The version of this JfifData.  # noqa: E501
+        :return: The version of this JfifData.
         :rtype: int
         """
         return self._version
@@ -109,22 +108,22 @@ class JfifData(object):
     def version(self, version):
         """Sets the version of this JfifData.
 
-        Gets or sets the version.  # noqa: E501
+        Gets or sets the version.
 
-        :param version: The version of this JfifData.  # noqa: E501
+        :param version: The version of this JfifData.
         :type: int
         """
         if version is None:
-            raise ValueError("Invalid value for `version`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `version`, must not be `None`")
         self._version = version
 
     @property
     def x_density(self):
-        """Gets the x_density of this JfifData.  # noqa: E501
+        """Gets the x_density of this JfifData.
 
-        Gets or sets the X density.  # noqa: E501
+        Gets or sets the X density.
 
-        :return: The x_density of this JfifData.  # noqa: E501
+        :return: The x_density of this JfifData.
         :rtype: int
         """
         return self._x_density
@@ -133,22 +132,22 @@ class JfifData(object):
     def x_density(self, x_density):
         """Sets the x_density of this JfifData.
 
-        Gets or sets the X density.  # noqa: E501
+        Gets or sets the X density.
 
-        :param x_density: The x_density of this JfifData.  # noqa: E501
+        :param x_density: The x_density of this JfifData.
         :type: int
         """
         if x_density is None:
-            raise ValueError("Invalid value for `x_density`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `x_density`, must not be `None`")
         self._x_density = x_density
 
     @property
     def y_density(self):
-        """Gets the y_density of this JfifData.  # noqa: E501
+        """Gets the y_density of this JfifData.
 
-        Gets or sets the Y density.  # noqa: E501
+        Gets or sets the Y density.
 
-        :return: The y_density of this JfifData.  # noqa: E501
+        :return: The y_density of this JfifData.
         :rtype: int
         """
         return self._y_density
@@ -157,13 +156,13 @@ class JfifData(object):
     def y_density(self, y_density):
         """Sets the y_density of this JfifData.
 
-        Gets or sets the Y density.  # noqa: E501
+        Gets or sets the Y density.
 
-        :param y_density: The y_density of this JfifData.  # noqa: E501
+        :param y_density: The y_density of this JfifData.
         :type: int
         """
         if y_density is None:
-            raise ValueError("Invalid value for `y_density`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `y_density`, must not be `None`")
         self._y_density = y_density
 
     def to_dict(self):

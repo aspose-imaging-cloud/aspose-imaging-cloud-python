@@ -1,30 +1,29 @@
 # coding: utf-8
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # <copyright company="Aspose" file="StorageFile.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
-#   Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
-# 
-#  The above copyright notice and this permission notice shall be included in all
-#  copies or substantial portions of the Software.
-# 
+#   Permission is hereby granted, free of charge, to any person obtaining a
+#  copy  of this software and associated documentation files (the "Software"),
+#  to deal  in the Software without restriction, including without limitation
+#  the rights  to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell  copies of the Software, and to permit persons to whom the
+#  Software is  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in
+#  all  copies or substantial portions of the Software.
+#
 #  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 #  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#  SOFTWARE.
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
 # </summary>
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 import pprint
-import re  # noqa: F401
 
 import six
 
@@ -60,8 +59,8 @@ class StorageFile(object):
         'FileVersion': 'FileVersion'
     }
 
-    def __init__(self, name=None, is_folder=None, modified_date=None, size=None, path=None):  # noqa: E501
-        """StorageFile - a model defined in Swagger"""  # noqa: E501
+    def __init__(self, name=None, is_folder=None, modified_date=None, size=None, path=None):
+        """StorageFile - a model defined in Swagger"""
 
         self._name = None
         self._is_folder = None
@@ -83,11 +82,11 @@ class StorageFile(object):
 
     @property
     def name(self):
-        """Gets the name of this StorageFile.  # noqa: E501
+        """Gets the name of this StorageFile.
 
-        File or folder name.  # noqa: E501
+        File or folder name.
 
-        :return: The name of this StorageFile.  # noqa: E501
+        :return: The name of this StorageFile.
         :rtype: str
         """
         return self._name
@@ -96,20 +95,20 @@ class StorageFile(object):
     def name(self, name):
         """Sets the name of this StorageFile.
 
-        File or folder name.  # noqa: E501
+        File or folder name.
 
-        :param name: The name of this StorageFile.  # noqa: E501
+        :param name: The name of this StorageFile.
         :type: str
         """
         self._name = name
 
     @property
     def is_folder(self):
-        """Gets the is_folder of this StorageFile.  # noqa: E501
+        """Gets the is_folder of this StorageFile.
 
-        True if it is a folder.  # noqa: E501
+        True if it is a folder.
 
-        :return: The is_folder of this StorageFile.  # noqa: E501
+        :return: The is_folder of this StorageFile.
         :rtype: bool
         """
         return self._is_folder
@@ -118,22 +117,22 @@ class StorageFile(object):
     def is_folder(self, is_folder):
         """Sets the is_folder of this StorageFile.
 
-        True if it is a folder.  # noqa: E501
+        True if it is a folder.
 
-        :param is_folder: The is_folder of this StorageFile.  # noqa: E501
+        :param is_folder: The is_folder of this StorageFile.
         :type: bool
         """
         if is_folder is None:
-            raise ValueError("Invalid value for `is_folder`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `is_folder`, must not be `None`")
         self._is_folder = is_folder
 
     @property
     def modified_date(self):
-        """Gets the modified_date of this StorageFile.  # noqa: E501
+        """Gets the modified_date of this StorageFile.
 
-        File or folder last modified DateTime.  # noqa: E501
+        File or folder last modified DateTime.
 
-        :return: The modified_date of this StorageFile.  # noqa: E501
+        :return: The modified_date of this StorageFile.
         :rtype: datetime
         """
         return self._modified_date
@@ -142,20 +141,20 @@ class StorageFile(object):
     def modified_date(self, modified_date):
         """Sets the modified_date of this StorageFile.
 
-        File or folder last modified DateTime.  # noqa: E501
+        File or folder last modified DateTime.
 
-        :param modified_date: The modified_date of this StorageFile.  # noqa: E501
+        :param modified_date: The modified_date of this StorageFile.
         :type: datetime
         """
         self._modified_date = modified_date
 
     @property
     def size(self):
-        """Gets the size of this StorageFile.  # noqa: E501
+        """Gets the size of this StorageFile.
 
-        File or folder size.  # noqa: E501
+        File or folder size.
 
-        :return: The size of this StorageFile.  # noqa: E501
+        :return: The size of this StorageFile.
         :rtype: int
         """
         return self._size
@@ -164,22 +163,22 @@ class StorageFile(object):
     def size(self, size):
         """Sets the size of this StorageFile.
 
-        File or folder size.  # noqa: E501
+        File or folder size.
 
-        :param size: The size of this StorageFile.  # noqa: E501
+        :param size: The size of this StorageFile.
         :type: int
         """
         if size is None:
-            raise ValueError("Invalid value for `size`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `size`, must not be `None`")
         self._size = size
 
     @property
     def path(self):
-        """Gets the path of this StorageFile.  # noqa: E501
+        """Gets the path of this StorageFile.
 
-        File or folder path.  # noqa: E501
+        File or folder path.
 
-        :return: The path of this StorageFile.  # noqa: E501
+        :return: The path of this StorageFile.
         :rtype: str
         """
         return self._path
@@ -188,9 +187,9 @@ class StorageFile(object):
     def path(self, path):
         """Sets the path of this StorageFile.
 
-        File or folder path.  # noqa: E501
+        File or folder path.
 
-        :param path: The path of this StorageFile.  # noqa: E501
+        :param path: The path of this StorageFile.
         :type: str
         """
         self._path = path

@@ -1,34 +1,33 @@
 # coding: utf-8
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # <copyright company="Aspose" file="FileVersion.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
-#   Permission is hereby granted, free of charge, to any person obtaining a copy
-#  of this software and associated documentation files (the "Software"), to deal
-#  in the Software without restriction, including without limitation the rights
-#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#  copies of the Software, and to permit persons to whom the Software is
-#  furnished to do so, subject to the following conditions:
-# 
-#  The above copyright notice and this permission notice shall be included in all
-#  copies or substantial portions of the Software.
-# 
+#   Permission is hereby granted, free of charge, to any person obtaining a
+#  copy  of this software and associated documentation files (the "Software"),
+#  to deal  in the Software without restriction, including without limitation
+#  the rights  to use, copy, modify, merge, publish, distribute, sublicense,
+#  and/or sell  copies of the Software, and to permit persons to whom the
+#  Software is  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in
+#  all  copies or substantial portions of the Software.
+#
 #  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 #  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 #  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#  SOFTWARE.
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+#  FROM,  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+#  DEALINGS IN THE SOFTWARE.
 # </summary>
-# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 import pprint
-import re  # noqa: F401
 
 import six
 
-from asposeimagingcloud.models.storage_file import StorageFile  # noqa: F401,E501
+from asposeimagingcloud.models.storage_file import StorageFile
 
 
 class FileVersion(StorageFile):
@@ -52,8 +51,8 @@ class FileVersion(StorageFile):
         'is_latest': 'IsLatest'
     }
 
-    def __init__(self, version_id=None, is_latest=None):  # noqa: E501
-        """FileVersion - a model defined in Swagger"""  # noqa: E501
+    def __init__(self, version_id=None, is_latest=None):
+        """FileVersion - a model defined in Swagger"""
 
         self._version_id = None
         self._is_latest = None
@@ -66,11 +65,11 @@ class FileVersion(StorageFile):
 
     @property
     def version_id(self):
-        """Gets the version_id of this FileVersion.  # noqa: E501
+        """Gets the version_id of this FileVersion.
 
-        File Version ID.  # noqa: E501
+        File Version ID.
 
-        :return: The version_id of this FileVersion.  # noqa: E501
+        :return: The version_id of this FileVersion.
         :rtype: str
         """
         return self._version_id
@@ -79,20 +78,20 @@ class FileVersion(StorageFile):
     def version_id(self, version_id):
         """Sets the version_id of this FileVersion.
 
-        File Version ID.  # noqa: E501
+        File Version ID.
 
-        :param version_id: The version_id of this FileVersion.  # noqa: E501
+        :param version_id: The version_id of this FileVersion.
         :type: str
         """
         self._version_id = version_id
 
     @property
     def is_latest(self):
-        """Gets the is_latest of this FileVersion.  # noqa: E501
+        """Gets the is_latest of this FileVersion.
 
-        Specifies whether the file is (true) or is not (false) the latest version of an file.  # noqa: E501
+        Specifies whether the file is (true) or is not (false) the latest version of an file.
 
-        :return: The is_latest of this FileVersion.  # noqa: E501
+        :return: The is_latest of this FileVersion.
         :rtype: bool
         """
         return self._is_latest
@@ -101,13 +100,13 @@ class FileVersion(StorageFile):
     def is_latest(self, is_latest):
         """Sets the is_latest of this FileVersion.
 
-        Specifies whether the file is (true) or is not (false) the latest version of an file.  # noqa: E501
+        Specifies whether the file is (true) or is not (false) the latest version of an file.
 
-        :param is_latest: The is_latest of this FileVersion.  # noqa: E501
+        :param is_latest: The is_latest of this FileVersion.
         :type: bool
         """
         if is_latest is None:
-            raise ValueError("Invalid value for `is_latest`, must not be `None`")  # noqa: E501
+            raise ValueError("Invalid value for `is_latest`, must not be `None`")
         self._is_latest = is_latest
 
     def to_dict(self):
