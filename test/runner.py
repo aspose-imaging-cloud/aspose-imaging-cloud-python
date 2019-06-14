@@ -13,6 +13,10 @@ if os.environ.get('EXTENDED_TEST'):
 loader = unittest.TestLoader()
 
 suite = unittest.TestSuite()
+suite.addTests(loader.loadTestsFromModule(test.test_compare_images))
+suite.addTests(loader.loadTestsFromModule(test.test_find_duplicates))
+suite.addTests(loader.loadTestsFromModule(test.test_find_images))
+suite.addTests(loader.loadTestsFromModule(test.test_search_context))
 suite.addTest(loader.loadTestsFromModule(test.test_file_api))
 suite.addTest(loader.loadTestsFromModule(test.test_folder_api))
 suite.addTest(loader.loadTestsFromModule(test.test_storage_api))
