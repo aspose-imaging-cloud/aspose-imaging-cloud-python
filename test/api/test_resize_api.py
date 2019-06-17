@@ -1,17 +1,15 @@
+from test.api_tester import ApiTester
 from test.api import ImagingApiTester
 from itertools import product
 import asposeimagingcloud.models.requests as requests
 
 
-#
-# Class for testing ResizeAPI
-#
 class TestResizeApi(ImagingApiTester):
+    """ Class for testing ResizeAPI"""
 
-    #
-    # Test get_image_resize
-    #
     def test_get_image_resize(self):
+        """  Test get_image_resize """
+
         additional_export_formats = set()
         if not self.EXTENDED_TEST:
             format_extension_test_cases = ['.jpg']
@@ -39,14 +37,14 @@ class TestResizeApi(ImagingApiTester):
 
                 new_width = 100
                 new_height = 150
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
 
                 formats_to_export = set(
-                    self.basic_export_formats).union(additional_export_formats)
+                    ApiTester.basic_export_formats).union(additional_export_formats)
 
                 def request_invoker(file_name, out_path):
-                    return self.imaging_api.get_image_resize(requests.GetImageResizeRequest(
+                    return ApiTester.imaging_api.get_image_resize(requests.GetImageResizeRequest(
                         file_name, format, new_width, new_height, out_path, folder, storage))
 
                 def properties_tester(
@@ -56,7 +54,7 @@ class TestResizeApi(ImagingApiTester):
                     self.assertEqual(new_width, result_properties.width)
                     self.assertEqual(new_height, result_properties.height)
 
-                for input_file in self.input_test_files:
+                for input_file in ApiTester.input_test_files:
                     if not str(input_file.name).endswith(format_extension):
                         continue
 
@@ -81,10 +79,9 @@ class TestResizeApi(ImagingApiTester):
                             folder,
                             storage)
 
-    #
-    # Test post_image_resize
-    #
     def test_post_image_resize(self):
+        """ Test post_image_resize """
+
         additional_export_formats = set()
         if not self.EXTENDED_TEST:
             format_extension_test_cases = ['.jpg']
@@ -112,14 +109,14 @@ class TestResizeApi(ImagingApiTester):
 
                 new_width = 100
                 new_height = 150
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
 
                 formats_to_export = set(
-                    self.basic_export_formats).union(additional_export_formats)
+                    ApiTester.basic_export_formats).union(additional_export_formats)
 
                 def request_invoker(input_stream, out_path):
-                    return self.imaging_api.post_image_resize(requests.PostImageResizeRequest(
+                    return ApiTester.imaging_api.post_image_resize(requests.PostImageResizeRequest(
                         input_stream, format, new_width, new_height, out_path, storage))
 
                 def properties_tester(
@@ -129,7 +126,7 @@ class TestResizeApi(ImagingApiTester):
                     self.assertEqual(new_width, result_properties.width)
                     self.assertEqual(new_height, result_properties.height)
 
-                for input_file in self.input_test_files:
+                for input_file in ApiTester.input_test_files:
                     if not str(input_file.name).endswith(format_extension):
                         continue
 

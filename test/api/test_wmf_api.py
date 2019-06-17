@@ -1,16 +1,14 @@
+from test.api_tester import ApiTester
 from test.api import ImagingApiTester
 import asposeimagingcloud.models.requests as requests
 
 
-#
-# Class for testing WmfApi
-#
 class TestWmfApi(ImagingApiTester):
+    """ Class for testing WmfApi """
 
-    #
-    # Test get_image_wmf
-    #
     def test_get_image_wmf(self):
+        """ Test get_image_wmf """
+
         save_result_to_storage_test_cases = [True, False]
 
         for save_result_to_storage in save_result_to_storage_test_cases:
@@ -22,12 +20,12 @@ class TestWmfApi(ImagingApiTester):
                 border_x = 50
                 border_y = 50
                 out_name = name + '_specific.png'
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
                 from_scratch = None
 
                 def request_invoker(file_name, out_path):
-                    return self.imaging_api.get_image_wmf(
+                    return ApiTester.imaging_api.get_image_wmf(
                         requests.GetImageWmfRequest(
                             name,
                             bk_color,
@@ -70,10 +68,9 @@ class TestWmfApi(ImagingApiTester):
                     folder,
                     storage)
 
-    #
-    # Test post_image_wmf
-    #
     def test_post_image_wmf(self):
+        """ Test post_image_wmf """
+
         save_result_to_storage_test_cases = [True, False]
 
         for save_result_to_storage in save_result_to_storage_test_cases:
@@ -85,12 +82,12 @@ class TestWmfApi(ImagingApiTester):
                 border_x = 50
                 border_y = 50
                 out_name = name + '_specific.png'
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
                 from_scratch = None
 
                 def request_invoker(input_stream, out_path):
-                    return self.imaging_api.post_image_wmf(
+                    return ApiTester.imaging_api.post_image_wmf(
                         requests.PostImageWmfRequest(
                             input_stream,
                             bk_color,

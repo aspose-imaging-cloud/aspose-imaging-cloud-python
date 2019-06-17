@@ -1,16 +1,14 @@
+from test.api_tester import ApiTester
 from test.api import ImagingApiTester
 import asposeimagingcloud.models.requests as requests
 
 
-#
-# Class for testing JpgAPI
-#
 class TestJpgApi(ImagingApiTester):
+    """ Class for testing JpgAPI """
 
-    #
-    # Test get_image_jpg
-    #
     def test_get_image_jpg(self):
+        """ Test get_image_jpg """
+
         save_result_to_storage_test_cases = [True, False]
 
         for save_result_to_storage in save_result_to_storage_test_cases:
@@ -19,12 +17,12 @@ class TestJpgApi(ImagingApiTester):
                 quality = 65
                 compression_type = 'progressive'
                 out_name = name + '_specific.jpg'
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
                 from_scratch = None
 
             def request_invoker(file_name, out_path):
-                return self.imaging_api.get_image_jpg(
+                return ApiTester.imaging_api.get_image_jpg(
                     requests.GetImageJpgRequest(
                         name,
                         quality,
@@ -62,10 +60,9 @@ class TestJpgApi(ImagingApiTester):
                 folder,
                 storage)
 
-    #
-    # Test post_image_jpg
-    #
     def test_post_image_jpg(self):
+        """ Test post_image_jpg """
+
         save_result_to_storage_test_cases = [True, False]
 
         for save_result_to_storage in save_result_to_storage_test_cases:
@@ -74,12 +71,12 @@ class TestJpgApi(ImagingApiTester):
                 quality = 65
                 compression_type = 'progressive'
                 out_name = name + '_specific.jpg'
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
                 from_scratch = None
 
             def request_invoker(input_stream, out_path):
-                return self.imaging_api.post_image_jpg(requests.PostImageJpgRequest(
+                return ApiTester.imaging_api.post_image_jpg(requests.PostImageJpgRequest(
                     input_stream, quality, compression_type, from_scratch, out_path, storage))
 
             def properties_tester(

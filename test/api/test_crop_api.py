@@ -1,17 +1,15 @@
 from test.api.imaging_api_tester import ImagingApiTester
+from test.api_tester import ApiTester
 from itertools import product
 import asposeimagingcloud.models.requests as requests
 
 
-#
-# Class for testing CropAPI
-#
 class TestCropApi(ImagingApiTester):
+    """ Class for testing CropAPI """
 
-    #
-    # Test get_image_crop
-    #
     def test_get_image_crop(self):
+        """ Test get_image_crop """
+
         additional_export_formats = set()
         if not self.EXTENDED_TEST:
             format_extension_test_cases = ['.jpg']
@@ -41,14 +39,14 @@ class TestCropApi(ImagingApiTester):
                 y = 10
                 width = 100
                 height = 150
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
 
                 formats_to_export = set(
-                    self.basic_export_formats).union(additional_export_formats)
+                    ApiTester.basic_export_formats).union(additional_export_formats)
 
                 def request_invoker(file_name, out_path):
-                    return self.imaging_api.get_image_crop(requests.GetImageCropRequest(
+                    return ApiTester.imaging_api.get_image_crop(requests.GetImageCropRequest(
                         file_name, format, x, y, width, height, out_path, folder, storage))
 
                 def properties_tester(
@@ -58,7 +56,7 @@ class TestCropApi(ImagingApiTester):
                     self.assertEqual(width, result_properties.width)
                     self.assertEqual(height, result_properties.height)
 
-                for input_file in self.input_test_files:
+                for input_file in ApiTester.input_test_files:
                     if not str(input_file.name).endswith(format_extension):
                         continue
 
@@ -85,10 +83,9 @@ class TestCropApi(ImagingApiTester):
                             folder,
                             storage)
 
-    #
-    # Test post_image_crop
-    #
     def test_post_image_crop(self):
+        """ Test post_image_crop"""
+
         additional_export_formats = set()
         if not self.EXTENDED_TEST:
             format_extension_test_cases = ['.jpg']
@@ -118,14 +115,14 @@ class TestCropApi(ImagingApiTester):
                 y = 10
                 width = 100
                 height = 150
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
 
                 formats_to_export = set(
-                    self.basic_export_formats).union(additional_export_formats)
+                    ApiTester.basic_export_formats).union(additional_export_formats)
 
                 def request_invoker(input_stream, out_path):
-                    return self.imaging_api.post_image_crop(requests.PostImageCropRequest(
+                    return ApiTester.imaging_api.post_image_crop(requests.PostImageCropRequest(
                         input_stream, format, x, y, width, height, out_path, storage))
 
                 def properties_tester(
@@ -135,7 +132,7 @@ class TestCropApi(ImagingApiTester):
                     self.assertEqual(width, result_properties.width)
                     self.assertEqual(height, result_properties.height)
 
-                for input_file in self.input_test_files:
+                for input_file in ApiTester.input_test_files:
                     if not str(input_file.name).endswith(format_extension):
                         continue
 

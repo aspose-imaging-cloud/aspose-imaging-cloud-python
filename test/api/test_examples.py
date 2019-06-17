@@ -1,19 +1,17 @@
 from asposeimagingcloud import ImagingApi, ApiClient
+from test.api_tester import ApiTester
 from test.api import ImagingApiTester
 import os
 import asposeimagingcloud.models.requests as requests
 
 
-#
-# Tests that correspond with examples code
-#
 class TestExamples(ImagingApiTester):
+    """ Tests that correspond with examples code """
 
-    #
-    # Saves as from storage example test
-    #
     def test_save_as_from_storage(self):
-        config = self.imaging_api.api_client.configuration
+        """ Saves as from storage example test """
+
+        config = ApiTester.imaging_api.api_client.configuration
         imaging_api = ImagingApi(ApiClient(config))
         remote_folder = 'ExampleFolderPython'
         remote_input_image = 'inputImage.png'
@@ -25,7 +23,7 @@ class TestExamples(ImagingApiTester):
                 requests.UploadFileRequest(
                     remote_folder + '/' + remote_input_image,
                     os.path.join(
-                        self._local_test_folder,
+                        ApiTester._local_test_folder,
                         'test.png')))
 
             # self.assertIsNone(result.errors)
@@ -67,18 +65,17 @@ class TestExamples(ImagingApiTester):
                 requests.DeleteFileRequest(
                     remote_folder + '/' + remote_result_image))
 
-    #
-    # Saves as from stream example
-    #
     def test_save_as_from_stream_example(self):
-        config = self.imaging_api.api_client.configuration
+        """ Saves as from stream example """
+
+        config = ApiTester.imaging_api.api_client.configuration
         imaging_api = ImagingApi(ApiClient(config))
         remote_result_image = 'ExampleFolderPython' + '/' + 'resultImage.jpg'
 
         try:
             # get local image stream
             local_input_image = os.path.join(
-                self._local_test_folder, 'test.png')
+                ApiTester._local_test_folder, 'test.png')
             # convert image from request stream to JPEG and save it to storage
             # please, use outPath parameter for saving the result to storage
             imaging_api.post_image_save_as(

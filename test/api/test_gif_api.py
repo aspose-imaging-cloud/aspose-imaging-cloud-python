@@ -1,16 +1,14 @@
+from test.api_tester import ApiTester
 from test.api import ImagingApiTester
 import asposeimagingcloud.models.requests as requests
 
 
-#
-# Class for testing GifAPI
-#
 class TestGifApi(ImagingApiTester):
+    """ Class for testing GifAPI """
 
-    #
-    # Test get_image_gif
-    #
     def test_get_image_gif(self):
+        """ Test get_image_gif """
+
         save_result_to_storage_test_cases = [True, False]
 
         for save_result_to_storage in save_result_to_storage_test_cases:
@@ -23,12 +21,12 @@ class TestGifApi(ImagingApiTester):
                 is_palette_sorted = True
                 pixel_aspect_ratio = 4
                 out_name = name + '_specific.gif'
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
                 from_scratch = None
 
                 def request_invoker(file_name, out_path):
-                    return self.imaging_api.get_image_gif(
+                    return ApiTester.imaging_api.get_image_gif(
                         requests.GetImageGifRequest(
                             name,
                             background_color_index,
@@ -81,10 +79,9 @@ class TestGifApi(ImagingApiTester):
                     folder,
                     storage)
 
-    #
-    # Test post_image_gif
-    #
     def test_post_image_gif(self):
+        """ Test post_image_gif """
+
         save_result_to_storage_test_cases = [True, False]
 
         for save_result_to_storage in save_result_to_storage_test_cases:
@@ -97,12 +94,12 @@ class TestGifApi(ImagingApiTester):
                 is_palette_sorted = True
                 pixel_aspect_ratio = 4
                 out_name = name + '_specific.gif'
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
                 from_scratch = None
 
                 def request_invoker(input_stream, out_path):
-                    return self.imaging_api.post_image_gif(
+                    return ApiTester.imaging_api.post_image_gif(
                         requests.PostImageGifRequest(
                             input_stream,
                             background_color_index,

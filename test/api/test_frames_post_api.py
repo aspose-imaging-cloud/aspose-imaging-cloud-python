@@ -1,16 +1,14 @@
+from test.api_tester import ApiTester
 from test.api import ImagingApiTester
 import asposeimagingcloud.models.requests as requests
 
 
-#
-# Class for testing FramesAPI
-#
 class TestFramesPostApi(ImagingApiTester):
+    """ Class for testing FramesAPI """
 
-    #
-    # Test post_image_frame
-    #
     def test_post_image_single_frame(self):
+        """ Test post_image_frame """
+
         save_result_to_storage_test_cases = [True, False]
 
         for save_result_to_storage in save_result_to_storage_test_cases:
@@ -25,8 +23,8 @@ class TestFramesPostApi(ImagingApiTester):
                 rect_height = 300
                 rotate_flip_method = 'Rotate90FlipX'
                 save_other_frames = False
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
                 out_name = name + '_singleFrame.tiff'
 
                 def request_invoker(input_stream, out_path):
@@ -42,7 +40,7 @@ class TestFramesPostApi(ImagingApiTester):
                     if out_path:
                         kwargs["out_path"] = out_path
 
-                    return self.imaging_api.post_image_frame(
+                    return ApiTester.imaging_api.post_image_frame(
                         requests.PostImageFrameRequest(
                             input_stream,
                             frame_id,
@@ -86,10 +84,10 @@ class TestFramesPostApi(ImagingApiTester):
                     self.assertEqual(rect_width, result_properties.height)
 
                     if save_result_to_storage:
-                        frame_properties = self.imaging_api.get_image_frame_properties(
+                        frame_properties = ApiTester.imaging_api.get_image_frame_properties(
                             requests.GetImageFramePropertiesRequest(out_name, 0, folder, storage))
                     else:
-                        frame_properties = self.imaging_api.post_image_frame_properties(
+                        frame_properties = ApiTester.imaging_api.post_image_frame_properties(
                             requests.PostImageFramePropertiesRequest(result_stream, 0))
 
                     self.assertIsNotNone(frame_properties)
@@ -134,10 +132,9 @@ class TestFramesPostApi(ImagingApiTester):
                     folder,
                     storage)
 
-    #
-    # Test post_image_frame
-    #
     def test_post_image_all_frames(self):
+        """ Test post_image_frame """
+
         save_result_to_storage_test_cases = [True, False]
 
         for save_result_to_storage in save_result_to_storage_test_cases:
@@ -152,8 +149,8 @@ class TestFramesPostApi(ImagingApiTester):
                 rect_height = 300
                 rotate_flip_method = 'Rotate90FlipX'
                 save_other_frames = True
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
                 out_name = name + '_allFrame.tiff'
 
                 def request_invoker(input_stream, out_path):
@@ -169,7 +166,7 @@ class TestFramesPostApi(ImagingApiTester):
                     if out_path:
                         kwargs["out_path"] = out_path
 
-                    return self.imaging_api.post_image_frame(
+                    return ApiTester.imaging_api.post_image_frame(
                         requests.PostImageFrameRequest(
                             input_stream,
                             frame_id,

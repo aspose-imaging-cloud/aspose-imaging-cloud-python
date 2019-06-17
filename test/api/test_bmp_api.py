@@ -1,17 +1,15 @@
 from test.api.imaging_api_tester import ImagingApiTester
+from test.api_tester import ApiTester
 import math
 import asposeimagingcloud.models.requests as requests
 
 
-#
-# Class for testing BmpAPI
-#
 class TestBmpApi(ImagingApiTester):
+    """ Class for testing BmpAPI """
 
-    #
-    # Test get_image_bmp
-    #
     def test_get_image_bmp(self):
+        """ Test get_image_bmp """
+
         save_result_to_storage_test_cases = [True, False]
 
         for save_result_to_storage in save_result_to_storage_test_cases:
@@ -21,12 +19,12 @@ class TestBmpApi(ImagingApiTester):
                 horizontal_resolution = 300
                 vertical_resolution = 300
                 out_name = name + '_specific.bmp'
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
                 from_scratch = None
 
                 def request_invoker(file_name, out_path):
-                    return self.imaging_api.get_image_bmp(
+                    return ApiTester.imaging_api.get_image_bmp(
                         requests.GetImageBmpRequest(
                             file_name,
                             bits_per_pixel,
@@ -76,10 +74,9 @@ class TestBmpApi(ImagingApiTester):
                     folder,
                     storage)
 
-    #
-    # Test post_image_bmp
-    #
     def test_post_image_bmp(self):
+        """ Test post_image_bmp """
+
         save_result_to_storage_test_cases = [True, False]
 
         for save_result_to_storage in save_result_to_storage_test_cases:
@@ -89,18 +86,18 @@ class TestBmpApi(ImagingApiTester):
                 horizontal_resolution = 300
                 vertical_resolution = 300
                 out_name = name + '_specific.bmp'
-                folder = self.temp_folder
-                storage = self.test_storage
-                from_scartch = None
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
+                from_scratch = None
 
                 def request_invoker(input_stream, out_path):
-                    return self.imaging_api.post_image_bmp(
+                    return ApiTester.imaging_api.post_image_bmp(
                         requests.PostImageBmpRequest(
                             input_stream,
                             bits_per_pixel,
                             horizontal_resolution,
                             vertical_resolution,
-                            from_scartch,
+                            from_scratch,
                             out_path,
                             storage))
 

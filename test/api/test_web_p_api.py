@@ -1,16 +1,14 @@
+from test.api_tester import ApiTester
 from test.api import ImagingApiTester
 import asposeimagingcloud.models.requests as requests
 
 
-#
-# Class for testing WebPApi
-#
 class TestWebPApi(ImagingApiTester):
+    """ Class for testing WebPApi """
 
-    #
-    # Test get_image_web_p
-    #
     def test_get_image_web_p(self):
+        """ Test get_image_web_p """
+
         save_result_to_storage_test_cases = [True, False]
 
         for save_result_to_storage in save_result_to_storage_test_cases:
@@ -20,13 +18,13 @@ class TestWebPApi(ImagingApiTester):
                 quality = 90
                 anum_loop_count = 5
                 anim_background_color = 'gray'
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
                 out_name = name + '_specific.webp'
                 from_scratch = None
 
                 def request_invoker(file_name, out_path):
-                    return self.imaging_api.get_image_web_p(
+                    return ApiTester.imaging_api.get_image_web_p(
                         requests.GetImageWebPRequest(
                             file_name,
                             lossless,
@@ -69,10 +67,8 @@ class TestWebPApi(ImagingApiTester):
                     folder,
                     storage)
 
-    #
-    # Test psot_image_web_p
-    #
     def test_post_image_web_p(self):
+        """ Test post_image_web_p """
         save_result_to_storage_test_cases = [True, False]
 
         for save_result_to_storage in save_result_to_storage_test_cases:
@@ -82,13 +78,13 @@ class TestWebPApi(ImagingApiTester):
                 quality = 90
                 anum_loop_count = 5
                 anim_background_color = 'gray'
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
                 out_name = name + '_specific.webp'
                 from_scratch = None
 
                 def request_invoker(input_stream, out_path):
-                    return self.imaging_api.post_image_web_p(
+                    return ApiTester.imaging_api.post_image_web_p(
                         requests.PostImageWebPRequest(
                             input_stream,
                             lossless,

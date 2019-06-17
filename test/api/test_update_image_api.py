@@ -1,17 +1,15 @@
+from test.api_tester import ApiTester
 from test.api import ImagingApiTester
 from itertools import product
 import asposeimagingcloud.models.requests as requests
 
 
-#
-# Class for testing UpdateImageAPI
-#
 class TestUpdateImageApi(ImagingApiTester):
+    """ Class for testing UpdateImageAPI """
 
-    #
-    # Test get_image_update
-    #
     def test_get_image_update(self):
+        """ Test get_image_update """
+
         additional_export_formats = set()
         if not self.EXTENDED_TEST:
             format_extension_test_cases = ['.jpg']
@@ -43,14 +41,14 @@ class TestUpdateImageApi(ImagingApiTester):
                 rect_width = 200
                 rect_height = 300
                 rotate_flip_method = 'Rotate90FlipX'
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
 
                 formats_to_export = set(
-                    self.basic_export_formats).union(additional_export_formats)
+                    ApiTester.basic_export_formats).union(additional_export_formats)
 
                 def request_invoker(file_name, out_path):
-                    return self.imaging_api.get_image_update(
+                    return ApiTester.imaging_api.get_image_update(
                         requests.GetImageUpdateRequest(
                             file_name,
                             format,
@@ -72,7 +70,7 @@ class TestUpdateImageApi(ImagingApiTester):
                     self.assertEqual(rect_height, result_properties.width)
                     self.assertEqual(rect_width, result_properties.height)
 
-                for input_file in self.input_test_files:
+                for input_file in ApiTester.input_test_files:
                     if not str(input_file.name).endswith(format_extension):
                         continue
 
@@ -103,10 +101,9 @@ class TestUpdateImageApi(ImagingApiTester):
                             folder,
                             storage)
 
-    #
-    # Test post_image_update
-    #
     def test_post_image_update(self):
+        """ Test post_image_update """
+
         additional_export_formats = set()
         if not self.EXTENDED_TEST:
             format_extension_test_cases = ['.jpg']
@@ -138,14 +135,14 @@ class TestUpdateImageApi(ImagingApiTester):
                 rect_width = 200
                 rect_height = 300
                 rotate_flip_method = 'Rotate90FlipX'
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
 
                 formats_to_export = set(
-                    self.basic_export_formats).union(additional_export_formats)
+                    ApiTester.basic_export_formats).union(additional_export_formats)
 
                 def request_invoker(input_stream, out_path):
-                    return self.imaging_api.post_image_update(
+                    return ApiTester.imaging_api.post_image_update(
                         requests.PostImageUpdateRequest(
                             input_stream,
                             format,
@@ -166,7 +163,7 @@ class TestUpdateImageApi(ImagingApiTester):
                     self.assertEqual(rect_height, result_properties.width)
                     self.assertEqual(rect_width, result_properties.height)
 
-                for input_file in self.input_test_files:
+                for input_file in ApiTester.input_test_files:
                     if not str(input_file.name).endswith(format_extension):
                         continue
 

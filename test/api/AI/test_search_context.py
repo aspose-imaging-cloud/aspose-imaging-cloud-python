@@ -1,11 +1,5 @@
 import os
-
 import six
-
-if six.PY2:
-    import unittest2 as unittest
-else:
-    import unittest
 
 from asposeimagingcloud import GetSearchContextStatusRequest, \
     DownloadFileRequest, PostSearchContextAddImageRequest, ObjectExistsRequest, \
@@ -15,6 +9,14 @@ from asposeimagingcloud import GetSearchContextStatusRequest, \
     PutSearchContextImageFeaturesRequest
 from asposeimagingcloud.rest import ApiException
 from test.api.AI.ai_api_tester import AiApiTester
+from test.api_tester import ApiTester
+
+if six.PY2:
+    import unittest2 as unittest
+else:
+    import unittest
+
+
 
 
 class TestSearchContext(AiApiTester):
@@ -31,10 +33,10 @@ class TestSearchContext(AiApiTester):
             self._delete_search_context(self.search_context_id)
 
             self.assertRaises(ApiException,
-                              self.imaging_api.get_search_context_status,
+                              ApiTester.imaging_api.get_search_context_status,
                               GetSearchContextStatusRequest(
                                   self.search_context_id,
-                                  storage=self.test_storage))
+                                  storage=ApiTester.test_storage))
 
         self._run_test_with_logging('DeleteSearchContextTest', test)
 
@@ -47,18 +49,18 @@ class TestSearchContext(AiApiTester):
             image = self.TEST_IMAGE
             self.__add_image(image)
 
-            dest_server_path = self.temp_folder + '/' + image
+            dest_server_path = ApiTester.temp_folder + '/' + image
 
-            self.imaging_api.delete_search_context_image(
+            ApiTester.imaging_api.delete_search_context_image(
                 DeleteSearchContextImageRequest(self.search_context_id,
                                                 dest_server_path,
-                                                storage=self.test_storage))
+                                                storage=ApiTester.test_storage))
 
             self.assertRaises(ApiException,
-                              self.imaging_api.get_search_context_image,
+                              ApiTester.imaging_api.get_search_context_image,
                               GetSearchContextImageRequest(
                                   self.search_context_id, dest_server_path,
-                                  storage=self.test_storage))
+                                  storage=ApiTester.test_storage))
 
         self._run_test_with_logging('DeleteImageTest', test)
 
@@ -81,17 +83,17 @@ class TestSearchContext(AiApiTester):
             self.assertGreater(os.path.getsize(response_file), 50000)
 
             image = self.SMALL_TEST_IMAGE
-            dest_server_path = self.temp_folder + '/' + image
+            dest_server_path = ApiTester.temp_folder + '/' + image
 
-            storage_path = self.original_data_folder + '/' + image
-            image_stream = self.imaging_api.download_file(
-                DownloadFileRequest(storage_path, self.test_storage))
+            storage_path = ApiTester.original_data_folder + '/' + image
+            image_stream = ApiTester.imaging_api.download_file(
+                DownloadFileRequest(storage_path, ApiTester.test_storage))
             self.assertIsNotNone(image_stream)
 
-            self.imaging_api.put_search_context_image(
+            ApiTester.imaging_api.put_search_context_image(
                 PutSearchContextImageRequest(self.search_context_id,
                                              dest_server_path, image_stream,
-                                             storage=self.test_storage))
+                                             storage=ApiTester.test_storage))
 
             response_file = self.__get_image(image)
             self.assertLess(os.path.getsize(response_file), 40000)
@@ -102,13 +104,13 @@ class TestSearchContext(AiApiTester):
         def test():
             image = self.TEST_IMAGE
             self.__add_image(image)
-            dest_server_path = self.temp_folder + '/' + image
+            dest_server_path = ApiTester.temp_folder + '/' + image
 
             response = \
-                self.imaging_api.get_search_context_extract_image_features(
+                ApiTester.imaging_api.get_search_context_extract_image_features(
                     GetSearchContextExtractImageFeaturesRequest(
                         self.search_context_id, dest_server_path,
-                        storage=self.test_storage))
+                        storage=ApiTester.test_storage))
 
             self.assertTrue(image in response.image_id)
             self.assertGreater(len(response.features), 0)
@@ -123,19 +125,19 @@ class TestSearchContext(AiApiTester):
     @unittest.skip('IMAGINGNET-107')
     def test_extract_and_add_image_features_from_folder_test(self):
         def test():
-            self.imaging_api.post_search_context_extract_image_features(
+            ApiTester.imaging_api.post_search_context_extract_image_features(
                 PostSearchContextExtractImageFeaturesRequest(
                     self.search_context_id,
-                    images_folder=self.original_data_folder + '/FindSimilar',
-                    storage=self.test_storage))
+                    images_folder=ApiTester.original_data_folder + '/FindSimilar',
+                    storage=ApiTester.test_storage))
 
             self.wait_timeout()
 
-            response = self.imaging_api.get_search_context_image_features(
+            response = ApiTester.imaging_api.get_search_context_image_features(
                 GetSearchContextImageFeaturesRequest(
                     self.search_context_id,
-                    self.original_data_folder + '/FindSimilar/3.jpg',
-                    storage=self.test_storage))
+                    ApiTester.original_data_folder + '/FindSimilar/3.jpg',
+                    storage=ApiTester.test_storage))
 
             self.assertTrue('3.jpg' in response.image_id)
             self.assertGreater(len(response.features), 0)
@@ -158,18 +160,18 @@ class TestSearchContext(AiApiTester):
         def test():
             image = self.TEST_IMAGE
             self.__add_image_features(image)
-            dest_server_path = self.temp_folder + '/' + image
+            dest_server_path = ApiTester.temp_folder + '/' + image
 
-            self.imaging_api.delete_search_context_image(
+            ApiTester.imaging_api.delete_search_context_image(
                 DeleteSearchContextImageRequest(self.search_context_id,
                                                 dest_server_path,
-                                                storage=self.test_storage))
+                                                storage=ApiTester.test_storage))
 
             self.assertRaises(ApiException,
-                              self.imaging_api.get_search_context_image,
+                              ApiTester.imaging_api.get_search_context_image,
                               GetSearchContextImageRequest(
                                   self.search_context_id, dest_server_path,
-                                  storage=self.test_storage))
+                                  storage=ApiTester.test_storage))
 
         self._run_test_with_logging('DeleteImageFeaturesTest', test)
 
@@ -181,66 +183,66 @@ class TestSearchContext(AiApiTester):
             self.assertTrue(self.TEST_IMAGE in response.image_id)
             features_length = len(response.features)
 
-            dest_server_path = self.original_data_folder + '/' + image
-            storage_path = self.original_data_folder + '/' + \
+            dest_server_path = ApiTester.original_data_folder + '/' + image
+            storage_path = ApiTester.original_data_folder + '/' + \
                            self.SMALL_TEST_IMAGE
-            image_stream = self.imaging_api.download_file(
-                DownloadFileRequest(storage_path, self.test_storage))
+            image_stream = ApiTester.imaging_api.download_file(
+                DownloadFileRequest(storage_path, ApiTester.test_storage))
             self.assertIsNotNone(image_stream)
 
-            self.imaging_api.put_search_context_image_features(
+            ApiTester.imaging_api.put_search_context_image_features(
                 PutSearchContextImageFeaturesRequest(
                     self.search_context_id,
                     dest_server_path,
                     image_stream,
-                    storage=self.test_storage))
+                    storage=ApiTester.test_storage))
 
             response = self.__get_image_features(image)
             self.assertTrue(self.TEST_IMAGE in response.image_id)
             self.assertNotEqual(features_length, len(response.features))
 
-        self._run_test_with_logging('ExtractImageFeaturesTest')
+        self._run_test_with_logging('ExtractImageFeaturesTest', test)
 
     def __add_image(self, image):
-        dest_server_path = self.temp_folder + '/' + image
-        storage_path = self.original_data_folder + '/' + image
-        image_stream = self.imaging_api.download_file(
-            DownloadFileRequest(storage_path, self.test_storage))
+        dest_server_path = ApiTester.temp_folder + '/' + image
+        storage_path = ApiTester.original_data_folder + '/' + image
+        image_stream = ApiTester.imaging_api.download_file(
+            DownloadFileRequest(storage_path, ApiTester.test_storage))
         self.assertIsNotNone(image_stream)
 
-        self.imaging_api.post_search_context_add_image(
+        ApiTester.imaging_api.post_search_context_add_image(
             PostSearchContextAddImageRequest(self.search_context_id,
                                              dest_server_path, image_stream,
-                                             storage=self.test_storage))
+                                             storage=ApiTester.test_storage))
 
-        exist_response = self.imaging_api.object_exists(
-            ObjectExistsRequest(dest_server_path, self.test_storage))
+        exist_response = ApiTester.imaging_api.object_exists(
+            ObjectExistsRequest(dest_server_path, ApiTester.test_storage))
 
         self.assertIsNotNone(exist_response)
         self.assertTrue(exist_response.exists)
 
     def __get_image(self, image):
-        dest_server_path = self.temp_folder + '/' + image
-        response = self.imaging_api.get_search_context_image(
+        dest_server_path = ApiTester.temp_folder + '/' + image
+        response = ApiTester.imaging_api.get_search_context_image(
             GetSearchContextImageRequest(self.search_context_id,
                                          dest_server_path,
-                                         storage=self.test_storage))
+                                         storage=ApiTester.test_storage))
 
         return response
 
     def __add_image_features(self, image):
-        dest_server_path = self.original_data_folder + '/' + image
+        dest_server_path = ApiTester.original_data_folder + '/' + image
 
-        self.imaging_api.post_search_context_extract_image_features(
+        ApiTester.imaging_api.post_search_context_extract_image_features(
             PostSearchContextExtractImageFeaturesRequest(
                 self.search_context_id, image_id=dest_server_path,
-                storage=self.test_storage))
+                storage=ApiTester.test_storage))
 
     def __get_image_features(self, image):
-        dest_server_path = self.original_data_folder + '/' + image
-        response = self.imaging_api.get_search_context_image_features(
+        dest_server_path = ApiTester.original_data_folder + '/' + image
+        response = ApiTester.imaging_api.get_search_context_image_features(
             GetSearchContextImageFeaturesRequest(self.search_context_id,
                                                  image_id=dest_server_path,
-                                                 storage=self.test_storage))
+                                                 storage=ApiTester.test_storage))
 
         return response

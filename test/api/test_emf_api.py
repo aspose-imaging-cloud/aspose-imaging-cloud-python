@@ -1,16 +1,14 @@
+from test.api_tester import ApiTester
 from test.api import ImagingApiTester
 import asposeimagingcloud.models.requests as requests
 
 
-#
-# Class for testing EmfAPI
-#
 class TestEmfApi(ImagingApiTester):
+    """ Class for testing EmfAPI """
 
-    #
-    # Test get_image_emf
-    #
     def test_get_image_emf(self):
+        """ Test get_image_emf """
+
         save_result_to_storage_test_cases = [True, False]
 
         for save_result_to_storage in save_result_to_storage_test_cases:
@@ -22,12 +20,12 @@ class TestEmfApi(ImagingApiTester):
                 border_x = 50
                 border_y = 50
                 out_name = name + '_specific.bmp'
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
                 from_scratch = None
 
                 def request_invoker(file_name, out_path):
-                    return self.imaging_api.get_image_emf(
+                    return ApiTester.imaging_api.get_image_emf(
                         requests.GetImageEmfRequest(
                             name,
                             bk_color,
@@ -69,10 +67,9 @@ class TestEmfApi(ImagingApiTester):
                     folder,
                     storage)
 
-    #
-    # Test post_image_emf
-    #
     def test_post_image_emf(self):
+        """ Test post_image_emf """
+
         save_result_to_storage_test_cases = [True, False]
 
         for save_result_to_storage in save_result_to_storage_test_cases:
@@ -84,15 +81,15 @@ class TestEmfApi(ImagingApiTester):
                 border_x = 50
                 border_y = 50
                 out_name = name + '_specific.bmp'
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
                 from_scratch = None
 
                 def request_invoker(input_stream, out_path):
                     kwargs = ({"out_path": out_path, "storage": storage}
                               ) if out_path else ({"storage": storage})
 
-                    return self.imaging_api.post_image_emf(
+                    return ApiTester.imaging_api.post_image_emf(
                         requests.PostImageEmfRequest(
                             input_stream,
                             bk_color,

@@ -1,16 +1,14 @@
+from test.api_tester import ApiTester
 from test.api import ImagingApiTester
 import asposeimagingcloud.models.requests as requests
 
 
-#
-# Class for testing Jpeg2000API
-#
 class TestJpeg2000Api(ImagingApiTester):
+    """ Class for testing Jpeg2000API """
 
-    #
-    # Test get_image_jpeg2000
-    #
     def test_get_image_jpeg200(self):
+        """ Test get_image_jpeg2000 """
+
         save_result_to_storage_test_cases = [True, False]
 
         for save_result_to_storage in save_result_to_storage_test_cases:
@@ -19,12 +17,12 @@ class TestJpeg2000Api(ImagingApiTester):
                 codec = 'jp2'
                 comment = 'Aspose'
                 out_name = name + '_specific.jp2'
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
                 from_scratch = None
 
                 def request_invoker(file_name, out_path):
-                    return self.imaging_api.get_image_jpeg2000(requests.GetImageJpeg2000Request(
+                    return ApiTester.imaging_api.get_image_jpeg2000(requests.GetImageJpeg2000Request(
                         name, comment, codec, from_scratch, out_path, folder, storage))
 
                 def properties_tester(
@@ -69,10 +67,9 @@ class TestJpeg2000Api(ImagingApiTester):
                     folder,
                     storage)
 
-    #
-    # Test post_image_jpeg2000
-    #
     def test_post_image_jpeg2000(self):
+        """ Test post_image_jpeg2000 """
+
         save_result_to_storage_test_cases = [True, False]
 
         for save_result_to_storage in save_result_to_storage_test_cases:
@@ -81,12 +78,12 @@ class TestJpeg2000Api(ImagingApiTester):
                 codec = 'jp2'
                 comment = 'Aspose'
                 out_name = name + '_specific.jp2'
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
                 from_scratch = None
 
                 def request_invoker(input_stream, out_path):
-                    return self.imaging_api.post_image_jpeg2000(
+                    return ApiTester.imaging_api.post_image_jpeg2000(
                         requests.PostImageJpeg2000Request(
                             input_stream, comment, codec, from_scratch, out_path, storage))
 

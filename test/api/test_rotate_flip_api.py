@@ -1,17 +1,15 @@
+from test.api_tester import ApiTester
 from test.api import ImagingApiTester
 from itertools import product
 import asposeimagingcloud.models.requests as requests
 
 
-#
-# Class for testing RotateFlipApi
-#
 class TestRotateFlipApi(ImagingApiTester):
+    """ Class for testing RotateFlipApi """
 
-    #
-    # Test get_image_rotate_flip
-    #
     def test_get_image_rotate_flip(self):
+        """ Test get_image_rotate_flip """
+
         additional_export_formats = set()
         if not self.EXTENDED_TEST:
             format_extension_test_cases = ['.jpg']
@@ -38,14 +36,14 @@ class TestRotateFlipApi(ImagingApiTester):
                     self.subTest('format_extension: ' + str(format_extension)):
 
                 method = 'Rotate90FlipX'
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
 
                 formats_to_export = set(
-                    self.basic_export_formats).union(additional_export_formats)
+                    ApiTester.basic_export_formats).union(additional_export_formats)
 
                 def request_invoker(file_name, out_path):
-                    return self.imaging_api.get_image_rotate_flip(
+                    return ApiTester.imaging_api.get_image_rotate_flip(
                         requests.GetImageRotateFlipRequest(
                             file_name, format, method, out_path, folder, storage))
 
@@ -71,7 +69,7 @@ class TestRotateFlipApi(ImagingApiTester):
                             original_properties.width - 1,
                             result_properties.height)
 
-                for input_file in self.input_test_files:
+                for input_file in ApiTester.input_test_files:
                     if not str(input_file.name).endswith(format_extension):
                         continue
 
@@ -95,10 +93,9 @@ class TestRotateFlipApi(ImagingApiTester):
                             folder,
                             storage)
 
-    #
-    # Test post_image_rotate_flip
-    #
     def test_post_image_rotate_flip(self):
+        """ Test post_image_rotate_flip """
+
         additional_export_formats = set()
         if not self.EXTENDED_TEST:
             format_extension_test_cases = ['.jpg']
@@ -125,18 +122,18 @@ class TestRotateFlipApi(ImagingApiTester):
                     self.subTest('format_extension: ' + str(format_extension)):
 
                 method = 'Rotate90FlipX'
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
 
                 formats_to_export = set(
-                    self.basic_export_formats).union(additional_export_formats)
+                    ApiTester.basic_export_formats).union(additional_export_formats)
 
                 def request_invoker(input_stream, out_path):
                     kwargs = {"storage": storage}
                     if out_path:
                         kwargs["out_path"] = out_path
 
-                    return self.imaging_api.post_image_rotate_flip(
+                    return ApiTester.imaging_api.post_image_rotate_flip(
                         requests.PostImageRotateFlipRequest(
                             input_stream, format, method, out_path, storage))
 
@@ -162,7 +159,7 @@ class TestRotateFlipApi(ImagingApiTester):
                             original_properties.width - 1,
                             result_properties.height)
 
-                for input_file in self.input_test_files:
+                for input_file in ApiTester.input_test_files:
                     if not str(input_file.name).endswith(format_extension):
                         continue
 

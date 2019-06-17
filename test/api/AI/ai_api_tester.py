@@ -13,44 +13,44 @@ class AiApiTester(ApiTester):
         super(AiApiTester, self).setUp()
         self.search_context_id = self.__create_search_context()
         self.wait_timeout = 5
-        self.cloud_test_folder_prefix = 'ImagingAICloudTestPython'
-        self.original_data_folder += '/AI'
+        ApiTester.cloud_test_folder_prefix = 'ImagingAICloudTestPython'
+        ApiTester.original_data_folder += '/AI'
 
     def tearDown(self):
         if self.search_context_id:
             self._delete_search_context(self.search_context_id)
 
-        if self.imaging_api.object_exists(
-                ObjectExistsRequest(self.temp_folder,
-                                    self.test_storage)).exists:
-            self.imaging_api.delete_folder(
-                DeleteFolderRequest(self.temp_folder, self.test_storage, True))
+        if ApiTester.imaging_api.object_exists(
+                ObjectExistsRequest(ApiTester.temp_folder,
+                                    ApiTester.test_storage)).exists:
+            ApiTester.imaging_api.delete_folder(
+                DeleteFolderRequest(ApiTester.temp_folder, ApiTester.test_storage, True))
 
     def _get_storage_path(self, image_name, folder=None):
-        return os.path.join(folder if folder else self.original_data_folder,
+        return os.path.join(folder if folder else ApiTester.original_data_folder,
                             image_name)
 
     def _add_image_features_to_search_context(self, storage_source_path,
                                               is_folder=False):
         request = PostSearchContextExtractImageFeaturesRequest(
             self.search_context_id, images_folder=storage_source_path,
-            storage=self.test_storage) if is_folder else \
+            storage=ApiTester.test_storage) if is_folder else \
             PostSearchContextExtractImageFeaturesRequest(
                 self.search_context_id, image_id=storage_source_path,
-                storage=self.test_storage)
+                storage=ApiTester.test_storage)
 
-        self.imaging_api.post_search_context_extract_image_features(request)
+        ApiTester.imaging_api.post_search_context_extract_image_features(request)
 
         self._wait_search_context_idle()
 
     def __create_search_context(self):
-        return self.imaging_api.post_create_search_context(
-            PostCreateSearchContextRequest(storage=self.test_storage)).id
+        return ApiTester.imaging_api.post_create_search_context(
+            PostCreateSearchContextRequest(storage=ApiTester.test_storage)).id
 
     def _delete_search_context(self, search_contextId):
-        self.imaging_api.delete_search_context(
+        ApiTester.imaging_api.delete_search_context(
             DeleteSearchContextRequest(self.search_context_id,
-                                       storage=self.test_storage))
+                                       storage=ApiTester.test_storage))
 
     def _wait_search_context_idle(self, max_time=None):
         if not max_time:
@@ -59,10 +59,10 @@ class AiApiTester(ApiTester):
         timeout = 10
         start_time = time.time()
 
-        while self.imaging_api.get_search_context_status(
+        while ApiTester.imaging_api.get_search_context_status(
                 GetSearchContextStatusRequest(
                     self.search_context_id,
-                    storage=self.test_storage)).search_status != 'Idle' \
+                    storage=ApiTester.test_storage)).search_status != 'Idle' \
                 and time.time() - start_time < max_time:
             time.sleep(timeout)
 
@@ -72,6 +72,7 @@ class AiApiTester(ApiTester):
         print(info)
         try:
             test_action_invoker()
+            passed = True
         except Exception as e:
             print(str(e))
             raise

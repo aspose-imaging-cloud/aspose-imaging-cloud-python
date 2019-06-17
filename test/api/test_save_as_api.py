@@ -1,17 +1,18 @@
+from test.api_tester import ApiTester
 from test.api import ImagingApiTester
 from itertools import product
 import asposeimagingcloud.models.requests as requests
 
 
-#
-# Class for testing SaveAsAPI
-#
 class TestSaveAsApi(ImagingApiTester):
+    """ Class for testing SaveAsAPI """
 
-    #
-    # Performs SaveAs (export to another format) operation test with GET method, taking input data from storage
-    #
     def test_get_image_save_as(self):
+        """
+        Performs SaveAs (export to another format) operation test with GET
+        method, taking input data from storage
+        """
+
         additional_export_formats = set()
         if not self.EXTENDED_TEST:
             format_extension_test_cases = ['.jpg']
@@ -37,22 +38,22 @@ class TestSaveAsApi(ImagingApiTester):
             with self.subTest('save_result_to_storage: ' + str(save_result_to_storage)) and \
                     self.subTest('format_extension: ' + str(format_extension)):
 
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
 
                 formats_to_export = set(
-                    self.basic_export_formats).union(additional_export_formats)
+                    ApiTester.basic_export_formats).union(additional_export_formats)
 
                 def request_invoker(file_name, out_path):
                     kwargs = {"folder": folder, "storage": storage}
                     if out_path:
                         kwargs["out_path"] = out_path
 
-                    return self.imaging_api.get_image_save_as(
+                    return ApiTester.imaging_api.get_image_save_as(
                         requests.GetImageSaveAsRequest(
                             file_name, format, out_path, folder, storage))
 
-                for input_file in self.input_test_files:
+                for input_file in ApiTester.input_test_files:
                     if not str(input_file.name).endswith(format_extension):
                         continue
 
@@ -76,10 +77,12 @@ class TestSaveAsApi(ImagingApiTester):
                             folder,
                             storage)
 
-    #
-    # Performs SaveAs (export to another format) operation test with POST method, sending input data in request stream.
-    #
     def test_post_image_save_as(self):
+        """
+        Performs SaveAs (export to another format) operation test with POST
+        method, sending input data in request stream.
+        """
+
         additional_export_formats = set()
         if not self.EXTENDED_TEST:
             format_extension_test_cases = ['.jpg']
@@ -105,22 +108,22 @@ class TestSaveAsApi(ImagingApiTester):
             with self.subTest('save_result_to_storage: ' + str(save_result_to_storage)) and \
                     self.subTest('format_extension: ' + str(format_extension)):
 
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
 
                 formats_to_export = set(
-                    self.basic_export_formats).union(additional_export_formats)
+                    ApiTester.basic_export_formats).union(additional_export_formats)
 
                 def request_invoker(input_stream, out_path):
                     kwargs = {"storage": storage}
                     if out_path:
                         kwargs["out_path"] = out_path
 
-                    return self.imaging_api.post_image_save_as(
+                    return ApiTester.imaging_api.post_image_save_as(
                         requests.PostImageSaveAsRequest(
                             input_stream, format, out_path, storage))
 
-                for input_file in self.input_test_files:
+                for input_file in ApiTester.input_test_files:
                     if not str(input_file.name).endswith(format_extension):
                         continue
 

@@ -38,5 +38,5 @@ suite.addTest(loader.loadTestsFromModule(test.test_update_image_api))
 suite.addTest(loader.loadTestsFromModule(test.test_web_p_api))
 suite.addTest(loader.loadTestsFromModule(test.test_wmf_api))
 
-runner = unittest.TextTestRunner()
+runner = unittest.TextTestRunner(verbosity=2)
 result = runner.run(suite)

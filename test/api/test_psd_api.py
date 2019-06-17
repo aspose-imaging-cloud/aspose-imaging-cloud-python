@@ -1,16 +1,13 @@
+from test.api_tester import ApiTester
 from test.api import ImagingApiTester
 import asposeimagingcloud.models.requests as requests
 
 
-#
-# Class for testing PsdApi
-#
 class TestPsdApi(ImagingApiTester):
+    """ Class for testing PsdApi """
 
-    #
-    # Test get_image_psd
-    #
     def test_get_image_psd(self):
+        """ Test get_image_psd """
         save_result_to_storage_test_cases = [True, False]
 
         for save_result_to_storage in save_result_to_storage_test_cases:
@@ -19,12 +16,12 @@ class TestPsdApi(ImagingApiTester):
                 channels_count = 3
                 compression_method = 'raw'
                 out_name = name + '_specific.psd'
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
                 from_scratch = None
 
                 def request_invoker(file_name, out_path):
-                    return self.imaging_api.get_image_psd(
+                    return ApiTester.imaging_api.get_image_psd(
                         requests.GetImagePsdRequest(
                             name,
                             channels_count,
@@ -72,10 +69,8 @@ class TestPsdApi(ImagingApiTester):
                     folder,
                     storage)
 
-    #
-    # Test post_image_psd
-    #
     def test_post_image_psd(self):
+        """ Test post_image_psd """
         save_result_to_storage_test_cases = [True, False]
 
         for save_result_to_storage in save_result_to_storage_test_cases:
@@ -84,12 +79,12 @@ class TestPsdApi(ImagingApiTester):
                 channels_count = 3
                 compression_method = 'raw'
                 out_name = name + '_specific.psd'
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
                 from_scratch = None
 
                 def request_invoker(input_stream, out_path):
-                    return self.imaging_api.post_image_psd(
+                    return ApiTester.imaging_api.post_image_psd(
                         requests.PostImagePsdRequest(
                             input_stream,
                             channels_count,

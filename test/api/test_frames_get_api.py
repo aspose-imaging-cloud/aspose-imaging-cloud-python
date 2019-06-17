@@ -1,16 +1,13 @@
+from test.api_tester import ApiTester
 from test.api import ImagingApiTester
 import asposeimagingcloud.models.requests as requests
 
 
-#
-# Class for testing FramesApi
-#
 class TestFramesGetApi(ImagingApiTester):
+    """ Class for testing FramesApi """
 
-    #
-    # Test get_image_frame
-    #
     def test_get_image_single_frame(self):
+        """ Test get_image_frame """
         save_result_to_storage_test_cases = [True, False]
 
         for save_result_to_storage in save_result_to_storage_test_cases:
@@ -25,12 +22,12 @@ class TestFramesGetApi(ImagingApiTester):
                 rect_height = 300
                 rotate_flip_method = 'Rotate90FlipX'
                 save_other_frames = False
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
                 out_name = name + '_singleFrame.tiff'
 
                 def request_invoker(file_name, out_path):
-                    return self.imaging_api.get_image_frame(
+                    return ApiTester.imaging_api.get_image_frame(
                         requests.GetImageFrameRequest(
                             name,
                             frame_id,
@@ -77,7 +74,7 @@ class TestFramesGetApi(ImagingApiTester):
                     if not save_result_to_storage:
                         return
 
-                    frame_properties = self.imaging_api.get_image_frame_properties(
+                    frame_properties = ApiTester.imaging_api.get_image_frame_properties(
                         requests.GetImageFramePropertiesRequest(out_name, 0, folder, storage))
 
                     self.assertIsNotNone(frame_properties)
@@ -122,10 +119,9 @@ class TestFramesGetApi(ImagingApiTester):
                     folder,
                     storage)
 
-    #
-    # Test get_image_frame
-    #
     def test_get_image_all_frames(self):
+        """ Test get_image_frame """
+
         save_result_to_storage_test_cases = [True, False]
 
         for save_result_to_storage in save_result_to_storage_test_cases:
@@ -140,12 +136,12 @@ class TestFramesGetApi(ImagingApiTester):
                 rect_height = 300
                 rotate_flip_method = 'Rotate90FlipX'
                 save_other_frames = True
-                folder = self.temp_folder
-                storage = self.test_storage
+                folder = ApiTester.temp_folder
+                storage = ApiTester.test_storage
                 out_name = name + '_singleFrame.tiff'
 
                 def request_invoker(file_name, out_path):
-                    return self.imaging_api.get_image_frame(
+                    return ApiTester.imaging_api.get_image_frame(
                         requests.GetImageFrameRequest(
                             name,
                             frame_id,
