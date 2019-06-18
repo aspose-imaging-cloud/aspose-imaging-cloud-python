@@ -47,22 +47,6 @@ class ApiTester(unittest.TestCase):
     def setUp(self):
         print(os.linesep + self._testMethodName)
 
-        ApiTester.failed_any_test = False
-        ApiTester.default_storage = 'Imaging-CI'
-        ApiTester.cloud_test_folder_prefix = 'ImagingCloudTestPython'
-        ApiTester.original_data_folder = 'ImagingIntegrationTestData'
-        ApiTester._server_access_file = 'serverAccess.json'
-        ApiTester._api_version = 'v3.0'
-        ApiTester._app_key = 'xxx'
-        ApiTester._app_sid = 'xxx'
-        ApiTester._base_url = 'https://api.aspose.cloud/'
-        ApiTester._local_test_folder = os.path.join(
-            os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'TestData/')
-        ApiTester.remove_result = True
-
-        ApiTester.temp_folder = '{0}_{1}'.format(ApiTester.cloud_test_folder_prefix,
-                                            os.environ.get('BUILD_NUMBER') or getpass.getuser())
-
         if not ApiTester.test_storage:
             ApiTester.test_storage = os.environ.get('StorageName')
         if not ApiTester.test_storage:
