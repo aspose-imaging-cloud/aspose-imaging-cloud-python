@@ -21,7 +21,7 @@ class ApiTester(unittest.TestCase):
     _api_version = 'v3.0'
     _app_key = 'xxx'
     _app_sid = 'xxx'
-    _base_url = 'http://api.aspose.cloud/'
+    _base_url = 'https://api.aspose.cloud/'
     _local_test_folder = os.path.join(
         os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
         'TestData/')
@@ -55,7 +55,7 @@ class ApiTester(unittest.TestCase):
         ApiTester._api_version = 'v3.0'
         ApiTester._app_key = 'xxx'
         ApiTester._app_sid = 'xxx'
-        ApiTester._base_url = 'http://api.aspose.cloud/'
+        ApiTester._base_url = 'https://api.aspose.cloud/'
         ApiTester._local_test_folder = os.path.join(
             os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'TestData/')
         ApiTester.remove_result = True
