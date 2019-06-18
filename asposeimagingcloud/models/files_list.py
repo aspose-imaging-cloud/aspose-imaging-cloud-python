@@ -24,7 +24,7 @@
 # </summary>
 # -----------------------------------------------------------------------------
 import pprint
-
+import re
 import six
 
 from asposeimagingcloud.models.storage_file import StorageFile

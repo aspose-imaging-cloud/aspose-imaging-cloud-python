@@ -24,7 +24,7 @@
 # </summary>
 # -----------------------------------------------------------------------------
 import pprint
-
+import re
 import six
 
 from asposeimagingcloud.models.odg_metadata import OdgMetadata

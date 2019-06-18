@@ -24,7 +24,7 @@
 # </summary>
 # -----------------------------------------------------------------------------
 import pprint
-
+import re
 import six
 
 from asposeimagingcloud.models.jfif_data import JfifData

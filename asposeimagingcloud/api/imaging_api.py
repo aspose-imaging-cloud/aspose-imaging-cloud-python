@@ -32,7 +32,7 @@ from asposeimagingcloud.api_client import ApiClient
 
 class ImagingApi(object):
     """
-    Aspose.Images for Cloud API
+    Aspose.Imaging Cloud API
 
     :param api_client: an api client to perform http requests
     """

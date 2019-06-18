@@ -56,9 +56,9 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
     def __init__(self):
         """Constructor"""
         # Default Base url
-        self.host = "https://api.aspose.com"
-        # Default api version is v1. Available values are v1, v1.1, v2, v3
-        self.api_version = "v1"
+        self.host = "https://api.aspose.cloud"
+        # Default api version is v3
+        self.api_version = "v3"
         # Temp file folder for downloading files
         self.temp_folder_path = None
 
@@ -67,10 +67,6 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         self.api_key = {'api_key': "", 'app_sid': ""}
         # dict to store API prefix (e.g. Bearer)
         self.api_key_prefix = {}
-        # Username for HTTP basic authentication
-        self.username = ""
-        # Password for HTTP basic authentication
-        self.password = ""
 
         # access token for OAuth
         self.access_token = ""
