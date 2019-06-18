@@ -45,6 +45,8 @@ class ApiTester(unittest.TestCase):
     input_test_files = None  # type: list
 
     def setUp(self):
+        print(os.linesep + self._testMethodName)
+
         ApiTester.failed_any_test = False
         ApiTester.default_storage = 'Imaging-CI'
         ApiTester.cloud_test_folder_prefix = 'ImagingCloudTestPython'
@@ -212,7 +214,7 @@ class ApiTester(unittest.TestCase):
             if passed and save_result_to_storage and ApiTester.remove_result \
                     and ApiTester.imaging_api.object_exists(requests.ObjectExistsRequest(out_path, storage)).exists:
                 ApiTester.imaging_api.delete_file(requests.DeleteFileRequest(out_path, storage))
-            print("Test passed: " + str(passed))
+            print("Test passed: " + str(passed) + os.linesep)
 
     def get_request_tester(self, test_method_name, save_result_to_storage, parameters_line, input_file_name,
                            result_file_name, request_invoker, properties_tester, folder, storage=None):
