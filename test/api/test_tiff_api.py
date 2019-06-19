@@ -21,8 +21,8 @@ class TestTiffApi(ImagingApiTester):
                 horizontal_resolution = 150
                 vertical_resolution = 150
                 out_name = name + '_specific.tiff'
-                folder = ApiTester.temp_folder
-                storage = ApiTester.test_storage
+                folder = self.temp_folder
+                storage = self.test_storage
                 from_scratch = None
 
                 def request_invoker(file_name, out_path):
@@ -34,7 +34,7 @@ class TestTiffApi(ImagingApiTester):
                     if out_path:
                         kwargs["out_path"] = out_path
 
-                    return ApiTester.imaging_api.get_image_tiff(
+                    return self.imaging_api.get_image_tiff(
                         requests.GetImageTiffRequest(
                             name,
                             bit_depth,
@@ -104,8 +104,8 @@ class TestTiffApi(ImagingApiTester):
                 horizontal_resolution = 150
                 vertical_resolution = 150
                 out_name = name + '_specific.tiff'
-                folder = ApiTester.temp_folder
-                storage = ApiTester.test_storage
+                folder = self.temp_folder
+                storage = self.test_storage
                 from_scratch = None
 
                 def request_invoker(input_stream, out_path):
@@ -116,7 +116,7 @@ class TestTiffApi(ImagingApiTester):
                     if out_path:
                         kwargs["out_path"] = out_path
 
-                    return ApiTester.imaging_api.post_image_tiff(
+                    return self.imaging_api.post_image_tiff(
                         requests.PostImageTiffRequest(
                             input_stream,
                             bit_depth,
@@ -175,15 +175,15 @@ class TestTiffApi(ImagingApiTester):
 
         name = 'test.tiff'
         out_name = name + '_specific.tiff'
-        folder = ApiTester.temp_folder
-        storage = ApiTester.test_storage
+        folder = self.temp_folder
+        storage = self.test_storage
 
         def request_invoker(file_name, out_path):
             kwargs = {"folder": folder, "storage": storage}
             if out_path:
                 kwargs["out_path"] = out_path
 
-            return ApiTester.imaging_api.get_tiff_to_fax(
+            return self.imaging_api.get_tiff_to_fax(
                 requests.GetTiffToFaxRequest(
                     name, storage, folder, out_path))
 
@@ -208,7 +208,7 @@ class TestTiffApi(ImagingApiTester):
         print('PostTiffAppendTest')
 
         input_file_name = 'test.tiff'
-        folder = ApiTester.temp_folder
+        folder = self.temp_folder
 
         if not self._check_input_file_exists(input_file_name):
             raise ValueError(
@@ -217,29 +217,29 @@ class TestTiffApi(ImagingApiTester):
 
         result_file_name = input_file_name + '_merged.tiff'
         out_path = None
-        input_path = ApiTester.temp_folder + '/' + input_file_name
-        storage = ApiTester.test_storage
+        input_path = self.temp_folder + '/' + input_file_name
+        storage = self.test_storage
 
         try:
             print('Input image: ' + input_file_name)
 
-            out_path = ApiTester.temp_folder + '/' + result_file_name
+            out_path = self.temp_folder + '/' + result_file_name
 
             # remove output file from the storage (if exists)
-            if ApiTester.imaging_api.object_exists(
+            if self.imaging_api.object_exists(
                 requests.ObjectExistsRequest(
                     out_path, storage)).exists:
-                ApiTester.imaging_api.delete_file(
+                self.imaging_api.delete_file(
                     requests.DeleteFileRequest(
                         out_path, storage))
 
-            if not ApiTester.imaging_api.object_exists(
+            if not self.imaging_api.object_exists(
                 requests.ObjectExistsRequest(
                     input_path,
                     storage)).exists:
-                ApiTester.imaging_api.copy_file(
+                self.imaging_api.copy_file(
                     requests.CopyFileRequest(
-                        ApiTester.original_data_folder +
+                        self.original_data_folder +
                         '/' +
                         input_file_name,
                         folder +
@@ -248,15 +248,15 @@ class TestTiffApi(ImagingApiTester):
                         storage,
                         storage))
 
-            ApiTester.imaging_api.copy_file(
+            self.imaging_api.copy_file(
                 requests.CopyFileRequest(
                     input_path, out_path, storage, storage))
             self.assertTrue(
-                ApiTester.imaging_api.object_exists(
+                self.imaging_api.object_exists(
                     requests.ObjectExistsRequest(
                         out_path, storage)))
 
-            ApiTester.imaging_api.post_tiff_append(
+            self.imaging_api.post_tiff_append(
                 requests.PostImageTiffRequest(
                     result_file_name, input_file_name, storage, folder))
 
@@ -268,11 +268,11 @@ class TestTiffApi(ImagingApiTester):
                     'present in the storage by an unknown reason.'.format(
                         result_file_name, folder))
 
-            result_properties = ApiTester.imaging_api.get_image_properties(
+            result_properties = self.imaging_api.get_image_properties(
                 requests.GetImagePropertiesRequest(result_file_name, folder, storage))
             self.assertIsNotNone(result_properties)
 
-            original_properties = ApiTester.imaging_api.get_image_properties(
+            original_properties = self.imaging_api.get_image_properties(
                 requests.GetImagePropertiesRequest(input_file_name, folder, storage))
             self.assertIsNotNone(original_properties)
 
@@ -290,13 +290,13 @@ class TestTiffApi(ImagingApiTester):
             passed = True
 
         except Exception as e:
-            ApiTester.failed_any_test = True
+            self.failed_any_test = True
             print(e)
 
         finally:
-            if ApiTester.remove_result and ApiTester.imaging_api.object_exists(
+            if self.remove_result and self.imaging_api.object_exists(
                     requests.ObjectExistsRequest(out_path, storage)).exists:
-                ApiTester.imaging_api.delete_file(
+                self.imaging_api.delete_file(
                     requests.DeleteFileRequest(
                         out_path, storage))
 

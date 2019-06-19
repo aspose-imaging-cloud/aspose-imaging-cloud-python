@@ -17,12 +17,12 @@ class TestJpeg2000Api(ImagingApiTester):
                 codec = 'jp2'
                 comment = 'Aspose'
                 out_name = name + '_specific.jp2'
-                folder = ApiTester.temp_folder
-                storage = ApiTester.test_storage
+                folder = self.temp_folder
+                storage = self.test_storage
                 from_scratch = None
 
                 def request_invoker(file_name, out_path):
-                    return ApiTester.imaging_api.get_image_jpeg2000(requests.GetImageJpeg2000Request(
+                    return self.imaging_api.get_image_jpeg2000(requests.GetImageJpeg2000Request(
                         name, comment, codec, from_scratch, out_path, folder, storage))
 
                 def properties_tester(
@@ -78,12 +78,12 @@ class TestJpeg2000Api(ImagingApiTester):
                 codec = 'jp2'
                 comment = 'Aspose'
                 out_name = name + '_specific.jp2'
-                folder = ApiTester.temp_folder
-                storage = ApiTester.test_storage
+                folder = self.temp_folder
+                storage = self.test_storage
                 from_scratch = None
 
                 def request_invoker(input_stream, out_path):
-                    return ApiTester.imaging_api.post_image_jpeg2000(
+                    return self.imaging_api.post_image_jpeg2000(
                         requests.PostImageJpeg2000Request(
                             input_stream, comment, codec, from_scratch, out_path, storage))
 

@@ -20,12 +20,12 @@ class TestWmfApi(ImagingApiTester):
                 border_x = 50
                 border_y = 50
                 out_name = name + '_specific.png'
-                folder = ApiTester.temp_folder
-                storage = ApiTester.test_storage
+                folder = self.temp_folder
+                storage = self.test_storage
                 from_scratch = None
 
                 def request_invoker(file_name, out_path):
-                    return ApiTester.imaging_api.get_image_wmf(
+                    return self.imaging_api.get_image_wmf(
                         requests.GetImageWmfRequest(
                             name,
                             bk_color,
@@ -82,12 +82,12 @@ class TestWmfApi(ImagingApiTester):
                 border_x = 50
                 border_y = 50
                 out_name = name + '_specific.png'
-                folder = ApiTester.temp_folder
-                storage = ApiTester.test_storage
+                folder = self.temp_folder
+                storage = self.test_storage
                 from_scratch = None
 
                 def request_invoker(input_stream, out_path):
-                    return ApiTester.imaging_api.post_image_wmf(
+                    return self.imaging_api.post_image_wmf(
                         requests.PostImageWmfRequest(
                             input_stream,
                             bk_color,

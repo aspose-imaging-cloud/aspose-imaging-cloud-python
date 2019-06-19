@@ -15,18 +15,18 @@ class TestStorageApi(StorageApiTester):
     @unittest.skip('IMAGINGCLOUD-292')
     def test_get_disc_usage(self):
         try:
-            disk_usage = ApiTester.imaging_api.get_disc_usage(
-                requests.GetDiscUsageRequest(ApiTester.test_storage))
+            disk_usage = self.imaging_api.get_disc_usage(
+                requests.GetDiscUsageRequest(self.test_storage))
             self.assertLess(disk_usage.used_size, disk_usage.total_size)
         except ApiException as ex:
             self.assertEqual(501, ex.status)
 
     def test_storage_exists(self):
-        storage_exists = ApiTester.imaging_api.storage_exists(
-            requests.StorageExistsRequest(ApiTester.test_storage))
+        storage_exists = self.imaging_api.storage_exists(
+            requests.StorageExistsRequest(self.test_storage))
         self.assertTrue(storage_exists.exists)
 
     def test_storage_does_not_exist(self):
-        storage_exists = ApiTester.imaging_api.storage_exists(
+        storage_exists = self.imaging_api.storage_exists(
             requests.StorageExistsRequest('NonExistingStorage'))
         self.assertFalse(storage_exists.exists)

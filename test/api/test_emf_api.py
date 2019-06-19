@@ -20,12 +20,12 @@ class TestEmfApi(ImagingApiTester):
                 border_x = 50
                 border_y = 50
                 out_name = name + '_specific.bmp'
-                folder = ApiTester.temp_folder
-                storage = ApiTester.test_storage
+                folder = self.temp_folder
+                storage = self.test_storage
                 from_scratch = None
 
                 def request_invoker(file_name, out_path):
-                    return ApiTester.imaging_api.get_image_emf(
+                    return self.imaging_api.get_image_emf(
                         requests.GetImageEmfRequest(
                             name,
                             bk_color,
@@ -81,15 +81,15 @@ class TestEmfApi(ImagingApiTester):
                 border_x = 50
                 border_y = 50
                 out_name = name + '_specific.bmp'
-                folder = ApiTester.temp_folder
-                storage = ApiTester.test_storage
+                folder = self.temp_folder
+                storage = self.test_storage
                 from_scratch = None
 
                 def request_invoker(input_stream, out_path):
                     kwargs = ({"out_path": out_path, "storage": storage}
                               ) if out_path else ({"storage": storage})
 
-                    return ApiTester.imaging_api.post_image_emf(
+                    return self.imaging_api.post_image_emf(
                         requests.PostImageEmfRequest(
                             input_stream,
                             bk_color,

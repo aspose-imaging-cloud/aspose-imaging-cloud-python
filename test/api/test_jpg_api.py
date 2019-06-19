@@ -17,12 +17,12 @@ class TestJpgApi(ImagingApiTester):
                 quality = 65
                 compression_type = 'progressive'
                 out_name = name + '_specific.jpg'
-                folder = ApiTester.temp_folder
-                storage = ApiTester.test_storage
+                folder = self.temp_folder
+                storage = self.test_storage
                 from_scratch = None
 
             def request_invoker(file_name, out_path):
-                return ApiTester.imaging_api.get_image_jpg(
+                return self.imaging_api.get_image_jpg(
                     requests.GetImageJpgRequest(
                         name,
                         quality,
@@ -71,12 +71,12 @@ class TestJpgApi(ImagingApiTester):
                 quality = 65
                 compression_type = 'progressive'
                 out_name = name + '_specific.jpg'
-                folder = ApiTester.temp_folder
-                storage = ApiTester.test_storage
+                folder = self.temp_folder
+                storage = self.test_storage
                 from_scratch = None
 
             def request_invoker(input_stream, out_path):
-                return ApiTester.imaging_api.post_image_jpg(requests.PostImageJpgRequest(
+                return self.imaging_api.post_image_jpg(requests.PostImageJpgRequest(
                     input_stream, quality, compression_type, from_scratch, out_path, storage))
 
             def properties_tester(

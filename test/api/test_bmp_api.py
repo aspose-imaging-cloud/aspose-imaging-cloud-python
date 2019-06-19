@@ -19,12 +19,12 @@ class TestBmpApi(ImagingApiTester):
                 horizontal_resolution = 300
                 vertical_resolution = 300
                 out_name = name + '_specific.bmp'
-                folder = ApiTester.temp_folder
-                storage = ApiTester.test_storage
+                folder = self.temp_folder
+                storage = self.test_storage
                 from_scratch = None
 
                 def request_invoker(file_name, out_path):
-                    return ApiTester.imaging_api.get_image_bmp(
+                    return self.imaging_api.get_image_bmp(
                         requests.GetImageBmpRequest(
                             file_name,
                             bits_per_pixel,
@@ -86,12 +86,12 @@ class TestBmpApi(ImagingApiTester):
                 horizontal_resolution = 300
                 vertical_resolution = 300
                 out_name = name + '_specific.bmp'
-                folder = ApiTester.temp_folder
-                storage = ApiTester.test_storage
+                folder = self.temp_folder
+                storage = self.test_storage
                 from_scratch = None
 
                 def request_invoker(input_stream, out_path):
-                    return ApiTester.imaging_api.post_image_bmp(
+                    return self.imaging_api.post_image_bmp(
                         requests.PostImageBmpRequest(
                             input_stream,
                             bits_per_pixel,

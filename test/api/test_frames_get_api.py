@@ -22,12 +22,12 @@ class TestFramesGetApi(ImagingApiTester):
                 rect_height = 300
                 rotate_flip_method = 'Rotate90FlipX'
                 save_other_frames = False
-                folder = ApiTester.temp_folder
-                storage = ApiTester.test_storage
+                folder = self.temp_folder
+                storage = self.test_storage
                 out_name = name + '_singleFrame.tiff'
 
                 def request_invoker(file_name, out_path):
-                    return ApiTester.imaging_api.get_image_frame(
+                    return self.imaging_api.get_image_frame(
                         requests.GetImageFrameRequest(
                             name,
                             frame_id,
@@ -74,7 +74,7 @@ class TestFramesGetApi(ImagingApiTester):
                     if not save_result_to_storage:
                         return
 
-                    frame_properties = ApiTester.imaging_api.get_image_frame_properties(
+                    frame_properties = self.imaging_api.get_image_frame_properties(
                         requests.GetImageFramePropertiesRequest(out_name, 0, folder, storage))
 
                     self.assertIsNotNone(frame_properties)
@@ -136,12 +136,12 @@ class TestFramesGetApi(ImagingApiTester):
                 rect_height = 300
                 rotate_flip_method = 'Rotate90FlipX'
                 save_other_frames = True
-                folder = ApiTester.temp_folder
-                storage = ApiTester.test_storage
+                folder = self.temp_folder
+                storage = self.test_storage
                 out_name = name + '_singleFrame.tiff'
 
                 def request_invoker(file_name, out_path):
-                    return ApiTester.imaging_api.get_image_frame(
+                    return self.imaging_api.get_image_frame(
                         requests.GetImageFrameRequest(
                             name,
                             frame_id,

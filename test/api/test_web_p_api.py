@@ -18,13 +18,13 @@ class TestWebPApi(ImagingApiTester):
                 quality = 90
                 anum_loop_count = 5
                 anim_background_color = 'gray'
-                folder = ApiTester.temp_folder
-                storage = ApiTester.test_storage
+                folder = self.temp_folder
+                storage = self.test_storage
                 out_name = name + '_specific.webp'
                 from_scratch = None
 
                 def request_invoker(file_name, out_path):
-                    return ApiTester.imaging_api.get_image_web_p(
+                    return self.imaging_api.get_image_web_p(
                         requests.GetImageWebPRequest(
                             file_name,
                             lossless,
@@ -78,13 +78,13 @@ class TestWebPApi(ImagingApiTester):
                 quality = 90
                 anum_loop_count = 5
                 anim_background_color = 'gray'
-                folder = ApiTester.temp_folder
-                storage = ApiTester.test_storage
+                folder = self.temp_folder
+                storage = self.test_storage
                 out_name = name + '_specific.webp'
                 from_scratch = None
 
                 def request_invoker(input_stream, out_path):
-                    return ApiTester.imaging_api.post_image_web_p(
+                    return self.imaging_api.post_image_web_p(
                         requests.PostImageWebPRequest(
                             input_stream,
                             lossless,

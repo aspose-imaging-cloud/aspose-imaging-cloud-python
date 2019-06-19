@@ -23,8 +23,8 @@ class TestFramesPostApi(ImagingApiTester):
                 rect_height = 300
                 rotate_flip_method = 'Rotate90FlipX'
                 save_other_frames = False
-                folder = ApiTester.temp_folder
-                storage = ApiTester.test_storage
+                folder = self.temp_folder
+                storage = self.test_storage
                 out_name = name + '_singleFrame.tiff'
 
                 def request_invoker(input_stream, out_path):
@@ -40,7 +40,7 @@ class TestFramesPostApi(ImagingApiTester):
                     if out_path:
                         kwargs["out_path"] = out_path
 
-                    return ApiTester.imaging_api.post_image_frame(
+                    return self.imaging_api.post_image_frame(
                         requests.PostImageFrameRequest(
                             input_stream,
                             frame_id,
@@ -84,10 +84,10 @@ class TestFramesPostApi(ImagingApiTester):
                     self.assertEqual(rect_width, result_properties.height)
 
                     if save_result_to_storage:
-                        frame_properties = ApiTester.imaging_api.get_image_frame_properties(
+                        frame_properties = self.imaging_api.get_image_frame_properties(
                             requests.GetImageFramePropertiesRequest(out_name, 0, folder, storage))
                     else:
-                        frame_properties = ApiTester.imaging_api.post_image_frame_properties(
+                        frame_properties = self.imaging_api.post_image_frame_properties(
                             requests.PostImageFramePropertiesRequest(result_stream, 0))
 
                     self.assertIsNotNone(frame_properties)
@@ -149,8 +149,8 @@ class TestFramesPostApi(ImagingApiTester):
                 rect_height = 300
                 rotate_flip_method = 'Rotate90FlipX'
                 save_other_frames = True
-                folder = ApiTester.temp_folder
-                storage = ApiTester.test_storage
+                folder = self.temp_folder
+                storage = self.test_storage
                 out_name = name + '_allFrame.tiff'
 
                 def request_invoker(input_stream, out_path):
@@ -166,7 +166,7 @@ class TestFramesPostApi(ImagingApiTester):
                     if out_path:
                         kwargs["out_path"] = out_path
 
-                    return ApiTester.imaging_api.post_image_frame(
+                    return self.imaging_api.post_image_frame(
                         requests.PostImageFrameRequest(
                             input_stream,
                             frame_id,

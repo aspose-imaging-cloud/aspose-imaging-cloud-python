@@ -41,14 +41,14 @@ class TestUpdateImageApi(ImagingApiTester):
                 rect_width = 200
                 rect_height = 300
                 rotate_flip_method = 'Rotate90FlipX'
-                folder = ApiTester.temp_folder
-                storage = ApiTester.test_storage
+                folder = self.temp_folder
+                storage = self.test_storage
 
                 formats_to_export = set(
-                    ApiTester.basic_export_formats).union(additional_export_formats)
+                    self.basic_export_formats).union(additional_export_formats)
 
                 def request_invoker(file_name, out_path):
-                    return ApiTester.imaging_api.get_image_update(
+                    return self.imaging_api.get_image_update(
                         requests.GetImageUpdateRequest(
                             file_name,
                             format,
@@ -70,7 +70,7 @@ class TestUpdateImageApi(ImagingApiTester):
                     self.assertEqual(rect_height, result_properties.width)
                     self.assertEqual(rect_width, result_properties.height)
 
-                for input_file in ApiTester.input_test_files:
+                for input_file in self.input_test_files:
                     if not str(input_file.name).endswith(format_extension):
                         continue
 
@@ -135,14 +135,14 @@ class TestUpdateImageApi(ImagingApiTester):
                 rect_width = 200
                 rect_height = 300
                 rotate_flip_method = 'Rotate90FlipX'
-                folder = ApiTester.temp_folder
-                storage = ApiTester.test_storage
+                folder = self.temp_folder
+                storage = self.test_storage
 
                 formats_to_export = set(
-                    ApiTester.basic_export_formats).union(additional_export_formats)
+                    self.basic_export_formats).union(additional_export_formats)
 
                 def request_invoker(input_stream, out_path):
-                    return ApiTester.imaging_api.post_image_update(
+                    return self.imaging_api.post_image_update(
                         requests.PostImageUpdateRequest(
                             input_stream,
                             format,
@@ -163,7 +163,7 @@ class TestUpdateImageApi(ImagingApiTester):
                     self.assertEqual(rect_height, result_properties.width)
                     self.assertEqual(rect_width, result_properties.height)
 
-                for input_file in ApiTester.input_test_files:
+                for input_file in self.input_test_files:
                     if not str(input_file.name).endswith(format_extension):
                         continue
 
