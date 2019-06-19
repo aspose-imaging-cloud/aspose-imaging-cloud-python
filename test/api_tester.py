@@ -45,8 +45,6 @@ class ApiTester(unittest.TestCase):
     input_test_files = None  # type: list
 
     def setUp(self):
-        print(os.linesep + self._testMethodName)
-
         if not ApiTester.test_storage:
             ApiTester.test_storage = os.environ.get('StorageName')
         if not ApiTester.test_storage:
@@ -138,6 +136,8 @@ class ApiTester(unittest.TestCase):
         if not storage:
             storage = ApiTester.default_storage
 
+        print(test_method_name)
+            
         if not self._check_input_file_exists(input_file_name):
             raise ValueError(
                 "Input file {0} doesn't exist in the specified storage folder: {1}. Please, upload it first.".format(
