@@ -39,7 +39,12 @@ class CopyFolderRequest(ImagingRequest):
     :param dest_storage_name Destination storage name
     """
 
-    def __init__(self, src_path, dest_path, src_storage_name=None, dest_storage_name=None):
+    def __init__(
+            self,
+            src_path,
+            dest_path,
+            src_storage_name=None,
+            dest_storage_name=None):
         ImagingRequest.__init__(self)
         self.src_path = src_path
         self.dest_path = dest_path
@@ -57,33 +62,56 @@ class CopyFolderRequest(ImagingRequest):
         """
         # verify the required parameter 'src_path' is set
         if self.src_path is None:
-            raise ValueError("Missing the required parameter `src_path` when calling `copy_folder`")
+            raise ValueError(
+                "Missing the required parameter `src_path` when calling `copy_folder`")
         # verify the required parameter 'dest_path' is set
         if self.dest_path is None:
-            raise ValueError("Missing the required parameter `dest_path` when calling `copy_folder`")
+            raise ValueError(
+                "Missing the required parameter `dest_path` when calling `copy_folder`")
 
         collection_formats = {}
         path = '/imaging/storage/folder/copy/{srcPath}'
         path_params = {}
         if self.src_path is not None:
-            path_params[self._lowercase_first_letter('srcPath')] = self.src_path
+            path_params[self._lowercase_first_letter(
+                'srcPath')] = self.src_path
 
         query_params = []
         if self._lowercase_first_letter('destPath') in path:
-            path = path.replace('{' + self._lowercase_first_letter('destPath' + '}'), self.dest_path if self.dest_path is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'destPath' +
+                    '}'),
+                self.dest_path if self.dest_path is not None else '')
         else:
             if self.dest_path is not None:
-                query_params.append((self._lowercase_first_letter('destPath'), self.dest_path))
+                query_params.append(
+                    (self._lowercase_first_letter('destPath'), self.dest_path))
         if self._lowercase_first_letter('srcStorageName') in path:
-            path = path.replace('{' + self._lowercase_first_letter('srcStorageName' + '}'), self.src_storage_name if self.src_storage_name is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'srcStorageName' +
+                    '}'),
+                self.src_storage_name if self.src_storage_name is not None else '')
         else:
             if self.src_storage_name is not None:
-                query_params.append((self._lowercase_first_letter('srcStorageName'), self.src_storage_name))
+                query_params.append(
+                    (self._lowercase_first_letter('srcStorageName'),
+                     self.src_storage_name))
         if self._lowercase_first_letter('destStorageName') in path:
-            path = path.replace('{' + self._lowercase_first_letter('destStorageName' + '}'), self.dest_storage_name if self.dest_storage_name is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'destStorageName' +
+                    '}'),
+                self.dest_storage_name if self.dest_storage_name is not None else '')
         else:
             if self.dest_storage_name is not None:
-                query_params.append((self._lowercase_first_letter('destStorageName'), self.dest_storage_name))
+                query_params.append(
+                    (self._lowercase_first_letter('destStorageName'),
+                     self.dest_storage_name))
 
         header_params = {}
 
@@ -103,5 +131,13 @@ class CopyFolderRequest(ImagingRequest):
         # Authentication setting
         auth_settings = ['JWT']
 
-        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
-                           collection_formats, auth_settings)
+        return HttpRequest(
+            path,
+            path_params,
+            query_params,
+            header_params,
+            form_params,
+            body_params,
+            local_var_files,
+            collection_formats,
+            auth_settings)

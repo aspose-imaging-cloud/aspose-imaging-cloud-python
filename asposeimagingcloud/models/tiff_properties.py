@@ -1,6 +1,6 @@
 # coding: utf-8
 # -----------------------------------------------------------------------------
-# <copyright company="Aspose" file="TiffProperties.py">
+# <copyright company="Aspose" file="tiff_properties.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>

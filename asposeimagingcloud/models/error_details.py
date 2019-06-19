@@ -1,6 +1,6 @@
 # coding: utf-8
 # -----------------------------------------------------------------------------
-# <copyright company="Aspose" file="ErrorDetails.py">
+# <copyright company="Aspose" file="error_details.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>

@@ -51,13 +51,15 @@ class StorageExistsRequest(ImagingRequest):
         """
         # verify the required parameter 'storage_name' is set
         if self.storage_name is None:
-            raise ValueError("Missing the required parameter `storage_name` when calling `storage_exists`")
+            raise ValueError(
+                "Missing the required parameter `storage_name` when calling `storage_exists`")
 
         collection_formats = {}
         path = '/imaging/storage/{storageName}/exist'
         path_params = {}
         if self.storage_name is not None:
-            path_params[self._lowercase_first_letter('storageName')] = self.storage_name
+            path_params[self._lowercase_first_letter(
+                'storageName')] = self.storage_name
 
         query_params = []
 
@@ -79,5 +81,13 @@ class StorageExistsRequest(ImagingRequest):
         # Authentication setting
         auth_settings = ['JWT']
 
-        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
-                           collection_formats, auth_settings)
+        return HttpRequest(
+            path,
+            path_params,
+            query_params,
+            header_params,
+            form_params,
+            body_params,
+            local_var_files,
+            collection_formats,
+            auth_settings)

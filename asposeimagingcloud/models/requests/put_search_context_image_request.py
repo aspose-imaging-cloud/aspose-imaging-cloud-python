@@ -40,7 +40,13 @@ class PutSearchContextImageRequest(ImagingRequest):
     :param storage Storage
     """
 
-    def __init__(self, search_context_id, image_id, image_data=None, folder=None, storage=None):
+    def __init__(
+            self,
+            search_context_id,
+            image_id,
+            image_data=None,
+            folder=None,
+            storage=None):
         ImagingRequest.__init__(self)
         self.search_context_id = search_context_id
         self.image_id = image_id
@@ -59,40 +65,62 @@ class PutSearchContextImageRequest(ImagingRequest):
         """
         # verify the required parameter 'search_context_id' is set
         if self.search_context_id is None:
-            raise ValueError("Missing the required parameter `search_context_id` when calling `put_search_context_image`")
+            raise ValueError(
+                "Missing the required parameter `search_context_id` when calling `put_search_context_image`")
         # verify the required parameter 'image_id' is set
         if self.image_id is None:
-            raise ValueError("Missing the required parameter `image_id` when calling `put_search_context_image`")
+            raise ValueError(
+                "Missing the required parameter `image_id` when calling `put_search_context_image`")
 
         collection_formats = {}
         path = '/imaging/ai/imageSearch/{searchContextId}/image'
         path_params = {}
         if self.search_context_id is not None:
-            path_params[self._lowercase_first_letter('searchContextId')] = self.search_context_id
+            path_params[self._lowercase_first_letter(
+                'searchContextId')] = self.search_context_id
 
         query_params = []
         if self._lowercase_first_letter('imageId') in path:
-            path = path.replace('{' + self._lowercase_first_letter('imageId' + '}'), self.image_id if self.image_id is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'imageId' +
+                    '}'),
+                self.image_id if self.image_id is not None else '')
         else:
             if self.image_id is not None:
-                query_params.append((self._lowercase_first_letter('imageId'), self.image_id))
+                query_params.append(
+                    (self._lowercase_first_letter('imageId'), self.image_id))
         if self._lowercase_first_letter('folder') in path:
-            path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'folder' +
+                    '}'),
+                self.folder if self.folder is not None else '')
         else:
             if self.folder is not None:
-                query_params.append((self._lowercase_first_letter('folder'), self.folder))
+                query_params.append(
+                    (self._lowercase_first_letter('folder'), self.folder))
         if self._lowercase_first_letter('storage') in path:
-            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'storage' +
+                    '}'),
+                self.storage if self.storage is not None else '')
         else:
             if self.storage is not None:
-                query_params.append((self._lowercase_first_letter('storage'), self.storage))
+                query_params.append(
+                    (self._lowercase_first_letter('storage'), self.storage))
 
         header_params = {}
 
         form_params = []
         local_var_files = []
         if self.image_data is not None:
-            local_var_files.append((self._lowercase_first_letter('imageData'), self.image_data))
+            local_var_files.append(
+                (self._lowercase_first_letter('imageData'), self.image_data))
 
         body_params = None
 
@@ -107,5 +135,13 @@ class PutSearchContextImageRequest(ImagingRequest):
         # Authentication setting
         auth_settings = ['JWT']
 
-        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
-                           collection_formats, auth_settings)
+        return HttpRequest(
+            path,
+            path_params,
+            query_params,
+            header_params,
+            form_params,
+            body_params,
+            local_var_files,
+            collection_formats,
+            auth_settings)

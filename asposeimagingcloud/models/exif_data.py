@@ -1,6 +1,6 @@
 # coding: utf-8
 # -----------------------------------------------------------------------------
-# <copyright company="Aspose" file="ExifData.py">
+# <copyright company="Aspose" file="exif_data.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
@@ -251,7 +251,109 @@ class ExifData(object):
         'JpegExifData': 'JpegExifData'
     }
 
-    def __init__(self, aperture_value=None, body_serial_number=None, brightness_value=None, cfa_pattern=None, camera_owner_name=None, color_space=None, components_configuration=None, compressed_bits_per_pixel=None, contrast=None, custom_rendered=None, date_time_digitized=None, date_time_original=None, device_setting_description=None, digital_zoom_ratio=None, exif_version=None, exposure_bias_value=None, exposure_index=None, exposure_mode=None, exposure_program=None, exposure_time=None, f_number=None, file_source=None, flash=None, flash_energy=None, flashpix_version=None, focal_length=None, focal_length_in35_mm_film=None, focal_plane_resolution_unit=None, focal_plane_x_resolution=None, focal_plane_y_resolution=None, gps_altitude=None, gps_altitude_ref=None, gps_area_information=None, gpsdop=None, gps_dest_bearing=None, gps_dest_bearing_ref=None, gps_dest_distance=None, gps_dest_distance_ref=None, gps_dest_latitude=None, gps_dest_latitude_ref=None, gps_dest_longitude=None, gps_dest_longitude_ref=None, gps_differential=None, gps_img_direction=None, gps_img_direction_ref=None, gps_date_stamp=None, gps_latitude=None, gps_latitude_ref=None, gps_longitude=None, gps_longitude_ref=None, gps_map_datum=None, gps_measure_mode=None, gps_processing_method=None, gps_satellites=None, gps_speed=None, gps_speed_ref=None, gps_status=None, gps_timestamp=None, gps_track=None, gps_track_ref=None, gps_version_id=None, gain_control=None, gamma=None, iso_speed=None, iso_speed_latitude_yyy=None, iso_speed_latitude_zzz=None, photographic_sensitivity=None, image_unique_id=None, lens_make=None, lens_model=None, lens_serial_number=None, lens_specification=None, light_source=None, maker_note_raw_data=None, max_aperture_value=None, metering_mode=None, oecf=None, pixel_x_dimension=None, pixel_y_dimension=None, recommended_exposure_index=None, related_sound_file=None, saturation=None, scene_capture_type=None, scene_type=None, sensing_method=None, sensitivity_type=None, sharpness=None, shutter_speed_value=None, spatial_frequency_response=None, spectral_sensitivity=None, standard_output_sensitivity=None, subject_area=None, subject_distance=None, subject_distance_range=None, subject_location=None, subsec_time=None, subsec_time_digitized=None, subsec_time_original=None, user_comment=None, white_balance=None, white_point=None):
+    def __init__(
+            self,
+            aperture_value=None,
+            body_serial_number=None,
+            brightness_value=None,
+            cfa_pattern=None,
+            camera_owner_name=None,
+            color_space=None,
+            components_configuration=None,
+            compressed_bits_per_pixel=None,
+            contrast=None,
+            custom_rendered=None,
+            date_time_digitized=None,
+            date_time_original=None,
+            device_setting_description=None,
+            digital_zoom_ratio=None,
+            exif_version=None,
+            exposure_bias_value=None,
+            exposure_index=None,
+            exposure_mode=None,
+            exposure_program=None,
+            exposure_time=None,
+            f_number=None,
+            file_source=None,
+            flash=None,
+            flash_energy=None,
+            flashpix_version=None,
+            focal_length=None,
+            focal_length_in35_mm_film=None,
+            focal_plane_resolution_unit=None,
+            focal_plane_x_resolution=None,
+            focal_plane_y_resolution=None,
+            gps_altitude=None,
+            gps_altitude_ref=None,
+            gps_area_information=None,
+            gpsdop=None,
+            gps_dest_bearing=None,
+            gps_dest_bearing_ref=None,
+            gps_dest_distance=None,
+            gps_dest_distance_ref=None,
+            gps_dest_latitude=None,
+            gps_dest_latitude_ref=None,
+            gps_dest_longitude=None,
+            gps_dest_longitude_ref=None,
+            gps_differential=None,
+            gps_img_direction=None,
+            gps_img_direction_ref=None,
+            gps_date_stamp=None,
+            gps_latitude=None,
+            gps_latitude_ref=None,
+            gps_longitude=None,
+            gps_longitude_ref=None,
+            gps_map_datum=None,
+            gps_measure_mode=None,
+            gps_processing_method=None,
+            gps_satellites=None,
+            gps_speed=None,
+            gps_speed_ref=None,
+            gps_status=None,
+            gps_timestamp=None,
+            gps_track=None,
+            gps_track_ref=None,
+            gps_version_id=None,
+            gain_control=None,
+            gamma=None,
+            iso_speed=None,
+            iso_speed_latitude_yyy=None,
+            iso_speed_latitude_zzz=None,
+            photographic_sensitivity=None,
+            image_unique_id=None,
+            lens_make=None,
+            lens_model=None,
+            lens_serial_number=None,
+            lens_specification=None,
+            light_source=None,
+            maker_note_raw_data=None,
+            max_aperture_value=None,
+            metering_mode=None,
+            oecf=None,
+            pixel_x_dimension=None,
+            pixel_y_dimension=None,
+            recommended_exposure_index=None,
+            related_sound_file=None,
+            saturation=None,
+            scene_capture_type=None,
+            scene_type=None,
+            sensing_method=None,
+            sensitivity_type=None,
+            sharpness=None,
+            shutter_speed_value=None,
+            spatial_frequency_response=None,
+            spectral_sensitivity=None,
+            standard_output_sensitivity=None,
+            subject_area=None,
+            subject_distance=None,
+            subject_distance_range=None,
+            subject_location=None,
+            subsec_time=None,
+            subsec_time_digitized=None,
+            subsec_time_original=None,
+            user_comment=None,
+            white_balance=None,
+            white_point=None):
         """ExifData - a model defined in Swagger"""
 
         self._aperture_value = None
@@ -581,7 +683,8 @@ class ExifData(object):
         :type: float
         """
         if aperture_value is None:
-            raise ValueError("Invalid value for `aperture_value`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `aperture_value`, must not be `None`")
         self._aperture_value = aperture_value
 
     @property
@@ -627,7 +730,8 @@ class ExifData(object):
         :type: float
         """
         if brightness_value is None:
-            raise ValueError("Invalid value for `brightness_value`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `brightness_value`, must not be `None`")
         self._brightness_value = brightness_value
 
     @property
@@ -650,8 +754,11 @@ class ExifData(object):
         :param cfa_pattern: The cfa_pattern of this ExifData.
         :type: str
         """
-        if cfa_pattern is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', cfa_pattern):
-            raise ValueError("Invalid value for `cfa_pattern`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
+        if cfa_pattern is not None and not re.search(
+            r'^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$',
+                cfa_pattern):
+            raise ValueError(
+                r"Invalid value for `cfa_pattern`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._cfa_pattern = cfa_pattern
 
     @property
@@ -718,8 +825,11 @@ class ExifData(object):
         :param components_configuration: The components_configuration of this ExifData.
         :type: str
         """
-        if components_configuration is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', components_configuration):
-            raise ValueError("Invalid value for `components_configuration`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
+        if components_configuration is not None and not re.search(
+            r'^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$',
+                components_configuration):
+            raise ValueError(
+                r"Invalid value for `components_configuration`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._components_configuration = components_configuration
 
     @property
@@ -743,7 +853,8 @@ class ExifData(object):
         :type: float
         """
         if compressed_bits_per_pixel is None:
-            raise ValueError("Invalid value for `compressed_bits_per_pixel`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `compressed_bits_per_pixel`, must not be `None`")
         self._compressed_bits_per_pixel = compressed_bits_per_pixel
 
     @property
@@ -854,8 +965,11 @@ class ExifData(object):
         :param device_setting_description: The device_setting_description of this ExifData.
         :type: str
         """
-        if device_setting_description is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', device_setting_description):
-            raise ValueError("Invalid value for `device_setting_description`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
+        if device_setting_description is not None and not re.search(
+            r'^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$',
+                device_setting_description):
+            raise ValueError(
+                r"Invalid value for `device_setting_description`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._device_setting_description = device_setting_description
 
     @property
@@ -879,7 +993,8 @@ class ExifData(object):
         :type: float
         """
         if digital_zoom_ratio is None:
-            raise ValueError("Invalid value for `digital_zoom_ratio`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `digital_zoom_ratio`, must not be `None`")
         self._digital_zoom_ratio = digital_zoom_ratio
 
     @property
@@ -902,8 +1017,11 @@ class ExifData(object):
         :param exif_version: The exif_version of this ExifData.
         :type: str
         """
-        if exif_version is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', exif_version):
-            raise ValueError("Invalid value for `exif_version`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
+        if exif_version is not None and not re.search(
+            r'^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$',
+                exif_version):
+            raise ValueError(
+                r"Invalid value for `exif_version`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._exif_version = exif_version
 
     @property
@@ -927,7 +1045,8 @@ class ExifData(object):
         :type: float
         """
         if exposure_bias_value is None:
-            raise ValueError("Invalid value for `exposure_bias_value`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `exposure_bias_value`, must not be `None`")
         self._exposure_bias_value = exposure_bias_value
 
     @property
@@ -951,7 +1070,8 @@ class ExifData(object):
         :type: float
         """
         if exposure_index is None:
-            raise ValueError("Invalid value for `exposure_index`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `exposure_index`, must not be `None`")
         self._exposure_index = exposure_index
 
     @property
@@ -1019,7 +1139,8 @@ class ExifData(object):
         :type: float
         """
         if exposure_time is None:
-            raise ValueError("Invalid value for `exposure_time`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `exposure_time`, must not be `None`")
         self._exposure_time = exposure_time
 
     @property
@@ -1043,7 +1164,8 @@ class ExifData(object):
         :type: float
         """
         if f_number is None:
-            raise ValueError("Invalid value for `f_number`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `f_number`, must not be `None`")
         self._f_number = f_number
 
     @property
@@ -1111,7 +1233,8 @@ class ExifData(object):
         :type: float
         """
         if flash_energy is None:
-            raise ValueError("Invalid value for `flash_energy`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `flash_energy`, must not be `None`")
         self._flash_energy = flash_energy
 
     @property
@@ -1134,8 +1257,11 @@ class ExifData(object):
         :param flashpix_version: The flashpix_version of this ExifData.
         :type: str
         """
-        if flashpix_version is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', flashpix_version):
-            raise ValueError("Invalid value for `flashpix_version`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
+        if flashpix_version is not None and not re.search(
+            r'^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$',
+                flashpix_version):
+            raise ValueError(
+                r"Invalid value for `flashpix_version`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._flashpix_version = flashpix_version
 
     @property
@@ -1159,7 +1285,8 @@ class ExifData(object):
         :type: float
         """
         if focal_length is None:
-            raise ValueError("Invalid value for `focal_length`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `focal_length`, must not be `None`")
         self._focal_length = focal_length
 
     @property
@@ -1183,7 +1310,8 @@ class ExifData(object):
         :type: int
         """
         if focal_length_in35_mm_film is None:
-            raise ValueError("Invalid value for `focal_length_in35_mm_film`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `focal_length_in35_mm_film`, must not be `None`")
         self._focal_length_in35_mm_film = focal_length_in35_mm_film
 
     @property
@@ -1229,7 +1357,8 @@ class ExifData(object):
         :type: float
         """
         if focal_plane_x_resolution is None:
-            raise ValueError("Invalid value for `focal_plane_x_resolution`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `focal_plane_x_resolution`, must not be `None`")
         self._focal_plane_x_resolution = focal_plane_x_resolution
 
     @property
@@ -1253,7 +1382,8 @@ class ExifData(object):
         :type: float
         """
         if focal_plane_y_resolution is None:
-            raise ValueError("Invalid value for `focal_plane_y_resolution`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `focal_plane_y_resolution`, must not be `None`")
         self._focal_plane_y_resolution = focal_plane_y_resolution
 
     @property
@@ -1277,7 +1407,8 @@ class ExifData(object):
         :type: float
         """
         if gps_altitude is None:
-            raise ValueError("Invalid value for `gps_altitude`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `gps_altitude`, must not be `None`")
         self._gps_altitude = gps_altitude
 
     @property
@@ -1322,8 +1453,11 @@ class ExifData(object):
         :param gps_area_information: The gps_area_information of this ExifData.
         :type: str
         """
-        if gps_area_information is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', gps_area_information):
-            raise ValueError("Invalid value for `gps_area_information`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
+        if gps_area_information is not None and not re.search(
+            r'^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$',
+                gps_area_information):
+            raise ValueError(
+                r"Invalid value for `gps_area_information`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._gps_area_information = gps_area_information
 
     @property
@@ -1371,7 +1505,8 @@ class ExifData(object):
         :type: float
         """
         if gps_dest_bearing is None:
-            raise ValueError("Invalid value for `gps_dest_bearing`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `gps_dest_bearing`, must not be `None`")
         self._gps_dest_bearing = gps_dest_bearing
 
     @property
@@ -1417,7 +1552,8 @@ class ExifData(object):
         :type: float
         """
         if gps_dest_distance is None:
-            raise ValueError("Invalid value for `gps_dest_distance`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `gps_dest_distance`, must not be `None`")
         self._gps_dest_distance = gps_dest_distance
 
     @property
@@ -1551,7 +1687,8 @@ class ExifData(object):
         :type: int
         """
         if gps_differential is None:
-            raise ValueError("Invalid value for `gps_differential`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `gps_differential`, must not be `None`")
         self._gps_differential = gps_differential
 
     @property
@@ -1575,7 +1712,8 @@ class ExifData(object):
         :type: float
         """
         if gps_img_direction is None:
-            raise ValueError("Invalid value for `gps_img_direction`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `gps_img_direction`, must not be `None`")
         self._gps_img_direction = gps_img_direction
 
     @property
@@ -1774,8 +1912,11 @@ class ExifData(object):
         :param gps_processing_method: The gps_processing_method of this ExifData.
         :type: str
         """
-        if gps_processing_method is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', gps_processing_method):
-            raise ValueError("Invalid value for `gps_processing_method`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
+        if gps_processing_method is not None and not re.search(
+            r'^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$',
+                gps_processing_method):
+            raise ValueError(
+                r"Invalid value for `gps_processing_method`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._gps_processing_method = gps_processing_method
 
     @property
@@ -1821,7 +1962,8 @@ class ExifData(object):
         :type: float
         """
         if gps_speed is None:
-            raise ValueError("Invalid value for `gps_speed`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `gps_speed`, must not be `None`")
         self._gps_speed = gps_speed
 
     @property
@@ -1954,8 +2096,11 @@ class ExifData(object):
         :param gps_version_id: The gps_version_id of this ExifData.
         :type: str
         """
-        if gps_version_id is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', gps_version_id):
-            raise ValueError("Invalid value for `gps_version_id`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
+        if gps_version_id is not None and not re.search(
+            r'^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$',
+                gps_version_id):
+            raise ValueError(
+                r"Invalid value for `gps_version_id`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._gps_version_id = gps_version_id
 
     @property
@@ -2025,7 +2170,8 @@ class ExifData(object):
         :type: int
         """
         if iso_speed is None:
-            raise ValueError("Invalid value for `iso_speed`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `iso_speed`, must not be `None`")
         self._iso_speed = iso_speed
 
     @property
@@ -2049,7 +2195,8 @@ class ExifData(object):
         :type: int
         """
         if iso_speed_latitude_yyy is None:
-            raise ValueError("Invalid value for `iso_speed_latitude_yyy`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `iso_speed_latitude_yyy`, must not be `None`")
         self._iso_speed_latitude_yyy = iso_speed_latitude_yyy
 
     @property
@@ -2073,7 +2220,8 @@ class ExifData(object):
         :type: int
         """
         if iso_speed_latitude_zzz is None:
-            raise ValueError("Invalid value for `iso_speed_latitude_zzz`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `iso_speed_latitude_zzz`, must not be `None`")
         self._iso_speed_latitude_zzz = iso_speed_latitude_zzz
 
     @property
@@ -2097,7 +2245,8 @@ class ExifData(object):
         :type: int
         """
         if photographic_sensitivity is None:
-            raise ValueError("Invalid value for `photographic_sensitivity`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `photographic_sensitivity`, must not be `None`")
         self._photographic_sensitivity = photographic_sensitivity
 
     @property
@@ -2252,8 +2401,11 @@ class ExifData(object):
         :param maker_note_raw_data: The maker_note_raw_data of this ExifData.
         :type: str
         """
-        if maker_note_raw_data is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', maker_note_raw_data):
-            raise ValueError("Invalid value for `maker_note_raw_data`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
+        if maker_note_raw_data is not None and not re.search(
+            r'^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$',
+                maker_note_raw_data):
+            raise ValueError(
+                r"Invalid value for `maker_note_raw_data`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._maker_note_raw_data = maker_note_raw_data
 
     @property
@@ -2277,7 +2429,8 @@ class ExifData(object):
         :type: float
         """
         if max_aperture_value is None:
-            raise ValueError("Invalid value for `max_aperture_value`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `max_aperture_value`, must not be `None`")
         self._max_aperture_value = max_aperture_value
 
     @property
@@ -2322,8 +2475,10 @@ class ExifData(object):
         :param oecf: The oecf of this ExifData.
         :type: str
         """
-        if oecf is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', oecf):
-            raise ValueError("Invalid value for `oecf`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
+        if oecf is not None and not re.search(
+                r'^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', oecf):
+            raise ValueError(
+                r"Invalid value for `oecf`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._oecf = oecf
 
     @property
@@ -2347,7 +2502,8 @@ class ExifData(object):
         :type: int
         """
         if pixel_x_dimension is None:
-            raise ValueError("Invalid value for `pixel_x_dimension`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `pixel_x_dimension`, must not be `None`")
         self._pixel_x_dimension = pixel_x_dimension
 
     @property
@@ -2371,7 +2527,8 @@ class ExifData(object):
         :type: int
         """
         if pixel_y_dimension is None:
-            raise ValueError("Invalid value for `pixel_y_dimension`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `pixel_y_dimension`, must not be `None`")
         self._pixel_y_dimension = pixel_y_dimension
 
     @property
@@ -2395,7 +2552,8 @@ class ExifData(object):
         :type: int
         """
         if recommended_exposure_index is None:
-            raise ValueError("Invalid value for `recommended_exposure_index`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `recommended_exposure_index`, must not be `None`")
         self._recommended_exposure_index = recommended_exposure_index
 
     @property
@@ -2485,7 +2643,8 @@ class ExifData(object):
         :type: int
         """
         if scene_type is None:
-            raise ValueError("Invalid value for `scene_type`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `scene_type`, must not be `None`")
         self._scene_type = scene_type
 
     @property
@@ -2531,7 +2690,8 @@ class ExifData(object):
         :type: int
         """
         if sensitivity_type is None:
-            raise ValueError("Invalid value for `sensitivity_type`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `sensitivity_type`, must not be `None`")
         self._sensitivity_type = sensitivity_type
 
     @property
@@ -2555,7 +2715,8 @@ class ExifData(object):
         :type: int
         """
         if sharpness is None:
-            raise ValueError("Invalid value for `sharpness`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `sharpness`, must not be `None`")
         self._sharpness = sharpness
 
     @property
@@ -2579,7 +2740,8 @@ class ExifData(object):
         :type: float
         """
         if shutter_speed_value is None:
-            raise ValueError("Invalid value for `shutter_speed_value`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `shutter_speed_value`, must not be `None`")
         self._shutter_speed_value = shutter_speed_value
 
     @property
@@ -2602,8 +2764,11 @@ class ExifData(object):
         :param spatial_frequency_response: The spatial_frequency_response of this ExifData.
         :type: str
         """
-        if spatial_frequency_response is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', spatial_frequency_response):
-            raise ValueError("Invalid value for `spatial_frequency_response`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
+        if spatial_frequency_response is not None and not re.search(
+            r'^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$',
+                spatial_frequency_response):
+            raise ValueError(
+                r"Invalid value for `spatial_frequency_response`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._spatial_frequency_response = spatial_frequency_response
 
     @property
@@ -2649,7 +2814,8 @@ class ExifData(object):
         :type: int
         """
         if standard_output_sensitivity is None:
-            raise ValueError("Invalid value for `standard_output_sensitivity`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `standard_output_sensitivity`, must not be `None`")
         self._standard_output_sensitivity = standard_output_sensitivity
 
     @property
@@ -2695,7 +2861,8 @@ class ExifData(object):
         :type: float
         """
         if subject_distance is None:
-            raise ValueError("Invalid value for `subject_distance`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `subject_distance`, must not be `None`")
         self._subject_distance = subject_distance
 
     @property
@@ -2877,7 +3044,8 @@ class ExifData(object):
     def get_real_child_model(self, data):
         """Returns the real base class specified by the discriminator"""
         discriminator_value = data.get(self.discriminator)
-        return self.discriminator_value_class_map.get(discriminator_value.lower()) if discriminator_value else None
+        return self.discriminator_value_class_map.get(
+            discriminator_value.lower()) if discriminator_value else None
 
     def to_dict(self):
         """Returns the model properties as a dict"""

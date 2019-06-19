@@ -1,6 +1,6 @@
 # coding: utf-8
 # -----------------------------------------------------------------------------
-# <copyright company="Aspose" file="SearchContextStatus.py">
+# <copyright company="Aspose" file="search_context_status.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>

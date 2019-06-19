@@ -55,25 +55,39 @@ class DeleteSearchContextRequest(ImagingRequest):
         """
         # verify the required parameter 'search_context_id' is set
         if self.search_context_id is None:
-            raise ValueError("Missing the required parameter `search_context_id` when calling `delete_search_context`")
+            raise ValueError(
+                "Missing the required parameter `search_context_id` when calling `delete_search_context`")
 
         collection_formats = {}
         path = '/imaging/ai/imageSearch/{searchContextId}'
         path_params = {}
         if self.search_context_id is not None:
-            path_params[self._lowercase_first_letter('searchContextId')] = self.search_context_id
+            path_params[self._lowercase_first_letter(
+                'searchContextId')] = self.search_context_id
 
         query_params = []
         if self._lowercase_first_letter('folder') in path:
-            path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'folder' +
+                    '}'),
+                self.folder if self.folder is not None else '')
         else:
             if self.folder is not None:
-                query_params.append((self._lowercase_first_letter('folder'), self.folder))
+                query_params.append(
+                    (self._lowercase_first_letter('folder'), self.folder))
         if self._lowercase_first_letter('storage') in path:
-            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'storage' +
+                    '}'),
+                self.storage if self.storage is not None else '')
         else:
             if self.storage is not None:
-                query_params.append((self._lowercase_first_letter('storage'), self.storage))
+                query_params.append(
+                    (self._lowercase_first_letter('storage'), self.storage))
 
         header_params = {}
 
@@ -93,5 +107,13 @@ class DeleteSearchContextRequest(ImagingRequest):
         # Authentication setting
         auth_settings = ['JWT']
 
-        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
-                           collection_formats, auth_settings)
+        return HttpRequest(
+            path,
+            path_params,
+            query_params,
+            header_params,
+            form_params,
+            body_params,
+            local_var_files,
+            collection_formats,
+            auth_settings)

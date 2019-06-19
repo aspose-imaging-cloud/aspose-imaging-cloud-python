@@ -51,7 +51,8 @@ class PostImagePropertiesRequest(ImagingRequest):
         """
         # verify the required parameter 'image_data' is set
         if self.image_data is None:
-            raise ValueError("Missing the required parameter `image_data` when calling `post_image_properties`")
+            raise ValueError(
+                "Missing the required parameter `image_data` when calling `post_image_properties`")
 
         collection_formats = {}
         path = '/imaging/properties'
@@ -64,7 +65,8 @@ class PostImagePropertiesRequest(ImagingRequest):
         form_params = []
         local_var_files = []
         if self.image_data is not None:
-            local_var_files.append((self._lowercase_first_letter('imageData'), self.image_data))
+            local_var_files.append(
+                (self._lowercase_first_letter('imageData'), self.image_data))
 
         body_params = None
 
@@ -79,5 +81,13 @@ class PostImagePropertiesRequest(ImagingRequest):
         # Authentication setting
         auth_settings = ['JWT']
 
-        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
-                           collection_formats, auth_settings)
+        return HttpRequest(
+            path,
+            path_params,
+            query_params,
+            header_params,
+            form_params,
+            body_params,
+            local_var_files,
+            collection_formats,
+            auth_settings)

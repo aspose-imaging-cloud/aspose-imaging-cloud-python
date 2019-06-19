@@ -1,6 +1,6 @@
 # coding: utf-8
 # -----------------------------------------------------------------------------
-# <copyright company="Aspose" file="DiscUsage.py">
+# <copyright company="Aspose" file="disc_usage.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
@@ -82,7 +82,8 @@ class DiscUsage(object):
         :type: int
         """
         if used_size is None:
-            raise ValueError("Invalid value for `used_size`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `used_size`, must not be `None`")
         self._used_size = used_size
 
     @property
@@ -106,7 +107,8 @@ class DiscUsage(object):
         :type: int
         """
         if total_size is None:
-            raise ValueError("Invalid value for `total_size`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `total_size`, must not be `None`")
         self._total_size = total_size
 
     def to_dict(self):

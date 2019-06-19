@@ -1,6 +1,6 @@
 # coding: utf-8
 # -----------------------------------------------------------------------------
-# <copyright company="Aspose" file=".py">
+# <copyright company="Aspose" file="__init__.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
@@ -23,9 +23,8 @@
 #  DEALINGS IN THE SOFTWARE.
 # </summary>
 # -----------------------------------------------------------------------------
+
 from __future__ import absolute_import
-
-
 
 # import apis into api package
 from asposeimagingcloud.api.imaging_api import ImagingApi

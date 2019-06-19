@@ -55,7 +55,8 @@ class GetImagePropertiesRequest(ImagingRequest):
         """
         # verify the required parameter 'name' is set
         if self.name is None:
-            raise ValueError("Missing the required parameter `name` when calling `get_image_properties`")
+            raise ValueError(
+                "Missing the required parameter `name` when calling `get_image_properties`")
 
         collection_formats = {}
         path = '/imaging/{name}/properties'
@@ -65,15 +66,27 @@ class GetImagePropertiesRequest(ImagingRequest):
 
         query_params = []
         if self._lowercase_first_letter('folder') in path:
-            path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'folder' +
+                    '}'),
+                self.folder if self.folder is not None else '')
         else:
             if self.folder is not None:
-                query_params.append((self._lowercase_first_letter('folder'), self.folder))
+                query_params.append(
+                    (self._lowercase_first_letter('folder'), self.folder))
         if self._lowercase_first_letter('storage') in path:
-            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'storage' +
+                    '}'),
+                self.storage if self.storage is not None else '')
         else:
             if self.storage is not None:
-                query_params.append((self._lowercase_first_letter('storage'), self.storage))
+                query_params.append(
+                    (self._lowercase_first_letter('storage'), self.storage))
 
         header_params = {}
 
@@ -93,5 +106,13 @@ class GetImagePropertiesRequest(ImagingRequest):
         # Authentication setting
         auth_settings = ['JWT']
 
-        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
-                           collection_formats, auth_settings)
+        return HttpRequest(
+            path,
+            path_params,
+            query_params,
+            header_params,
+            form_params,
+            body_params,
+            local_var_files,
+            collection_formats,
+            auth_settings)

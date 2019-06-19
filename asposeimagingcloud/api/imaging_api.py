@@ -1,6 +1,6 @@
 # coding: utf-8
 # -----------------------------------------------------------------------------
-# <copyright company="Aspose" file="ImagingApi.py">
+# <copyright company="Aspose" file="imaging_api.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
@@ -380,7 +380,8 @@ class ImagingApi(object):
         :return: ImagingResponse
         """
         http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'GET', 'ImagingResponse')
+        return self.__make_request_async(
+            http_request, 'GET', 'ImagingResponse')
 
     def get_image_gif(self, request):
         """Update parameters of existing GIF image.
@@ -460,7 +461,8 @@ class ImagingApi(object):
         :return: ImagingResponse
         """
         http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'GET', 'ImagingResponse')
+        return self.__make_request_async(
+            http_request, 'GET', 'ImagingResponse')
 
     def get_image_psd(self, request):
         """Update parameters of existing PSD image.
@@ -660,7 +662,8 @@ class ImagingApi(object):
         :return: ImageDuplicatesSet
         """
         http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'GET', 'ImageDuplicatesSet')
+        return self.__make_request_async(
+            http_request, 'GET', 'ImageDuplicatesSet')
 
     def get_search_context_find_similar(self, request):
         """Find similar images. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
@@ -680,7 +683,8 @@ class ImagingApi(object):
         :return: SearchResultsSet
         """
         http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'GET', 'SearchResultsSet')
+        return self.__make_request_async(
+            http_request, 'GET', 'SearchResultsSet')
 
     def get_search_context_image(self, request):
         """Get image from search context
@@ -740,7 +744,8 @@ class ImagingApi(object):
         :return: SearchContextStatus
         """
         http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'GET', 'SearchContextStatus')
+        return self.__make_request_async(
+            http_request, 'GET', 'SearchContextStatus')
 
     def get_tiff_to_fax(self, request):
         """Update parameters of existing TIFF image accordingly to fax parameters.
@@ -840,7 +845,8 @@ class ImagingApi(object):
         :return: SearchContextStatus
         """
         http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', 'SearchContextStatus')
+        return self.__make_request_async(
+            http_request, 'POST', 'SearchContextStatus')
 
     def post_image_bmp(self, request):
         """Update parameters of BMP image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
@@ -940,7 +946,8 @@ class ImagingApi(object):
         :return: ImagingResponse
         """
         http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', 'ImagingResponse')
+        return self.__make_request_async(
+            http_request, 'POST', 'ImagingResponse')
 
     def post_image_gif(self, request):
         """Update parameters of GIF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
@@ -1020,7 +1027,8 @@ class ImagingApi(object):
         :return: ImagingResponse
         """
         http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', 'ImagingResponse')
+        return self.__make_request_async(
+            http_request, 'POST', 'ImagingResponse')
 
     def post_image_psd(self, request):
         """Update parameters of PSD image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
@@ -1083,7 +1091,7 @@ class ImagingApi(object):
         return self.__make_request_async(http_request, 'POST', 'file')
 
     def post_image_save_as(self, request):
-        """Export existing image to another format. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.             
+        """Export existing image to another format. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 
 
         :param request post_image_save_as_request object with parameters
@@ -1093,7 +1101,7 @@ class ImagingApi(object):
         return self.__make_request(http_request, 'POST', 'file')
 
     def post_image_save_as_async(self, request):
-        """Export existing image to another format. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.             
+        """Export existing image to another format. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 
 
         :param request post_image_save_as_request object with parameters
@@ -1240,7 +1248,8 @@ class ImagingApi(object):
         :return: SearchResultsSet
         """
         http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', 'SearchResultsSet')
+        return self.__make_request_async(
+            http_request, 'POST', 'SearchResultsSet')
 
     def post_search_context_extract_image_features(self, request):
         """Extract images features and add them to search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
@@ -1280,7 +1289,8 @@ class ImagingApi(object):
         :return: SearchResultsSet
         """
         http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', 'SearchResultsSet')
+        return self.__make_request_async(
+            http_request, 'POST', 'SearchResultsSet')
 
     def post_tiff_append(self, request):
         """Appends existing TIFF image to another existing TIFF image (i.e. merges TIFF images).
@@ -1380,7 +1390,8 @@ class ImagingApi(object):
         :return: FilesUploadResult
         """
         http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', 'FilesUploadResult')
+        return self.__make_request_async(
+            http_request, 'POST', 'FilesUploadResult')
 
     def __make_request(self, http_request, method, return_type):
         def call_api():
@@ -1437,10 +1448,16 @@ class ImagingApi(object):
     def __request_token(self):
         config = self.api_client.configuration
         request_url = "/connect/token"
-        form_params = [('grant_type', 'client_credentials'), ('client_id', config.api_key['app_sid']),
-                       ('client_secret', config.api_key['api_key'])]
+        form_params = [
+            ('grant_type',
+             'client_credentials'),
+            ('client_id',
+             config.api_key['app_sid']),
+            ('client_secret',
+             config.api_key['api_key'])]
 
-        header_params = {'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded'}
+        header_params = {'Accept': 'application/json',
+                         'Content-Type': 'application/x-www-form-urlencoded'}
 
         api_version = self.api_client.configuration.api_version
         self.api_client.configuration.api_version = ''
@@ -1452,8 +1469,8 @@ class ImagingApi(object):
                                         post_params=form_params,
                                         response_type='object',
                                         files={}, _return_http_data_only=True)
-        access_token = data['access_token'] if six.PY3 else data['access_token'].encode('utf8')
+        access_token = data['access_token'] if six.PY3 else data['access_token'].encode(
+            'utf8')
         self.api_client.configuration.access_token = access_token
 
         self.api_client.configuration.api_version = api_version
-

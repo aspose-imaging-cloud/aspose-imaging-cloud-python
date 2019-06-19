@@ -46,7 +46,19 @@ class GetImageGifRequest(ImagingRequest):
     :param storage Your Aspose Cloud Storage name.
     """
 
-    def __init__(self, name, background_color_index=None, color_resolution=None, has_trailer=None, interlaced=None, is_palette_sorted=None, pixel_aspect_ratio=None, from_scratch=None, out_path=None, folder=None, storage=None):
+    def __init__(
+            self,
+            name,
+            background_color_index=None,
+            color_resolution=None,
+            has_trailer=None,
+            interlaced=None,
+            is_palette_sorted=None,
+            pixel_aspect_ratio=None,
+            from_scratch=None,
+            out_path=None,
+            folder=None,
+            storage=None):
         ImagingRequest.__init__(self)
         self.name = name
         self.background_color_index = background_color_index
@@ -71,7 +83,8 @@ class GetImageGifRequest(ImagingRequest):
         """
         # verify the required parameter 'name' is set
         if self.name is None:
-            raise ValueError("Missing the required parameter `name` when calling `get_image_gif`")
+            raise ValueError(
+                "Missing the required parameter `name` when calling `get_image_gif`")
 
         collection_formats = {}
         path = '/imaging/{name}/gif'
@@ -81,55 +94,118 @@ class GetImageGifRequest(ImagingRequest):
 
         query_params = []
         if self._lowercase_first_letter('backgroundColorIndex') in path:
-            path = path.replace('{' + self._lowercase_first_letter('backgroundColorIndex' + '}'), self.background_color_index if self.background_color_index is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'backgroundColorIndex' +
+                    '}'),
+                self.background_color_index if self.background_color_index is not None else '')
         else:
             if self.background_color_index is not None:
-                query_params.append((self._lowercase_first_letter('backgroundColorIndex'), self.background_color_index))
+                query_params.append(
+                    (self._lowercase_first_letter('backgroundColorIndex'),
+                     self.background_color_index))
         if self._lowercase_first_letter('colorResolution') in path:
-            path = path.replace('{' + self._lowercase_first_letter('colorResolution' + '}'), self.color_resolution if self.color_resolution is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'colorResolution' +
+                    '}'),
+                self.color_resolution if self.color_resolution is not None else '')
         else:
             if self.color_resolution is not None:
-                query_params.append((self._lowercase_first_letter('colorResolution'), self.color_resolution))
+                query_params.append(
+                    (self._lowercase_first_letter('colorResolution'),
+                     self.color_resolution))
         if self._lowercase_first_letter('hasTrailer') in path:
-            path = path.replace('{' + self._lowercase_first_letter('hasTrailer' + '}'), self.has_trailer if self.has_trailer is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'hasTrailer' +
+                    '}'),
+                self.has_trailer if self.has_trailer is not None else '')
         else:
             if self.has_trailer is not None:
-                query_params.append((self._lowercase_first_letter('hasTrailer'), self.has_trailer))
+                query_params.append(
+                    (self._lowercase_first_letter('hasTrailer'), self.has_trailer))
         if self._lowercase_first_letter('interlaced') in path:
-            path = path.replace('{' + self._lowercase_first_letter('interlaced' + '}'), self.interlaced if self.interlaced is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'interlaced' +
+                    '}'),
+                self.interlaced if self.interlaced is not None else '')
         else:
             if self.interlaced is not None:
-                query_params.append((self._lowercase_first_letter('interlaced'), self.interlaced))
+                query_params.append(
+                    (self._lowercase_first_letter('interlaced'), self.interlaced))
         if self._lowercase_first_letter('isPaletteSorted') in path:
-            path = path.replace('{' + self._lowercase_first_letter('isPaletteSorted' + '}'), self.is_palette_sorted if self.is_palette_sorted is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'isPaletteSorted' +
+                    '}'),
+                self.is_palette_sorted if self.is_palette_sorted is not None else '')
         else:
             if self.is_palette_sorted is not None:
-                query_params.append((self._lowercase_first_letter('isPaletteSorted'), self.is_palette_sorted))
+                query_params.append(
+                    (self._lowercase_first_letter('isPaletteSorted'),
+                     self.is_palette_sorted))
         if self._lowercase_first_letter('pixelAspectRatio') in path:
-            path = path.replace('{' + self._lowercase_first_letter('pixelAspectRatio' + '}'), self.pixel_aspect_ratio if self.pixel_aspect_ratio is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'pixelAspectRatio' +
+                    '}'),
+                self.pixel_aspect_ratio if self.pixel_aspect_ratio is not None else '')
         else:
             if self.pixel_aspect_ratio is not None:
-                query_params.append((self._lowercase_first_letter('pixelAspectRatio'), self.pixel_aspect_ratio))
+                query_params.append((self._lowercase_first_letter(
+                    'pixelAspectRatio'), self.pixel_aspect_ratio))
         if self._lowercase_first_letter('fromScratch') in path:
-            path = path.replace('{' + self._lowercase_first_letter('fromScratch' + '}'), self.from_scratch if self.from_scratch is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'fromScratch' +
+                    '}'),
+                self.from_scratch if self.from_scratch is not None else '')
         else:
             if self.from_scratch is not None:
-                query_params.append((self._lowercase_first_letter('fromScratch'), self.from_scratch))
+                query_params.append(
+                    (self._lowercase_first_letter('fromScratch'), self.from_scratch))
         if self._lowercase_first_letter('outPath') in path:
-            path = path.replace('{' + self._lowercase_first_letter('outPath' + '}'), self.out_path if self.out_path is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'outPath' +
+                    '}'),
+                self.out_path if self.out_path is not None else '')
         else:
             if self.out_path is not None:
-                query_params.append((self._lowercase_first_letter('outPath'), self.out_path))
+                query_params.append(
+                    (self._lowercase_first_letter('outPath'), self.out_path))
         if self._lowercase_first_letter('folder') in path:
-            path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'folder' +
+                    '}'),
+                self.folder if self.folder is not None else '')
         else:
             if self.folder is not None:
-                query_params.append((self._lowercase_first_letter('folder'), self.folder))
+                query_params.append(
+                    (self._lowercase_first_letter('folder'), self.folder))
         if self._lowercase_first_letter('storage') in path:
-            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'storage' +
+                    '}'),
+                self.storage if self.storage is not None else '')
         else:
             if self.storage is not None:
-                query_params.append((self._lowercase_first_letter('storage'), self.storage))
+                query_params.append(
+                    (self._lowercase_first_letter('storage'), self.storage))
 
         header_params = {}
 
@@ -149,5 +225,13 @@ class GetImageGifRequest(ImagingRequest):
         # Authentication setting
         auth_settings = ['JWT']
 
-        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
-                           collection_formats, auth_settings)
+        return HttpRequest(
+            path,
+            path_params,
+            query_params,
+            header_params,
+            form_params,
+            body_params,
+            local_var_files,
+            collection_formats,
+            auth_settings)

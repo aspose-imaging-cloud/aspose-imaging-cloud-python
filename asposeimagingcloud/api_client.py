@@ -60,7 +60,7 @@ class ApiClient(object):
     PRIMITIVE_TYPES = (float, bool, bytes, six.text_type) + six.integer_types
     NATIVE_TYPES_MAPPING = {
         'int': int,
-        'long': int if six.PY3 else long,  #pylint: disable=undefined-variable
+        'long': int if six.PY3 else long,  # pylint: disable=undefined-variable
         'float': float,
         'str': str,
         'bool': bool,
@@ -77,7 +77,9 @@ class ApiClient(object):
 
         self.pool = ThreadPool()
         self.rest_client = rest.RESTClientObject(configuration)
-        self.default_headers = {'x-aspose-client': 'python sdk', 'x-aspose-version': '19.2'}
+        self.default_headers = {
+            'x-aspose-client': 'python sdk',
+            'x-aspose-version': '19.2'}
         if header_name is not None:
             self.default_headers[header_name] = header_value
         self.cookie = cookie
@@ -158,7 +160,7 @@ class ApiClient(object):
         url = ''
         if six.PY3:
             url = self.configuration.host + '/' + \
-                  self.configuration.api_version + resource_path
+                self.configuration.api_version + resource_path
         else:
             url = (self.configuration.host + '/' +
                    self.configuration.api_version + resource_path)\
@@ -454,7 +456,8 @@ class ApiClient(object):
         new_params = []
         if collection_formats is None:
             collection_formats = {}
-        for k, v in six.iteritems(params) if isinstance(params, dict) else params:
+        for k, v in six.iteritems(params) if isinstance(
+                params, dict) else params:
             if k in collection_formats:
                 collection_format = collection_formats[k]
                 if collection_format == 'multi':

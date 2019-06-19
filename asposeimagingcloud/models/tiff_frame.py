@@ -1,6 +1,6 @@
 # coding: utf-8
 # -----------------------------------------------------------------------------
-# <copyright company="Aspose" file="TiffFrame.py">
+# <copyright company="Aspose" file="tiff_frame.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
@@ -56,7 +56,12 @@ class TiffFrame(object):
         'exif_data': 'ExifData'
     }
 
-    def __init__(self, frame_options=None, height=None, width=None, exif_data=None):
+    def __init__(
+            self,
+            frame_options=None,
+            height=None,
+            width=None,
+            exif_data=None):
         """TiffFrame - a model defined in Swagger"""
 
         self._frame_options = None

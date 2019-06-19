@@ -55,7 +55,8 @@ class DeleteFolderRequest(ImagingRequest):
         """
         # verify the required parameter 'path' is set
         if self.path is None:
-            raise ValueError("Missing the required parameter `path` when calling `delete_folder`")
+            raise ValueError(
+                "Missing the required parameter `path` when calling `delete_folder`")
 
         collection_formats = {}
         path = '/imaging/storage/folder/{path}'
@@ -65,15 +66,27 @@ class DeleteFolderRequest(ImagingRequest):
 
         query_params = []
         if self._lowercase_first_letter('storageName') in path:
-            path = path.replace('{' + self._lowercase_first_letter('storageName' + '}'), self.storage_name if self.storage_name is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'storageName' +
+                    '}'),
+                self.storage_name if self.storage_name is not None else '')
         else:
             if self.storage_name is not None:
-                query_params.append((self._lowercase_first_letter('storageName'), self.storage_name))
+                query_params.append(
+                    (self._lowercase_first_letter('storageName'), self.storage_name))
         if self._lowercase_first_letter('recursive') in path:
-            path = path.replace('{' + self._lowercase_first_letter('recursive' + '}'), self.recursive if self.recursive is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'recursive' +
+                    '}'),
+                self.recursive if self.recursive is not None else '')
         else:
             if self.recursive is not None:
-                query_params.append((self._lowercase_first_letter('recursive'), self.recursive))
+                query_params.append(
+                    (self._lowercase_first_letter('recursive'), self.recursive))
 
         header_params = {}
 
@@ -93,5 +106,13 @@ class DeleteFolderRequest(ImagingRequest):
         # Authentication setting
         auth_settings = ['JWT']
 
-        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
-                           collection_formats, auth_settings)
+        return HttpRequest(
+            path,
+            path_params,
+            query_params,
+            header_params,
+            form_params,
+            body_params,
+            local_var_files,
+            collection_formats,
+            auth_settings)

@@ -1,6 +1,6 @@
 # coding: utf-8
 # -----------------------------------------------------------------------------
-# <copyright company="Aspose" file="JfifData.py">
+# <copyright company="Aspose" file="jfif_data.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
@@ -53,7 +53,12 @@ class JfifData(object):
         'y_density': 'YDensity'
     }
 
-    def __init__(self, density_units=None, version=None, x_density=None, y_density=None):
+    def __init__(
+            self,
+            density_units=None,
+            version=None,
+            x_density=None,
+            y_density=None):
         """JfifData - a model defined in Swagger"""
 
         self._density_units = None
@@ -138,7 +143,8 @@ class JfifData(object):
         :type: int
         """
         if x_density is None:
-            raise ValueError("Invalid value for `x_density`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `x_density`, must not be `None`")
         self._x_density = x_density
 
     @property
@@ -162,7 +168,8 @@ class JfifData(object):
         :type: int
         """
         if y_density is None:
-            raise ValueError("Invalid value for `y_density`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `y_density`, must not be `None`")
         self._y_density = y_density
 
     def to_dict(self):

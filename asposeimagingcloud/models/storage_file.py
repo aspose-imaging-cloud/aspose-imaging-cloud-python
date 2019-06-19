@@ -1,6 +1,6 @@
 # coding: utf-8
 # -----------------------------------------------------------------------------
-# <copyright company="Aspose" file="StorageFile.py">
+# <copyright company="Aspose" file="storage_file.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
@@ -59,7 +59,13 @@ class StorageFile(object):
         'FileVersion': 'FileVersion'
     }
 
-    def __init__(self, name=None, is_folder=None, modified_date=None, size=None, path=None):
+    def __init__(
+            self,
+            name=None,
+            is_folder=None,
+            modified_date=None,
+            size=None,
+            path=None):
         """StorageFile - a model defined in Swagger"""
 
         self._name = None
@@ -123,7 +129,8 @@ class StorageFile(object):
         :type: bool
         """
         if is_folder is None:
-            raise ValueError("Invalid value for `is_folder`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `is_folder`, must not be `None`")
         self._is_folder = is_folder
 
     @property
@@ -197,7 +204,8 @@ class StorageFile(object):
     def get_real_child_model(self, data):
         """Returns the real base class specified by the discriminator"""
         discriminator_value = data.get(self.discriminator)
-        return self.discriminator_value_class_map.get(discriminator_value.lower()) if discriminator_value else None
+        return self.discriminator_value_class_map.get(
+            discriminator_value.lower()) if discriminator_value else None
 
     def to_dict(self):
         """Returns the model properties as a dict"""

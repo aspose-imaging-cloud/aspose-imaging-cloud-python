@@ -1,6 +1,6 @@
 # coding: utf-8
 # -----------------------------------------------------------------------------
-# <copyright company="Aspose" file="SearchResult.py">
+# <copyright company="Aspose" file="search_result.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
@@ -104,7 +104,8 @@ class SearchResult(object):
         :type: float
         """
         if similarity is None:
-            raise ValueError("Invalid value for `similarity`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `similarity`, must not be `None`")
         self._similarity = similarity
 
     def to_dict(self):

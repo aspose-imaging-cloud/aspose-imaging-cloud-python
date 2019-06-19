@@ -1,6 +1,6 @@
 # coding: utf-8
 # -----------------------------------------------------------------------------
-# <copyright company="Aspose" file="StorageExist.py">
+# <copyright company="Aspose" file="storage_exist.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
@@ -60,7 +60,7 @@ class StorageExist(object):
     def exists(self):
         """Gets the exists of this StorageExist.
 
-        Shows that the storage exists.             
+        Shows that the storage exists.
 
         :return: The exists of this StorageExist.
         :rtype: bool
@@ -71,7 +71,7 @@ class StorageExist(object):
     def exists(self, exists):
         """Sets the exists of this StorageExist.
 
-        Shows that the storage exists.             
+        Shows that the storage exists.
 
         :param exists: The exists of this StorageExist.
         :type: bool

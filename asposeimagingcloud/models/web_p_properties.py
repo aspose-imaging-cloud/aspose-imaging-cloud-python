@@ -1,6 +1,6 @@
 # coding: utf-8
 # -----------------------------------------------------------------------------
-# <copyright company="Aspose" file="WebPProperties.py">
+# <copyright company="Aspose" file="web_p_properties.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
@@ -53,7 +53,12 @@ class WebPProperties(object):
         'anim_background_color': 'AnimBackgroundColor'
     }
 
-    def __init__(self, lossless=None, quality=None, anim_loop_count=None, anim_background_color=None):
+    def __init__(
+            self,
+            lossless=None,
+            quality=None,
+            anim_loop_count=None,
+            anim_background_color=None):
         """WebPProperties - a model defined in Swagger"""
 
         self._lossless = None
@@ -92,7 +97,8 @@ class WebPProperties(object):
         :type: bool
         """
         if lossless is None:
-            raise ValueError("Invalid value for `lossless`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `lossless`, must not be `None`")
         self._lossless = lossless
 
     @property
@@ -140,7 +146,8 @@ class WebPProperties(object):
         :type: int
         """
         if anim_loop_count is None:
-            raise ValueError("Invalid value for `anim_loop_count`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `anim_loop_count`, must not be `None`")
         self._anim_loop_count = anim_loop_count
 
     @property
@@ -164,7 +171,8 @@ class WebPProperties(object):
         :type: int
         """
         if anim_background_color is None:
-            raise ValueError("Invalid value for `anim_background_color`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `anim_background_color`, must not be `None`")
         self._anim_background_color = anim_background_color
 
     def to_dict(self):

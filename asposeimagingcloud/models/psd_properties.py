@@ -1,6 +1,6 @@
 # coding: utf-8
 # -----------------------------------------------------------------------------
-# <copyright company="Aspose" file="PsdProperties.py">
+# <copyright company="Aspose" file="psd_properties.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
@@ -53,7 +53,12 @@ class PsdProperties(object):
         'compression': 'Compression'
     }
 
-    def __init__(self, bits_per_channel=None, channels_count=None, color_mode=None, compression=None):
+    def __init__(
+            self,
+            bits_per_channel=None,
+            channels_count=None,
+            color_mode=None,
+            compression=None):
         """PsdProperties - a model defined in Swagger"""
 
         self._bits_per_channel = None
@@ -92,7 +97,8 @@ class PsdProperties(object):
         :type: int
         """
         if bits_per_channel is None:
-            raise ValueError("Invalid value for `bits_per_channel`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `bits_per_channel`, must not be `None`")
         self._bits_per_channel = bits_per_channel
 
     @property
@@ -116,7 +122,8 @@ class PsdProperties(object):
         :type: int
         """
         if channels_count is None:
-            raise ValueError("Invalid value for `channels_count`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `channels_count`, must not be `None`")
         self._channels_count = channels_count
 
     @property

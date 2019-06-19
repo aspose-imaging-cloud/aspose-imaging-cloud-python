@@ -1,6 +1,6 @@
 # coding: utf-8
 # -----------------------------------------------------------------------------
-# <copyright company="Aspose" file="FileVersion.py">
+# <copyright company="Aspose" file="file_version.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
@@ -106,7 +106,8 @@ class FileVersion(StorageFile):
         :type: bool
         """
         if is_latest is None:
-            raise ValueError("Invalid value for `is_latest`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `is_latest`, must not be `None`")
         self._is_latest = is_latest
 
     def to_dict(self):

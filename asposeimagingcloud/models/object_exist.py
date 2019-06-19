@@ -1,6 +1,6 @@
 # coding: utf-8
 # -----------------------------------------------------------------------------
-# <copyright company="Aspose" file="ObjectExist.py">
+# <copyright company="Aspose" file="object_exist.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
@@ -106,7 +106,8 @@ class ObjectExist(object):
         :type: bool
         """
         if is_folder is None:
-            raise ValueError("Invalid value for `is_folder`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `is_folder`, must not be `None`")
         self._is_folder = is_folder
 
     def to_dict(self):

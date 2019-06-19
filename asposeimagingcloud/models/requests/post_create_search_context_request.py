@@ -39,7 +39,12 @@ class PostCreateSearchContextRequest(ImagingRequest):
     :param storage The storage.
     """
 
-    def __init__(self, detector=None, matching_algorithm=None, folder=None, storage=None):
+    def __init__(
+            self,
+            detector=None,
+            matching_algorithm=None,
+            folder=None,
+            storage=None):
         ImagingRequest.__init__(self)
         self.detector = detector
         self.matching_algorithm = matching_algorithm
@@ -62,25 +67,49 @@ class PostCreateSearchContextRequest(ImagingRequest):
 
         query_params = []
         if self._lowercase_first_letter('detector') in path:
-            path = path.replace('{' + self._lowercase_first_letter('detector' + '}'), self.detector if self.detector is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'detector' +
+                    '}'),
+                self.detector if self.detector is not None else '')
         else:
             if self.detector is not None:
-                query_params.append((self._lowercase_first_letter('detector'), self.detector))
+                query_params.append(
+                    (self._lowercase_first_letter('detector'), self.detector))
         if self._lowercase_first_letter('matchingAlgorithm') in path:
-            path = path.replace('{' + self._lowercase_first_letter('matchingAlgorithm' + '}'), self.matching_algorithm if self.matching_algorithm is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'matchingAlgorithm' +
+                    '}'),
+                self.matching_algorithm if self.matching_algorithm is not None else '')
         else:
             if self.matching_algorithm is not None:
-                query_params.append((self._lowercase_first_letter('matchingAlgorithm'), self.matching_algorithm))
+                query_params.append((self._lowercase_first_letter(
+                    'matchingAlgorithm'), self.matching_algorithm))
         if self._lowercase_first_letter('folder') in path:
-            path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'folder' +
+                    '}'),
+                self.folder if self.folder is not None else '')
         else:
             if self.folder is not None:
-                query_params.append((self._lowercase_first_letter('folder'), self.folder))
+                query_params.append(
+                    (self._lowercase_first_letter('folder'), self.folder))
         if self._lowercase_first_letter('storage') in path:
-            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'storage' +
+                    '}'),
+                self.storage if self.storage is not None else '')
         else:
             if self.storage is not None:
-                query_params.append((self._lowercase_first_letter('storage'), self.storage))
+                query_params.append(
+                    (self._lowercase_first_letter('storage'), self.storage))
 
         header_params = {}
 
@@ -100,5 +129,13 @@ class PostCreateSearchContextRequest(ImagingRequest):
         # Authentication setting
         auth_settings = ['JWT']
 
-        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
-                           collection_formats, auth_settings)
+        return HttpRequest(
+            path,
+            path_params,
+            query_params,
+            header_params,
+            form_params,
+            body_params,
+            local_var_files,
+            collection_formats,
+            auth_settings)

@@ -39,7 +39,12 @@ class GetSearchContextFindDuplicatesRequest(ImagingRequest):
     :param storage The storage.
     """
 
-    def __init__(self, search_context_id, similarity_threshold, folder=None, storage=None):
+    def __init__(
+            self,
+            search_context_id,
+            similarity_threshold,
+            folder=None,
+            storage=None):
         ImagingRequest.__init__(self)
         self.search_context_id = search_context_id
         self.similarity_threshold = similarity_threshold
@@ -57,33 +62,55 @@ class GetSearchContextFindDuplicatesRequest(ImagingRequest):
         """
         # verify the required parameter 'search_context_id' is set
         if self.search_context_id is None:
-            raise ValueError("Missing the required parameter `search_context_id` when calling `get_search_context_find_duplicates`")
+            raise ValueError(
+                "Missing the required parameter `search_context_id` when calling `get_search_context_find_duplicates`")
         # verify the required parameter 'similarity_threshold' is set
         if self.similarity_threshold is None:
-            raise ValueError("Missing the required parameter `similarity_threshold` when calling `get_search_context_find_duplicates`")
+            raise ValueError(
+                "Missing the required parameter `similarity_threshold` when calling `get_search_context_find_duplicates`")
 
         collection_formats = {}
         path = '/imaging/ai/imageSearch/{searchContextId}/findDuplicates'
         path_params = {}
         if self.search_context_id is not None:
-            path_params[self._lowercase_first_letter('searchContextId')] = self.search_context_id
+            path_params[self._lowercase_first_letter(
+                'searchContextId')] = self.search_context_id
 
         query_params = []
         if self._lowercase_first_letter('similarityThreshold') in path:
-            path = path.replace('{' + self._lowercase_first_letter('similarityThreshold' + '}'), self.similarity_threshold if self.similarity_threshold is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'similarityThreshold' +
+                    '}'),
+                self.similarity_threshold if self.similarity_threshold is not None else '')
         else:
             if self.similarity_threshold is not None:
-                query_params.append((self._lowercase_first_letter('similarityThreshold'), self.similarity_threshold))
+                query_params.append(
+                    (self._lowercase_first_letter('similarityThreshold'),
+                     self.similarity_threshold))
         if self._lowercase_first_letter('folder') in path:
-            path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'folder' +
+                    '}'),
+                self.folder if self.folder is not None else '')
         else:
             if self.folder is not None:
-                query_params.append((self._lowercase_first_letter('folder'), self.folder))
+                query_params.append(
+                    (self._lowercase_first_letter('folder'), self.folder))
         if self._lowercase_first_letter('storage') in path:
-            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
+            path = path.replace(
+                '{' +
+                self._lowercase_first_letter(
+                    'storage' +
+                    '}'),
+                self.storage if self.storage is not None else '')
         else:
             if self.storage is not None:
-                query_params.append((self._lowercase_first_letter('storage'), self.storage))
+                query_params.append(
+                    (self._lowercase_first_letter('storage'), self.storage))
 
         header_params = {}
 
@@ -103,5 +130,13 @@ class GetSearchContextFindDuplicatesRequest(ImagingRequest):
         # Authentication setting
         auth_settings = ['JWT']
 
-        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
-                           collection_formats, auth_settings)
+        return HttpRequest(
+            path,
+            path_params,
+            query_params,
+            header_params,
+            form_params,
+            body_params,
+            local_var_files,
+            collection_formats,
+            auth_settings)

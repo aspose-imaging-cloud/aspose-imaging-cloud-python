@@ -1,6 +1,6 @@
 # coding: utf-8
 # -----------------------------------------------------------------------------
-# <copyright company="Aspose" file="ImageDuplicatesSet.py">
+# <copyright company="Aspose" file="image_duplicates_set.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
@@ -31,7 +31,7 @@ from asposeimagingcloud.models.image_duplicates import ImageDuplicates
 
 
 class ImageDuplicatesSet(object):
-    """Duplicate images set.  
+    """Duplicate images set.
     """
 
     """

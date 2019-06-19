@@ -1,6 +1,6 @@
 # coding: utf-8
 # -----------------------------------------------------------------------------
-# <copyright company="Aspose" file="OdgProperties.py">
+# <copyright company="Aspose" file="odg_properties.py">
 #   Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 # </copyright>
 # <summary>
@@ -90,7 +90,8 @@ class OdgProperties(object):
         :type: int
         """
         if page_count is None:
-            raise ValueError("Invalid value for `page_count`, must not be `None`")
+            raise ValueError(
+                "Invalid value for `page_count`, must not be `None`")
         self._page_count = page_count
 
     @property
