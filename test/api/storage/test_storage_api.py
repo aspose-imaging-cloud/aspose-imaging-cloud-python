@@ -1,8 +1,9 @@
+import six
+
+import asposeimagingcloud.models.requests as requests
 from asposeimagingcloud.rest import ApiException
 from test.api.storage.storage_api_tester import StorageApiTester
-from test.api_tester import ApiTester
-import asposeimagingcloud.models.requests as requests
-import six
+
 if six.PY2:
     import unittest2 as unittest
 else:

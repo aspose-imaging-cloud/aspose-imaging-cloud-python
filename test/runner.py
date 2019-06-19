@@ -1,6 +1,9 @@
 import os
-import test
+
 import six
+
+import test
+
 if six.PY2:
     import unittest2 as unittest
 else:

@@ -1,4 +1,5 @@
 import os
+
 import six
 
 from asposeimagingcloud import GetSearchContextStatusRequest, \
@@ -9,14 +10,11 @@ from asposeimagingcloud import GetSearchContextStatusRequest, \
     PutSearchContextImageFeaturesRequest
 from asposeimagingcloud.rest import ApiException
 from test.api.AI.ai_api_tester import AiApiTester
-from test.api_tester import ApiTester
 
 if six.PY2:
     import unittest2 as unittest
 else:
     import unittest
-
-
 
 
 class TestSearchContext(AiApiTester):

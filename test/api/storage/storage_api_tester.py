@@ -1,4 +1,3 @@
-from test.api_tester import ApiTester
 from test.api import ImagingApiTester
 
 

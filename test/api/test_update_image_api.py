@@ -1,7 +1,7 @@
-from test.api_tester import ApiTester
-from test.api import ImagingApiTester
 from itertools import product
+
 import asposeimagingcloud.models.requests as requests
+from test.api import ImagingApiTester
 
 
 class TestUpdateImageApi(ImagingApiTester):

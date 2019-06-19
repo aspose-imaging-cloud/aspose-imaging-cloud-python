@@ -1,7 +1,6 @@
 from asposeimagingcloud import PostSearchContextCompareImagesRequest, \
     DownloadFileRequest
 from test.api.AI.ai_api_tester import AiApiTester
-from test.api_tester import ApiTester
 
 
 class TestCompareImages(AiApiTester):
@@ -28,7 +27,8 @@ class TestCompareImages(AiApiTester):
             self.assertEqual(1, len(response.results))
             self.assertTrue(response.results[0].similarity >= 70)
 
-        self._run_test_with_logging('CompareTwoImagesInSearchContextTest', test)
+        self._run_test_with_logging(
+            'CompareTwoImagesInSearchContextTest', test)
 
     def test_compare_loaded_image_to_image_in_search_context(self):
         def test():

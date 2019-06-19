@@ -1,6 +1,5 @@
 from asposeimagingcloud import GetSearchContextFindDuplicatesRequest
 from test.api.AI.ai_api_tester import AiApiTester
-from test.api_tester import ApiTester
 
 
 class TestFindDuplicates(AiApiTester):

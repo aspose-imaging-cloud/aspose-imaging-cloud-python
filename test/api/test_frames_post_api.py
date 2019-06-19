@@ -1,6 +1,5 @@
-from test.api_tester import ApiTester
-from test.api import ImagingApiTester
 import asposeimagingcloud.models.requests as requests
+from test.api import ImagingApiTester
 
 
 class TestFramesPostApi(ImagingApiTester):

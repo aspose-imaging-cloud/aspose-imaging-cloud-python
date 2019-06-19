@@ -1,6 +1,5 @@
-from test.api_tester import ApiTester
-from test.api import ImagingApiTester
 import asposeimagingcloud.models.requests as requests
+from test.api import ImagingApiTester
 
 
 class TestPsdApi(ImagingApiTester):
@@ -11,7 +10,8 @@ class TestPsdApi(ImagingApiTester):
         save_result_to_storage_test_cases = [True, False]
 
         for save_result_to_storage in save_result_to_storage_test_cases:
-            with self.subTest('save_result_to_storage: ' + str(save_result_to_storage)):
+            with self.subTest(
+                    'save_result_to_storage: ' + str(save_result_to_storage)):
                 name = 'test.psd'
                 channels_count = 3
                 compression_method = 'raw'
@@ -74,7 +74,8 @@ class TestPsdApi(ImagingApiTester):
         save_result_to_storage_test_cases = [True, False]
 
         for save_result_to_storage in save_result_to_storage_test_cases:
-            with self.subTest('save_result_to_storage: ' + str(save_result_to_storage)):
+            with self.subTest(
+                    'save_result_to_storage: ' + str(save_result_to_storage)):
                 name = 'test.psd'
                 channels_count = 3
                 compression_method = 'raw'

@@ -1,7 +1,7 @@
-from test.api.imaging_api_tester import ImagingApiTester
-from test.api_tester import ApiTester
 import math
+
 import asposeimagingcloud.models.requests as requests
+from test.api.imaging_api_tester import ImagingApiTester
 
 
 class TestBmpApi(ImagingApiTester):

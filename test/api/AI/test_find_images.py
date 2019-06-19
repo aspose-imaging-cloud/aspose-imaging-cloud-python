@@ -2,7 +2,6 @@ from asposeimagingcloud import GetSearchContextFindSimilarRequest, \
     DownloadFileRequest, PostSearchContextAddTagRequest, \
     PostSearchContextFindByTagsRequest
 from test.api.AI.ai_api_tester import AiApiTester
-from test.api_tester import ApiTester
 
 
 class TestFindImages(AiApiTester):

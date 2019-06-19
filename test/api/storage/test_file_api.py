@@ -1,6 +1,5 @@
-from test.api.storage.storage_api_tester import StorageApiTester
-from test.api_tester import ApiTester
 import asposeimagingcloud.models.requests as requests
+from test.api.storage.storage_api_tester import StorageApiTester
 
 
 class TestFileApi(StorageApiTester):
