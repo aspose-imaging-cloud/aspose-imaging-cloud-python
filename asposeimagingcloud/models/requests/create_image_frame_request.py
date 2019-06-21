@@ -1,6 +1,6 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
-#  <copyright company="Aspose" file="get_image_frame_request.py">
+#  <copyright company="Aspose" file="create_image_frame_request.py">
 #    Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
@@ -28,12 +28,12 @@ from asposeimagingcloud.models.requests.http_request import HttpRequest
 from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
 
 
-class GetImageFrameRequest(ImagingRequest):
+class CreateImageFrameRequest(ImagingRequest):
     """
-    Request model for get_image_frame operation.
+    Request model for create_image_frame operation.
     Initializes a new instance.
 
-    :param name Filename of image.
+    :param image_data Input image
     :param frame_id Number of a frame.
     :param new_width New width.
     :param new_height New height.
@@ -43,13 +43,13 @@ class GetImageFrameRequest(ImagingRequest):
     :param rect_height Height of cropping rectangle.
     :param rotate_flip_method RotateFlip method (Rotate180FlipNone, Rotate180FlipX, Rotate180FlipXY, Rotate180FlipY, Rotate270FlipNone, Rotate270FlipX, Rotate270FlipXY, Rotate270FlipY, Rotate90FlipNone, Rotate90FlipX, Rotate90FlipXY, Rotate90FlipY, RotateNoneFlipNone, RotateNoneFlipX, RotateNoneFlipXY, RotateNoneFlipY). Default is RotateNoneFlipNone.
     :param save_other_frames If result will include all other frames or just a specified frame.
-    :param folder Folder with image to process.
+    :param out_path Path to updated file (if this is empty, response contains streamed image).
     :param storage Your Aspose Cloud Storage name.
     """
 
     def __init__(
             self,
-            name,
+            image_data,
             frame_id,
             new_width=None,
             new_height=None,
@@ -59,10 +59,10 @@ class GetImageFrameRequest(ImagingRequest):
             rect_height=None,
             rotate_flip_method=None,
             save_other_frames=None,
-            folder=None,
+            out_path=None,
             storage=None):
         ImagingRequest.__init__(self)
-        self.name = name
+        self.image_data = image_data
         self.frame_id = frame_id
         self.new_width = new_width
         self.new_height = new_height
@@ -72,7 +72,7 @@ class GetImageFrameRequest(ImagingRequest):
         self.rect_height = rect_height
         self.rotate_flip_method = rotate_flip_method
         self.save_other_frames = save_other_frames
-        self.folder = folder
+        self.out_path = out_path
         self.storage = storage
 
     def to_http_info(self, config):
@@ -84,20 +84,18 @@ class GetImageFrameRequest(ImagingRequest):
         :return: http_request configured http request
         :rtype: Configuration.models.requests.HttpRequest
         """
-        # verify the required parameter 'name' is set
-        if self.name is None:
+        # verify the required parameter 'image_data' is set
+        if self.image_data is None:
             raise ValueError(
-                "Missing the required parameter `name` when calling `get_image_frame`")
+                "Missing the required parameter `image_data` when calling `create_image_frame`")
         # verify the required parameter 'frame_id' is set
         if self.frame_id is None:
             raise ValueError(
-                "Missing the required parameter `frame_id` when calling `get_image_frame`")
+                "Missing the required parameter `frame_id` when calling `create_image_frame`")
 
         collection_formats = {}
-        path = '/imaging/{name}/frames/{frameId}'
+        path = '/imaging/frames/{frameId}'
         path_params = {}
-        if self.name is not None:
-            path_params[self._lowercase_first_letter('name')] = self.name
         if self.frame_id is not None:
             path_params[self._lowercase_first_letter(
                 'frameId')] = self.frame_id
@@ -124,7 +122,8 @@ class GetImageFrameRequest(ImagingRequest):
         else:
             if self.new_height is not None:
                 query_params.append(
-                    (self._lowercase_first_letter('newHeight'), self.new_height))
+                    (self._lowercase_first_letter('newHeight'),
+                     self.new_height))
         if self._lowercase_first_letter('x') in path:
             path = path.replace(
                 '{' +
@@ -157,7 +156,8 @@ class GetImageFrameRequest(ImagingRequest):
         else:
             if self.rect_width is not None:
                 query_params.append(
-                    (self._lowercase_first_letter('rectWidth'), self.rect_width))
+                    (self._lowercase_first_letter('rectWidth'),
+                     self.rect_width))
         if self._lowercase_first_letter('rectHeight') in path:
             path = path.replace(
                 '{' +
@@ -168,7 +168,8 @@ class GetImageFrameRequest(ImagingRequest):
         else:
             if self.rect_height is not None:
                 query_params.append(
-                    (self._lowercase_first_letter('rectHeight'), self.rect_height))
+                    (self._lowercase_first_letter('rectHeight'),
+                     self.rect_height))
         if self._lowercase_first_letter('rotateFlipMethod') in path:
             path = path.replace(
                 '{' +
@@ -192,17 +193,17 @@ class GetImageFrameRequest(ImagingRequest):
                 query_params.append(
                     (self._lowercase_first_letter('saveOtherFrames'),
                      self.save_other_frames))
-        if self._lowercase_first_letter('folder') in path:
+        if self._lowercase_first_letter('outPath') in path:
             path = path.replace(
                 '{' +
                 self._lowercase_first_letter(
-                    'folder' +
+                    'outPath' +
                     '}'),
-                self.folder if self.folder is not None else '')
+                self.out_path if self.out_path is not None else '')
         else:
-            if self.folder is not None:
+            if self.out_path is not None:
                 query_params.append(
-                    (self._lowercase_first_letter('folder'), self.folder))
+                    (self._lowercase_first_letter('outPath'), self.out_path))
         if self._lowercase_first_letter('storage') in path:
             path = path.replace(
                 '{' +
@@ -219,6 +220,9 @@ class GetImageFrameRequest(ImagingRequest):
 
         form_params = []
         local_var_files = []
+        if self.image_data is not None:
+            local_var_files.append(
+                (self._lowercase_first_letter('imageData'), self.image_data))
 
         body_params = None
 
@@ -228,7 +232,7 @@ class GetImageFrameRequest(ImagingRequest):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self._select_header_content_type(
-            ['application/json'])
+            ['multipart/form-data'])
 
         # Authentication setting
         auth_settings = ['JWT']

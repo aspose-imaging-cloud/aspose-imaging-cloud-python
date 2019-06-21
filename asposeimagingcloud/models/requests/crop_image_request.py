@@ -1,6 +1,6 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
-#  <copyright company="Aspose" file="get_image_frame_request.py">
+#  <copyright company="Aspose" file="crop_image_request.py">
 #    Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
@@ -28,21 +28,17 @@ from asposeimagingcloud.models.requests.http_request import HttpRequest
 from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
 
 
-class GetImageFrameRequest(ImagingRequest):
+class CropImageRequest(ImagingRequest):
     """
-    Request model for get_image_frame operation.
+    Request model for crop_image operation.
     Initializes a new instance.
 
-    :param name Filename of image.
-    :param frame_id Number of a frame.
-    :param new_width New width.
-    :param new_height New height.
+    :param name Filename of an image.
+    :param format Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases.
     :param x X position of start point for cropping rectangle.
     :param y Y position of start point for cropping rectangle.
-    :param rect_width Width of cropping rectangle.
-    :param rect_height Height of cropping rectangle.
-    :param rotate_flip_method RotateFlip method (Rotate180FlipNone, Rotate180FlipX, Rotate180FlipXY, Rotate180FlipY, Rotate270FlipNone, Rotate270FlipX, Rotate270FlipXY, Rotate270FlipY, Rotate90FlipNone, Rotate90FlipX, Rotate90FlipXY, Rotate90FlipY, RotateNoneFlipNone, RotateNoneFlipX, RotateNoneFlipXY, RotateNoneFlipY). Default is RotateNoneFlipNone.
-    :param save_other_frames If result will include all other frames or just a specified frame.
+    :param width Width of cropping rectangle
+    :param height Height of cropping rectangle.
     :param folder Folder with image to process.
     :param storage Your Aspose Cloud Storage name.
     """
@@ -50,28 +46,20 @@ class GetImageFrameRequest(ImagingRequest):
     def __init__(
             self,
             name,
-            frame_id,
-            new_width=None,
-            new_height=None,
-            x=None,
-            y=None,
-            rect_width=None,
-            rect_height=None,
-            rotate_flip_method=None,
-            save_other_frames=None,
+            format,
+            x,
+            y,
+            width,
+            height,
             folder=None,
             storage=None):
         ImagingRequest.__init__(self)
         self.name = name
-        self.frame_id = frame_id
-        self.new_width = new_width
-        self.new_height = new_height
+        self.format = format
         self.x = x
         self.y = y
-        self.rect_width = rect_width
-        self.rect_height = rect_height
-        self.rotate_flip_method = rotate_flip_method
-        self.save_other_frames = save_other_frames
+        self.width = width
+        self.height = height
         self.folder = folder
         self.storage = storage
 
@@ -87,44 +75,46 @@ class GetImageFrameRequest(ImagingRequest):
         # verify the required parameter 'name' is set
         if self.name is None:
             raise ValueError(
-                "Missing the required parameter `name` when calling `get_image_frame`")
-        # verify the required parameter 'frame_id' is set
-        if self.frame_id is None:
+                "Missing the required parameter `name` when calling `crop_image`")
+        # verify the required parameter 'format' is set
+        if self.format is None:
             raise ValueError(
-                "Missing the required parameter `frame_id` when calling `get_image_frame`")
+                "Missing the required parameter `format` when calling `crop_image`")
+        # verify the required parameter 'x' is set
+        if self.x is None:
+            raise ValueError(
+                "Missing the required parameter `x` when calling `crop_image`")
+        # verify the required parameter 'y' is set
+        if self.y is None:
+            raise ValueError(
+                "Missing the required parameter `y` when calling `crop_image`")
+        # verify the required parameter 'width' is set
+        if self.width is None:
+            raise ValueError(
+                "Missing the required parameter `width` when calling `crop_image`")
+        # verify the required parameter 'height' is set
+        if self.height is None:
+            raise ValueError(
+                "Missing the required parameter `height` when calling `crop_image`")
 
         collection_formats = {}
-        path = '/imaging/{name}/frames/{frameId}'
+        path = '/imaging/{name}/crop'
         path_params = {}
         if self.name is not None:
             path_params[self._lowercase_first_letter('name')] = self.name
-        if self.frame_id is not None:
-            path_params[self._lowercase_first_letter(
-                'frameId')] = self.frame_id
 
         query_params = []
-        if self._lowercase_first_letter('newWidth') in path:
+        if self._lowercase_first_letter('format') in path:
             path = path.replace(
                 '{' +
                 self._lowercase_first_letter(
-                    'newWidth' +
+                    'format' +
                     '}'),
-                self.new_width if self.new_width is not None else '')
+                self.format if self.format is not None else '')
         else:
-            if self.new_width is not None:
+            if self.format is not None:
                 query_params.append(
-                    (self._lowercase_first_letter('newWidth'), self.new_width))
-        if self._lowercase_first_letter('newHeight') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'newHeight' +
-                    '}'),
-                self.new_height if self.new_height is not None else '')
-        else:
-            if self.new_height is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('newHeight'), self.new_height))
+                    (self._lowercase_first_letter('format'), self.format))
         if self._lowercase_first_letter('x') in path:
             path = path.replace(
                 '{' +
@@ -147,51 +137,28 @@ class GetImageFrameRequest(ImagingRequest):
             if self.y is not None:
                 query_params.append(
                     (self._lowercase_first_letter('y'), self.y))
-        if self._lowercase_first_letter('rectWidth') in path:
+        if self._lowercase_first_letter('width') in path:
             path = path.replace(
                 '{' +
                 self._lowercase_first_letter(
-                    'rectWidth' +
+                    'width' +
                     '}'),
-                self.rect_width if self.rect_width is not None else '')
+                self.width if self.width is not None else '')
         else:
-            if self.rect_width is not None:
+            if self.width is not None:
                 query_params.append(
-                    (self._lowercase_first_letter('rectWidth'), self.rect_width))
-        if self._lowercase_first_letter('rectHeight') in path:
+                    (self._lowercase_first_letter('width'), self.width))
+        if self._lowercase_first_letter('height') in path:
             path = path.replace(
                 '{' +
                 self._lowercase_first_letter(
-                    'rectHeight' +
+                    'height' +
                     '}'),
-                self.rect_height if self.rect_height is not None else '')
+                self.height if self.height is not None else '')
         else:
-            if self.rect_height is not None:
+            if self.height is not None:
                 query_params.append(
-                    (self._lowercase_first_letter('rectHeight'), self.rect_height))
-        if self._lowercase_first_letter('rotateFlipMethod') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'rotateFlipMethod' +
-                    '}'),
-                self.rotate_flip_method if self.rotate_flip_method is not None else '')
-        else:
-            if self.rotate_flip_method is not None:
-                query_params.append((self._lowercase_first_letter(
-                    'rotateFlipMethod'), self.rotate_flip_method))
-        if self._lowercase_first_letter('saveOtherFrames') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'saveOtherFrames' +
-                    '}'),
-                self.save_other_frames if self.save_other_frames is not None else '')
-        else:
-            if self.save_other_frames is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('saveOtherFrames'),
-                     self.save_other_frames))
+                    (self._lowercase_first_letter('height'), self.height))
         if self._lowercase_first_letter('folder') in path:
             path = path.replace(
                 '{' +

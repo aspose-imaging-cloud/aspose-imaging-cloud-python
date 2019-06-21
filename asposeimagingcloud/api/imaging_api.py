@@ -27,8 +27,9 @@
 from __future__ import absolute_import
 
 import six
-from asposeimagingcloud.rest import ApiException
+
 from asposeimagingcloud.api_client import ApiClient
+from asposeimagingcloud.rest import ApiException
 
 
 class ImagingApi(object):
@@ -42,6 +43,87 @@ class ImagingApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
+    def add_search_image(self, request):
+        """Add image and images features to search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request add_search_image_request object with parameters
+        :return: None
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', None)
+
+    def add_search_image_async(self, request):
+        """Add image and images features to search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request add_search_image_request object with parameters
+        :return: None
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'POST', None)
+
+    def append_tiff(self, request):
+        """Appends existing TIFF image to another existing TIFF image (i.e. merges TIFF images).
+
+
+        :param request append_tiff_request object with parameters
+        :return: None
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', None)
+
+    def append_tiff_async(self, request):
+        """Appends existing TIFF image to another existing TIFF image (i.e. merges TIFF images).
+
+
+        :param request append_tiff_request object with parameters
+        :return: None
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'POST', None)
+
+    def compare_images(self, request):
+        """Compare two images. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request compare_images_request object with parameters
+        :return: SearchResultsSet
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', 'SearchResultsSet')
+
+    def compare_images_async(self, request):
+        """Compare two images. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request compare_images_request object with parameters
+        :return: SearchResultsSet
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(
+            http_request, 'POST', 'SearchResultsSet')
+
+    def convert_tiff_to_fax(self, request):
+        """Update parameters of existing TIFF image accordingly to fax parameters.
+
+
+        :param request convert_tiff_to_fax_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'GET', 'file')
+
+    def convert_tiff_to_fax_async(self, request):
+        """Update parameters of existing TIFF image accordingly to fax parameters.
+
+
+        :param request convert_tiff_to_fax_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'GET', 'file')
 
     def copy_file(self, request):
         """Copy file
@@ -83,6 +165,26 @@ class ImagingApi(object):
         http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request_async(http_request, 'PUT', None)
 
+    def create_cropped_image(self, request):
+        """Crop an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_cropped_image_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', 'file')
+
+    def create_cropped_image_async(self, request):
+        """Crop an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_cropped_image_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'POST', 'file')
+
     def create_folder(self, request):
         """Create the folder
 
@@ -91,7 +193,7 @@ class ImagingApi(object):
         :return: None
         """
         http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', None)
+        return self.__make_request(http_request, 'PUT', None)
 
     def create_folder_async(self, request):
         """Create the folder
@@ -101,7 +203,368 @@ class ImagingApi(object):
         :return: None
         """
         http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'PUT', None)
+
+    def create_image_features(self, request):
+        """Extract images features and add them to search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_image_features_request object with parameters
+        :return: None
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', None)
+
+    def create_image_features_async(self, request):
+        """Extract images features and add them to search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_image_features_request object with parameters
+        :return: None
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request_async(http_request, 'POST', None)
+
+    def create_image_frame(self, request):
+        """Get separate frame from existing TIFF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_image_frame_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', 'file')
+
+    def create_image_frame_async(self, request):
+        """Get separate frame from existing TIFF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_image_frame_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'POST', 'file')
+
+    def create_image_search(self, request):
+        """Create new search context.
+
+
+        :param request create_image_search_request object with parameters
+        :return: SearchContextStatus
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', 'SearchContextStatus')
+
+    def create_image_search_async(self, request):
+        """Create new search context.
+
+
+        :param request create_image_search_request object with parameters
+        :return: SearchContextStatus
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(
+            http_request, 'POST', 'SearchContextStatus')
+
+    def create_image_tag(self, request):
+        """Add tag and reference image to search context. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_image_tag_request object with parameters
+        :return: None
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', None)
+
+    def create_image_tag_async(self, request):
+        """Add tag and reference image to search context. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_image_tag_request object with parameters
+        :return: None
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'POST', None)
+
+    def create_modified_bmp(self, request):
+        """Update parameters of BMP image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_modified_bmp_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', 'file')
+
+    def create_modified_bmp_async(self, request):
+        """Update parameters of BMP image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_modified_bmp_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'POST', 'file')
+
+    def create_modified_emf(self, request):
+        """Process existing EMF imaging using given parameters. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_modified_emf_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', 'file')
+
+    def create_modified_emf_async(self, request):
+        """Process existing EMF imaging using given parameters. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_modified_emf_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'POST', 'file')
+
+    def create_modified_gif(self, request):
+        """Update parameters of GIF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_modified_gif_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', 'file')
+
+    def create_modified_gif_async(self, request):
+        """Update parameters of GIF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_modified_gif_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'POST', 'file')
+
+    def create_modified_jpeg(self, request):
+        """Update parameters of JPEG image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_modified_jpeg_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', 'file')
+
+    def create_modified_jpeg_async(self, request):
+        """Update parameters of JPEG image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_modified_jpeg_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'POST', 'file')
+
+    def create_modified_jpeg2000(self, request):
+        """Update parameters of JPEG2000 image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_modified_jpeg2000_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', 'file')
+
+    def create_modified_jpeg2000_async(self, request):
+        """Update parameters of JPEG2000 image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_modified_jpeg2000_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'POST', 'file')
+
+    def create_modified_psd(self, request):
+        """Update parameters of PSD image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_modified_psd_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', 'file')
+
+    def create_modified_psd_async(self, request):
+        """Update parameters of PSD image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_modified_psd_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'POST', 'file')
+
+    def create_modified_tiff(self, request):
+        """Update parameters of TIFF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_modified_tiff_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', 'file')
+
+    def create_modified_tiff_async(self, request):
+        """Update parameters of TIFF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_modified_tiff_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'POST', 'file')
+
+    def create_modified_web_p(self, request):
+        """Update parameters of WEBP image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_modified_web_p_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', 'file')
+
+    def create_modified_web_p_async(self, request):
+        """Update parameters of WEBP image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_modified_web_p_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'POST', 'file')
+
+    def create_modified_wmf(self, request):
+        """Process existing WMF image using given parameters. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_modified_wmf_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', 'file')
+
+    def create_modified_wmf_async(self, request):
+        """Process existing WMF image using given parameters. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_modified_wmf_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'POST', 'file')
+
+    def create_resized_image(self, request):
+        """Resize an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_resized_image_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', 'file')
+
+    def create_resized_image_async(self, request):
+        """Resize an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_resized_image_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'POST', 'file')
+
+    def create_rotate_flipped_image(self, request):
+        """Rotate and/or flip an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_rotate_flipped_image_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', 'file')
+
+    def create_rotate_flipped_image_async(self, request):
+        """Rotate and/or flip an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_rotate_flipped_image_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'POST', 'file')
+
+    def create_saved_image_as(self, request):
+        """Export existing image to another format. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_saved_image_as_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', 'file')
+
+    def create_saved_image_as_async(self, request):
+        """Export existing image to another format. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_saved_image_as_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'POST', 'file')
+
+    def create_updated_image(self, request):
+        """Perform scaling, cropping and flipping of an image in a single request. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_updated_image_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', 'file')
+
+    def create_updated_image_async(self, request):
+        """Perform scaling, cropping and flipping of an image in a single request. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_updated_image_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'POST', 'file')
+
+    def crop_image(self, request):
+        """Crop an existing image.
+
+
+        :param request crop_image_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'GET', 'file')
+
+    def crop_image_async(self, request):
+        """Crop an existing image.
+
+
+        :param request crop_image_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'GET', 'file')
 
     def delete_file(self, request):
         """Delete file
@@ -143,61 +606,61 @@ class ImagingApi(object):
         http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request_async(http_request, 'DELETE', None)
 
-    def delete_search_context(self, request):
-        """Deletes the search context.
+    def delete_image_features(self, request):
+        """Deletes image features from search context.
 
 
-        :param request delete_search_context_request object with parameters
+        :param request delete_image_features_request object with parameters
         :return: None
         """
         http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request(http_request, 'DELETE', None)
 
-    def delete_search_context_async(self, request):
-        """Deletes the search context.
+    def delete_image_features_async(self, request):
+        """Deletes image features from search context.
 
 
-        :param request delete_search_context_request object with parameters
+        :param request delete_image_features_request object with parameters
         :return: None
         """
         http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request_async(http_request, 'DELETE', None)
 
-    def delete_search_context_image(self, request):
-        """Delete image and images features from search context
+    def delete_image_search(self, request):
+        """Deletes the search context.
 
 
-        :param request delete_search_context_image_request object with parameters
+        :param request delete_image_search_request object with parameters
         :return: None
         """
         http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request(http_request, 'DELETE', None)
 
-    def delete_search_context_image_async(self, request):
-        """Delete image and images features from search context
+    def delete_image_search_async(self, request):
+        """Deletes the search context.
 
 
-        :param request delete_search_context_image_request object with parameters
+        :param request delete_image_search_request object with parameters
         :return: None
         """
         http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request_async(http_request, 'DELETE', None)
 
-    def delete_search_context_image_features(self, request):
-        """Deletes image features from search context.
+    def delete_search_image(self, request):
+        """Delete image and images features from search context
 
 
-        :param request delete_search_context_image_features_request object with parameters
+        :param request delete_search_image_request object with parameters
         :return: None
         """
         http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request(http_request, 'DELETE', None)
 
-    def delete_search_context_image_features_async(self, request):
-        """Deletes image features from search context.
+    def delete_search_image_async(self, request):
+        """Delete image and images features from search context
 
 
-        :param request delete_search_context_image_features_request object with parameters
+        :param request delete_search_image_request object with parameters
         :return: None
         """
         http_request = request.to_http_info(self.api_client.configuration)
@@ -222,6 +685,131 @@ class ImagingApi(object):
         """
         http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request_async(http_request, 'GET', 'file')
+
+    def extract_image_features(self, request):
+        """Extract features from image without adding to search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request extract_image_features_request object with parameters
+        :return: ImageFeatures
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'GET', 'ImageFeatures')
+
+    def extract_image_features_async(self, request):
+        """Extract features from image without adding to search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request extract_image_features_request object with parameters
+        :return: ImageFeatures
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'GET', 'ImageFeatures')
+
+    def extract_image_frame_properties(self, request):
+        """Get separate frame properties of existing TIFF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request extract_image_frame_properties_request object with parameters
+        :return: ImagingResponse
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', 'ImagingResponse')
+
+    def extract_image_frame_properties_async(self, request):
+        """Get separate frame properties of existing TIFF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request extract_image_frame_properties_request object with parameters
+        :return: ImagingResponse
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(
+            http_request, 'POST', 'ImagingResponse')
+
+    def extract_image_properties(self, request):
+        """Get properties of an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request extract_image_properties_request object with parameters
+        :return: ImagingResponse
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', 'ImagingResponse')
+
+    def extract_image_properties_async(self, request):
+        """Get properties of an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request extract_image_properties_request object with parameters
+        :return: ImagingResponse
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(
+            http_request, 'POST', 'ImagingResponse')
+
+    def find_image_duplicates(self, request):
+        """Find images duplicates.
+
+
+        :param request find_image_duplicates_request object with parameters
+        :return: ImageDuplicatesSet
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'GET', 'ImageDuplicatesSet')
+
+    def find_image_duplicates_async(self, request):
+        """Find images duplicates.
+
+
+        :param request find_image_duplicates_request object with parameters
+        :return: ImageDuplicatesSet
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(
+            http_request, 'GET', 'ImageDuplicatesSet')
+
+    def find_images_by_tags(self, request):
+        """Find images by tags. Tags JSON string is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request find_images_by_tags_request object with parameters
+        :return: SearchResultsSet
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', 'SearchResultsSet')
+
+    def find_images_by_tags_async(self, request):
+        """Find images by tags. Tags JSON string is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request find_images_by_tags_request object with parameters
+        :return: SearchResultsSet
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(
+            http_request, 'POST', 'SearchResultsSet')
+
+    def find_similar_images(self, request):
+        """Find similar images. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request find_similar_images_request object with parameters
+        :return: SearchResultsSet
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'GET', 'SearchResultsSet')
+
+    def find_similar_images_async(self, request):
+        """Find similar images. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request find_similar_images_request object with parameters
+        :return: SearchResultsSet
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(
+            http_request, 'GET', 'SearchResultsSet')
 
     def get_disc_usage(self, request):
         """Get disc usage
@@ -283,65 +871,25 @@ class ImagingApi(object):
         http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request_async(http_request, 'GET', 'FilesList')
 
-    def get_image_bmp(self, request):
-        """Update parameters of existing BMP image.
+    def get_image_features(self, request):
+        """Gets image features from search context.
 
 
-        :param request get_image_bmp_request object with parameters
-        :return: file
+        :param request get_image_features_request object with parameters
+        :return: ImageFeatures
         """
         http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'GET', 'file')
+        return self.__make_request(http_request, 'GET', 'ImageFeatures')
 
-    def get_image_bmp_async(self, request):
-        """Update parameters of existing BMP image.
+    def get_image_features_async(self, request):
+        """Gets image features from search context.
 
 
-        :param request get_image_bmp_request object with parameters
-        :return: file
+        :param request get_image_features_request object with parameters
+        :return: ImageFeatures
         """
         http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'GET', 'file')
-
-    def get_image_crop(self, request):
-        """Crop an existing image.
-
-
-        :param request get_image_crop_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'GET', 'file')
-
-    def get_image_crop_async(self, request):
-        """Crop an existing image.
-
-
-        :param request get_image_crop_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'GET', 'file')
-
-    def get_image_emf(self, request):
-        """Process existing EMF imaging using given parameters.
-
-
-        :param request get_image_emf_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'GET', 'file')
-
-    def get_image_emf_async(self, request):
-        """Process existing EMF imaging using given parameters.
-
-
-        :param request get_image_emf_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'GET', 'file')
+        return self.__make_request_async(http_request, 'GET', 'ImageFeatures')
 
     def get_image_frame(self, request):
         """Get separate frame from existing TIFF image.
@@ -384,66 +932,6 @@ class ImagingApi(object):
         return self.__make_request_async(
             http_request, 'GET', 'ImagingResponse')
 
-    def get_image_gif(self, request):
-        """Update parameters of existing GIF image.
-
-
-        :param request get_image_gif_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'GET', 'file')
-
-    def get_image_gif_async(self, request):
-        """Update parameters of existing GIF image.
-
-
-        :param request get_image_gif_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'GET', 'file')
-
-    def get_image_jpeg2000(self, request):
-        """Update parameters of existing JPEG2000 image.
-
-
-        :param request get_image_jpeg2000_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'GET', 'file')
-
-    def get_image_jpeg2000_async(self, request):
-        """Update parameters of existing JPEG2000 image.
-
-
-        :param request get_image_jpeg2000_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'GET', 'file')
-
-    def get_image_jpg(self, request):
-        """Update parameters of existing JPEG image.
-
-
-        :param request get_image_jpg_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'GET', 'file')
-
-    def get_image_jpg_async(self, request):
-        """Update parameters of existing JPEG image.
-
-
-        :param request get_image_jpg_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'GET', 'file')
-
     def get_image_properties(self, request):
         """Get properties of an image.
 
@@ -465,304 +953,222 @@ class ImagingApi(object):
         return self.__make_request_async(
             http_request, 'GET', 'ImagingResponse')
 
-    def get_image_psd(self, request):
-        """Update parameters of existing PSD image.
-
-
-        :param request get_image_psd_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'GET', 'file')
-
-    def get_image_psd_async(self, request):
-        """Update parameters of existing PSD image.
-
-
-        :param request get_image_psd_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'GET', 'file')
-
-    def get_image_resize(self, request):
-        """Resize an existing image.
-
-
-        :param request get_image_resize_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'GET', 'file')
-
-    def get_image_resize_async(self, request):
-        """Resize an existing image.
-
-
-        :param request get_image_resize_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'GET', 'file')
-
-    def get_image_rotate_flip(self, request):
-        """Rotate and/or flip an existing image.
-
-
-        :param request get_image_rotate_flip_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'GET', 'file')
-
-    def get_image_rotate_flip_async(self, request):
-        """Rotate and/or flip an existing image.
-
-
-        :param request get_image_rotate_flip_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'GET', 'file')
-
-    def get_image_save_as(self, request):
-        """Export existing image to another format.
-
-
-        :param request get_image_save_as_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'GET', 'file')
-
-    def get_image_save_as_async(self, request):
-        """Export existing image to another format.
-
-
-        :param request get_image_save_as_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'GET', 'file')
-
-    def get_image_tiff(self, request):
-        """Update parameters of existing TIFF image.
-
-
-        :param request get_image_tiff_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'GET', 'file')
-
-    def get_image_tiff_async(self, request):
-        """Update parameters of existing TIFF image.
-
-
-        :param request get_image_tiff_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'GET', 'file')
-
-    def get_image_update(self, request):
-        """Perform scaling, cropping and flipping of an existing image in a single request.
-
-
-        :param request get_image_update_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'GET', 'file')
-
-    def get_image_update_async(self, request):
-        """Perform scaling, cropping and flipping of an existing image in a single request.
-
-
-        :param request get_image_update_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'GET', 'file')
-
-    def get_image_web_p(self, request):
-        """Update parameters of existing WEBP image.
-
-
-        :param request get_image_web_p_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'GET', 'file')
-
-    def get_image_web_p_async(self, request):
-        """Update parameters of existing WEBP image.
-
-
-        :param request get_image_web_p_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'GET', 'file')
-
-    def get_image_wmf(self, request):
-        """Process existing WMF image using given parameters.
-
-
-        :param request get_image_wmf_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'GET', 'file')
-
-    def get_image_wmf_async(self, request):
-        """Process existing WMF image using given parameters.
-
-
-        :param request get_image_wmf_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'GET', 'file')
-
-    def get_search_context_extract_image_features(self, request):
-        """Extract features from image without adding to search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request get_search_context_extract_image_features_request object with parameters
-        :return: ImageFeatures
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'GET', 'ImageFeatures')
-
-    def get_search_context_extract_image_features_async(self, request):
-        """Extract features from image without adding to search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request get_search_context_extract_image_features_request object with parameters
-        :return: ImageFeatures
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'GET', 'ImageFeatures')
-
-    def get_search_context_find_duplicates(self, request):
-        """Find images duplicates.
-
-
-        :param request get_search_context_find_duplicates_request object with parameters
-        :return: ImageDuplicatesSet
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'GET', 'ImageDuplicatesSet')
-
-    def get_search_context_find_duplicates_async(self, request):
-        """Find images duplicates.
-
-
-        :param request get_search_context_find_duplicates_request object with parameters
-        :return: ImageDuplicatesSet
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(
-            http_request, 'GET', 'ImageDuplicatesSet')
-
-    def get_search_context_find_similar(self, request):
-        """Find similar images. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request get_search_context_find_similar_request object with parameters
-        :return: SearchResultsSet
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'GET', 'SearchResultsSet')
-
-    def get_search_context_find_similar_async(self, request):
-        """Find similar images. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request get_search_context_find_similar_request object with parameters
-        :return: SearchResultsSet
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(
-            http_request, 'GET', 'SearchResultsSet')
-
-    def get_search_context_image(self, request):
-        """Get image from search context
-
-
-        :param request get_search_context_image_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'GET', 'file')
-
-    def get_search_context_image_async(self, request):
-        """Get image from search context
-
-
-        :param request get_search_context_image_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'GET', 'file')
-
-    def get_search_context_image_features(self, request):
-        """Gets image features from search context.
-
-
-        :param request get_search_context_image_features_request object with parameters
-        :return: ImageFeatures
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'GET', 'ImageFeatures')
-
-    def get_search_context_image_features_async(self, request):
-        """Gets image features from search context.
-
-
-        :param request get_search_context_image_features_request object with parameters
-        :return: ImageFeatures
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'GET', 'ImageFeatures')
-
-    def get_search_context_status(self, request):
+    def get_image_search_status(self, request):
         """Gets the search context status.
 
 
-        :param request get_search_context_status_request object with parameters
+        :param request get_image_search_status_request object with parameters
         :return: SearchContextStatus
         """
         http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request(http_request, 'GET', 'SearchContextStatus')
 
-    def get_search_context_status_async(self, request):
+    def get_image_search_status_async(self, request):
         """Gets the search context status.
 
 
-        :param request get_search_context_status_request object with parameters
+        :param request get_image_search_status_request object with parameters
         :return: SearchContextStatus
         """
         http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request_async(
             http_request, 'GET', 'SearchContextStatus')
 
-    def get_tiff_to_fax(self, request):
-        """Update parameters of existing TIFF image accordingly to fax parameters.
+    def get_search_image(self, request):
+        """Get image from search context
 
 
-        :param request get_tiff_to_fax_request object with parameters
+        :param request get_search_image_request object with parameters
         :return: file
         """
         http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request(http_request, 'GET', 'file')
 
-    def get_tiff_to_fax_async(self, request):
-        """Update parameters of existing TIFF image accordingly to fax parameters.
+    def get_search_image_async(self, request):
+        """Get image from search context
 
 
-        :param request get_tiff_to_fax_request object with parameters
+        :param request get_search_image_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'GET', 'file')
+
+    def modify_bmp(self, request):
+        """Update parameters of existing BMP image.
+
+
+        :param request modify_bmp_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'GET', 'file')
+
+    def modify_bmp_async(self, request):
+        """Update parameters of existing BMP image.
+
+
+        :param request modify_bmp_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'GET', 'file')
+
+    def modify_emf(self, request):
+        """Process existing EMF imaging using given parameters.
+
+
+        :param request modify_emf_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'GET', 'file')
+
+    def modify_emf_async(self, request):
+        """Process existing EMF imaging using given parameters.
+
+
+        :param request modify_emf_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'GET', 'file')
+
+    def modify_gif(self, request):
+        """Update parameters of existing GIF image.
+
+
+        :param request modify_gif_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'GET', 'file')
+
+    def modify_gif_async(self, request):
+        """Update parameters of existing GIF image.
+
+
+        :param request modify_gif_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'GET', 'file')
+
+    def modify_jpeg(self, request):
+        """Update parameters of existing JPEG image.
+
+
+        :param request modify_jpeg_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'GET', 'file')
+
+    def modify_jpeg_async(self, request):
+        """Update parameters of existing JPEG image.
+
+
+        :param request modify_jpeg_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'GET', 'file')
+
+    def modify_jpeg2000(self, request):
+        """Update parameters of existing JPEG2000 image.
+
+
+        :param request modify_jpeg2000_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'GET', 'file')
+
+    def modify_jpeg2000_async(self, request):
+        """Update parameters of existing JPEG2000 image.
+
+
+        :param request modify_jpeg2000_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'GET', 'file')
+
+    def modify_psd(self, request):
+        """Update parameters of existing PSD image.
+
+
+        :param request modify_psd_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'GET', 'file')
+
+    def modify_psd_async(self, request):
+        """Update parameters of existing PSD image.
+
+
+        :param request modify_psd_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'GET', 'file')
+
+    def modify_tiff(self, request):
+        """Update parameters of existing TIFF image.
+
+
+        :param request modify_tiff_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'GET', 'file')
+
+    def modify_tiff_async(self, request):
+        """Update parameters of existing TIFF image.
+
+
+        :param request modify_tiff_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'GET', 'file')
+
+    def modify_web_p(self, request):
+        """Update parameters of existing WEBP image.
+
+
+        :param request modify_web_p_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'GET', 'file')
+
+    def modify_web_p_async(self, request):
+        """Update parameters of existing WEBP image.
+
+
+        :param request modify_web_p_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'GET', 'file')
+
+    def modify_wmf(self, request):
+        """Process existing WMF image using given parameters.
+
+
+        :param request modify_wmf_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'GET', 'file')
+
+    def modify_wmf_async(self, request):
+        """Process existing WMF image using given parameters.
+
+
+        :param request modify_wmf_request object with parameters
         :return: file
         """
         http_request = request.to_http_info(self.api_client.configuration)
@@ -828,530 +1234,65 @@ class ImagingApi(object):
         http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request_async(http_request, 'GET', 'ObjectExist')
 
-    def post_create_search_context(self, request):
-        """Create new search context.
+    def resize_image(self, request):
+        """Resize an existing image.
 
 
-        :param request post_create_search_context_request object with parameters
-        :return: SearchContextStatus
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', 'SearchContextStatus')
-
-    def post_create_search_context_async(self, request):
-        """Create new search context.
-
-
-        :param request post_create_search_context_request object with parameters
-        :return: SearchContextStatus
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(
-            http_request, 'POST', 'SearchContextStatus')
-
-    def post_image_bmp(self, request):
-        """Update parameters of BMP image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_bmp_request object with parameters
+        :param request resize_image_request object with parameters
         :return: file
         """
         http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', 'file')
+        return self.__make_request(http_request, 'GET', 'file')
 
-    def post_image_bmp_async(self, request):
-        """Update parameters of BMP image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+    def resize_image_async(self, request):
+        """Resize an existing image.
 
 
-        :param request post_image_bmp_request object with parameters
+        :param request resize_image_request object with parameters
         :return: file
         """
         http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', 'file')
+        return self.__make_request_async(http_request, 'GET', 'file')
 
-    def post_image_crop(self, request):
-        """Crop an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+    def rotate_flip_image(self, request):
+        """Rotate and/or flip an existing image.
 
 
-        :param request post_image_crop_request object with parameters
+        :param request rotate_flip_image_request object with parameters
         :return: file
         """
         http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', 'file')
+        return self.__make_request(http_request, 'GET', 'file')
 
-    def post_image_crop_async(self, request):
-        """Crop an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+    def rotate_flip_image_async(self, request):
+        """Rotate and/or flip an existing image.
 
 
-        :param request post_image_crop_request object with parameters
+        :param request rotate_flip_image_request object with parameters
         :return: file
         """
         http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', 'file')
+        return self.__make_request_async(http_request, 'GET', 'file')
 
-    def post_image_emf(self, request):
-        """Process existing EMF imaging using given parameters. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+    def save_image_as(self, request):
+        """Export existing image to another format.
 
 
-        :param request post_image_emf_request object with parameters
+        :param request save_image_as_request object with parameters
         :return: file
         """
         http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', 'file')
+        return self.__make_request(http_request, 'GET', 'file')
 
-    def post_image_emf_async(self, request):
-        """Process existing EMF imaging using given parameters. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+    def save_image_as_async(self, request):
+        """Export existing image to another format.
 
 
-        :param request post_image_emf_request object with parameters
+        :param request save_image_as_request object with parameters
         :return: file
         """
         http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', 'file')
-
-    def post_image_frame(self, request):
-        """Get separate frame from existing TIFF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_frame_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', 'file')
-
-    def post_image_frame_async(self, request):
-        """Get separate frame from existing TIFF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_frame_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', 'file')
-
-    def post_image_frame_properties(self, request):
-        """Get separate frame properties of existing TIFF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_frame_properties_request object with parameters
-        :return: ImagingResponse
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', 'ImagingResponse')
-
-    def post_image_frame_properties_async(self, request):
-        """Get separate frame properties of existing TIFF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_frame_properties_request object with parameters
-        :return: ImagingResponse
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(
-            http_request, 'POST', 'ImagingResponse')
-
-    def post_image_gif(self, request):
-        """Update parameters of GIF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_gif_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', 'file')
-
-    def post_image_gif_async(self, request):
-        """Update parameters of GIF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_gif_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', 'file')
-
-    def post_image_jpeg2000(self, request):
-        """Update parameters of JPEG2000 image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_jpeg2000_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', 'file')
-
-    def post_image_jpeg2000_async(self, request):
-        """Update parameters of JPEG2000 image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_jpeg2000_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', 'file')
-
-    def post_image_jpg(self, request):
-        """Update parameters of JPEG image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_jpg_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', 'file')
-
-    def post_image_jpg_async(self, request):
-        """Update parameters of JPEG image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_jpg_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', 'file')
-
-    def post_image_properties(self, request):
-        """Get properties of an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_properties_request object with parameters
-        :return: ImagingResponse
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', 'ImagingResponse')
-
-    def post_image_properties_async(self, request):
-        """Get properties of an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_properties_request object with parameters
-        :return: ImagingResponse
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(
-            http_request, 'POST', 'ImagingResponse')
-
-    def post_image_psd(self, request):
-        """Update parameters of PSD image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_psd_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', 'file')
-
-    def post_image_psd_async(self, request):
-        """Update parameters of PSD image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_psd_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', 'file')
-
-    def post_image_resize(self, request):
-        """Resize an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_resize_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', 'file')
-
-    def post_image_resize_async(self, request):
-        """Resize an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_resize_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', 'file')
-
-    def post_image_rotate_flip(self, request):
-        """Rotate and/or flip an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_rotate_flip_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', 'file')
-
-    def post_image_rotate_flip_async(self, request):
-        """Rotate and/or flip an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_rotate_flip_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', 'file')
-
-    def post_image_save_as(self, request):
-        """Export existing image to another format. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_save_as_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', 'file')
-
-    def post_image_save_as_async(self, request):
-        """Export existing image to another format. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_save_as_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', 'file')
-
-    def post_image_tiff(self, request):
-        """Update parameters of TIFF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_tiff_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', 'file')
-
-    def post_image_tiff_async(self, request):
-        """Update parameters of TIFF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_tiff_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', 'file')
-
-    def post_image_update(self, request):
-        """Perform scaling, cropping and flipping of an image in a single request. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_update_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', 'file')
-
-    def post_image_update_async(self, request):
-        """Perform scaling, cropping and flipping of an image in a single request. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_update_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', 'file')
-
-    def post_image_web_p(self, request):
-        """Update parameters of WEBP image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_web_p_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', 'file')
-
-    def post_image_web_p_async(self, request):
-        """Update parameters of WEBP image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_web_p_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', 'file')
-
-    def post_image_wmf(self, request):
-        """Process existing WMF image using given parameters. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_wmf_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', 'file')
-
-    def post_image_wmf_async(self, request):
-        """Process existing WMF image using given parameters. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_image_wmf_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', 'file')
-
-    def post_search_context_add_image(self, request):
-        """Add image and images features to search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_search_context_add_image_request object with parameters
-        :return: None
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', None)
-
-    def post_search_context_add_image_async(self, request):
-        """Add image and images features to search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_search_context_add_image_request object with parameters
-        :return: None
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', None)
-
-    def post_search_context_add_tag(self, request):
-        """Add tag and reference image to search context. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_search_context_add_tag_request object with parameters
-        :return: None
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', None)
-
-    def post_search_context_add_tag_async(self, request):
-        """Add tag and reference image to search context. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_search_context_add_tag_request object with parameters
-        :return: None
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', None)
-
-    def post_search_context_compare_images(self, request):
-        """Compare two images. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_search_context_compare_images_request object with parameters
-        :return: SearchResultsSet
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', 'SearchResultsSet')
-
-    def post_search_context_compare_images_async(self, request):
-        """Compare two images. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_search_context_compare_images_request object with parameters
-        :return: SearchResultsSet
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(
-            http_request, 'POST', 'SearchResultsSet')
-
-    def post_search_context_extract_image_features(self, request):
-        """Extract images features and add them to search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_search_context_extract_image_features_request object with parameters
-        :return: None
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', None)
-
-    def post_search_context_extract_image_features_async(self, request):
-        """Extract images features and add them to search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_search_context_extract_image_features_request object with parameters
-        :return: None
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', None)
-
-    def post_search_context_find_by_tags(self, request):
-        """Find images by tags. Tags JSON string is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_search_context_find_by_tags_request object with parameters
-        :return: SearchResultsSet
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', 'SearchResultsSet')
-
-    def post_search_context_find_by_tags_async(self, request):
-        """Find images by tags. Tags JSON string is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request post_search_context_find_by_tags_request object with parameters
-        :return: SearchResultsSet
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(
-            http_request, 'POST', 'SearchResultsSet')
-
-    def post_tiff_append(self, request):
-        """Appends existing TIFF image to another existing TIFF image (i.e. merges TIFF images).
-
-
-        :param request post_tiff_append_request object with parameters
-        :return: None
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', None)
-
-    def post_tiff_append_async(self, request):
-        """Appends existing TIFF image to another existing TIFF image (i.e. merges TIFF images).
-
-
-        :param request post_tiff_append_request object with parameters
-        :return: None
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', None)
-
-    def put_search_context_image(self, request):
-        """Update image and images features in search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request put_search_context_image_request object with parameters
-        :return: None
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'PUT', None)
-
-    def put_search_context_image_async(self, request):
-        """Update image and images features in search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request put_search_context_image_request object with parameters
-        :return: None
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'PUT', None)
-
-    def put_search_context_image_features(self, request):
-        """Update images features in search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request put_search_context_image_features_request object with parameters
-        :return: None
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'PUT', None)
-
-    def put_search_context_image_features_async(self, request):
-        """Update images features in search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request put_search_context_image_features_request object with parameters
-        :return: None
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'PUT', None)
+        return self.__make_request_async(http_request, 'GET', 'file')
 
     def storage_exists(self, request):
         """Check if storage exists
@@ -1373,6 +1314,66 @@ class ImagingApi(object):
         http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request_async(http_request, 'GET', 'StorageExist')
 
+    def update_image(self, request):
+        """Perform scaling, cropping and flipping of an existing image in a single request.
+
+
+        :param request update_image_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'GET', 'file')
+
+    def update_image_async(self, request):
+        """Perform scaling, cropping and flipping of an existing image in a single request.
+
+
+        :param request update_image_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'GET', 'file')
+
+    def update_image_features(self, request):
+        """Update images features in search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request update_image_features_request object with parameters
+        :return: None
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'PUT', None)
+
+    def update_image_features_async(self, request):
+        """Update images features in search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request update_image_features_request object with parameters
+        :return: None
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'PUT', None)
+
+    def update_search_image(self, request):
+        """Update image and images features in search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request update_search_image_request object with parameters
+        :return: None
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'PUT', None)
+
+    def update_search_image_async(self, request):
+        """Update image and images features in search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request update_search_image_request object with parameters
+        :return: None
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'PUT', None)
+
     def upload_file(self, request):
         """Upload file
 
@@ -1381,7 +1382,7 @@ class ImagingApi(object):
         :return: FilesUploadResult
         """
         http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', 'FilesUploadResult')
+        return self.__make_request(http_request, 'PUT', 'FilesUploadResult')
 
     def upload_file_async(self, request):
         """Upload file
@@ -1392,7 +1393,7 @@ class ImagingApi(object):
         """
         http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request_async(
-            http_request, 'POST', 'FilesUploadResult')
+            http_request, 'PUT', 'FilesUploadResult')
 
     def __make_request(self, http_request, method, return_type):
         def call_api():

@@ -1,6 +1,6 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
-#  <copyright company="Aspose" file="get_image_frame_request.py">
+#  <copyright company="Aspose" file="modify_gif_request.py">
 #    Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
@@ -28,21 +28,19 @@ from asposeimagingcloud.models.requests.http_request import HttpRequest
 from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
 
 
-class GetImageFrameRequest(ImagingRequest):
+class ModifyGifRequest(ImagingRequest):
     """
-    Request model for get_image_frame operation.
+    Request model for modify_gif operation.
     Initializes a new instance.
 
     :param name Filename of image.
-    :param frame_id Number of a frame.
-    :param new_width New width.
-    :param new_height New height.
-    :param x X position of start point for cropping rectangle.
-    :param y Y position of start point for cropping rectangle.
-    :param rect_width Width of cropping rectangle.
-    :param rect_height Height of cropping rectangle.
-    :param rotate_flip_method RotateFlip method (Rotate180FlipNone, Rotate180FlipX, Rotate180FlipXY, Rotate180FlipY, Rotate270FlipNone, Rotate270FlipX, Rotate270FlipXY, Rotate270FlipY, Rotate90FlipNone, Rotate90FlipX, Rotate90FlipXY, Rotate90FlipY, RotateNoneFlipNone, RotateNoneFlipX, RotateNoneFlipXY, RotateNoneFlipY). Default is RotateNoneFlipNone.
-    :param save_other_frames If result will include all other frames or just a specified frame.
+    :param background_color_index Index of the background color.
+    :param color_resolution Color resolution.
+    :param has_trailer Specifies if image has trailer.
+    :param interlaced Specifies if image is interlaced.
+    :param is_palette_sorted Specifies if palette is sorted.
+    :param pixel_aspect_ratio Pixel aspect ratio.
+    :param from_scratch Specifies where additional parameters we do not support should be taken from. If this is true – they will be taken from default values for standard image, if it is false – they will be saved from current image. Default is false.
     :param folder Folder with image to process.
     :param storage Your Aspose Cloud Storage name.
     """
@@ -50,28 +48,24 @@ class GetImageFrameRequest(ImagingRequest):
     def __init__(
             self,
             name,
-            frame_id,
-            new_width=None,
-            new_height=None,
-            x=None,
-            y=None,
-            rect_width=None,
-            rect_height=None,
-            rotate_flip_method=None,
-            save_other_frames=None,
+            background_color_index=None,
+            color_resolution=None,
+            has_trailer=None,
+            interlaced=None,
+            is_palette_sorted=None,
+            pixel_aspect_ratio=None,
+            from_scratch=None,
             folder=None,
             storage=None):
         ImagingRequest.__init__(self)
         self.name = name
-        self.frame_id = frame_id
-        self.new_width = new_width
-        self.new_height = new_height
-        self.x = x
-        self.y = y
-        self.rect_width = rect_width
-        self.rect_height = rect_height
-        self.rotate_flip_method = rotate_flip_method
-        self.save_other_frames = save_other_frames
+        self.background_color_index = background_color_index
+        self.color_resolution = color_resolution
+        self.has_trailer = has_trailer
+        self.interlaced = interlaced
+        self.is_palette_sorted = is_palette_sorted
+        self.pixel_aspect_ratio = pixel_aspect_ratio
+        self.from_scratch = from_scratch
         self.folder = folder
         self.storage = storage
 
@@ -87,111 +81,98 @@ class GetImageFrameRequest(ImagingRequest):
         # verify the required parameter 'name' is set
         if self.name is None:
             raise ValueError(
-                "Missing the required parameter `name` when calling `get_image_frame`")
-        # verify the required parameter 'frame_id' is set
-        if self.frame_id is None:
-            raise ValueError(
-                "Missing the required parameter `frame_id` when calling `get_image_frame`")
+                "Missing the required parameter `name` when calling `modify_gif`")
 
         collection_formats = {}
-        path = '/imaging/{name}/frames/{frameId}'
+        path = '/imaging/{name}/gif'
         path_params = {}
         if self.name is not None:
             path_params[self._lowercase_first_letter('name')] = self.name
-        if self.frame_id is not None:
-            path_params[self._lowercase_first_letter(
-                'frameId')] = self.frame_id
 
         query_params = []
-        if self._lowercase_first_letter('newWidth') in path:
+        if self._lowercase_first_letter('backgroundColorIndex') in path:
             path = path.replace(
                 '{' +
                 self._lowercase_first_letter(
-                    'newWidth' +
+                    'backgroundColorIndex' +
                     '}'),
-                self.new_width if self.new_width is not None else '')
+                self.background_color_index if self.background_color_index is not None else '')
         else:
-            if self.new_width is not None:
+            if self.background_color_index is not None:
                 query_params.append(
-                    (self._lowercase_first_letter('newWidth'), self.new_width))
-        if self._lowercase_first_letter('newHeight') in path:
+                    (self._lowercase_first_letter('backgroundColorIndex'),
+                     self.background_color_index))
+        if self._lowercase_first_letter('colorResolution') in path:
             path = path.replace(
                 '{' +
                 self._lowercase_first_letter(
-                    'newHeight' +
+                    'colorResolution' +
                     '}'),
-                self.new_height if self.new_height is not None else '')
+                self.color_resolution if self.color_resolution is not None else '')
         else:
-            if self.new_height is not None:
+            if self.color_resolution is not None:
                 query_params.append(
-                    (self._lowercase_first_letter('newHeight'), self.new_height))
-        if self._lowercase_first_letter('x') in path:
+                    (self._lowercase_first_letter('colorResolution'),
+                     self.color_resolution))
+        if self._lowercase_first_letter('hasTrailer') in path:
             path = path.replace(
                 '{' +
                 self._lowercase_first_letter(
-                    'x' +
+                    'hasTrailer' +
                     '}'),
-                self.x if self.x is not None else '')
+                self.has_trailer if self.has_trailer is not None else '')
         else:
-            if self.x is not None:
+            if self.has_trailer is not None:
                 query_params.append(
-                    (self._lowercase_first_letter('x'), self.x))
-        if self._lowercase_first_letter('y') in path:
+                    (self._lowercase_first_letter('hasTrailer'),
+                     self.has_trailer))
+        if self._lowercase_first_letter('interlaced') in path:
             path = path.replace(
                 '{' +
                 self._lowercase_first_letter(
-                    'y' +
+                    'interlaced' +
                     '}'),
-                self.y if self.y is not None else '')
+                self.interlaced if self.interlaced is not None else '')
         else:
-            if self.y is not None:
+            if self.interlaced is not None:
                 query_params.append(
-                    (self._lowercase_first_letter('y'), self.y))
-        if self._lowercase_first_letter('rectWidth') in path:
+                    (self._lowercase_first_letter('interlaced'),
+                     self.interlaced))
+        if self._lowercase_first_letter('isPaletteSorted') in path:
             path = path.replace(
                 '{' +
                 self._lowercase_first_letter(
-                    'rectWidth' +
+                    'isPaletteSorted' +
                     '}'),
-                self.rect_width if self.rect_width is not None else '')
+                self.is_palette_sorted if self.is_palette_sorted is not None else '')
         else:
-            if self.rect_width is not None:
+            if self.is_palette_sorted is not None:
                 query_params.append(
-                    (self._lowercase_first_letter('rectWidth'), self.rect_width))
-        if self._lowercase_first_letter('rectHeight') in path:
+                    (self._lowercase_first_letter('isPaletteSorted'),
+                     self.is_palette_sorted))
+        if self._lowercase_first_letter('pixelAspectRatio') in path:
             path = path.replace(
                 '{' +
                 self._lowercase_first_letter(
-                    'rectHeight' +
+                    'pixelAspectRatio' +
                     '}'),
-                self.rect_height if self.rect_height is not None else '')
+                self.pixel_aspect_ratio if self.pixel_aspect_ratio is not None else '')
         else:
-            if self.rect_height is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('rectHeight'), self.rect_height))
-        if self._lowercase_first_letter('rotateFlipMethod') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'rotateFlipMethod' +
-                    '}'),
-                self.rotate_flip_method if self.rotate_flip_method is not None else '')
-        else:
-            if self.rotate_flip_method is not None:
+            if self.pixel_aspect_ratio is not None:
                 query_params.append((self._lowercase_first_letter(
-                    'rotateFlipMethod'), self.rotate_flip_method))
-        if self._lowercase_first_letter('saveOtherFrames') in path:
+                    'pixelAspectRatio'), self.pixel_aspect_ratio))
+        if self._lowercase_first_letter('fromScratch') in path:
             path = path.replace(
                 '{' +
                 self._lowercase_first_letter(
-                    'saveOtherFrames' +
+                    'fromScratch' +
                     '}'),
-                self.save_other_frames if self.save_other_frames is not None else '')
+                self.from_scratch if self.from_scratch is not None else '')
         else:
-            if self.save_other_frames is not None:
+            if self.from_scratch is not None:
                 query_params.append(
-                    (self._lowercase_first_letter('saveOtherFrames'),
-                     self.save_other_frames))
+                    (self._lowercase_first_letter('fromScratch'),
+                     self.from_scratch))
         if self._lowercase_first_letter('folder') in path:
             path = path.replace(
                 '{' +

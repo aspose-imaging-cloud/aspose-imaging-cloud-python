@@ -1,6 +1,6 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
-#  <copyright company="Aspose" file="get_image_frame_request.py">
+#  <copyright company="Aspose" file="modify_tiff_request.py">
 #    Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
@@ -28,21 +28,18 @@ from asposeimagingcloud.models.requests.http_request import HttpRequest
 from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
 
 
-class GetImageFrameRequest(ImagingRequest):
+class ModifyTiffRequest(ImagingRequest):
     """
-    Request model for get_image_frame operation.
+    Request model for modify_tiff operation.
     Initializes a new instance.
 
     :param name Filename of image.
-    :param frame_id Number of a frame.
-    :param new_width New width.
-    :param new_height New height.
-    :param x X position of start point for cropping rectangle.
-    :param y Y position of start point for cropping rectangle.
-    :param rect_width Width of cropping rectangle.
-    :param rect_height Height of cropping rectangle.
-    :param rotate_flip_method RotateFlip method (Rotate180FlipNone, Rotate180FlipX, Rotate180FlipXY, Rotate180FlipY, Rotate270FlipNone, Rotate270FlipX, Rotate270FlipXY, Rotate270FlipY, Rotate90FlipNone, Rotate90FlipX, Rotate90FlipXY, Rotate90FlipY, RotateNoneFlipNone, RotateNoneFlipX, RotateNoneFlipXY, RotateNoneFlipY). Default is RotateNoneFlipNone.
-    :param save_other_frames If result will include all other frames or just a specified frame.
+    :param bit_depth Bit depth.
+    :param compression Compression (none is default). Please, refer to https://apireference.aspose.com/net/imaging/aspose.imaging.fileformats.tiff.enums/tiffcompressions for all possible values.
+    :param resolution_unit New resolution unit (none - the default one, inch or centimeter).
+    :param horizontal_resolution New horizontal resolution.
+    :param vertical_resolution New vertical resolution.
+    :param from_scratch Specifies where additional parameters we do not support should be taken from. If this is true – they will be taken from default values for standard image, if it is false – they will be saved from current image. Default is false.
     :param folder Folder with image to process.
     :param storage Your Aspose Cloud Storage name.
     """
@@ -50,28 +47,22 @@ class GetImageFrameRequest(ImagingRequest):
     def __init__(
             self,
             name,
-            frame_id,
-            new_width=None,
-            new_height=None,
-            x=None,
-            y=None,
-            rect_width=None,
-            rect_height=None,
-            rotate_flip_method=None,
-            save_other_frames=None,
+            bit_depth,
+            compression=None,
+            resolution_unit=None,
+            horizontal_resolution=None,
+            vertical_resolution=None,
+            from_scratch=None,
             folder=None,
             storage=None):
         ImagingRequest.__init__(self)
         self.name = name
-        self.frame_id = frame_id
-        self.new_width = new_width
-        self.new_height = new_height
-        self.x = x
-        self.y = y
-        self.rect_width = rect_width
-        self.rect_height = rect_height
-        self.rotate_flip_method = rotate_flip_method
-        self.save_other_frames = save_other_frames
+        self.bit_depth = bit_depth
+        self.compression = compression
+        self.resolution_unit = resolution_unit
+        self.horizontal_resolution = horizontal_resolution
+        self.vertical_resolution = vertical_resolution
+        self.from_scratch = from_scratch
         self.folder = folder
         self.storage = storage
 
@@ -87,111 +78,90 @@ class GetImageFrameRequest(ImagingRequest):
         # verify the required parameter 'name' is set
         if self.name is None:
             raise ValueError(
-                "Missing the required parameter `name` when calling `get_image_frame`")
-        # verify the required parameter 'frame_id' is set
-        if self.frame_id is None:
+                "Missing the required parameter `name` when calling `modify_tiff`")
+        # verify the required parameter 'bit_depth' is set
+        if self.bit_depth is None:
             raise ValueError(
-                "Missing the required parameter `frame_id` when calling `get_image_frame`")
+                "Missing the required parameter `bit_depth` when calling `modify_tiff`")
 
         collection_formats = {}
-        path = '/imaging/{name}/frames/{frameId}'
+        path = '/imaging/{name}/tiff'
         path_params = {}
         if self.name is not None:
             path_params[self._lowercase_first_letter('name')] = self.name
-        if self.frame_id is not None:
-            path_params[self._lowercase_first_letter(
-                'frameId')] = self.frame_id
 
         query_params = []
-        if self._lowercase_first_letter('newWidth') in path:
+        if self._lowercase_first_letter('bitDepth') in path:
             path = path.replace(
                 '{' +
                 self._lowercase_first_letter(
-                    'newWidth' +
+                    'bitDepth' +
                     '}'),
-                self.new_width if self.new_width is not None else '')
+                self.bit_depth if self.bit_depth is not None else '')
         else:
-            if self.new_width is not None:
+            if self.bit_depth is not None:
                 query_params.append(
-                    (self._lowercase_first_letter('newWidth'), self.new_width))
-        if self._lowercase_first_letter('newHeight') in path:
+                    (self._lowercase_first_letter('bitDepth'), self.bit_depth))
+        if self._lowercase_first_letter('compression') in path:
             path = path.replace(
                 '{' +
                 self._lowercase_first_letter(
-                    'newHeight' +
+                    'compression' +
                     '}'),
-                self.new_height if self.new_height is not None else '')
+                self.compression if self.compression is not None else '')
         else:
-            if self.new_height is not None:
+            if self.compression is not None:
                 query_params.append(
-                    (self._lowercase_first_letter('newHeight'), self.new_height))
-        if self._lowercase_first_letter('x') in path:
+                    (self._lowercase_first_letter('compression'),
+                     self.compression))
+        if self._lowercase_first_letter('resolutionUnit') in path:
             path = path.replace(
                 '{' +
                 self._lowercase_first_letter(
-                    'x' +
+                    'resolutionUnit' +
                     '}'),
-                self.x if self.x is not None else '')
+                self.resolution_unit if self.resolution_unit is not None else '')
         else:
-            if self.x is not None:
+            if self.resolution_unit is not None:
                 query_params.append(
-                    (self._lowercase_first_letter('x'), self.x))
-        if self._lowercase_first_letter('y') in path:
+                    (self._lowercase_first_letter('resolutionUnit'),
+                     self.resolution_unit))
+        if self._lowercase_first_letter('horizontalResolution') in path:
             path = path.replace(
                 '{' +
                 self._lowercase_first_letter(
-                    'y' +
+                    'horizontalResolution' +
                     '}'),
-                self.y if self.y is not None else '')
+                self.horizontal_resolution if self.horizontal_resolution is not None else '')
         else:
-            if self.y is not None:
+            if self.horizontal_resolution is not None:
                 query_params.append(
-                    (self._lowercase_first_letter('y'), self.y))
-        if self._lowercase_first_letter('rectWidth') in path:
+                    (self._lowercase_first_letter('horizontalResolution'),
+                     self.horizontal_resolution))
+        if self._lowercase_first_letter('verticalResolution') in path:
             path = path.replace(
                 '{' +
                 self._lowercase_first_letter(
-                    'rectWidth' +
+                    'verticalResolution' +
                     '}'),
-                self.rect_width if self.rect_width is not None else '')
+                self.vertical_resolution if self.vertical_resolution is not None else '')
         else:
-            if self.rect_width is not None:
+            if self.vertical_resolution is not None:
                 query_params.append(
-                    (self._lowercase_first_letter('rectWidth'), self.rect_width))
-        if self._lowercase_first_letter('rectHeight') in path:
+                    (self._lowercase_first_letter('verticalResolution'),
+                     self.vertical_resolution))
+        if self._lowercase_first_letter('fromScratch') in path:
             path = path.replace(
                 '{' +
                 self._lowercase_first_letter(
-                    'rectHeight' +
+                    'fromScratch' +
                     '}'),
-                self.rect_height if self.rect_height is not None else '')
+                self.from_scratch if self.from_scratch is not None else '')
         else:
-            if self.rect_height is not None:
+            if self.from_scratch is not None:
                 query_params.append(
-                    (self._lowercase_first_letter('rectHeight'), self.rect_height))
-        if self._lowercase_first_letter('rotateFlipMethod') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'rotateFlipMethod' +
-                    '}'),
-                self.rotate_flip_method if self.rotate_flip_method is not None else '')
-        else:
-            if self.rotate_flip_method is not None:
-                query_params.append((self._lowercase_first_letter(
-                    'rotateFlipMethod'), self.rotate_flip_method))
-        if self._lowercase_first_letter('saveOtherFrames') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'saveOtherFrames' +
-                    '}'),
-                self.save_other_frames if self.save_other_frames is not None else '')
-        else:
-            if self.save_other_frames is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('saveOtherFrames'),
-                     self.save_other_frames))
+                    (self._lowercase_first_letter('fromScratch'),
+                     self.from_scratch))
         if self._lowercase_first_letter('folder') in path:
             path = path.replace(
                 '{' +

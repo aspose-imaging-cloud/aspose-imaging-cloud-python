@@ -1,6 +1,6 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
-#  <copyright company="Aspose" file="get_image_frame_request.py">
+#  <copyright company="Aspose" file="modify_web_p_request.py">
 #    Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
@@ -28,21 +28,17 @@ from asposeimagingcloud.models.requests.http_request import HttpRequest
 from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
 
 
-class GetImageFrameRequest(ImagingRequest):
+class ModifyWebPRequest(ImagingRequest):
     """
-    Request model for get_image_frame operation.
+    Request model for modify_web_p operation.
     Initializes a new instance.
 
     :param name Filename of image.
-    :param frame_id Number of a frame.
-    :param new_width New width.
-    :param new_height New height.
-    :param x X position of start point for cropping rectangle.
-    :param y Y position of start point for cropping rectangle.
-    :param rect_width Width of cropping rectangle.
-    :param rect_height Height of cropping rectangle.
-    :param rotate_flip_method RotateFlip method (Rotate180FlipNone, Rotate180FlipX, Rotate180FlipXY, Rotate180FlipY, Rotate270FlipNone, Rotate270FlipX, Rotate270FlipXY, Rotate270FlipY, Rotate90FlipNone, Rotate90FlipX, Rotate90FlipXY, Rotate90FlipY, RotateNoneFlipNone, RotateNoneFlipX, RotateNoneFlipXY, RotateNoneFlipY). Default is RotateNoneFlipNone.
-    :param save_other_frames If result will include all other frames or just a specified frame.
+    :param loss_less If WEBP should be in lossless format.
+    :param quality Quality (0-100).
+    :param anim_loop_count The animation loop count.
+    :param anim_background_color Color of the animation background.
+    :param from_scratch Specifies where additional parameters we do not support should be taken from. If this is true – they will be taken from default values for standard image, if it is false – they will be saved from current image. Default is false.
     :param folder Folder with image to process.
     :param storage Your Aspose Cloud Storage name.
     """
@@ -50,28 +46,20 @@ class GetImageFrameRequest(ImagingRequest):
     def __init__(
             self,
             name,
-            frame_id,
-            new_width=None,
-            new_height=None,
-            x=None,
-            y=None,
-            rect_width=None,
-            rect_height=None,
-            rotate_flip_method=None,
-            save_other_frames=None,
+            loss_less,
+            quality,
+            anim_loop_count,
+            anim_background_color,
+            from_scratch=None,
             folder=None,
             storage=None):
         ImagingRequest.__init__(self)
         self.name = name
-        self.frame_id = frame_id
-        self.new_width = new_width
-        self.new_height = new_height
-        self.x = x
-        self.y = y
-        self.rect_width = rect_width
-        self.rect_height = rect_height
-        self.rotate_flip_method = rotate_flip_method
-        self.save_other_frames = save_other_frames
+        self.loss_less = loss_less
+        self.quality = quality
+        self.anim_loop_count = anim_loop_count
+        self.anim_background_color = anim_background_color
+        self.from_scratch = from_scratch
         self.folder = folder
         self.storage = storage
 
@@ -87,111 +75,89 @@ class GetImageFrameRequest(ImagingRequest):
         # verify the required parameter 'name' is set
         if self.name is None:
             raise ValueError(
-                "Missing the required parameter `name` when calling `get_image_frame`")
-        # verify the required parameter 'frame_id' is set
-        if self.frame_id is None:
+                "Missing the required parameter `name` when calling `modify_web_p`")
+        # verify the required parameter 'loss_less' is set
+        if self.loss_less is None:
             raise ValueError(
-                "Missing the required parameter `frame_id` when calling `get_image_frame`")
+                "Missing the required parameter `loss_less` when calling `modify_web_p`")
+        # verify the required parameter 'quality' is set
+        if self.quality is None:
+            raise ValueError(
+                "Missing the required parameter `quality` when calling `modify_web_p`")
+        # verify the required parameter 'anim_loop_count' is set
+        if self.anim_loop_count is None:
+            raise ValueError(
+                "Missing the required parameter `anim_loop_count` when calling `modify_web_p`")
+        # verify the required parameter 'anim_background_color' is set
+        if self.anim_background_color is None:
+            raise ValueError(
+                "Missing the required parameter `anim_background_color` when calling `modify_web_p`")
 
         collection_formats = {}
-        path = '/imaging/{name}/frames/{frameId}'
+        path = '/imaging/{name}/webp'
         path_params = {}
         if self.name is not None:
             path_params[self._lowercase_first_letter('name')] = self.name
-        if self.frame_id is not None:
-            path_params[self._lowercase_first_letter(
-                'frameId')] = self.frame_id
 
         query_params = []
-        if self._lowercase_first_letter('newWidth') in path:
+        if self._lowercase_first_letter('lossLess') in path:
             path = path.replace(
                 '{' +
                 self._lowercase_first_letter(
-                    'newWidth' +
+                    'lossLess' +
                     '}'),
-                self.new_width if self.new_width is not None else '')
+                self.loss_less if self.loss_less is not None else '')
         else:
-            if self.new_width is not None:
+            if self.loss_less is not None:
                 query_params.append(
-                    (self._lowercase_first_letter('newWidth'), self.new_width))
-        if self._lowercase_first_letter('newHeight') in path:
+                    (self._lowercase_first_letter('lossLess'), self.loss_less))
+        if self._lowercase_first_letter('quality') in path:
             path = path.replace(
                 '{' +
                 self._lowercase_first_letter(
-                    'newHeight' +
+                    'quality' +
                     '}'),
-                self.new_height if self.new_height is not None else '')
+                self.quality if self.quality is not None else '')
         else:
-            if self.new_height is not None:
+            if self.quality is not None:
                 query_params.append(
-                    (self._lowercase_first_letter('newHeight'), self.new_height))
-        if self._lowercase_first_letter('x') in path:
+                    (self._lowercase_first_letter('quality'), self.quality))
+        if self._lowercase_first_letter('animLoopCount') in path:
             path = path.replace(
                 '{' +
                 self._lowercase_first_letter(
-                    'x' +
+                    'animLoopCount' +
                     '}'),
-                self.x if self.x is not None else '')
+                self.anim_loop_count if self.anim_loop_count is not None else '')
         else:
-            if self.x is not None:
+            if self.anim_loop_count is not None:
                 query_params.append(
-                    (self._lowercase_first_letter('x'), self.x))
-        if self._lowercase_first_letter('y') in path:
+                    (self._lowercase_first_letter('animLoopCount'),
+                     self.anim_loop_count))
+        if self._lowercase_first_letter('animBackgroundColor') in path:
             path = path.replace(
                 '{' +
                 self._lowercase_first_letter(
-                    'y' +
+                    'animBackgroundColor' +
                     '}'),
-                self.y if self.y is not None else '')
+                self.anim_background_color if self.anim_background_color is not None else '')
         else:
-            if self.y is not None:
+            if self.anim_background_color is not None:
                 query_params.append(
-                    (self._lowercase_first_letter('y'), self.y))
-        if self._lowercase_first_letter('rectWidth') in path:
+                    (self._lowercase_first_letter('animBackgroundColor'),
+                     self.anim_background_color))
+        if self._lowercase_first_letter('fromScratch') in path:
             path = path.replace(
                 '{' +
                 self._lowercase_first_letter(
-                    'rectWidth' +
+                    'fromScratch' +
                     '}'),
-                self.rect_width if self.rect_width is not None else '')
+                self.from_scratch if self.from_scratch is not None else '')
         else:
-            if self.rect_width is not None:
+            if self.from_scratch is not None:
                 query_params.append(
-                    (self._lowercase_first_letter('rectWidth'), self.rect_width))
-        if self._lowercase_first_letter('rectHeight') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'rectHeight' +
-                    '}'),
-                self.rect_height if self.rect_height is not None else '')
-        else:
-            if self.rect_height is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('rectHeight'), self.rect_height))
-        if self._lowercase_first_letter('rotateFlipMethod') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'rotateFlipMethod' +
-                    '}'),
-                self.rotate_flip_method if self.rotate_flip_method is not None else '')
-        else:
-            if self.rotate_flip_method is not None:
-                query_params.append((self._lowercase_first_letter(
-                    'rotateFlipMethod'), self.rotate_flip_method))
-        if self._lowercase_first_letter('saveOtherFrames') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'saveOtherFrames' +
-                    '}'),
-                self.save_other_frames if self.save_other_frames is not None else '')
-        else:
-            if self.save_other_frames is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('saveOtherFrames'),
-                     self.save_other_frames))
+                    (self._lowercase_first_letter('fromScratch'),
+                     self.from_scratch))
         if self._lowercase_first_letter('folder') in path:
             path = path.replace(
                 '{' +
