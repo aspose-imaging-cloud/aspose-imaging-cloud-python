@@ -33,8 +33,8 @@ from test.api import ImagingApiTester
 class TestUpdateImageApi(ImagingApiTester):
     """ Class for testing UpdateImageAPI """
 
-    def test_get_image_update(self):
-        """ Test get_image_update """
+    def test_update_image(self):
+        """ Test update_image """
 
         additional_export_formats = set()
         if not self.EXTENDED_TEST:
@@ -50,16 +50,9 @@ class TestUpdateImageApi(ImagingApiTester):
                 '.psd',
                 '.tiff',
                 '.webp']
-        save_result_to_storage_test_cases = [True, False]
 
-        for (
-                save_result_to_storage,
-                format_extension) in list(
-                product(
-                save_result_to_storage_test_cases,
-                format_extension_test_cases)):
-            with self.subTest('save_result_to_storage: ' + str(save_result_to_storage)) and \
-                    self.subTest('format_extension: ' + str(format_extension)):
+        for format_extension in format_extension_test_cases:
+            with self.subTest('format_extension: ' + str(format_extension)):
                 new_width = 300
                 new_height = 450
                 x = 10
@@ -73,10 +66,10 @@ class TestUpdateImageApi(ImagingApiTester):
                 formats_to_export = set(
                     self.basic_export_formats).union(additional_export_formats)
 
-                def request_invoker(file_name, out_path):
-                    return self.imaging_api.get_image_update(
-                        requests.GetImageUpdateRequest(
-                            file_name,
+                def request_invoker():
+                    return self.imaging_api.update_image(
+                        requests.UpdateImageRequest(
+                            name,
                             format,
                             new_width,
                             new_height,
@@ -85,7 +78,6 @@ class TestUpdateImageApi(ImagingApiTester):
                             rect_width,
                             rect_height,
                             rotate_flip_method,
-                            out_path,
                             folder,
                             storage))
 
@@ -106,8 +98,7 @@ class TestUpdateImageApi(ImagingApiTester):
                         out_name = '{0}_crop.{1}'.format(name, format)
 
                         self.get_request_tester(
-                            'GetImageUpdateTest',
-                            save_result_to_storage,
+                            'UpdateImageTest',
                             'Input image: {0}; Output format: {1}; New width: {2}; New height: {3}; '
                             'Rotate/flip method: {4}; X: {5}; Y: {6}; Rect width: {7}; Rect height: '
                             '{8}'.format(
@@ -121,14 +112,13 @@ class TestUpdateImageApi(ImagingApiTester):
                                 rect_width,
                                 rect_height),
                             name,
-                            out_name,
                             request_invoker,
                             properties_tester,
                             folder,
                             storage)
 
-    def test_post_image_update(self):
-        """ Test post_image_update """
+    def test_create_updated_image(self):
+        """ Test create_updated_image """
 
         additional_export_formats = set()
         if not self.EXTENDED_TEST:
@@ -144,6 +134,7 @@ class TestUpdateImageApi(ImagingApiTester):
                 '.psd',
                 '.tiff',
                 '.webp']
+
         save_result_to_storage_test_cases = [True, False]
 
         for (
@@ -168,8 +159,8 @@ class TestUpdateImageApi(ImagingApiTester):
                     self.basic_export_formats).union(additional_export_formats)
 
                 def request_invoker(input_stream, out_path):
-                    return self.imaging_api.post_image_update(
-                        requests.PostImageUpdateRequest(
+                    return self.imaging_api.create_updated_image(
+                        requests.CreateUpdatedImageRequest(
                             input_stream,
                             format,
                             new_width,
@@ -199,7 +190,7 @@ class TestUpdateImageApi(ImagingApiTester):
                         out_name = '{0}_crop.{1}'.format(name, format)
 
                         self.post_request_tester(
-                            'PostImageUpdateTest',
+                            'CreateUpdatedImageTest',
                             save_result_to_storage,
                             'Input image: {0}; Output format: {1}; New width: {2}; '
                             'New height: {3}; Rotate/flip method: {4}; X: {5}; Y: {6}; '

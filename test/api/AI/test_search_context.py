@@ -28,12 +28,12 @@ import os
 
 import six
 
-from asposeimagingcloud import GetSearchContextStatusRequest, \
-    DownloadFileRequest, PostSearchContextAddImageRequest, ObjectExistsRequest, \
-    GetSearchContextImageRequest, PostSearchContextExtractImageFeaturesRequest, \
-    GetSearchContextImageFeaturesRequest, DeleteSearchContextImageRequest, \
-    PutSearchContextImageRequest, GetSearchContextExtractImageFeaturesRequest, \
-    PutSearchContextImageFeaturesRequest
+from asposeimagingcloud import GetImageSearchStatusRequest, \
+    DownloadFileRequest, AddSearchImageRequest, ObjectExistsRequest, \
+    GetSearchImageRequest, CreateImageFeaturesRequest, \
+    GetImageFeaturesRequest, DeleteImageSearchRequest, \
+    UpdateSearchImageRequest, ExtractImageFeaturesRequest, \
+    UpdateImageFeaturesRequest
 from asposeimagingcloud.rest import ApiException
 from test.api.AI.ai_api_tester import AiApiTester
 
@@ -52,17 +52,17 @@ class TestSearchContext(AiApiTester):
                                     lambda: self.assertIsNotNone(
                                         self.search_context_id))
 
-    def test_delete_search_context(self):
+    def test_delete_image_search(self):
         def test():
-            self._delete_search_context(self.search_context_id)
+            self._delete_image_search(self.search_context_id)
 
             self.assertRaises(ApiException,
-                              self.imaging_api.get_search_context_status,
-                              GetSearchContextStatusRequest(
+                              self.imaging_api.get_image_search_status,
+                              GetImageSearchStatusRequest(
                                   self.search_context_id,
                                   storage=self.test_storage))
 
-        self._run_test_with_logging('DeleteSearchContextTest', test)
+        self._run_test_with_logging('DeleteImageSearchTest', test)
 
     def test_add_image(self):
         self._run_test_with_logging('AddImageTest',
@@ -75,14 +75,14 @@ class TestSearchContext(AiApiTester):
 
             dest_server_path = self.temp_folder + '/' + image
 
-            self.imaging_api.delete_search_context_image(
-                DeleteSearchContextImageRequest(self.search_context_id,
+            self.imaging_api.delete_image_search_image(
+                DeleteImageSearchRequest(self.search_context_id,
                                                 dest_server_path,
                                                 storage=self.test_storage))
 
             self.assertRaises(ApiException,
-                              self.imaging_api.get_search_context_image,
-                              GetSearchContextImageRequest(
+                              self.imaging_api.get_search_image,
+                              GetSearchImageRequest(
                                   self.search_context_id, dest_server_path,
                                   storage=self.test_storage))
 
@@ -114,8 +114,8 @@ class TestSearchContext(AiApiTester):
                 DownloadFileRequest(storage_path, self.test_storage))
             self.assertIsNotNone(image_stream)
 
-            self.imaging_api.put_search_context_image(
-                PutSearchContextImageRequest(self.search_context_id,
+            self.imaging_api.update_search_image(
+                UpdateSearchImageRequest(self.search_context_id,
                                              dest_server_path, image_stream,
                                              storage=self.test_storage))
 
@@ -131,8 +131,8 @@ class TestSearchContext(AiApiTester):
             dest_server_path = self.temp_folder + '/' + image
 
             response = \
-                self.imaging_api.get_search_context_extract_image_features(
-                    GetSearchContextExtractImageFeaturesRequest(
+                self.imaging_api.extract_image_features(
+                    ExtractImageFeaturesRequest(
                         self.search_context_id, dest_server_path,
                         storage=self.test_storage))
 
@@ -149,16 +149,16 @@ class TestSearchContext(AiApiTester):
     @unittest.skip('IMAGINGNET-107')
     def test_extract_and_add_image_features_from_folder_test(self):
         def test():
-            self.imaging_api.post_search_context_extract_image_features(
-                PostSearchContextExtractImageFeaturesRequest(
+            self.imaging_api.create_image_features(
+                CreateImageFeaturesRequest(
                     self.search_context_id,
                     images_folder=self.original_data_folder + '/FindSimilar',
                     storage=self.test_storage))
 
             self.wait_timeout()
 
-            response = self.imaging_api.get_search_context_image_features(
-                GetSearchContextImageFeaturesRequest(
+            response = self.imaging_api.get_image_features(
+                GetImageFeaturesRequest(
                     self.search_context_id,
                     self.original_data_folder + '/FindSimilar/3.jpg',
                     storage=self.test_storage))
@@ -186,14 +186,14 @@ class TestSearchContext(AiApiTester):
             self.__add_image_features(image)
             dest_server_path = self.temp_folder + '/' + image
 
-            self.imaging_api.delete_search_context_image(
-                DeleteSearchContextImageRequest(self.search_context_id,
+            self.imaging_api.delete_image_search_image(
+                DeleteImageSearchRequest(self.search_context_id,
                                                 dest_server_path,
                                                 storage=self.test_storage))
 
             self.assertRaises(ApiException,
-                              self.imaging_api.get_search_context_image,
-                              GetSearchContextImageRequest(
+                              self.imaging_api.get_search_image,
+                              GetSearchImageRequest(
                                   self.search_context_id, dest_server_path,
                                   storage=self.test_storage))
 
@@ -214,8 +214,8 @@ class TestSearchContext(AiApiTester):
                 DownloadFileRequest(storage_path, self.test_storage))
             self.assertIsNotNone(image_stream)
 
-            self.imaging_api.put_search_context_image_features(
-                PutSearchContextImageFeaturesRequest(
+            self.imaging_api.update_image_features(
+                UpdateImageFeaturesRequest(
                     self.search_context_id,
                     dest_server_path,
                     image_stream,
@@ -234,8 +234,8 @@ class TestSearchContext(AiApiTester):
             DownloadFileRequest(storage_path, self.test_storage))
         self.assertIsNotNone(image_stream)
 
-        self.imaging_api.post_search_context_add_image(
-            PostSearchContextAddImageRequest(self.search_context_id,
+        self.imaging_api.add_search_image(
+            AddSearchImageRequest(self.search_context_id,
                                              dest_server_path, image_stream,
                                              storage=self.test_storage))
 
@@ -247,8 +247,8 @@ class TestSearchContext(AiApiTester):
 
     def __get_image(self, image):
         dest_server_path = self.temp_folder + '/' + image
-        response = self.imaging_api.get_search_context_image(
-            GetSearchContextImageRequest(self.search_context_id,
+        response = self.imaging_api.get_search_image(
+            GetSearchImageRequest(self.search_context_id,
                                          dest_server_path,
                                          storage=self.test_storage))
 
@@ -257,15 +257,15 @@ class TestSearchContext(AiApiTester):
     def __add_image_features(self, image):
         dest_server_path = self.original_data_folder + '/' + image
 
-        self.imaging_api.post_search_context_extract_image_features(
-            PostSearchContextExtractImageFeaturesRequest(
+        self.imaging_api.create_image_features(
+            CreateImageFeaturesRequest(
                 self.search_context_id, image_id=dest_server_path,
                 storage=self.test_storage))
 
     def __get_image_features(self, image):
         dest_server_path = self.original_data_folder + '/' + image
-        response = self.imaging_api.get_search_context_image_features(
-            GetSearchContextImageFeaturesRequest(self.search_context_id,
+        response = self.imaging_api.get_image_features(
+            GetImageFeaturesRequest(self.search_context_id,
                                                  image_id=dest_server_path,
                                                  storage=self.test_storage))
 

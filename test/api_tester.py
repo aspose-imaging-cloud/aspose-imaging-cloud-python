@@ -67,8 +67,7 @@ class ApiTester(unittest.TestCase):
                                      'png',
                                      'psd',
                                      'tiff',
-                                     'webp',
-                                     'pdf']
+                                     'webp']
 
         self.test_storage = os.environ.get('StorageName')
         if not self.test_storage:
@@ -231,14 +230,13 @@ class ApiTester(unittest.TestCase):
                         "Result isn't present in the storage by an unknown reason.".format(
                             result_file_name, folder))
 
-                if not str(result_file_name).endswith('.pdf'):
-                    result_properties = self.imaging_api.get_image_properties(
-                        requests.GetImagePropertiesRequest(result_file_name, folder, storage))
-                    self.assertIsNotNone(result_properties)
-            elif "v1." not in self.imaging_api.api_client.configuration.host and not str(result_file_name).endswith(
-                    'pdf'):
-                result_properties = self.imaging_api.post_image_properties(
-                    requests.PostImagePropertiesRequest(response))
+                result_properties = self.imaging_api.get_image_properties(
+                    requests.GetImagePropertiesRequest(result_file_name,
+                                                       folder, storage))
+                self.assertIsNotNone(result_properties)
+            else:
+                result_properties = self.imaging_api.extract_image_properties(
+                    requests.ExtractImagePropertiesRequest(response))
                 self.assertIsNotNone(result_properties)
 
             original_properties = self.imaging_api.get_image_properties(
@@ -268,10 +266,8 @@ class ApiTester(unittest.TestCase):
     def get_request_tester(
             self,
             test_method_name,
-            save_result_to_storage,
             parameters_line,
             input_file_name,
-            result_file_name,
             request_invoker,
             properties_tester,
             folder,
@@ -281,16 +277,11 @@ class ApiTester(unittest.TestCase):
 
         self.__request_tester(
             test_method_name,
-            save_result_to_storage,
+            False,
             parameters_line,
             input_file_name,
-            result_file_name,
-            lambda: self._obtain_get_response(
-                input_file_name,
-                os.path.join(
-                    folder,
-                    result_file_name) if save_result_to_storage else None,
-                request_invoker),
+            None,
+            lambda: self._obtain_get_response(request_invoker),
             properties_tester,
             folder,
             storage)
@@ -342,13 +333,12 @@ class ApiTester(unittest.TestCase):
                 return storage_file_info
         return None
 
-    def _obtain_get_response(self, input_file_name, out_path, request_invoker):
-        response = request_invoker(input_file_name, out_path)
-        if out_path:
-            return None
+    def _obtain_get_response(self, request_invoker):
+        response = request_invoker()
 
         self.assertIsNotNone(response)
         self.assertGreater(os.path.getsize(response), 0)
+
         return response
 
     def _obtain_post_response(

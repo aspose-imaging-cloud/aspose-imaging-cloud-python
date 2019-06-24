@@ -33,8 +33,8 @@ from test.api import ImagingApiTester
 class TestResizeApi(ImagingApiTester):
     """ Class for testing ResizeAPI"""
 
-    def test_get_image_resize(self):
-        """  Test get_image_resize """
+    def test_resize_image(self):
+        """  Test resize_image """
 
         additional_export_formats = set()
         if not self.EXTENDED_TEST:
@@ -50,16 +50,9 @@ class TestResizeApi(ImagingApiTester):
                 '.psd',
                 '.tiff',
                 '.webp']
-        save_result_to_storage_test_cases = [True, False]
 
-        for (
-                save_result_to_storage,
-                format_extension) in list(
-                product(
-                save_result_to_storage_test_cases,
-                format_extension_test_cases)):
-            with self.subTest('save_result_to_storage: ' + str(save_result_to_storage)) and \
-                    self.subTest('format_extension: ' + str(format_extension)):
+        for format_extension in format_extension_test_cases:
+            with self.subTest('format_extension: ' + str(format_extension)):
 
                 new_width = 100
                 new_height = 150
@@ -69,9 +62,11 @@ class TestResizeApi(ImagingApiTester):
                 formats_to_export = set(
                     self.basic_export_formats).union(additional_export_formats)
 
-                def request_invoker(file_name, out_path):
-                    return self.imaging_api.get_image_resize(requests.GetImageResizeRequest(
-                        file_name, format, new_width, new_height, out_path, folder, storage))
+                def request_invoker():
+                    return self.imaging_api.resize_image(
+                        requests.ResizeImageRequest(
+                            name, format, new_width, new_height, folder,
+                            storage))
 
                 def properties_tester(
                         original_properties,
@@ -90,8 +85,7 @@ class TestResizeApi(ImagingApiTester):
                         out_name = '{0}_crop.{1}'.format(name, format)
 
                         self.get_request_tester(
-                            'GetImageResizeTest',
-                            save_result_to_storage,
+                            'ResizeImageTest',
                             'Input image: {0}; Output format: {1}; New width: {2}; New height: '
                             '{3};'.format(
                                 name,
@@ -99,14 +93,13 @@ class TestResizeApi(ImagingApiTester):
                                 new_width,
                                 new_height),
                             name,
-                            out_name,
                             request_invoker,
                             properties_tester,
                             folder,
                             storage)
 
-    def test_post_image_resize(self):
-        """ Test post_image_resize """
+    def test_create_resized_image(self):
+        """ Test create_resized_image """
 
         additional_export_formats = set()
         if not self.EXTENDED_TEST:
@@ -122,6 +115,7 @@ class TestResizeApi(ImagingApiTester):
                 '.psd',
                 '.tiff',
                 '.webp']
+
         save_result_to_storage_test_cases = [True, False]
 
         for (
@@ -132,7 +126,6 @@ class TestResizeApi(ImagingApiTester):
                 format_extension_test_cases)):
             with self.subTest('save_result_to_storage: ' + str(save_result_to_storage)) and \
                     self.subTest('format_extension: ' + str(format_extension)):
-
                 new_width = 100
                 new_height = 150
                 folder = self.temp_folder
@@ -142,7 +135,8 @@ class TestResizeApi(ImagingApiTester):
                     self.basic_export_formats).union(additional_export_formats)
 
                 def request_invoker(input_stream, out_path):
-                    return self.imaging_api.post_image_resize(requests.PostImageResizeRequest(
+                    return self.imaging_api.create_resized_image(
+                        requests.CreateResizedImageRequest(
                         input_stream, format, new_width, new_height, out_path, storage))
 
                 def properties_tester(
@@ -162,7 +156,7 @@ class TestResizeApi(ImagingApiTester):
                         out_name = '{0}_crop.{1}'.format(name, format)
 
                         self.post_request_tester(
-                            'PostImageResizeTest',
+                            'CreateResizedImageTest',
                             save_result_to_storage,
                             'Input image: {0}; Output format: {1}; New width: {2}; New height: '
                             '{3};'.format(

@@ -27,9 +27,9 @@
 import os
 import time
 
-from asposeimagingcloud import PostCreateSearchContextRequest, \
-    DeleteSearchContextRequest, ObjectExistsRequest, DeleteFolderRequest, \
-    PostSearchContextExtractImageFeaturesRequest, GetSearchContextStatusRequest
+from asposeimagingcloud import CreateImageSearchRequest, \
+    DeleteImageSearchRequest, ObjectExistsRequest, DeleteFolderRequest, \
+    CreateImageFeaturesRequest, GetImageSearchStatusRequest
 from test.api_tester import ApiTester
 
 
@@ -44,7 +44,7 @@ class AiApiTester(ApiTester):
 
     def tearDown(self):
         if self.search_context_id:
-            self._delete_search_context(self.search_context_id)
+            self._delete_image_search(self.search_context_id)
 
         if self.imaging_api.object_exists(
                 ObjectExistsRequest(self.temp_folder,
@@ -58,24 +58,24 @@ class AiApiTester(ApiTester):
 
     def _add_image_features_to_search_context(self, storage_source_path,
                                               is_folder=False):
-        request = PostSearchContextExtractImageFeaturesRequest(
+        request = CreateImageFeaturesRequest(
             self.search_context_id, images_folder=storage_source_path,
             storage=self.test_storage) if is_folder else \
-            PostSearchContextExtractImageFeaturesRequest(
+            CreateImageFeaturesRequest(
                 self.search_context_id, image_id=storage_source_path,
                 storage=self.test_storage)
 
-        self.imaging_api.post_search_context_extract_image_features(request)
+        self.imaging_api.create_image_features(request)
 
         self._wait_search_context_idle()
 
     def __create_search_context(self):
-        return self.imaging_api.post_create_search_context(
-            PostCreateSearchContextRequest(storage=self.test_storage)).id
+        return self.imaging_api.create_image_search(
+            CreateImageSearchRequest(storage=self.test_storage)).id
 
-    def _delete_search_context(self, search_contextId):
-        self.imaging_api.delete_search_context(
-            DeleteSearchContextRequest(self.search_context_id,
+    def _delete_image_search(self, search_contextId):
+        self.imaging_api.delete_image_search(
+            DeleteImageSearchRequest(self.search_context_id,
                                        storage=self.test_storage))
 
     def _wait_search_context_idle(self, max_time=None):
@@ -85,8 +85,8 @@ class AiApiTester(ApiTester):
         timeout = 10
         start_time = time.time()
 
-        while self.imaging_api.get_search_context_status(
-                GetSearchContextStatusRequest(
+        while self.imaging_api.get_image_search_status(
+                GetImageSearchStatusRequest(
                     self.search_context_id,
                     storage=self.test_storage)).search_status != 'Idle' \
                 and time.time() - start_time < max_time:

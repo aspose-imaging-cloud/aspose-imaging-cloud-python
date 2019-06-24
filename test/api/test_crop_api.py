@@ -33,8 +33,8 @@ from test.api.imaging_api_tester import ImagingApiTester
 class TestCropApi(ImagingApiTester):
     """ Class for testing CropAPI """
 
-    def test_get_image_crop(self):
-        """ Test get_image_crop """
+    def test_crop_image(self):
+        """ Test crop_image """
 
         additional_export_formats = set()
         if not self.EXTENDED_TEST:
@@ -50,17 +50,9 @@ class TestCropApi(ImagingApiTester):
                 '.psd',
                 '.tiff',
                 '.webp']
-        save_result_to_storage_test_cases = [True, False]
 
-        for (
-                save_result_to_storage,
-                format_extension) in list(
-                product(
-                save_result_to_storage_test_cases,
-                format_extension_test_cases)):
-            with self.subTest('save_result_to_storage: ' + str(save_result_to_storage)) and \
-                    self.subTest('format_extension: ' + str(format_extension)):
-
+        for format_extension in format_extension_test_cases:
+            with self.subTest('format_extension: ' + str(format_extension)):
                 x = 10
                 y = 10
                 width = 100
@@ -71,9 +63,11 @@ class TestCropApi(ImagingApiTester):
                 formats_to_export = set(
                     self.basic_export_formats).union(additional_export_formats)
 
-                def request_invoker(file_name, out_path):
-                    return self.imaging_api.get_image_crop(requests.GetImageCropRequest(
-                        file_name, format, x, y, width, height, out_path, folder, storage))
+                def request_invoker():
+                    return self.imaging_api.crop_image(
+                        requests.CropImageRequest(
+                            name, format, x, y, width, height, folder,
+                            storage))
 
                 def properties_tester(
                         original_properties,
@@ -89,11 +83,8 @@ class TestCropApi(ImagingApiTester):
                     name = input_file.name
 
                     for format in formats_to_export:
-                        out_name = '{0}_crop.{1}'.format(name, format)
-
                         self.get_request_tester(
-                            'GetImageCropTest',
-                            save_result_to_storage,
+                            'CropImageTest',
                             'Input image: {0}; Output format: {1}; Width: {2}; Height: {3}; X: {4};'
                             ' Y: {5}'.format(
                                 name,
@@ -103,14 +94,13 @@ class TestCropApi(ImagingApiTester):
                                 x,
                                 y),
                             name,
-                            out_name,
                             request_invoker,
                             properties_tester,
                             folder,
                             storage)
 
-    def test_post_image_crop(self):
-        """ Test post_image_crop"""
+    def test_create_cropped_image(self):
+        """ Test create_cropped_image"""
 
         additional_export_formats = set()
         if not self.EXTENDED_TEST:
@@ -126,6 +116,7 @@ class TestCropApi(ImagingApiTester):
                 '.psd',
                 '.tiff',
                 '.webp']
+
         save_result_to_storage_test_cases = [True, False]
 
         for (
@@ -136,7 +127,6 @@ class TestCropApi(ImagingApiTester):
                 format_extension_test_cases)):
             with self.subTest('save_result_to_storage: ' + str(save_result_to_storage)) and \
                     self.subTest('format_extension: ' + str(format_extension)):
-
                 x = 10
                 y = 10
                 width = 100
@@ -148,7 +138,8 @@ class TestCropApi(ImagingApiTester):
                     self.basic_export_formats).union(additional_export_formats)
 
                 def request_invoker(input_stream, out_path):
-                    return self.imaging_api.post_image_crop(requests.PostImageCropRequest(
+                    return self.imaging_api.create_cropped_image(
+                        requests.CreateCroppedImageRequest(
                         input_stream, format, x, y, width, height, out_path, storage))
 
                 def properties_tester(
@@ -168,7 +159,7 @@ class TestCropApi(ImagingApiTester):
                         out_name = '{0}_crop.{1}'.format(name, format)
 
                         self.post_request_tester(
-                            'PostImageCropTest',
+                            'CreateCroppedImageTest',
                             save_result_to_storage,
                             'Input image: {0}; Output format: {1}; Width: {2}; Height: {3}; X: {4};'
                             ' Y: {5}'.format(

@@ -24,7 +24,7 @@
 #  </summary>
 #  ----------------------------------------------------------------------------
 
-from asposeimagingcloud import PostSearchContextCompareImagesRequest, \
+from asposeimagingcloud import CompareImagesRequest, \
     DownloadFileRequest
 from test.api.AI.ai_api_tester import AiApiTester
 
@@ -43,8 +43,8 @@ class TestCompareImages(AiApiTester):
                 self.COMPARING_IMAGE_SIMILAR_MORE_75)
             self._add_image_features_to_search_context(image2)
 
-            response = self.imaging_api.post_search_context_compare_images(
-                PostSearchContextCompareImagesRequest(
+            response = self.imaging_api.compare_images(
+                CompareImagesRequest(
                     self.search_context_id,
                     image_id1=image1,
                     image_id2=image2,
@@ -68,8 +68,8 @@ class TestCompareImages(AiApiTester):
                 DownloadFileRequest(storage_path, self.test_storage))
             self.assertIsNotNone(image_stream)
 
-            response = self.imaging_api.post_search_context_compare_images(
-                PostSearchContextCompareImagesRequest(self.search_context_id,
+            response = self.imaging_api.compare_images(
+                CompareImagesRequest(self.search_context_id,
                                                       image_id1=image,
                                                       image_data=image_stream,
                                                       storage=self.test_storage))

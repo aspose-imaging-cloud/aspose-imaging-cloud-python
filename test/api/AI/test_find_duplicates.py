@@ -24,7 +24,7 @@
 #  </summary>
 #  ----------------------------------------------------------------------------
 
-from asposeimagingcloud import GetSearchContextFindDuplicatesRequest
+from asposeimagingcloud import FindImageDuplicatesRequest
 from test.api.AI.ai_api_tester import AiApiTester
 
 
@@ -49,8 +49,8 @@ class TestFindDuplicates(AiApiTester):
                 self.COMPARING_IMAGE_SIMILAR_MORE_75)
             self._add_image_features_to_search_context(image)
 
-            response = self.imaging_api.get_search_context_find_duplicates(
-                GetSearchContextFindDuplicatesRequest(self.search_context_id,
+            response = self.imaging_api.find_image_duplicates(
+                FindImageDuplicatesRequest(self.search_context_id,
                                                       similarity_threshold=80,
                                                       storage=self.test_storage))
             self.assertEqual(1, len(response.duplicates))

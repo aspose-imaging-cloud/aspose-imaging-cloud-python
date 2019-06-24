@@ -33,8 +33,8 @@ from test.api import ImagingApiTester
 class TestRotateFlipApi(ImagingApiTester):
     """ Class for testing RotateFlipApi """
 
-    def test_get_image_rotate_flip(self):
-        """ Test get_image_rotate_flip """
+    def test_rotate_flip_image(self):
+        """ Test rotate_flip_image """
 
         additional_export_formats = set()
         if not self.EXTENDED_TEST:
@@ -50,16 +50,9 @@ class TestRotateFlipApi(ImagingApiTester):
                 '.psd',
                 '.tiff',
                 '.webp']
-        save_result_to_storage_test_cases = [True, False]
 
-        for (
-                save_result_to_storage,
-                format_extension) in list(
-                product(
-                save_result_to_storage_test_cases,
-                format_extension_test_cases)):
-            with self.subTest('save_result_to_storage: ' + str(save_result_to_storage)) and \
-                    self.subTest('format_extension: ' + str(format_extension)):
+        for format_extension in format_extension_test_cases:
+            with self.subTest('format_extension: ' + str(format_extension)):
 
                 method = 'Rotate90FlipX'
                 folder = self.temp_folder
@@ -68,10 +61,10 @@ class TestRotateFlipApi(ImagingApiTester):
                 formats_to_export = set(
                     self.basic_export_formats).union(additional_export_formats)
 
-                def request_invoker(file_name, out_path):
-                    return self.imaging_api.get_image_rotate_flip(
-                        requests.GetImageRotateFlipRequest(
-                            file_name, format, method, out_path, folder, storage))
+                def request_invoker():
+                    return self.imaging_api.rotate_flip_image(
+                        requests.RotateFlipImageRequest(
+                            name, format, method, folder, storage))
 
                 def properties_tester(
                         original_properties,
@@ -105,22 +98,20 @@ class TestRotateFlipApi(ImagingApiTester):
                         out_name = '{0}_crop.{1}'.format(name, format)
 
                         self.get_request_tester(
-                            'GetImageRotateFlipTest',
-                            save_result_to_storage,
+                            'RotateFlipImageTest',
                             'Input image: {0}; Output format: {1}; Method: '
                             '{2}'.format(
                                 name,
                                 format,
                                 method),
                             name,
-                            out_name,
                             request_invoker,
                             properties_tester,
                             folder,
                             storage)
 
-    def test_post_image_rotate_flip(self):
-        """ Test post_image_rotate_flip """
+    def test_create_rotate_flipped_image(self):
+        """ Test create_rotate_flipped_image """
 
         additional_export_formats = set()
         if not self.EXTENDED_TEST:
@@ -136,6 +127,7 @@ class TestRotateFlipApi(ImagingApiTester):
                 '.psd',
                 '.tiff',
                 '.webp']
+
         save_result_to_storage_test_cases = [True, False]
 
         for (
@@ -146,7 +138,6 @@ class TestRotateFlipApi(ImagingApiTester):
                 format_extension_test_cases)):
             with self.subTest('save_result_to_storage: ' + str(save_result_to_storage)) and \
                     self.subTest('format_extension: ' + str(format_extension)):
-
                 method = 'Rotate90FlipX'
                 folder = self.temp_folder
                 storage = self.test_storage
@@ -159,8 +150,8 @@ class TestRotateFlipApi(ImagingApiTester):
                     if out_path:
                         kwargs["out_path"] = out_path
 
-                    return self.imaging_api.post_image_rotate_flip(
-                        requests.PostImageRotateFlipRequest(
+                    return self.imaging_api.create_rotate_flipped_image(
+                        requests.CreateRotateFlippedImageRequest(
                             input_stream, format, method, out_path, storage))
 
                 def properties_tester(
@@ -195,7 +186,7 @@ class TestRotateFlipApi(ImagingApiTester):
                         out_name = '{0}_crop.{1}'.format(name, format)
 
                         self.post_request_tester(
-                            'PostImageRotateFlipTest',
+                            'CreateRotateFlippedImageTest',
                             save_result_to_storage,
                             'Input image: {0}; Output format: {1}; Method: '
                             '{2}'.format(

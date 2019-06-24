@@ -65,8 +65,8 @@ class TestFramesPostApi(ImagingApiTester):
                     if out_path:
                         kwargs["out_path"] = out_path
 
-                    return self.imaging_api.post_image_frame(
-                        requests.PostImageFrameRequest(
+                    return self.imaging_api.create_image_frame(
+                        requests.CreateImageFrameRequest(
                             input_stream,
                             frame_id,
                             new_width,
@@ -112,8 +112,9 @@ class TestFramesPostApi(ImagingApiTester):
                         frame_properties = self.imaging_api.get_image_frame_properties(
                             requests.GetImageFramePropertiesRequest(out_name, 0, folder, storage))
                     else:
-                        frame_properties = self.imaging_api.post_image_frame_properties(
-                            requests.PostImageFramePropertiesRequest(result_stream, 0))
+                        frame_properties = self.imaging_api.extract_image_frame_properties(
+                            requests.ExtractImageFramePropertiesRequest(
+                                result_stream, 0))
 
                     self.assertIsNotNone(frame_properties)
                     self.assertIsNotNone(frame_properties.tiff_properties)
@@ -191,8 +192,8 @@ class TestFramesPostApi(ImagingApiTester):
                     if out_path:
                         kwargs["out_path"] = out_path
 
-                    return self.imaging_api.post_image_frame(
-                        requests.PostImageFrameRequest(
+                    return self.imaging_api.create_image_frame(
+                        requests.CreateImageFrameRequest(
                             input_stream,
                             frame_id,
                             new_width,
