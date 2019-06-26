@@ -24,8 +24,7 @@
 #  </summary>
 #  ----------------------------------------------------------------------------
 
-#
-#
+
 class HttpRequest(object):
 
     def __init__(self, resource_path, path_params, query_params, header_params,
