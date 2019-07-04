@@ -83,8 +83,7 @@ class DiscUsage(object):
         :type: int
         """
         if used_size is None:
-            raise ValueError(
-                "Invalid value for `used_size`, must not be `None`")
+            raise ValueError("Invalid value for `used_size`, must not be `None`")
         self._used_size = used_size
 
     @property
@@ -108,8 +107,7 @@ class DiscUsage(object):
         :type: int
         """
         if total_size is None:
-            raise ValueError(
-                "Invalid value for `total_size`, must not be `None`")
+            raise ValueError("Invalid value for `total_size`, must not be `None`")
         self._total_size = total_size
 
     def to_dict(self):

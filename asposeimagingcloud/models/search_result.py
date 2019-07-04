@@ -105,8 +105,7 @@ class SearchResult(object):
         :type: float
         """
         if similarity is None:
-            raise ValueError(
-                "Invalid value for `similarity`, must not be `None`")
+            raise ValueError("Invalid value for `similarity`, must not be `None`")
         self._similarity = similarity
 
     def to_dict(self):

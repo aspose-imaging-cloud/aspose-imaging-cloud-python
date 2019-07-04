@@ -24,8 +24,8 @@
 #  </summary>
 #  ----------------------------------------------------------------------------
 
-from asposeimagingcloud.models.requests.http_request import HttpRequest
 from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
+from asposeimagingcloud.models.requests.http_request import HttpRequest
 
 
 class ResizeImageRequest(ImagingRequest):
@@ -41,14 +41,7 @@ class ResizeImageRequest(ImagingRequest):
     :param storage Your Aspose Cloud Storage name.
     """
 
-    def __init__(
-            self,
-            name,
-            format,
-            new_width,
-            new_height,
-            folder=None,
-            storage=None):
+    def __init__(self, name, format, new_width, new_height, folder=None, storage=None):
         ImagingRequest.__init__(self)
         self.name = name
         self.format = format
@@ -68,20 +61,16 @@ class ResizeImageRequest(ImagingRequest):
         """
         # verify the required parameter 'name' is set
         if self.name is None:
-            raise ValueError(
-                "Missing the required parameter `name` when calling `resize_image`")
+            raise ValueError("Missing the required parameter `name` when calling `resize_image`")
         # verify the required parameter 'format' is set
         if self.format is None:
-            raise ValueError(
-                "Missing the required parameter `format` when calling `resize_image`")
+            raise ValueError("Missing the required parameter `format` when calling `resize_image`")
         # verify the required parameter 'new_width' is set
         if self.new_width is None:
-            raise ValueError(
-                "Missing the required parameter `new_width` when calling `resize_image`")
+            raise ValueError("Missing the required parameter `new_width` when calling `resize_image`")
         # verify the required parameter 'new_height' is set
         if self.new_height is None:
-            raise ValueError(
-                "Missing the required parameter `new_height` when calling `resize_image`")
+            raise ValueError("Missing the required parameter `new_height` when calling `resize_image`")
 
         collection_formats = {}
         path = '/imaging/{name}/resize'
@@ -91,61 +80,30 @@ class ResizeImageRequest(ImagingRequest):
 
         query_params = []
         if self._lowercase_first_letter('format') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'format' +
-                    '}'),
-                self.format if self.format is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('format' + '}'), self.format if self.format is not None else '')
         else:
             if self.format is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('format'), self.format))
+                query_params.append((self._lowercase_first_letter('format'), self.format))
         if self._lowercase_first_letter('newWidth') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'newWidth' +
-                    '}'),
-                self.new_width if self.new_width is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('newWidth' + '}'), self.new_width if self.new_width is not None else '')
         else:
             if self.new_width is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('newWidth'), self.new_width))
+                query_params.append((self._lowercase_first_letter('newWidth'), self.new_width))
         if self._lowercase_first_letter('newHeight') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'newHeight' +
-                    '}'),
-                self.new_height if self.new_height is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('newHeight' + '}'), self.new_height if self.new_height is not None else '')
         else:
             if self.new_height is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('newHeight'),
-                     self.new_height))
+                query_params.append((self._lowercase_first_letter('newHeight'), self.new_height))
         if self._lowercase_first_letter('folder') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'folder' +
-                    '}'),
-                self.folder if self.folder is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
         else:
             if self.folder is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('folder'), self.folder))
+                query_params.append((self._lowercase_first_letter('folder'), self.folder))
         if self._lowercase_first_letter('storage') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'storage' +
-                    '}'),
-                self.storage if self.storage is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
         else:
             if self.storage is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('storage'), self.storage))
+                query_params.append((self._lowercase_first_letter('storage'), self.storage))
 
         header_params = {}
 
@@ -165,13 +123,5 @@ class ResizeImageRequest(ImagingRequest):
         # Authentication setting
         auth_settings = ['JWT']
 
-        return HttpRequest(
-            path,
-            path_params,
-            query_params,
-            header_params,
-            form_params,
-            body_params,
-            local_var_files,
-            collection_formats,
-            auth_settings)
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)

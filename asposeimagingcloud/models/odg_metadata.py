@@ -82,26 +82,7 @@ class OdgMetadata(object):
         'document_statistics': 'DocumentStatistics'
     }
 
-    def __init__(
-            self,
-            generator=None,
-            title=None,
-            description=None,
-            subject=None,
-            keywords=None,
-            initial_creator=None,
-            creator=None,
-            printed_by=None,
-            creation_date_time=None,
-            modification_date_time=None,
-            print_date_time=None,
-            document_template=None,
-            automatic_reload=None,
-            hyperlink_behavior=None,
-            language=None,
-            editing_cycles=None,
-            editing_duration=None,
-            document_statistics=None):
+    def __init__(self, generator=None, title=None, description=None, subject=None, keywords=None, initial_creator=None, creator=None, printed_by=None, creation_date_time=None, modification_date_time=None, print_date_time=None, document_template=None, automatic_reload=None, hyperlink_behavior=None, language=None, editing_cycles=None, editing_duration=None, document_statistics=None):
         """OdgMetadata - a model defined in Swagger"""
 
         self._generator = None

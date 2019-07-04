@@ -107,8 +107,7 @@ class FileVersion(StorageFile):
         :type: bool
         """
         if is_latest is None:
-            raise ValueError(
-                "Invalid value for `is_latest`, must not be `None`")
+            raise ValueError("Invalid value for `is_latest`, must not be `None`")
         self._is_latest = is_latest
 
     def to_dict(self):

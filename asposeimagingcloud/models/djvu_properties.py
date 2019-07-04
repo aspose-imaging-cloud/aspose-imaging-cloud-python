@@ -52,11 +52,7 @@ class DjvuProperties(object):
         'pages_count': 'PagesCount'
     }
 
-    def __init__(
-            self,
-            background_color=None,
-            has_background_color=None,
-            pages_count=None):
+    def __init__(self, background_color=None, has_background_color=None, pages_count=None):
         """DjvuProperties - a model defined in Swagger"""
 
         self._background_color = None
@@ -114,8 +110,7 @@ class DjvuProperties(object):
         :type: bool
         """
         if has_background_color is None:
-            raise ValueError(
-                "Invalid value for `has_background_color`, must not be `None`")
+            raise ValueError("Invalid value for `has_background_color`, must not be `None`")
         self._has_background_color = has_background_color
 
     @property
@@ -139,8 +134,7 @@ class DjvuProperties(object):
         :type: int
         """
         if pages_count is None:
-            raise ValueError(
-                "Invalid value for `pages_count`, must not be `None`")
+            raise ValueError("Invalid value for `pages_count`, must not be `None`")
         self._pages_count = pages_count
 
     def to_dict(self):

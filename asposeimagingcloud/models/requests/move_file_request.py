@@ -40,13 +40,7 @@ class MoveFileRequest(ImagingRequest):
     :param version_id File version ID to move
     """
 
-    def __init__(
-            self,
-            src_path,
-            dest_path,
-            src_storage_name=None,
-            dest_storage_name=None,
-            version_id=None):
+    def __init__(self, src_path, dest_path, src_storage_name=None, dest_storage_name=None, version_id=None):
         ImagingRequest.__init__(self)
         self.src_path = src_path
         self.dest_path = dest_path
@@ -65,67 +59,38 @@ class MoveFileRequest(ImagingRequest):
         """
         # verify the required parameter 'src_path' is set
         if self.src_path is None:
-            raise ValueError(
-                "Missing the required parameter `src_path` when calling `move_file`")
+            raise ValueError("Missing the required parameter `src_path` when calling `move_file`")
         # verify the required parameter 'dest_path' is set
         if self.dest_path is None:
-            raise ValueError(
-                "Missing the required parameter `dest_path` when calling `move_file`")
+            raise ValueError("Missing the required parameter `dest_path` when calling `move_file`")
 
         collection_formats = {}
         path = '/imaging/storage/file/move/{srcPath}'
         path_params = {}
         if self.src_path is not None:
-            path_params[self._lowercase_first_letter(
-                'srcPath')] = self.src_path
+            path_params[self._lowercase_first_letter('srcPath')] = self.src_path
 
         query_params = []
         if self._lowercase_first_letter('destPath') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'destPath' +
-                    '}'),
-                self.dest_path if self.dest_path is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('destPath' + '}'), self.dest_path if self.dest_path is not None else '')
         else:
             if self.dest_path is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('destPath'), self.dest_path))
+                query_params.append((self._lowercase_first_letter('destPath'), self.dest_path))
         if self._lowercase_first_letter('srcStorageName') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'srcStorageName' +
-                    '}'),
-                self.src_storage_name if self.src_storage_name is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('srcStorageName' + '}'), self.src_storage_name if self.src_storage_name is not None else '')
         else:
             if self.src_storage_name is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('srcStorageName'),
-                     self.src_storage_name))
+                query_params.append((self._lowercase_first_letter('srcStorageName'), self.src_storage_name))
         if self._lowercase_first_letter('destStorageName') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'destStorageName' +
-                    '}'),
-                self.dest_storage_name if self.dest_storage_name is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('destStorageName' + '}'), self.dest_storage_name if self.dest_storage_name is not None else '')
         else:
             if self.dest_storage_name is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('destStorageName'),
-                     self.dest_storage_name))
+                query_params.append((self._lowercase_first_letter('destStorageName'), self.dest_storage_name))
         if self._lowercase_first_letter('versionId') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'versionId' +
-                    '}'),
-                self.version_id if self.version_id is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('versionId' + '}'), self.version_id if self.version_id is not None else '')
         else:
             if self.version_id is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('versionId'), self.version_id))
+                query_params.append((self._lowercase_first_letter('versionId'), self.version_id))
 
         header_params = {}
 
@@ -145,13 +110,5 @@ class MoveFileRequest(ImagingRequest):
         # Authentication setting
         auth_settings = ['JWT']
 
-        return HttpRequest(
-            path,
-            path_params,
-            query_params,
-            header_params,
-            form_params,
-            body_params,
-            local_var_files,
-            collection_formats,
-            auth_settings)
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)

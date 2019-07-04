@@ -24,8 +24,8 @@
 #  </summary>
 #  ----------------------------------------------------------------------------
 
-from asposeimagingcloud.models.requests.http_request import HttpRequest
 from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
+from asposeimagingcloud.models.requests.http_request import HttpRequest
 
 
 class ModifyBmpRequest(ImagingRequest):
@@ -42,15 +42,7 @@ class ModifyBmpRequest(ImagingRequest):
     :param storage Your Aspose Cloud Storage name.
     """
 
-    def __init__(
-            self,
-            name,
-            bits_per_pixel,
-            horizontal_resolution,
-            vertical_resolution,
-            from_scratch=None,
-            folder=None,
-            storage=None):
+    def __init__(self, name, bits_per_pixel, horizontal_resolution, vertical_resolution, from_scratch=None, folder=None, storage=None):
         ImagingRequest.__init__(self)
         self.name = name
         self.bits_per_pixel = bits_per_pixel
@@ -71,20 +63,16 @@ class ModifyBmpRequest(ImagingRequest):
         """
         # verify the required parameter 'name' is set
         if self.name is None:
-            raise ValueError(
-                "Missing the required parameter `name` when calling `modify_bmp`")
+            raise ValueError("Missing the required parameter `name` when calling `modify_bmp`")
         # verify the required parameter 'bits_per_pixel' is set
         if self.bits_per_pixel is None:
-            raise ValueError(
-                "Missing the required parameter `bits_per_pixel` when calling `modify_bmp`")
+            raise ValueError("Missing the required parameter `bits_per_pixel` when calling `modify_bmp`")
         # verify the required parameter 'horizontal_resolution' is set
         if self.horizontal_resolution is None:
-            raise ValueError(
-                "Missing the required parameter `horizontal_resolution` when calling `modify_bmp`")
+            raise ValueError("Missing the required parameter `horizontal_resolution` when calling `modify_bmp`")
         # verify the required parameter 'vertical_resolution' is set
         if self.vertical_resolution is None:
-            raise ValueError(
-                "Missing the required parameter `vertical_resolution` when calling `modify_bmp`")
+            raise ValueError("Missing the required parameter `vertical_resolution` when calling `modify_bmp`")
 
         collection_formats = {}
         path = '/imaging/{name}/bmp'
@@ -94,75 +82,35 @@ class ModifyBmpRequest(ImagingRequest):
 
         query_params = []
         if self._lowercase_first_letter('bitsPerPixel') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'bitsPerPixel' +
-                    '}'),
-                self.bits_per_pixel if self.bits_per_pixel is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('bitsPerPixel' + '}'), self.bits_per_pixel if self.bits_per_pixel is not None else '')
         else:
             if self.bits_per_pixel is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('bitsPerPixel'),
-                     self.bits_per_pixel))
+                query_params.append((self._lowercase_first_letter('bitsPerPixel'), self.bits_per_pixel))
         if self._lowercase_first_letter('horizontalResolution') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'horizontalResolution' +
-                    '}'),
-                self.horizontal_resolution if self.horizontal_resolution is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('horizontalResolution' + '}'), self.horizontal_resolution if self.horizontal_resolution is not None else '')
         else:
             if self.horizontal_resolution is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('horizontalResolution'),
-                     self.horizontal_resolution))
+                query_params.append((self._lowercase_first_letter('horizontalResolution'), self.horizontal_resolution))
         if self._lowercase_first_letter('verticalResolution') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'verticalResolution' +
-                    '}'),
-                self.vertical_resolution if self.vertical_resolution is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('verticalResolution' + '}'), self.vertical_resolution if self.vertical_resolution is not None else '')
         else:
             if self.vertical_resolution is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('verticalResolution'),
-                     self.vertical_resolution))
+                query_params.append((self._lowercase_first_letter('verticalResolution'), self.vertical_resolution))
         if self._lowercase_first_letter('fromScratch') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'fromScratch' +
-                    '}'),
-                self.from_scratch if self.from_scratch is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('fromScratch' + '}'), self.from_scratch if self.from_scratch is not None else '')
         else:
             if self.from_scratch is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('fromScratch'),
-                     self.from_scratch))
+                query_params.append((self._lowercase_first_letter('fromScratch'), self.from_scratch))
         if self._lowercase_first_letter('folder') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'folder' +
-                    '}'),
-                self.folder if self.folder is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
         else:
             if self.folder is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('folder'), self.folder))
+                query_params.append((self._lowercase_first_letter('folder'), self.folder))
         if self._lowercase_first_letter('storage') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'storage' +
-                    '}'),
-                self.storage if self.storage is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
         else:
             if self.storage is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('storage'), self.storage))
+                query_params.append((self._lowercase_first_letter('storage'), self.storage))
 
         header_params = {}
 
@@ -182,13 +130,5 @@ class ModifyBmpRequest(ImagingRequest):
         # Authentication setting
         auth_settings = ['JWT']
 
-        return HttpRequest(
-            path,
-            path_params,
-            query_params,
-            header_params,
-            form_params,
-            body_params,
-            local_var_files,
-            collection_formats,
-            auth_settings)
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)

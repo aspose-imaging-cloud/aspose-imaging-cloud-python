@@ -95,26 +95,7 @@ class ImagingResponse(object):
         'is_cached': 'IsCached'
     }
 
-    def __init__(
-            self,
-            height=None,
-            width=None,
-            bits_per_pixel=None,
-            bmp_properties=None,
-            gif_properties=None,
-            jpeg_properties=None,
-            png_properties=None,
-            tiff_properties=None,
-            psd_properties=None,
-            djvu_properties=None,
-            web_p_properties=None,
-            jpeg2000_properties=None,
-            dicom_properties=None,
-            dng_properties=None,
-            odg_properties=None,
-            horizontal_resolution=None,
-            vertical_resolution=None,
-            is_cached=None):
+    def __init__(self, height=None, width=None, bits_per_pixel=None, bmp_properties=None, gif_properties=None, jpeg_properties=None, png_properties=None, tiff_properties=None, psd_properties=None, djvu_properties=None, web_p_properties=None, jpeg2000_properties=None, dicom_properties=None, dng_properties=None, odg_properties=None, horizontal_resolution=None, vertical_resolution=None, is_cached=None):
         """ImagingResponse - a model defined in Swagger"""
 
         self._height = None
@@ -243,8 +224,7 @@ class ImagingResponse(object):
         :type: int
         """
         if bits_per_pixel is None:
-            raise ValueError(
-                "Invalid value for `bits_per_pixel`, must not be `None`")
+            raise ValueError("Invalid value for `bits_per_pixel`, must not be `None`")
         self._bits_per_pixel = bits_per_pixel
 
     @property
@@ -532,8 +512,7 @@ class ImagingResponse(object):
         :type: float
         """
         if horizontal_resolution is None:
-            raise ValueError(
-                "Invalid value for `horizontal_resolution`, must not be `None`")
+            raise ValueError("Invalid value for `horizontal_resolution`, must not be `None`")
         self._horizontal_resolution = horizontal_resolution
 
     @property
@@ -557,8 +536,7 @@ class ImagingResponse(object):
         :type: float
         """
         if vertical_resolution is None:
-            raise ValueError(
-                "Invalid value for `vertical_resolution`, must not be `None`")
+            raise ValueError("Invalid value for `vertical_resolution`, must not be `None`")
         self._vertical_resolution = vertical_resolution
 
     @property
@@ -582,8 +560,7 @@ class ImagingResponse(object):
         :type: bool
         """
         if is_cached is None:
-            raise ValueError(
-                "Invalid value for `is_cached`, must not be `None`")
+            raise ValueError("Invalid value for `is_cached`, must not be `None`")
         self._is_cached = is_cached
 
     def to_dict(self):

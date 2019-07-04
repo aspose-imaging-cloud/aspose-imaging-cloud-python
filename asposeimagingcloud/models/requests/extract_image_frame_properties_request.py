@@ -24,8 +24,8 @@
 #  </summary>
 #  ----------------------------------------------------------------------------
 
-from asposeimagingcloud.models.requests.http_request import HttpRequest
 from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
+from asposeimagingcloud.models.requests.http_request import HttpRequest
 
 
 class ExtractImageFramePropertiesRequest(ImagingRequest):
@@ -53,19 +53,16 @@ class ExtractImageFramePropertiesRequest(ImagingRequest):
         """
         # verify the required parameter 'image_data' is set
         if self.image_data is None:
-            raise ValueError(
-                "Missing the required parameter `image_data` when calling `extract_image_frame_properties`")
+            raise ValueError("Missing the required parameter `image_data` when calling `extract_image_frame_properties`")
         # verify the required parameter 'frame_id' is set
         if self.frame_id is None:
-            raise ValueError(
-                "Missing the required parameter `frame_id` when calling `extract_image_frame_properties`")
+            raise ValueError("Missing the required parameter `frame_id` when calling `extract_image_frame_properties`")
 
         collection_formats = {}
         path = '/imaging/frames/{frameId}/properties'
         path_params = {}
         if self.frame_id is not None:
-            path_params[self._lowercase_first_letter(
-                'frameId')] = self.frame_id
+            path_params[self._lowercase_first_letter('frameId')] = self.frame_id
 
         query_params = []
 
@@ -74,8 +71,7 @@ class ExtractImageFramePropertiesRequest(ImagingRequest):
         form_params = []
         local_var_files = []
         if self.image_data is not None:
-            local_var_files.append(
-                (self._lowercase_first_letter('imageData'), self.image_data))
+            local_var_files.append((self._lowercase_first_letter('imageData'), self.image_data))
 
         body_params = None
 
@@ -90,13 +86,5 @@ class ExtractImageFramePropertiesRequest(ImagingRequest):
         # Authentication setting
         auth_settings = ['JWT']
 
-        return HttpRequest(
-            path,
-            path_params,
-            query_params,
-            header_params,
-            form_params,
-            body_params,
-            local_var_files,
-            collection_formats,
-            auth_settings)
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)

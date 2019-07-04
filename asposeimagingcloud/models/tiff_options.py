@@ -138,54 +138,7 @@ class TiffOptions(object):
         'bits_per_pixel': 'BitsPerPixel'
     }
 
-    def __init__(
-            self,
-            is_valid=None,
-            artist=None,
-            byte_order=None,
-            bits_per_sample=None,
-            compression=None,
-            copyright=None,
-            color_map=None,
-            date_time=None,
-            document_name=None,
-            alpha_storage=None,
-            fill_order=None,
-            half_tone_hints=None,
-            image_description=None,
-            ink_names=None,
-            scanner_manufacturer=None,
-            max_sample_value=None,
-            min_sample_value=None,
-            scanner_model=None,
-            page_name=None,
-            orientation=None,
-            page_number=None,
-            photometric=None,
-            planar_configuration=None,
-            resolution_unit=None,
-            rows_per_strip=None,
-            sample_format=None,
-            samples_per_pixel=None,
-            smax_sample_value=None,
-            smin_sample_value=None,
-            software_type=None,
-            strip_byte_counts=None,
-            strip_offsets=None,
-            sub_file_type=None,
-            target_printer=None,
-            threshholding=None,
-            total_pages=None,
-            xposition=None,
-            xresolution=None,
-            yposition=None,
-            yresolution=None,
-            fax_t4_options=None,
-            predictor=None,
-            image_length=None,
-            image_width=None,
-            valid_tag_count=None,
-            bits_per_pixel=None):
+    def __init__(self, is_valid=None, artist=None, byte_order=None, bits_per_sample=None, compression=None, copyright=None, color_map=None, date_time=None, document_name=None, alpha_storage=None, fill_order=None, half_tone_hints=None, image_description=None, ink_names=None, scanner_manufacturer=None, max_sample_value=None, min_sample_value=None, scanner_model=None, page_name=None, orientation=None, page_number=None, photometric=None, planar_configuration=None, resolution_unit=None, rows_per_strip=None, sample_format=None, samples_per_pixel=None, smax_sample_value=None, smin_sample_value=None, software_type=None, strip_byte_counts=None, strip_offsets=None, sub_file_type=None, target_printer=None, threshholding=None, total_pages=None, xposition=None, xresolution=None, yposition=None, yresolution=None, fax_t4_options=None, predictor=None, image_length=None, image_width=None, valid_tag_count=None, bits_per_pixel=None):
         """TiffOptions - a model defined in Swagger"""
 
         self._is_valid = None
@@ -350,8 +303,7 @@ class TiffOptions(object):
         :type: bool
         """
         if is_valid is None:
-            raise ValueError(
-                "Invalid value for `is_valid`, must not be `None`")
+            raise ValueError("Invalid value for `is_valid`, must not be `None`")
         self._is_valid = is_valid
 
     @property
@@ -881,8 +833,7 @@ class TiffOptions(object):
         :type: int
         """
         if rows_per_strip is None:
-            raise ValueError(
-                "Invalid value for `rows_per_strip`, must not be `None`")
+            raise ValueError("Invalid value for `rows_per_strip`, must not be `None`")
         self._rows_per_strip = rows_per_strip
 
     @property
@@ -928,8 +879,7 @@ class TiffOptions(object):
         :type: int
         """
         if samples_per_pixel is None:
-            raise ValueError(
-                "Invalid value for `samples_per_pixel`, must not be `None`")
+            raise ValueError("Invalid value for `samples_per_pixel`, must not be `None`")
         self._samples_per_pixel = samples_per_pixel
 
     @property
@@ -1129,8 +1079,7 @@ class TiffOptions(object):
         :type: int
         """
         if total_pages is None:
-            raise ValueError(
-                "Invalid value for `total_pages`, must not be `None`")
+            raise ValueError("Invalid value for `total_pages`, must not be `None`")
         self._total_pages = total_pages
 
     @property
@@ -1154,8 +1103,7 @@ class TiffOptions(object):
         :type: float
         """
         if xposition is None:
-            raise ValueError(
-                "Invalid value for `xposition`, must not be `None`")
+            raise ValueError("Invalid value for `xposition`, must not be `None`")
         self._xposition = xposition
 
     @property
@@ -1179,8 +1127,7 @@ class TiffOptions(object):
         :type: float
         """
         if xresolution is None:
-            raise ValueError(
-                "Invalid value for `xresolution`, must not be `None`")
+            raise ValueError("Invalid value for `xresolution`, must not be `None`")
         self._xresolution = xresolution
 
     @property
@@ -1204,8 +1151,7 @@ class TiffOptions(object):
         :type: float
         """
         if yposition is None:
-            raise ValueError(
-                "Invalid value for `yposition`, must not be `None`")
+            raise ValueError("Invalid value for `yposition`, must not be `None`")
         self._yposition = yposition
 
     @property
@@ -1229,8 +1175,7 @@ class TiffOptions(object):
         :type: float
         """
         if yresolution is None:
-            raise ValueError(
-                "Invalid value for `yresolution`, must not be `None`")
+            raise ValueError("Invalid value for `yresolution`, must not be `None`")
         self._yresolution = yresolution
 
     @property
@@ -1298,8 +1243,7 @@ class TiffOptions(object):
         :type: int
         """
         if image_length is None:
-            raise ValueError(
-                "Invalid value for `image_length`, must not be `None`")
+            raise ValueError("Invalid value for `image_length`, must not be `None`")
         self._image_length = image_length
 
     @property
@@ -1323,8 +1267,7 @@ class TiffOptions(object):
         :type: int
         """
         if image_width is None:
-            raise ValueError(
-                "Invalid value for `image_width`, must not be `None`")
+            raise ValueError("Invalid value for `image_width`, must not be `None`")
         self._image_width = image_width
 
     @property
@@ -1348,8 +1291,7 @@ class TiffOptions(object):
         :type: int
         """
         if valid_tag_count is None:
-            raise ValueError(
-                "Invalid value for `valid_tag_count`, must not be `None`")
+            raise ValueError("Invalid value for `valid_tag_count`, must not be `None`")
         self._valid_tag_count = valid_tag_count
 
     @property
@@ -1373,8 +1315,7 @@ class TiffOptions(object):
         :type: int
         """
         if bits_per_pixel is None:
-            raise ValueError(
-                "Invalid value for `bits_per_pixel`, must not be `None`")
+            raise ValueError("Invalid value for `bits_per_pixel`, must not be `None`")
         self._bits_per_pixel = bits_per_pixel
 
     def to_dict(self):

@@ -68,19 +68,7 @@ class DngProperties(object):
         'translation_cfa_dng': 'TranslationCfaDng'
     }
 
-    def __init__(
-            self,
-            dng_version=None,
-            description=None,
-            model=None,
-            camera_manufacturer=None,
-            is_foveon=None,
-            software=None,
-            raw_count=None,
-            filters=None,
-            colors_count=None,
-            xmp_data=None,
-            translation_cfa_dng=None):
+    def __init__(self, dng_version=None, description=None, model=None, camera_manufacturer=None, is_foveon=None, software=None, raw_count=None, filters=None, colors_count=None, xmp_data=None, translation_cfa_dng=None):
         """DngProperties - a model defined in Swagger"""
 
         self._dng_version = None
@@ -140,8 +128,7 @@ class DngProperties(object):
         :type: int
         """
         if dng_version is None:
-            raise ValueError(
-                "Invalid value for `dng_version`, must not be `None`")
+            raise ValueError("Invalid value for `dng_version`, must not be `None`")
         self._dng_version = dng_version
 
     @property
@@ -231,8 +218,7 @@ class DngProperties(object):
         :type: int
         """
         if is_foveon is None:
-            raise ValueError(
-                "Invalid value for `is_foveon`, must not be `None`")
+            raise ValueError("Invalid value for `is_foveon`, must not be `None`")
         self._is_foveon = is_foveon
 
     @property
@@ -278,8 +264,7 @@ class DngProperties(object):
         :type: int
         """
         if raw_count is None:
-            raise ValueError(
-                "Invalid value for `raw_count`, must not be `None`")
+            raise ValueError("Invalid value for `raw_count`, must not be `None`")
         self._raw_count = raw_count
 
     @property
@@ -327,8 +312,7 @@ class DngProperties(object):
         :type: int
         """
         if colors_count is None:
-            raise ValueError(
-                "Invalid value for `colors_count`, must not be `None`")
+            raise ValueError("Invalid value for `colors_count`, must not be `None`")
         self._colors_count = colors_count
 
     @property

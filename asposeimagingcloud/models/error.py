@@ -56,12 +56,7 @@ class Error(object):
         'inner_error': 'InnerError'
     }
 
-    def __init__(
-            self,
-            code=None,
-            message=None,
-            description=None,
-            inner_error=None):
+    def __init__(self, code=None, message=None, description=None, inner_error=None):
         """Error - a model defined in Swagger"""
 
         self._code = None
@@ -83,7 +78,7 @@ class Error(object):
     def code(self):
         """Gets the code of this Error.
 
-        Code
+        Code             
 
         :return: The code of this Error.
         :rtype: str
@@ -94,7 +89,7 @@ class Error(object):
     def code(self, code):
         """Sets the code of this Error.
 
-        Code
+        Code             
 
         :param code: The code of this Error.
         :type: str
@@ -105,7 +100,7 @@ class Error(object):
     def message(self):
         """Gets the message of this Error.
 
-        Message
+        Message             
 
         :return: The message of this Error.
         :rtype: str
@@ -116,7 +111,7 @@ class Error(object):
     def message(self, message):
         """Sets the message of this Error.
 
-        Message
+        Message             
 
         :param message: The message of this Error.
         :type: str
@@ -127,7 +122,7 @@ class Error(object):
     def description(self):
         """Gets the description of this Error.
 
-        Description
+        Description             
 
         :return: The description of this Error.
         :rtype: str
@@ -138,7 +133,7 @@ class Error(object):
     def description(self, description):
         """Sets the description of this Error.
 
-        Description
+        Description             
 
         :param description: The description of this Error.
         :type: str
@@ -149,7 +144,7 @@ class Error(object):
     def inner_error(self):
         """Gets the inner_error of this Error.
 
-        Inner Error
+        Inner Error             
 
         :return: The inner_error of this Error.
         :rtype: ErrorDetails
@@ -160,7 +155,7 @@ class Error(object):
     def inner_error(self, inner_error):
         """Sets the inner_error of this Error.
 
-        Inner Error
+        Inner Error             
 
         :param inner_error: The inner_error of this Error.
         :type: ErrorDetails

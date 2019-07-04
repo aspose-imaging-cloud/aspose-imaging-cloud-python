@@ -24,8 +24,8 @@
 #  </summary>
 #  ----------------------------------------------------------------------------
 
-from asposeimagingcloud.models.requests.http_request import HttpRequest
 from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
+from asposeimagingcloud.models.requests.http_request import HttpRequest
 
 
 class FindImagesByTagsRequest(ImagingRequest):
@@ -41,14 +41,7 @@ class FindImagesByTagsRequest(ImagingRequest):
     :param storage The storage.
     """
 
-    def __init__(
-            self,
-            tags,
-            search_context_id,
-            similarity_threshold,
-            max_count,
-            folder=None,
-            storage=None):
+    def __init__(self, tags, search_context_id, similarity_threshold, max_count, folder=None, storage=None):
         ImagingRequest.__init__(self)
         self.tags = tags
         self.search_context_id = search_context_id
@@ -68,82 +61,51 @@ class FindImagesByTagsRequest(ImagingRequest):
         """
         # verify the required parameter 'tags' is set
         if self.tags is None:
-            raise ValueError(
-                "Missing the required parameter `tags` when calling `find_images_by_tags`")
+            raise ValueError("Missing the required parameter `tags` when calling `find_images_by_tags`")
         # verify the required parameter 'search_context_id' is set
         if self.search_context_id is None:
-            raise ValueError(
-                "Missing the required parameter `search_context_id` when calling `find_images_by_tags`")
+            raise ValueError("Missing the required parameter `search_context_id` when calling `find_images_by_tags`")
         # verify the required parameter 'similarity_threshold' is set
         if self.similarity_threshold is None:
-            raise ValueError(
-                "Missing the required parameter `similarity_threshold` when calling `find_images_by_tags`")
+            raise ValueError("Missing the required parameter `similarity_threshold` when calling `find_images_by_tags`")
         # verify the required parameter 'max_count' is set
         if self.max_count is None:
-            raise ValueError(
-                "Missing the required parameter `max_count` when calling `find_images_by_tags`")
+            raise ValueError("Missing the required parameter `max_count` when calling `find_images_by_tags`")
 
         collection_formats = {}
         path = '/imaging/ai/imageSearch/{searchContextId}/findByTags'
         path_params = {}
         if self.search_context_id is not None:
-            path_params[self._lowercase_first_letter(
-                'searchContextId')] = self.search_context_id
+            path_params[self._lowercase_first_letter('searchContextId')] = self.search_context_id
 
         query_params = []
         if self._lowercase_first_letter('similarityThreshold') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'similarityThreshold' +
-                    '}'),
-                self.similarity_threshold if self.similarity_threshold is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('similarityThreshold' + '}'), self.similarity_threshold if self.similarity_threshold is not None else '')
         else:
             if self.similarity_threshold is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('similarityThreshold'),
-                     self.similarity_threshold))
+                query_params.append((self._lowercase_first_letter('similarityThreshold'), self.similarity_threshold))
         if self._lowercase_first_letter('maxCount') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'maxCount' +
-                    '}'),
-                self.max_count if self.max_count is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('maxCount' + '}'), self.max_count if self.max_count is not None else '')
         else:
             if self.max_count is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('maxCount'), self.max_count))
+                query_params.append((self._lowercase_first_letter('maxCount'), self.max_count))
         if self._lowercase_first_letter('folder') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'folder' +
-                    '}'),
-                self.folder if self.folder is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
         else:
             if self.folder is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('folder'), self.folder))
+                query_params.append((self._lowercase_first_letter('folder'), self.folder))
         if self._lowercase_first_letter('storage') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'storage' +
-                    '}'),
-                self.storage if self.storage is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
         else:
             if self.storage is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('storage'), self.storage))
+                query_params.append((self._lowercase_first_letter('storage'), self.storage))
 
         header_params = {}
 
         form_params = []
         local_var_files = []
         if self.tags is not None:
-            form_params.append(
-                (self._lowercase_first_letter('tags'), self.tags))
+            form_params.append((self._lowercase_first_letter('tags'), self.tags))
 
         body_params = None
 
@@ -158,13 +120,5 @@ class FindImagesByTagsRequest(ImagingRequest):
         # Authentication setting
         auth_settings = ['JWT']
 
-        return HttpRequest(
-            path,
-            path_params,
-            query_params,
-            header_params,
-            form_params,
-            body_params,
-            local_var_files,
-            collection_formats,
-            auth_settings)
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)

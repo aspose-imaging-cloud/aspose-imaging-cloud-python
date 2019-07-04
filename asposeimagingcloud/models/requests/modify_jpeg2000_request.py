@@ -24,8 +24,8 @@
 #  </summary>
 #  ----------------------------------------------------------------------------
 
-from asposeimagingcloud.models.requests.http_request import HttpRequest
 from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
+from asposeimagingcloud.models.requests.http_request import HttpRequest
 
 
 class ModifyJpeg2000Request(ImagingRequest):
@@ -41,14 +41,7 @@ class ModifyJpeg2000Request(ImagingRequest):
     :param storage Your Aspose Cloud Storage name.
     """
 
-    def __init__(
-            self,
-            name,
-            comment,
-            codec=None,
-            from_scratch=None,
-            folder=None,
-            storage=None):
+    def __init__(self, name, comment, codec=None, from_scratch=None, folder=None, storage=None):
         ImagingRequest.__init__(self)
         self.name = name
         self.comment = comment
@@ -68,12 +61,10 @@ class ModifyJpeg2000Request(ImagingRequest):
         """
         # verify the required parameter 'name' is set
         if self.name is None:
-            raise ValueError(
-                "Missing the required parameter `name` when calling `modify_jpeg2000`")
+            raise ValueError("Missing the required parameter `name` when calling `modify_jpeg2000`")
         # verify the required parameter 'comment' is set
         if self.comment is None:
-            raise ValueError(
-                "Missing the required parameter `comment` when calling `modify_jpeg2000`")
+            raise ValueError("Missing the required parameter `comment` when calling `modify_jpeg2000`")
 
         collection_formats = {}
         path = '/imaging/{name}/jpg2000'
@@ -83,61 +74,30 @@ class ModifyJpeg2000Request(ImagingRequest):
 
         query_params = []
         if self._lowercase_first_letter('comment') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'comment' +
-                    '}'),
-                self.comment if self.comment is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('comment' + '}'), self.comment if self.comment is not None else '')
         else:
             if self.comment is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('comment'), self.comment))
+                query_params.append((self._lowercase_first_letter('comment'), self.comment))
         if self._lowercase_first_letter('codec') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'codec' +
-                    '}'),
-                self.codec if self.codec is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('codec' + '}'), self.codec if self.codec is not None else '')
         else:
             if self.codec is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('codec'), self.codec))
+                query_params.append((self._lowercase_first_letter('codec'), self.codec))
         if self._lowercase_first_letter('fromScratch') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'fromScratch' +
-                    '}'),
-                self.from_scratch if self.from_scratch is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('fromScratch' + '}'), self.from_scratch if self.from_scratch is not None else '')
         else:
             if self.from_scratch is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('fromScratch'),
-                     self.from_scratch))
+                query_params.append((self._lowercase_first_letter('fromScratch'), self.from_scratch))
         if self._lowercase_first_letter('folder') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'folder' +
-                    '}'),
-                self.folder if self.folder is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
         else:
             if self.folder is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('folder'), self.folder))
+                query_params.append((self._lowercase_first_letter('folder'), self.folder))
         if self._lowercase_first_letter('storage') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'storage' +
-                    '}'),
-                self.storage if self.storage is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
         else:
             if self.storage is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('storage'), self.storage))
+                query_params.append((self._lowercase_first_letter('storage'), self.storage))
 
         header_params = {}
 
@@ -157,13 +117,5 @@ class ModifyJpeg2000Request(ImagingRequest):
         # Authentication setting
         auth_settings = ['JWT']
 
-        return HttpRequest(
-            path,
-            path_params,
-            query_params,
-            header_params,
-            form_params,
-            body_params,
-            local_var_files,
-            collection_formats,
-            auth_settings)
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)

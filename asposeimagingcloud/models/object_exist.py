@@ -107,8 +107,7 @@ class ObjectExist(object):
         :type: bool
         """
         if is_folder is None:
-            raise ValueError(
-                "Invalid value for `is_folder`, must not be `None`")
+            raise ValueError("Invalid value for `is_folder`, must not be `None`")
         self._is_folder = is_folder
 
     def to_dict(self):

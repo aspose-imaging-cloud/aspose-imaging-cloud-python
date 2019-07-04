@@ -24,8 +24,8 @@
 #  </summary>
 #  ----------------------------------------------------------------------------
 
-from asposeimagingcloud.models.requests.http_request import HttpRequest
 from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
+from asposeimagingcloud.models.requests.http_request import HttpRequest
 
 
 class AppendTiffRequest(ImagingRequest):
@@ -57,12 +57,10 @@ class AppendTiffRequest(ImagingRequest):
         """
         # verify the required parameter 'name' is set
         if self.name is None:
-            raise ValueError(
-                "Missing the required parameter `name` when calling `append_tiff`")
+            raise ValueError("Missing the required parameter `name` when calling `append_tiff`")
         # verify the required parameter 'append_file' is set
         if self.append_file is None:
-            raise ValueError(
-                "Missing the required parameter `append_file` when calling `append_tiff`")
+            raise ValueError("Missing the required parameter `append_file` when calling `append_tiff`")
 
         collection_formats = {}
         path = '/imaging/tiff/{name}/appendTiff'
@@ -72,39 +70,20 @@ class AppendTiffRequest(ImagingRequest):
 
         query_params = []
         if self._lowercase_first_letter('appendFile') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'appendFile' +
-                    '}'),
-                self.append_file if self.append_file is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('appendFile' + '}'), self.append_file if self.append_file is not None else '')
         else:
             if self.append_file is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('appendFile'),
-                     self.append_file))
+                query_params.append((self._lowercase_first_letter('appendFile'), self.append_file))
         if self._lowercase_first_letter('storage') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'storage' +
-                    '}'),
-                self.storage if self.storage is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
         else:
             if self.storage is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('storage'), self.storage))
+                query_params.append((self._lowercase_first_letter('storage'), self.storage))
         if self._lowercase_first_letter('folder') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'folder' +
-                    '}'),
-                self.folder if self.folder is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
         else:
             if self.folder is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('folder'), self.folder))
+                query_params.append((self._lowercase_first_letter('folder'), self.folder))
 
         header_params = {}
 
@@ -124,13 +103,5 @@ class AppendTiffRequest(ImagingRequest):
         # Authentication setting
         auth_settings = ['JWT']
 
-        return HttpRequest(
-            path,
-            path_params,
-            query_params,
-            header_params,
-            form_params,
-            body_params,
-            local_var_files,
-            collection_formats,
-            auth_settings)
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)

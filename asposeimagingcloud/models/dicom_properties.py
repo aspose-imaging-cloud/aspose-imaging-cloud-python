@@ -94,32 +94,7 @@ class DicomProperties(object):
         'dicom_found': 'DicomFound'
     }
 
-    def __init__(
-            self,
-            planar_configuration=None,
-            reds=None,
-            greens=None,
-            blues=None,
-            dicom_header_info_by_bytes=None,
-            signed_image=None,
-            dicom_info=None,
-            samples_per_pixel=None,
-            bits_allocated=None,
-            photo_interpretation=None,
-            width_tag_found=None,
-            height_tag_found=None,
-            width=None,
-            height=None,
-            window_centre=None,
-            window_width=None,
-            pixel_representation=None,
-            rescale_intercept=None,
-            rescale_slope=None,
-            number_of_frames=None,
-            length_value=None,
-            is_little_endian=None,
-            offset=None,
-            dicom_found=None):
+    def __init__(self, planar_configuration=None, reds=None, greens=None, blues=None, dicom_header_info_by_bytes=None, signed_image=None, dicom_info=None, samples_per_pixel=None, bits_allocated=None, photo_interpretation=None, width_tag_found=None, height_tag_found=None, width=None, height=None, window_centre=None, window_width=None, pixel_representation=None, rescale_intercept=None, rescale_slope=None, number_of_frames=None, length_value=None, is_little_endian=None, offset=None, dicom_found=None):
         """DicomProperties - a model defined in Swagger"""
 
         self._planar_configuration = None
@@ -218,8 +193,7 @@ class DicomProperties(object):
         :type: int
         """
         if planar_configuration is None:
-            raise ValueError(
-                "Invalid value for `planar_configuration`, must not be `None`")
+            raise ValueError("Invalid value for `planar_configuration`, must not be `None`")
         self._planar_configuration = planar_configuration
 
     @property
@@ -242,10 +216,8 @@ class DicomProperties(object):
         :param reds: The reds of this DicomProperties.
         :type: str
         """
-        if reds is not None and not re.search(
-                r'^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', reds):
-            raise ValueError(
-                r"Invalid value for `reds`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
+        if reds is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', reds):
+            raise ValueError("Invalid value for `reds`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._reds = reds
 
     @property
@@ -268,10 +240,8 @@ class DicomProperties(object):
         :param greens: The greens of this DicomProperties.
         :type: str
         """
-        if greens is not None and not re.search(
-                r'^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', greens):
-            raise ValueError(
-                r"Invalid value for `greens`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
+        if greens is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', greens):
+            raise ValueError("Invalid value for `greens`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._greens = greens
 
     @property
@@ -294,10 +264,8 @@ class DicomProperties(object):
         :param blues: The blues of this DicomProperties.
         :type: str
         """
-        if blues is not None and not re.search(
-                r'^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', blues):
-            raise ValueError(
-                r"Invalid value for `blues`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
+        if blues is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', blues):
+            raise ValueError("Invalid value for `blues`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._blues = blues
 
     @property
@@ -320,11 +288,8 @@ class DicomProperties(object):
         :param dicom_header_info_by_bytes: The dicom_header_info_by_bytes of this DicomProperties.
         :type: str
         """
-        if dicom_header_info_by_bytes is not None and not re.search(
-            r'^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$',
-                dicom_header_info_by_bytes):
-            raise ValueError(
-                r"Invalid value for `dicom_header_info_by_bytes`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
+        if dicom_header_info_by_bytes is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', dicom_header_info_by_bytes):
+            raise ValueError("Invalid value for `dicom_header_info_by_bytes`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._dicom_header_info_by_bytes = dicom_header_info_by_bytes
 
     @property
@@ -348,8 +313,7 @@ class DicomProperties(object):
         :type: bool
         """
         if signed_image is None:
-            raise ValueError(
-                "Invalid value for `signed_image`, must not be `None`")
+            raise ValueError("Invalid value for `signed_image`, must not be `None`")
         self._signed_image = signed_image
 
     @property
@@ -395,8 +359,7 @@ class DicomProperties(object):
         :type: int
         """
         if samples_per_pixel is None:
-            raise ValueError(
-                "Invalid value for `samples_per_pixel`, must not be `None`")
+            raise ValueError("Invalid value for `samples_per_pixel`, must not be `None`")
         self._samples_per_pixel = samples_per_pixel
 
     @property
@@ -420,8 +383,7 @@ class DicomProperties(object):
         :type: int
         """
         if bits_allocated is None:
-            raise ValueError(
-                "Invalid value for `bits_allocated`, must not be `None`")
+            raise ValueError("Invalid value for `bits_allocated`, must not be `None`")
         self._bits_allocated = bits_allocated
 
     @property
@@ -467,8 +429,7 @@ class DicomProperties(object):
         :type: bool
         """
         if width_tag_found is None:
-            raise ValueError(
-                "Invalid value for `width_tag_found`, must not be `None`")
+            raise ValueError("Invalid value for `width_tag_found`, must not be `None`")
         self._width_tag_found = width_tag_found
 
     @property
@@ -492,8 +453,7 @@ class DicomProperties(object):
         :type: bool
         """
         if height_tag_found is None:
-            raise ValueError(
-                "Invalid value for `height_tag_found`, must not be `None`")
+            raise ValueError("Invalid value for `height_tag_found`, must not be `None`")
         self._height_tag_found = height_tag_found
 
     @property
@@ -565,8 +525,7 @@ class DicomProperties(object):
         :type: float
         """
         if window_centre is None:
-            raise ValueError(
-                "Invalid value for `window_centre`, must not be `None`")
+            raise ValueError("Invalid value for `window_centre`, must not be `None`")
         self._window_centre = window_centre
 
     @property
@@ -590,8 +549,7 @@ class DicomProperties(object):
         :type: float
         """
         if window_width is None:
-            raise ValueError(
-                "Invalid value for `window_width`, must not be `None`")
+            raise ValueError("Invalid value for `window_width`, must not be `None`")
         self._window_width = window_width
 
     @property
@@ -615,8 +573,7 @@ class DicomProperties(object):
         :type: int
         """
         if pixel_representation is None:
-            raise ValueError(
-                "Invalid value for `pixel_representation`, must not be `None`")
+            raise ValueError("Invalid value for `pixel_representation`, must not be `None`")
         self._pixel_representation = pixel_representation
 
     @property
@@ -640,8 +597,7 @@ class DicomProperties(object):
         :type: float
         """
         if rescale_intercept is None:
-            raise ValueError(
-                "Invalid value for `rescale_intercept`, must not be `None`")
+            raise ValueError("Invalid value for `rescale_intercept`, must not be `None`")
         self._rescale_intercept = rescale_intercept
 
     @property
@@ -665,8 +621,7 @@ class DicomProperties(object):
         :type: float
         """
         if rescale_slope is None:
-            raise ValueError(
-                "Invalid value for `rescale_slope`, must not be `None`")
+            raise ValueError("Invalid value for `rescale_slope`, must not be `None`")
         self._rescale_slope = rescale_slope
 
     @property
@@ -690,8 +645,7 @@ class DicomProperties(object):
         :type: int
         """
         if number_of_frames is None:
-            raise ValueError(
-                "Invalid value for `number_of_frames`, must not be `None`")
+            raise ValueError("Invalid value for `number_of_frames`, must not be `None`")
         self._number_of_frames = number_of_frames
 
     @property
@@ -715,8 +669,7 @@ class DicomProperties(object):
         :type: int
         """
         if length_value is None:
-            raise ValueError(
-                "Invalid value for `length_value`, must not be `None`")
+            raise ValueError("Invalid value for `length_value`, must not be `None`")
         self._length_value = length_value
 
     @property
@@ -740,8 +693,7 @@ class DicomProperties(object):
         :type: bool
         """
         if is_little_endian is None:
-            raise ValueError(
-                "Invalid value for `is_little_endian`, must not be `None`")
+            raise ValueError("Invalid value for `is_little_endian`, must not be `None`")
         self._is_little_endian = is_little_endian
 
     @property
@@ -789,8 +741,7 @@ class DicomProperties(object):
         :type: bool
         """
         if dicom_found is None:
-            raise ValueError(
-                "Invalid value for `dicom_found`, must not be `None`")
+            raise ValueError("Invalid value for `dicom_found`, must not be `None`")
         self._dicom_found = dicom_found
 
     def to_dict(self):

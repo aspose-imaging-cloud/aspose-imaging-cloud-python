@@ -80,24 +80,7 @@ class JpegExifData(ExifData):
         'y_resolution': 'YResolution'
     }
 
-    def __init__(
-            self,
-            artist=None,
-            copyright=None,
-            date_time=None,
-            image_description=None,
-            make=None,
-            model=None,
-            orientation=None,
-            primary_chromaticities=None,
-            reference_black_white=None,
-            resolution_unit=None,
-            software=None,
-            transfer_function=None,
-            x_resolution=None,
-            y_cb_cr_coefficients=None,
-            y_cb_cr_positioning=None,
-            y_resolution=None):
+    def __init__(self, artist=None, copyright=None, date_time=None, image_description=None, make=None, model=None, orientation=None, primary_chromaticities=None, reference_black_white=None, resolution_unit=None, software=None, transfer_function=None, x_resolution=None, y_cb_cr_coefficients=None, y_cb_cr_positioning=None, y_resolution=None):
         """JpegExifData - a model defined in Swagger"""
 
         self._artist = None
@@ -436,8 +419,7 @@ class JpegExifData(ExifData):
         :type: float
         """
         if x_resolution is None:
-            raise ValueError(
-                "Invalid value for `x_resolution`, must not be `None`")
+            raise ValueError("Invalid value for `x_resolution`, must not be `None`")
         self._x_resolution = x_resolution
 
     @property
@@ -505,8 +487,7 @@ class JpegExifData(ExifData):
         :type: float
         """
         if y_resolution is None:
-            raise ValueError(
-                "Invalid value for `y_resolution`, must not be `None`")
+            raise ValueError("Invalid value for `y_resolution`, must not be `None`")
         self._y_resolution = y_resolution
 
     def to_dict(self):

@@ -24,8 +24,8 @@
 #  </summary>
 #  ----------------------------------------------------------------------------
 
-from asposeimagingcloud.models.requests.http_request import HttpRequest
 from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
+from asposeimagingcloud.models.requests.http_request import HttpRequest
 
 
 class CreateModifiedJpegRequest(ImagingRequest):
@@ -41,14 +41,7 @@ class CreateModifiedJpegRequest(ImagingRequest):
     :param storage Your Aspose Cloud Storage name.
     """
 
-    def __init__(
-            self,
-            image_data,
-            quality=None,
-            compression_type=None,
-            from_scratch=None,
-            out_path=None,
-            storage=None):
+    def __init__(self, image_data, quality=None, compression_type=None, from_scratch=None, out_path=None, storage=None):
         ImagingRequest.__init__(self)
         self.image_data = image_data
         self.quality = quality
@@ -68,8 +61,7 @@ class CreateModifiedJpegRequest(ImagingRequest):
         """
         # verify the required parameter 'image_data' is set
         if self.image_data is None:
-            raise ValueError(
-                "Missing the required parameter `image_data` when calling `create_modified_jpeg`")
+            raise ValueError("Missing the required parameter `image_data` when calling `create_modified_jpeg`")
 
         collection_formats = {}
         path = '/imaging/jpg'
@@ -77,70 +69,37 @@ class CreateModifiedJpegRequest(ImagingRequest):
 
         query_params = []
         if self._lowercase_first_letter('quality') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'quality' +
-                    '}'),
-                self.quality if self.quality is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('quality' + '}'), self.quality if self.quality is not None else '')
         else:
             if self.quality is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('quality'), self.quality))
+                query_params.append((self._lowercase_first_letter('quality'), self.quality))
         if self._lowercase_first_letter('compressionType') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'compressionType' +
-                    '}'),
-                self.compression_type if self.compression_type is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('compressionType' + '}'), self.compression_type if self.compression_type is not None else '')
         else:
             if self.compression_type is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('compressionType'),
-                     self.compression_type))
+                query_params.append((self._lowercase_first_letter('compressionType'), self.compression_type))
         if self._lowercase_first_letter('fromScratch') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'fromScratch' +
-                    '}'),
-                self.from_scratch if self.from_scratch is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('fromScratch' + '}'), self.from_scratch if self.from_scratch is not None else '')
         else:
             if self.from_scratch is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('fromScratch'),
-                     self.from_scratch))
+                query_params.append((self._lowercase_first_letter('fromScratch'), self.from_scratch))
         if self._lowercase_first_letter('outPath') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'outPath' +
-                    '}'),
-                self.out_path if self.out_path is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('outPath' + '}'), self.out_path if self.out_path is not None else '')
         else:
             if self.out_path is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('outPath'), self.out_path))
+                query_params.append((self._lowercase_first_letter('outPath'), self.out_path))
         if self._lowercase_first_letter('storage') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'storage' +
-                    '}'),
-                self.storage if self.storage is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
         else:
             if self.storage is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('storage'), self.storage))
+                query_params.append((self._lowercase_first_letter('storage'), self.storage))
 
         header_params = {}
 
         form_params = []
         local_var_files = []
         if self.image_data is not None:
-            local_var_files.append(
-                (self._lowercase_first_letter('imageData'), self.image_data))
+            local_var_files.append((self._lowercase_first_letter('imageData'), self.image_data))
 
         body_params = None
 
@@ -155,13 +114,5 @@ class CreateModifiedJpegRequest(ImagingRequest):
         # Authentication setting
         auth_settings = ['JWT']
 
-        return HttpRequest(
-            path,
-            path_params,
-            query_params,
-            header_params,
-            form_params,
-            body_params,
-            local_var_files,
-            collection_formats,
-            auth_settings)
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)

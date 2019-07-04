@@ -32,7 +32,7 @@ from asposeimagingcloud.models.image_duplicates import ImageDuplicates
 
 
 class ImageDuplicatesSet(object):
-    """Duplicate images set.
+    """Duplicate images set.  
     """
 
     """

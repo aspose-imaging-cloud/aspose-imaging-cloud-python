@@ -42,25 +42,25 @@ class ErrorDetails(object):
     """
     swagger_types = {
         'request_id': 'str',
-        '_date': 'datetime'
+        'date': 'datetime'
     }
 
     attribute_map = {
         'request_id': 'RequestId',
-        '_date': 'Date'
+        'date': 'Date'
     }
 
-    def __init__(self, request_id=None, _date=None):
+    def __init__(self, request_id=None, date=None):
         """ErrorDetails - a model defined in Swagger"""
 
         self._request_id = None
-        self.__date = None
+        self._date = None
         self.discriminator = None
 
         if request_id is not None:
             self.request_id = request_id
-        if _date is not None:
-            self._date = _date
+        if date is not None:
+            self.date = date
 
     @property
     def request_id(self):
@@ -85,28 +85,28 @@ class ErrorDetails(object):
         self._request_id = request_id
 
     @property
-    def _date(self):
-        """Gets the _date of this ErrorDetails.
+    def date(self):
+        """Gets the date of this ErrorDetails.
 
         Date
 
-        :return: The _date of this ErrorDetails.
+        :return: The date of this ErrorDetails.
         :rtype: datetime
         """
-        return self.__date
+        return self._date
 
-    @_date.setter
-    def _date(self, _date):
-        """Sets the _date of this ErrorDetails.
+    @date.setter
+    def date(self, date):
+        """Sets the date of this ErrorDetails.
 
         Date
 
-        :param _date: The _date of this ErrorDetails.
+        :param date: The date of this ErrorDetails.
         :type: datetime
         """
-        if _date is None:
-            raise ValueError("Invalid value for `_date`, must not be `None`")
-        self.__date = _date
+        if date is None:
+            raise ValueError("Invalid value for `date`, must not be `None`")
+        self._date = date
 
     def to_dict(self):
         """Returns the model properties as a dict"""

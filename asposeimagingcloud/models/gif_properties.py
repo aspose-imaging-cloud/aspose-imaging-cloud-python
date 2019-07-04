@@ -54,12 +54,7 @@ class GifProperties(object):
         'pixel_aspect_ratio': 'PixelAspectRatio'
     }
 
-    def __init__(
-            self,
-            background_color=None,
-            has_background_color=None,
-            has_trailer=None,
-            pixel_aspect_ratio=None):
+    def __init__(self, background_color=None, has_background_color=None, has_trailer=None, pixel_aspect_ratio=None):
         """GifProperties - a model defined in Swagger"""
 
         self._background_color = None
@@ -120,8 +115,7 @@ class GifProperties(object):
         :type: bool
         """
         if has_background_color is None:
-            raise ValueError(
-                "Invalid value for `has_background_color`, must not be `None`")
+            raise ValueError("Invalid value for `has_background_color`, must not be `None`")
         self._has_background_color = has_background_color
 
     @property
@@ -145,8 +139,7 @@ class GifProperties(object):
         :type: bool
         """
         if has_trailer is None:
-            raise ValueError(
-                "Invalid value for `has_trailer`, must not be `None`")
+            raise ValueError("Invalid value for `has_trailer`, must not be `None`")
         self._has_trailer = has_trailer
 
     @property
@@ -170,8 +163,7 @@ class GifProperties(object):
         :type: int
         """
         if pixel_aspect_ratio is None:
-            raise ValueError(
-                "Invalid value for `pixel_aspect_ratio`, must not be `None`")
+            raise ValueError("Invalid value for `pixel_aspect_ratio`, must not be `None`")
         self._pixel_aspect_ratio = pixel_aspect_ratio
 
     def to_dict(self):

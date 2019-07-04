@@ -53,8 +53,7 @@ class CreateFolderRequest(ImagingRequest):
         """
         # verify the required parameter 'path' is set
         if self.path is None:
-            raise ValueError(
-                "Missing the required parameter `path` when calling `create_folder`")
+            raise ValueError("Missing the required parameter `path` when calling `create_folder`")
 
         collection_formats = {}
         path = '/imaging/storage/folder/{path}'
@@ -64,16 +63,10 @@ class CreateFolderRequest(ImagingRequest):
 
         query_params = []
         if self._lowercase_first_letter('storageName') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'storageName' +
-                    '}'),
-                self.storage_name if self.storage_name is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('storageName' + '}'), self.storage_name if self.storage_name is not None else '')
         else:
             if self.storage_name is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('storageName'), self.storage_name))
+                query_params.append((self._lowercase_first_letter('storageName'), self.storage_name))
 
         header_params = {}
 
@@ -93,13 +86,5 @@ class CreateFolderRequest(ImagingRequest):
         # Authentication setting
         auth_settings = ['JWT']
 
-        return HttpRequest(
-            path,
-            path_params,
-            query_params,
-            header_params,
-            form_params,
-            body_params,
-            local_var_files,
-            collection_formats,
-            auth_settings)
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)

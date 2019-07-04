@@ -33,7 +33,7 @@ class UploadFileRequest(ImagingRequest):
     Request model for upload_file operation.
     Initializes a new instance.
 
-    :param path Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.
+    :param path Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.             
     :param file File to upload
     :param storage_name Storage name
     """
@@ -55,12 +55,10 @@ class UploadFileRequest(ImagingRequest):
         """
         # verify the required parameter 'path' is set
         if self.path is None:
-            raise ValueError(
-                "Missing the required parameter `path` when calling `upload_file`")
+            raise ValueError("Missing the required parameter `path` when calling `upload_file`")
         # verify the required parameter 'file' is set
         if self.file is None:
-            raise ValueError(
-                "Missing the required parameter `file` when calling `upload_file`")
+            raise ValueError("Missing the required parameter `file` when calling `upload_file`")
 
         collection_formats = {}
         path = '/imaging/storage/file/{path}'
@@ -70,24 +68,17 @@ class UploadFileRequest(ImagingRequest):
 
         query_params = []
         if self._lowercase_first_letter('storageName') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'storageName' +
-                    '}'),
-                self.storage_name if self.storage_name is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('storageName' + '}'), self.storage_name if self.storage_name is not None else '')
         else:
             if self.storage_name is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('storageName'), self.storage_name))
+                query_params.append((self._lowercase_first_letter('storageName'), self.storage_name))
 
         header_params = {}
 
         form_params = []
         local_var_files = []
         if self.file is not None:
-            local_var_files.append(
-                (self._lowercase_first_letter('File'), self.file))
+            local_var_files.append((self._lowercase_first_letter('File'), self.file))
 
         body_params = None
 
@@ -102,13 +93,6 @@ class UploadFileRequest(ImagingRequest):
         # Authentication setting
         auth_settings = ['JWT']
 
-        return HttpRequest(
-            path,
-            path_params,
-            query_params,
-            header_params,
-            form_params,
-            body_params,
-            local_var_files,
-            collection_formats,
-            auth_settings)
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)
+

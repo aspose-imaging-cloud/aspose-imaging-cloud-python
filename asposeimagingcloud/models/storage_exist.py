@@ -61,7 +61,7 @@ class StorageExist(object):
     def exists(self):
         """Gets the exists of this StorageExist.
 
-        Shows that the storage exists.
+        Shows that the storage exists.             
 
         :return: The exists of this StorageExist.
         :rtype: bool
@@ -72,7 +72,7 @@ class StorageExist(object):
     def exists(self, exists):
         """Sets the exists of this StorageExist.
 
-        Shows that the storage exists.
+        Shows that the storage exists.             
 
         :param exists: The exists of this StorageExist.
         :type: bool

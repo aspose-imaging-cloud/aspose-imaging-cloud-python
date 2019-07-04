@@ -24,8 +24,8 @@
 #  </summary>
 #  ----------------------------------------------------------------------------
 
-from asposeimagingcloud.models.requests.http_request import HttpRequest
 from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
+from asposeimagingcloud.models.requests.http_request import HttpRequest
 
 
 class ModifyPsdRequest(ImagingRequest):
@@ -41,14 +41,7 @@ class ModifyPsdRequest(ImagingRequest):
     :param storage Your Aspose Cloud Storage name.
     """
 
-    def __init__(
-            self,
-            name,
-            channels_count=None,
-            compression_method=None,
-            from_scratch=None,
-            folder=None,
-            storage=None):
+    def __init__(self, name, channels_count=None, compression_method=None, from_scratch=None, folder=None, storage=None):
         ImagingRequest.__init__(self)
         self.name = name
         self.channels_count = channels_count
@@ -68,8 +61,7 @@ class ModifyPsdRequest(ImagingRequest):
         """
         # verify the required parameter 'name' is set
         if self.name is None:
-            raise ValueError(
-                "Missing the required parameter `name` when calling `modify_psd`")
+            raise ValueError("Missing the required parameter `name` when calling `modify_psd`")
 
         collection_formats = {}
         path = '/imaging/{name}/psd'
@@ -79,62 +71,30 @@ class ModifyPsdRequest(ImagingRequest):
 
         query_params = []
         if self._lowercase_first_letter('channelsCount') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'channelsCount' +
-                    '}'),
-                self.channels_count if self.channels_count is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('channelsCount' + '}'), self.channels_count if self.channels_count is not None else '')
         else:
             if self.channels_count is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('channelsCount'),
-                     self.channels_count))
+                query_params.append((self._lowercase_first_letter('channelsCount'), self.channels_count))
         if self._lowercase_first_letter('compressionMethod') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'compressionMethod' +
-                    '}'),
-                self.compression_method if self.compression_method is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('compressionMethod' + '}'), self.compression_method if self.compression_method is not None else '')
         else:
             if self.compression_method is not None:
-                query_params.append((self._lowercase_first_letter(
-                    'compressionMethod'), self.compression_method))
+                query_params.append((self._lowercase_first_letter('compressionMethod'), self.compression_method))
         if self._lowercase_first_letter('fromScratch') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'fromScratch' +
-                    '}'),
-                self.from_scratch if self.from_scratch is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('fromScratch' + '}'), self.from_scratch if self.from_scratch is not None else '')
         else:
             if self.from_scratch is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('fromScratch'),
-                     self.from_scratch))
+                query_params.append((self._lowercase_first_letter('fromScratch'), self.from_scratch))
         if self._lowercase_first_letter('folder') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'folder' +
-                    '}'),
-                self.folder if self.folder is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
         else:
             if self.folder is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('folder'), self.folder))
+                query_params.append((self._lowercase_first_letter('folder'), self.folder))
         if self._lowercase_first_letter('storage') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'storage' +
-                    '}'),
-                self.storage if self.storage is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
         else:
             if self.storage is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('storage'), self.storage))
+                query_params.append((self._lowercase_first_letter('storage'), self.storage))
 
         header_params = {}
 
@@ -154,13 +114,5 @@ class ModifyPsdRequest(ImagingRequest):
         # Authentication setting
         auth_settings = ['JWT']
 
-        return HttpRequest(
-            path,
-            path_params,
-            query_params,
-            header_params,
-            form_params,
-            body_params,
-            local_var_files,
-            collection_formats,
-            auth_settings)
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)

@@ -24,8 +24,8 @@
 #  </summary>
 #  ----------------------------------------------------------------------------
 
-from asposeimagingcloud.models.requests.http_request import HttpRequest
 from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
+from asposeimagingcloud.models.requests.http_request import HttpRequest
 
 
 class GetImageFrameRequest(ImagingRequest):
@@ -47,20 +47,7 @@ class GetImageFrameRequest(ImagingRequest):
     :param storage Your Aspose Cloud Storage name.
     """
 
-    def __init__(
-            self,
-            name,
-            frame_id,
-            new_width=None,
-            new_height=None,
-            x=None,
-            y=None,
-            rect_width=None,
-            rect_height=None,
-            rotate_flip_method=None,
-            save_other_frames=None,
-            folder=None,
-            storage=None):
+    def __init__(self, name, frame_id, new_width=None, new_height=None, x=None, y=None, rect_width=None, rect_height=None, rotate_flip_method=None, save_other_frames=None, folder=None, storage=None):
         ImagingRequest.__init__(self)
         self.name = name
         self.frame_id = frame_id
@@ -86,12 +73,10 @@ class GetImageFrameRequest(ImagingRequest):
         """
         # verify the required parameter 'name' is set
         if self.name is None:
-            raise ValueError(
-                "Missing the required parameter `name` when calling `get_image_frame`")
+            raise ValueError("Missing the required parameter `name` when calling `get_image_frame`")
         # verify the required parameter 'frame_id' is set
         if self.frame_id is None:
-            raise ValueError(
-                "Missing the required parameter `frame_id` when calling `get_image_frame`")
+            raise ValueError("Missing the required parameter `frame_id` when calling `get_image_frame`")
 
         collection_formats = {}
         path = '/imaging/{name}/frames/{frameId}'
@@ -99,121 +84,59 @@ class GetImageFrameRequest(ImagingRequest):
         if self.name is not None:
             path_params[self._lowercase_first_letter('name')] = self.name
         if self.frame_id is not None:
-            path_params[self._lowercase_first_letter(
-                'frameId')] = self.frame_id
+            path_params[self._lowercase_first_letter('frameId')] = self.frame_id
 
         query_params = []
         if self._lowercase_first_letter('newWidth') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'newWidth' +
-                    '}'),
-                self.new_width if self.new_width is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('newWidth' + '}'), self.new_width if self.new_width is not None else '')
         else:
             if self.new_width is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('newWidth'), self.new_width))
+                query_params.append((self._lowercase_first_letter('newWidth'), self.new_width))
         if self._lowercase_first_letter('newHeight') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'newHeight' +
-                    '}'),
-                self.new_height if self.new_height is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('newHeight' + '}'), self.new_height if self.new_height is not None else '')
         else:
             if self.new_height is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('newHeight'), self.new_height))
+                query_params.append((self._lowercase_first_letter('newHeight'), self.new_height))
         if self._lowercase_first_letter('x') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'x' +
-                    '}'),
-                self.x if self.x is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('x' + '}'), self.x if self.x is not None else '')
         else:
             if self.x is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('x'), self.x))
+                query_params.append((self._lowercase_first_letter('x'), self.x))
         if self._lowercase_first_letter('y') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'y' +
-                    '}'),
-                self.y if self.y is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('y' + '}'), self.y if self.y is not None else '')
         else:
             if self.y is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('y'), self.y))
+                query_params.append((self._lowercase_first_letter('y'), self.y))
         if self._lowercase_first_letter('rectWidth') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'rectWidth' +
-                    '}'),
-                self.rect_width if self.rect_width is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('rectWidth' + '}'), self.rect_width if self.rect_width is not None else '')
         else:
             if self.rect_width is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('rectWidth'), self.rect_width))
+                query_params.append((self._lowercase_first_letter('rectWidth'), self.rect_width))
         if self._lowercase_first_letter('rectHeight') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'rectHeight' +
-                    '}'),
-                self.rect_height if self.rect_height is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('rectHeight' + '}'), self.rect_height if self.rect_height is not None else '')
         else:
             if self.rect_height is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('rectHeight'), self.rect_height))
+                query_params.append((self._lowercase_first_letter('rectHeight'), self.rect_height))
         if self._lowercase_first_letter('rotateFlipMethod') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'rotateFlipMethod' +
-                    '}'),
-                self.rotate_flip_method if self.rotate_flip_method is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('rotateFlipMethod' + '}'), self.rotate_flip_method if self.rotate_flip_method is not None else '')
         else:
             if self.rotate_flip_method is not None:
-                query_params.append((self._lowercase_first_letter(
-                    'rotateFlipMethod'), self.rotate_flip_method))
+                query_params.append((self._lowercase_first_letter('rotateFlipMethod'), self.rotate_flip_method))
         if self._lowercase_first_letter('saveOtherFrames') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'saveOtherFrames' +
-                    '}'),
-                self.save_other_frames if self.save_other_frames is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('saveOtherFrames' + '}'), self.save_other_frames if self.save_other_frames is not None else '')
         else:
             if self.save_other_frames is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('saveOtherFrames'),
-                     self.save_other_frames))
+                query_params.append((self._lowercase_first_letter('saveOtherFrames'), self.save_other_frames))
         if self._lowercase_first_letter('folder') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'folder' +
-                    '}'),
-                self.folder if self.folder is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
         else:
             if self.folder is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('folder'), self.folder))
+                query_params.append((self._lowercase_first_letter('folder'), self.folder))
         if self._lowercase_first_letter('storage') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'storage' +
-                    '}'),
-                self.storage if self.storage is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
         else:
             if self.storage is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('storage'), self.storage))
+                query_params.append((self._lowercase_first_letter('storage'), self.storage))
 
         header_params = {}
 
@@ -233,13 +156,5 @@ class GetImageFrameRequest(ImagingRequest):
         # Authentication setting
         auth_settings = ['JWT']
 
-        return HttpRequest(
-            path,
-            path_params,
-            query_params,
-            header_params,
-            form_params,
-            body_params,
-            local_var_files,
-            collection_formats,
-            auth_settings)
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)

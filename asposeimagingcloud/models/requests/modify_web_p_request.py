@@ -24,8 +24,8 @@
 #  </summary>
 #  ----------------------------------------------------------------------------
 
-from asposeimagingcloud.models.requests.http_request import HttpRequest
 from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
+from asposeimagingcloud.models.requests.http_request import HttpRequest
 
 
 class ModifyWebPRequest(ImagingRequest):
@@ -43,16 +43,7 @@ class ModifyWebPRequest(ImagingRequest):
     :param storage Your Aspose Cloud Storage name.
     """
 
-    def __init__(
-            self,
-            name,
-            loss_less,
-            quality,
-            anim_loop_count,
-            anim_background_color,
-            from_scratch=None,
-            folder=None,
-            storage=None):
+    def __init__(self, name, loss_less, quality, anim_loop_count, anim_background_color, from_scratch=None, folder=None, storage=None):
         ImagingRequest.__init__(self)
         self.name = name
         self.loss_less = loss_less
@@ -74,24 +65,19 @@ class ModifyWebPRequest(ImagingRequest):
         """
         # verify the required parameter 'name' is set
         if self.name is None:
-            raise ValueError(
-                "Missing the required parameter `name` when calling `modify_web_p`")
+            raise ValueError("Missing the required parameter `name` when calling `modify_web_p`")
         # verify the required parameter 'loss_less' is set
         if self.loss_less is None:
-            raise ValueError(
-                "Missing the required parameter `loss_less` when calling `modify_web_p`")
+            raise ValueError("Missing the required parameter `loss_less` when calling `modify_web_p`")
         # verify the required parameter 'quality' is set
         if self.quality is None:
-            raise ValueError(
-                "Missing the required parameter `quality` when calling `modify_web_p`")
+            raise ValueError("Missing the required parameter `quality` when calling `modify_web_p`")
         # verify the required parameter 'anim_loop_count' is set
         if self.anim_loop_count is None:
-            raise ValueError(
-                "Missing the required parameter `anim_loop_count` when calling `modify_web_p`")
+            raise ValueError("Missing the required parameter `anim_loop_count` when calling `modify_web_p`")
         # verify the required parameter 'anim_background_color' is set
         if self.anim_background_color is None:
-            raise ValueError(
-                "Missing the required parameter `anim_background_color` when calling `modify_web_p`")
+            raise ValueError("Missing the required parameter `anim_background_color` when calling `modify_web_p`")
 
         collection_formats = {}
         path = '/imaging/{name}/webp'
@@ -101,85 +87,40 @@ class ModifyWebPRequest(ImagingRequest):
 
         query_params = []
         if self._lowercase_first_letter('lossLess') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'lossLess' +
-                    '}'),
-                self.loss_less if self.loss_less is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('lossLess' + '}'), self.loss_less if self.loss_less is not None else '')
         else:
             if self.loss_less is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('lossLess'), self.loss_less))
+                query_params.append((self._lowercase_first_letter('lossLess'), self.loss_less))
         if self._lowercase_first_letter('quality') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'quality' +
-                    '}'),
-                self.quality if self.quality is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('quality' + '}'), self.quality if self.quality is not None else '')
         else:
             if self.quality is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('quality'), self.quality))
+                query_params.append((self._lowercase_first_letter('quality'), self.quality))
         if self._lowercase_first_letter('animLoopCount') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'animLoopCount' +
-                    '}'),
-                self.anim_loop_count if self.anim_loop_count is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('animLoopCount' + '}'), self.anim_loop_count if self.anim_loop_count is not None else '')
         else:
             if self.anim_loop_count is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('animLoopCount'),
-                     self.anim_loop_count))
+                query_params.append((self._lowercase_first_letter('animLoopCount'), self.anim_loop_count))
         if self._lowercase_first_letter('animBackgroundColor') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'animBackgroundColor' +
-                    '}'),
-                self.anim_background_color if self.anim_background_color is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('animBackgroundColor' + '}'), self.anim_background_color if self.anim_background_color is not None else '')
         else:
             if self.anim_background_color is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('animBackgroundColor'),
-                     self.anim_background_color))
+                query_params.append((self._lowercase_first_letter('animBackgroundColor'), self.anim_background_color))
         if self._lowercase_first_letter('fromScratch') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'fromScratch' +
-                    '}'),
-                self.from_scratch if self.from_scratch is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('fromScratch' + '}'), self.from_scratch if self.from_scratch is not None else '')
         else:
             if self.from_scratch is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('fromScratch'),
-                     self.from_scratch))
+                query_params.append((self._lowercase_first_letter('fromScratch'), self.from_scratch))
         if self._lowercase_first_letter('folder') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'folder' +
-                    '}'),
-                self.folder if self.folder is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
         else:
             if self.folder is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('folder'), self.folder))
+                query_params.append((self._lowercase_first_letter('folder'), self.folder))
         if self._lowercase_first_letter('storage') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'storage' +
-                    '}'),
-                self.storage if self.storage is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
         else:
             if self.storage is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('storage'), self.storage))
+                query_params.append((self._lowercase_first_letter('storage'), self.storage))
 
         header_params = {}
 
@@ -199,13 +140,5 @@ class ModifyWebPRequest(ImagingRequest):
         # Authentication setting
         auth_settings = ['JWT']
 
-        return HttpRequest(
-            path,
-            path_params,
-            query_params,
-            header_params,
-            form_params,
-            body_params,
-            local_var_files,
-            collection_formats,
-            auth_settings)
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)

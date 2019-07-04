@@ -54,12 +54,7 @@ class ImageFeatures(object):
         'features': 'Features'
     }
 
-    def __init__(
-            self,
-            image_id=None,
-            features_count=None,
-            feature_length_in_bits=None,
-            features=None):
+    def __init__(self, image_id=None, features_count=None, feature_length_in_bits=None, features=None):
         """ImageFeatures - a model defined in Swagger"""
 
         self._image_id = None
@@ -120,8 +115,7 @@ class ImageFeatures(object):
         :type: int
         """
         if features_count is None:
-            raise ValueError(
-                "Invalid value for `features_count`, must not be `None`")
+            raise ValueError("Invalid value for `features_count`, must not be `None`")
         self._features_count = features_count
 
     @property
@@ -145,8 +139,7 @@ class ImageFeatures(object):
         :type: int
         """
         if feature_length_in_bits is None:
-            raise ValueError(
-                "Invalid value for `feature_length_in_bits`, must not be `None`")
+            raise ValueError("Invalid value for `feature_length_in_bits`, must not be `None`")
         self._feature_length_in_bits = feature_length_in_bits
 
     @property
@@ -169,11 +162,8 @@ class ImageFeatures(object):
         :param features: The features of this ImageFeatures.
         :type: str
         """
-        if features is not None and not re.search(
-            r'^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$',
-                features):
-            raise ValueError(
-                r"Invalid value for `features`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
+        if features is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', features):
+            raise ValueError("Invalid value for `features`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")
         self._features = features
 
     def to_dict(self):

@@ -24,8 +24,8 @@
 #  </summary>
 #  ----------------------------------------------------------------------------
 
-from asposeimagingcloud.models.requests.http_request import HttpRequest
 from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
+from asposeimagingcloud.models.requests.http_request import HttpRequest
 
 
 class CropImageRequest(ImagingRequest):
@@ -43,16 +43,7 @@ class CropImageRequest(ImagingRequest):
     :param storage Your Aspose Cloud Storage name.
     """
 
-    def __init__(
-            self,
-            name,
-            format,
-            x,
-            y,
-            width,
-            height,
-            folder=None,
-            storage=None):
+    def __init__(self, name, format, x, y, width, height, folder=None, storage=None):
         ImagingRequest.__init__(self)
         self.name = name
         self.format = format
@@ -74,28 +65,22 @@ class CropImageRequest(ImagingRequest):
         """
         # verify the required parameter 'name' is set
         if self.name is None:
-            raise ValueError(
-                "Missing the required parameter `name` when calling `crop_image`")
+            raise ValueError("Missing the required parameter `name` when calling `crop_image`")
         # verify the required parameter 'format' is set
         if self.format is None:
-            raise ValueError(
-                "Missing the required parameter `format` when calling `crop_image`")
+            raise ValueError("Missing the required parameter `format` when calling `crop_image`")
         # verify the required parameter 'x' is set
         if self.x is None:
-            raise ValueError(
-                "Missing the required parameter `x` when calling `crop_image`")
+            raise ValueError("Missing the required parameter `x` when calling `crop_image`")
         # verify the required parameter 'y' is set
         if self.y is None:
-            raise ValueError(
-                "Missing the required parameter `y` when calling `crop_image`")
+            raise ValueError("Missing the required parameter `y` when calling `crop_image`")
         # verify the required parameter 'width' is set
         if self.width is None:
-            raise ValueError(
-                "Missing the required parameter `width` when calling `crop_image`")
+            raise ValueError("Missing the required parameter `width` when calling `crop_image`")
         # verify the required parameter 'height' is set
         if self.height is None:
-            raise ValueError(
-                "Missing the required parameter `height` when calling `crop_image`")
+            raise ValueError("Missing the required parameter `height` when calling `crop_image`")
 
         collection_formats = {}
         path = '/imaging/{name}/crop'
@@ -105,82 +90,40 @@ class CropImageRequest(ImagingRequest):
 
         query_params = []
         if self._lowercase_first_letter('format') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'format' +
-                    '}'),
-                self.format if self.format is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('format' + '}'), self.format if self.format is not None else '')
         else:
             if self.format is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('format'), self.format))
+                query_params.append((self._lowercase_first_letter('format'), self.format))
         if self._lowercase_first_letter('x') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'x' +
-                    '}'),
-                self.x if self.x is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('x' + '}'), self.x if self.x is not None else '')
         else:
             if self.x is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('x'), self.x))
+                query_params.append((self._lowercase_first_letter('x'), self.x))
         if self._lowercase_first_letter('y') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'y' +
-                    '}'),
-                self.y if self.y is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('y' + '}'), self.y if self.y is not None else '')
         else:
             if self.y is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('y'), self.y))
+                query_params.append((self._lowercase_first_letter('y'), self.y))
         if self._lowercase_first_letter('width') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'width' +
-                    '}'),
-                self.width if self.width is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('width' + '}'), self.width if self.width is not None else '')
         else:
             if self.width is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('width'), self.width))
+                query_params.append((self._lowercase_first_letter('width'), self.width))
         if self._lowercase_first_letter('height') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'height' +
-                    '}'),
-                self.height if self.height is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('height' + '}'), self.height if self.height is not None else '')
         else:
             if self.height is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('height'), self.height))
+                query_params.append((self._lowercase_first_letter('height'), self.height))
         if self._lowercase_first_letter('folder') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'folder' +
-                    '}'),
-                self.folder if self.folder is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
         else:
             if self.folder is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('folder'), self.folder))
+                query_params.append((self._lowercase_first_letter('folder'), self.folder))
         if self._lowercase_first_letter('storage') in path:
-            path = path.replace(
-                '{' +
-                self._lowercase_first_letter(
-                    'storage' +
-                    '}'),
-                self.storage if self.storage is not None else '')
+            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
         else:
             if self.storage is not None:
-                query_params.append(
-                    (self._lowercase_first_letter('storage'), self.storage))
+                query_params.append((self._lowercase_first_letter('storage'), self.storage))
 
         header_params = {}
 
@@ -200,13 +143,5 @@ class CropImageRequest(ImagingRequest):
         # Authentication setting
         auth_settings = ['JWT']
 
-        return HttpRequest(
-            path,
-            path_params,
-            query_params,
-            header_params,
-            form_params,
-            body_params,
-            local_var_files,
-            collection_formats,
-            auth_settings)
+        return HttpRequest(path, path_params, query_params, header_params, form_params, body_params, local_var_files,
+                           collection_formats, auth_settings)

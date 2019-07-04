@@ -91,8 +91,7 @@ class OdgProperties(object):
         :type: int
         """
         if page_count is None:
-            raise ValueError(
-                "Invalid value for `page_count`, must not be `None`")
+            raise ValueError("Invalid value for `page_count`, must not be `None`")
         self._page_count = page_count
 
     @property
