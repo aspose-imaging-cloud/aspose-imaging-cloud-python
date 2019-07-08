@@ -27,9 +27,8 @@
 from __future__ import absolute_import
 
 import six
-
-from asposeimagingcloud.api_client import ApiClient
 from asposeimagingcloud.rest import ApiException
+from asposeimagingcloud.api_client import ApiClient
 
 
 class ImagingApi(object):
@@ -41,7 +40,6 @@ class ImagingApi(object):
     :param base_url: The base URL.
     :param api_version: API version.
     """
-
     def __init__(self, app_key, app_sid, base_url=None, api_version=None):
         self.api_client = ApiClient()
         self.api_client.configuration.api_key['api_key'] = app_key
