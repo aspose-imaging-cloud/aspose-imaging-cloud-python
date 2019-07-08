@@ -31,7 +31,7 @@ import os
 import six
 
 import asposeimagingcloud.models.requests as requests
-from asposeimagingcloud import ImagingApi, ApiClient
+from asposeimagingcloud import ImagingApi
 
 if six.PY2:
     import unittest2 as unittest
@@ -152,13 +152,7 @@ class ApiTester(unittest.TestCase):
         print('Base URL: ' + base_url)
         print('API version: ' + api_version)
 
-        api_client = ApiClient()
-        api_client.configuration.host = base_url
-        api_client.configuration.api_key['api_key'] = app_key
-        api_client.configuration.api_key['app_sid'] = app_sid
-        api_client.configuration.api_version = api_version
-
-        self.imaging_api = ImagingApi(api_client)
+        self.imaging_api = ImagingApi(app_key, app_sid, base_url, api_version)
 
         self.input_test_files = self.imaging_api.get_files_list(
             requests.GetFilesListRequest(
