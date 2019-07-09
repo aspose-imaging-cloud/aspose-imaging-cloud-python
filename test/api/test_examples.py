@@ -27,7 +27,7 @@
 import os
 
 import asposeimagingcloud.models.requests as requests
-from asposeimagingcloud import ImagingApi, ApiClient
+from asposeimagingcloud import ImagingApi
 from test.api import ImagingApiTester
 
 
@@ -38,7 +38,9 @@ class TestExamples(ImagingApiTester):
         """ Saves as from storage example test """
 
         config = self.imaging_api.api_client.configuration
-        imaging_api = ImagingApi(ApiClient(config))
+        imaging_api = ImagingApi(
+            config.api_key['api_key'], config.api_key['app_sid'], config.host,
+            config.api_version)
 
         try:
             # upload local image to storage
@@ -75,7 +77,9 @@ class TestExamples(ImagingApiTester):
         """ Saves as from stream example """
 
         config = self.imaging_api.api_client.configuration
-        imaging_api = ImagingApi(ApiClient(config))
+        imaging_api = ImagingApi(
+            config.api_key['api_key'], config.api_key['app_sid'], config.host,
+            config.api_version)
         remote_result_image = 'ExampleFolderPython' + '/' + 'resultImage.jpg'
 
         try:
