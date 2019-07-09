@@ -24,9 +24,12 @@
 #  </summary>
 #  ----------------------------------------------------------------------------
 
+import argparse
 import os
+import sys
 
 import six
+import xmlrunner
 
 import test
 
@@ -35,37 +38,140 @@ if six.PY2:
 else:
     import unittest
 
-# set EXTENDED_TEST from env
-if os.environ.get('EXTENDED_TEST'):
-    test.api_tester.ApiTester.EXTENDED_TEST = os.environ.get('EXTENDED_TEST')
+# runner works with one optional argument - directory to save test results
+parser = argparse.ArgumentParser(
+    description='Test Aspose Imaging Cloud SDK for Python')
+parser.add_argument(
+    '-o', '--output_directory', default=None, required=False,
+    help='Directory to save test results. '
+         'Test result are not saved by default.')
+args = parser.parse_args()
 
+# set EXTENDED_TEST from env
+if os.environ.get('ExtendedTests'):
+    test.api_tester.ApiTester.EXTENDED_TEST = os.environ.get('ExtendedTests')
+
+# get test categories from env
+test_categories = None
+if os.environ.get('TestCategories'):
+    test_categories = os.environ.get('TestCategories')
+
+# Test categories can't be managed by framework so they should be collected
+# here manually
 loader = unittest.TestLoader()
+suites_dict = {}
+
+# TODO: move test discovery to lambda to discovery only required categories?
+ai_suite = unittest.TestSuite(
+    loader.loadTestsFromModule(sys.modules['test.api.AI.test_compare_images']))
+ai_suite.addTests(loader.loadTestsFromModule(
+    sys.modules['test.api.AI.test_find_duplicates']))
+ai_suite.addTests(
+    loader.loadTestsFromModule(sys.modules['test.api.AI.test_find_images']))
+ai_suite.addTests(
+    loader.loadTestsFromModule(sys.modules['test.api.AI.test_search_context']))
+suites_dict['Ai'] = ai_suite
+
+file_suite = unittest.TestSuite(
+    loader.loadTestsFromModule(sys.modules['test.api.storage.test_file_api']))
+suites_dict['File'] = file_suite
+
+folder_suite = unittest.TestSuite(loader.loadTestsFromModule(
+    sys.modules['test.api.storage.test_folder_api']))
+suites_dict['Folder'] = folder_suite
+
+storage_suite = unittest.TestSuite([file_suite, folder_suite])
+storage_suite.addTests(loader.loadTestsFromModule(
+    sys.modules['test.api.storage.test_storage_api']))
+suites_dict['Storage'] = storage_suite
+
+bmp_suite = unittest.TestSuite(
+    loader.loadTestsFromModule(sys.modules['test.api.test_bmp_api']))
+suites_dict['Bmp'] = bmp_suite
+
+crop_suite = unittest.TestSuite(
+    loader.loadTestsFromModule(sys.modules['test.api.test_crop_api']))
+suites_dict['Crop'] = crop_suite
+
+emf_suite = unittest.TestSuite(
+    loader.loadTestsFromModule(sys.modules['test.api.test_emf_api']))
+suites_dict['Emf'] = emf_suite
+
+examples_suite = unittest.TestSuite(
+    loader.loadTestsFromModule(sys.modules['test.api.test_examples']))
+suites_dict['Examples'] = examples_suite
+
+tiff_suite = unittest.TestSuite(
+    loader.loadTestsFromModule(sys.modules['test.api.test_frames_get_api']))
+tiff_suite.addTests(
+    loader.loadTestsFromModule(sys.modules['test.api.test_frames_post_api']))
+tiff_suite.addTests(
+    loader.loadTestsFromModule(sys.modules['test.api.test_tiff_api']))
+suites_dict['Tiff'] = tiff_suite
+
+gif_suite = unittest.TestSuite(
+    loader.loadTestsFromModule(sys.modules['test.api.test_gif_api']))
+suites_dict['Gif'] = gif_suite
+
+jpeg2000_suite = unittest.TestSuite(
+    loader.loadTestsFromModule(sys.modules['test.api.test_jpeg2000_api']))
+suites_dict['jpeg2000'] = jpeg2000_suite
+
+jpg_suite = unittest.TestSuite(
+    loader.loadTestsFromModule(sys.modules['test.api.test_jpg_api']))
+suites_dict['jpg'] = jpg_suite
+
+psd_suite = unittest.TestSuite(
+    loader.loadTestsFromModule(sys.modules['test.api.test_psd_api']))
+suites_dict['Psd'] = psd_suite
+
+resize_suite = unittest.TestSuite(
+    loader.loadTestsFromModule(sys.modules['test.api.test_resize_api']))
+suites_dict['Resize'] = resize_suite
+
+rotate_flip_suite = unittest.TestSuite(
+    loader.loadTestsFromModule(sys.modules['test.api.test_rotate_flip_api']))
+suites_dict['RotateFlip'] = rotate_flip_suite
+
+save_as_suite = unittest.TestSuite(
+    loader.loadTestsFromModule(sys.modules['test.api.test_save_as_api']))
+suites_dict['SaveAs'] = save_as_suite
+
+update_suite = unittest.TestSuite(
+    loader.loadTestsFromModule(sys.modules['test.api.test_update_image_api']))
+suites_dict['Update'] = update_suite
+
+web_p_suite = unittest.TestSuite(
+    loader.loadTestsFromModule(sys.modules['test.api.test_web_p_api']))
+suites_dict['Webp'] = web_p_suite
+
+wmf_suite = unittest.TestSuite(
+    loader.loadTestsFromModule(sys.modules['test.api.test_wmf_api']))
+suites_dict['Wmf'] = wmf_suite
+
+imaging_suit = unittest.TestSuite(
+    [bmp_suite, crop_suite, emf_suite, examples_suite, tiff_suite, gif_suite,
+     jpeg2000_suite, jpg_suite, psd_suite, resize_suite, rotate_flip_suite,
+     save_as_suite, update_suite, web_p_suite, wmf_suite])
+suites_dict['Imaging'] = imaging_suit
+
+v3_suite = unittest.TestSuite(
+    [ai_suite, storage_suite, bmp_suite, crop_suite, emf_suite, examples_suite,
+     tiff_suite, gif_suite, jpeg2000_suite, jpg_suite, psd_suite, resize_suite,
+     rotate_flip_suite, save_as_suite, update_suite, web_p_suite, wmf_suite])
+suites_dict['v3.0'] = v3_suite
 
 suite = unittest.TestSuite()
-suite.addTests(loader.loadTestsFromModule(test.test_compare_images))
-suite.addTests(loader.loadTestsFromModule(test.test_find_duplicates))
-suite.addTests(loader.loadTestsFromModule(test.test_find_images))
-suite.addTests(loader.loadTestsFromModule(test.test_search_context))
-suite.addTest(loader.loadTestsFromModule(test.test_file_api))
-suite.addTest(loader.loadTestsFromModule(test.test_folder_api))
-suite.addTest(loader.loadTestsFromModule(test.test_storage_api))
-suite.addTest(loader.loadTestsFromModule(test.test_bmp_api))
-suite.addTest(loader.loadTestsFromModule(test.test_crop_api))
-suite.addTest(loader.loadTestsFromModule(test.test_emf_api))
-suite.addTest(loader.loadTestsFromModule(test.test_examples))
-suite.addTest(loader.loadTestsFromModule(test.test_frames_get_api))
-suite.addTest(loader.loadTestsFromModule(test.test_frames_post_api))
-suite.addTest(loader.loadTestsFromModule(test.test_gif_api))
-suite.addTest(loader.loadTestsFromModule(test.test_jpeg2000_api))
-suite.addTest(loader.loadTestsFromModule(test.test_jpg_api))
-suite.addTest(loader.loadTestsFromModule(test.test_psd_api))
-suite.addTest(loader.loadTestsFromModule(test.test_resize_api))
-suite.addTest(loader.loadTestsFromModule(test.test_rotate_flip_api))
-suite.addTest(loader.loadTestsFromModule(test.test_save_as_api))
-suite.addTest(loader.loadTestsFromModule(test.test_tiff_api))
-suite.addTest(loader.loadTestsFromModule(test.test_update_image_api))
-suite.addTest(loader.loadTestsFromModule(test.test_web_p_api))
-suite.addTest(loader.loadTestsFromModule(test.test_wmf_api))
+if test_categories:
+    for category in test_categories.split():
+        suite.addTests(suites_dict[category])
+else:
+    suite.addTests(loader.loadTestsFromModule(sys.modules['test']))
 
-runner = unittest.TextTestRunner(verbosity=2)
-result = runner.run(suite)
+if args.output_directory:
+    runner = xmlrunner.XMLTestRunner(output=args.output_directory, verbosity=2)
+else:
+    runner = unittest.TextTestRunner(verbosity=2)
+
+result = not runner.run(suite).wasSuccessful()
+sys.exit(result)
