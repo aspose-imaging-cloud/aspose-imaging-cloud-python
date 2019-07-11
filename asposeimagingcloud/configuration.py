@@ -30,9 +30,9 @@ import copy
 import logging
 import multiprocessing
 import sys
-import urllib3
 
 import six
+import urllib3
 from six.moves import http_client as httplib
 
 
@@ -90,6 +90,8 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         # Debug switch
         self.debug = False
         self.__debug = False
+        # Metered switch
+        self.is_metered = False
 
         # SSL/TLS verification
         # Set this to false to skip verifying SSL certificate when calling API

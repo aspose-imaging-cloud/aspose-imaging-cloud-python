@@ -27,8 +27,9 @@
 from __future__ import absolute_import
 
 import six
-from asposeimagingcloud.rest import ApiException
+
 from asposeimagingcloud.api_client import ApiClient
+from asposeimagingcloud.rest import ApiException
 
 
 class ImagingApi(object):
@@ -39,8 +40,14 @@ class ImagingApi(object):
     :param app_sid: The app sid.
     :param base_url: The base URL.
     :param api_version: API version.
+    :param debug: If debug mode is enabled.
+    :param is_metered:
+        True for on-premise solution with metered license usage.
+        False for Aspose Cloud-hosted solution usage.
     """
-    def __init__(self, app_key, app_sid, base_url=None, api_version=None):
+
+    def __init__(self, app_key, app_sid, base_url=None, api_version=None,
+                 debug=None, is_metered=None):
         self.api_client = ApiClient()
         self.api_client.configuration.api_key['api_key'] = app_key
         self.api_client.configuration.api_key['app_sid'] = app_sid
@@ -48,6 +55,10 @@ class ImagingApi(object):
             self.api_client.configuration.host = base_url
         if api_version:
             self.api_client.configuration.api_version = api_version
+        if debug:
+            self.api_client.configuration.debug = debug
+        if is_metered:
+            self.api_client.configuration.is_metered = is_metered
 
     def add_search_image(self, request):
         """Add image and images features to search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.

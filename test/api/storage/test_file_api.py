@@ -121,6 +121,9 @@ class TestFileApi(StorageApiTester):
                         folder, self.test_storage)).exists)
 
     def test_file_versions_copy(self):
+        if self.imaging_api.api_client.configuration.is_metered:
+            return
+
         folder = self.temp_folder + '/Storage'
         file1 = 'Storage.txt'
         file2 = 'Folder1/Folder1.txt'
@@ -196,7 +199,10 @@ class TestFileApi(StorageApiTester):
                     requests.DeleteFolderRequest(
                         folder, self.test_storage, True))
 
-    def test_file_version_create(self):
+    def test_file_versions_create(self):
+        if self.imaging_api.api_client.configuration.is_metered:
+            return
+
         folder = self.temp_folder + '/Storage'
         file1 = 'Storage.txt'
         file2 = 'Folder1/Folder1.txt'
@@ -259,7 +265,10 @@ class TestFileApi(StorageApiTester):
                     requests.DeleteFolderRequest(
                         folder, self.test_storage, True))
 
-    def test_file_version_delete(self):
+    def test_file_versions_delete(self):
+        if self.imaging_api.api_client.configuration.is_metered:
+            return
+
         folder = self.temp_folder + '/Storage'
         file1 = 'Storage.txt'
         file2 = 'Folder1/Folder1.txt'
@@ -351,7 +360,10 @@ class TestFileApi(StorageApiTester):
                     requests.DeleteFolderRequest(
                         folder, self.test_storage, True))
 
-    def test_file_version_download(self):
+    def test_file_versions_download(self):
+        if self.imaging_api.api_client.configuration.is_metered:
+            return
+
         folder = self.temp_folder + '/Storage'
         file1 = 'Storage.txt'
         file2 = 'Folder1/Folder1.txt'
@@ -405,7 +417,10 @@ class TestFileApi(StorageApiTester):
                     requests.DeleteFolderRequest(
                         folder, self.test_storage, True))
 
-    def test_file_version_move(self):
+    def test_file_versions_move(self):
+        if self.imaging_api.api_client.configuration.is_metered:
+            return
+
         folder = self.temp_folder + '/Storage'
         file1 = 'Storage.txt'
         file2 = 'Folder1/Folder1.txt'

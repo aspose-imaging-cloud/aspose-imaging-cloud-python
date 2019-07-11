@@ -49,8 +49,6 @@ class ApiTester(unittest.TestCase):
         self.original_data_folder = 'ImagingIntegrationTestData'
         self._server_access_file = 'serverAccess.json'
         self._api_version = 'v3.0'
-        self._app_key = 'xxx'
-        self._app_sid = 'xxx'
         self._base_url = 'https://api.aspose.cloud/'
         self._local_test_folder = os.path.join(
             os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
@@ -78,7 +76,8 @@ class ApiTester(unittest.TestCase):
         self.__create_api_instance()
 
         if not self.failed_any_test and self.remove_result and self.imaging_api.object_exists(
-                requests.ObjectExistsRequest(self.temp_folder, self.test_storage)).exists:
+                requests.ObjectExistsRequest(self.temp_folder,
+                                             self.test_storage)).exists:
             self.imaging_api.delete_folder(
                 requests.DeleteFolderRequest(
                     self.temp_folder, self.test_storage, True))
@@ -88,37 +87,26 @@ class ApiTester(unittest.TestCase):
 
     def tearDown(self):
         if not self.failed_any_test and self.remove_result and self.imaging_api.object_exists(
-                requests.ObjectExistsRequest(self.temp_folder, self.test_storage)).exists:
+                requests.ObjectExistsRequest(self.temp_folder,
+                                             self.test_storage)).exists:
             self.imaging_api.delete_folder(
                 requests.DeleteFolderRequest(
                     self.temp_folder, self.test_storage, True))
 
-    def __create_api_instance(self, app_key=None, app_sid=None, base_url=None,
-                              api_version=None, debug=False):
-        if not app_key:
-            app_key = self._app_key
+    def __create_api_instance(self):
+        print('Trying to obtain configuration from environment variables.')
+        is_metered = True if os.environ.get('IsMetered') and \
+                             os.environ.get('IsMetered') == 'True' \
+            else False
+        app_key = None if is_metered else os.environ.get('AppKey')
+        app_sid = None if is_metered else os.environ.get('AppSid')
+        base_url = os.environ.get('ApiEndpoint')
+        api_version = os.environ.get('ApiVersion')
 
-        if not app_sid:
-            app_sid = self._app_sid
-
-        if not base_url:
-            base_url = self._base_url
-
-        if not api_version:
-            api_version = self._api_version
-
-        if app_key == self._app_key or app_sid == self._app_sid:
-            print(
-                "Access data isn't set explicitly. Trying to obtain it from environment variables.")
-
-            app_key = os.environ.get('AppKey')
-            app_sid = os.environ.get('AppSid')
-            base_url = os.environ.get('ApiEndpoint')
-            api_version = os.environ.get('ApiVersion')
-
-        if not (app_key and app_sid and base_url and api_version):
-            print(
-                "Access data isn't set completely by environment variables. Filling unset data with default values.")
+        if (not is_metered and (
+                not app_key or not app_sid)) or not base_url or not api_version:
+            print('Access data isn\'t set completely by environment variables.'
+                  ' Filling unset data with default values.')
 
         if not api_version:
             api_version = self._api_version
@@ -130,11 +118,11 @@ class ApiTester(unittest.TestCase):
             server_file_info = json.load(f)
 
         if server_file_info:
-            if not app_key:
+            if not app_key and not is_metered:
                 app_key = server_file_info['AppKey']
                 print('Set default App key')
 
-            if not app_sid:
+            if not app_sid and not is_metered:
                 app_sid = server_file_info['AppSid']
                 print('Set default App SID')
 
@@ -142,7 +130,8 @@ class ApiTester(unittest.TestCase):
                 base_url = server_file_info['BaseURL']
                 print('Set default Base URL')
 
-        if not (app_key and app_sid and base_url and api_version):
+        if not (
+                app_key and app_sid and base_url and api_version or is_metered):
             raise ValueError(
                 'Please, specify valid access data (AppKey, AppSid, Base URL)')
 
@@ -234,7 +223,8 @@ class ApiTester(unittest.TestCase):
                 self.assertIsNotNone(result_properties)
 
             original_properties = self.imaging_api.get_image_properties(
-                requests.GetImagePropertiesRequest(input_file_name, folder, storage))
+                requests.GetImagePropertiesRequest(input_file_name, folder,
+                                                   storage))
             self.assertIsNotNone(original_properties)
 
             if result_properties:
@@ -251,7 +241,8 @@ class ApiTester(unittest.TestCase):
             raise
         finally:
             if passed and save_result_to_storage and self.remove_result \
-                    and self.imaging_api.object_exists(requests.ObjectExistsRequest(out_path, storage)).exists:
+                    and self.imaging_api.object_exists(
+                requests.ObjectExistsRequest(out_path, storage)).exists:
                 self.imaging_api.delete_file(
                     requests.DeleteFileRequest(
                         out_path, storage))
