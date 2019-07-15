@@ -75,7 +75,7 @@ class TestSearchContext(AiApiTester):
 
             dest_server_path = self.temp_folder + '/' + image
 
-            self.imaging_api.delete_image_search_image(
+            self.imaging_api.delete_image_search(
                 DeleteImageSearchRequest(self.search_context_id,
                                                 dest_server_path,
                                                 storage=self.test_storage))
@@ -186,7 +186,7 @@ class TestSearchContext(AiApiTester):
             self.__add_image_features(image)
             dest_server_path = self.temp_folder + '/' + image
 
-            self.imaging_api.delete_image_search_image(
+            self.imaging_api.delete_image_search(
                 DeleteImageSearchRequest(self.search_context_id,
                                                 dest_server_path,
                                                 storage=self.test_storage))
