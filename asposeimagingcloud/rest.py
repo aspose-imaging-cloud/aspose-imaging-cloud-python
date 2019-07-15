@@ -82,7 +82,7 @@ class RESTClientObject(object):
 
         # ca_certs
         if configuration.ssl_ca_cert:
-            ca_certs = configuration.ssl_ca_cert
+            ca_certs = configuration.ssl_ca_cert# For `GET`, `HEAD`
         else:
             # if not set certificate file, use Mozilla's root certificates.
             ca_certs = certifi.where()
@@ -222,8 +222,12 @@ class RESTClientObject(object):
                     raise ApiException(status=0, reason=msg)
             # For `GET`, `HEAD`
             else:
+                request_body = ''
+                if body is not None:
+                    request_body = json.dumps(body)
                 req = self.pool_manager.request(
                     method, url,
+                    body=request_body,
                     fields=query_params,
                     preload_content=_preload_content,
                     timeout=timeout,
