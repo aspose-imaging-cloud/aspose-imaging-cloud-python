@@ -23,7 +23,7 @@
 #   DEALINGS IN THE SOFTWARE.
 #  </summary>
 #  ----------------------------------------------------------------------------
-
+import getpass
 import os
 import time
 
@@ -41,6 +41,9 @@ class AiApiTester(ApiTester):
         self.wait_timeout = 5
         self.cloud_test_folder_prefix = 'ImagingAICloudTestPython'
         self.original_data_folder += '/AI'
+        self.temp_folder = '{0}_{1}'.format(
+            self.cloud_test_folder_prefix,
+            os.environ.get('BUILD_NUMBER') or getpass.getuser())
 
     def tearDown(self):
         if self.search_context_id:
