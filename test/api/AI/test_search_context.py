@@ -31,9 +31,9 @@ import six
 from asposeimagingcloud import GetImageSearchStatusRequest, \
     DownloadFileRequest, AddSearchImageRequest, ObjectExistsRequest, \
     GetSearchImageRequest, CreateImageFeaturesRequest, \
-    GetImageFeaturesRequest, DeleteImageSearchRequest, \
-    UpdateSearchImageRequest, ExtractImageFeaturesRequest, \
-    UpdateImageFeaturesRequest
+    GetImageFeaturesRequest, UpdateSearchImageRequest, \
+    ExtractImageFeaturesRequest, UpdateImageFeaturesRequest, \
+    DeleteSearchImageRequest
 from asposeimagingcloud.rest import ApiException
 from test.api.AI.ai_api_tester import AiApiTester
 
@@ -76,9 +76,9 @@ class TestSearchContext(AiApiTester):
             dest_server_path = self.temp_folder + '/' + image
 
             self.imaging_api.delete_image_search(
-                DeleteImageSearchRequest(self.search_context_id,
-                                                dest_server_path,
-                                                storage=self.test_storage))
+                DeleteSearchImageRequest(self.search_context_id,
+                                         dest_server_path,
+                                         storage=self.test_storage))
 
             self.assertRaises(ApiException,
                               self.imaging_api.get_search_image,
@@ -187,9 +187,9 @@ class TestSearchContext(AiApiTester):
             dest_server_path = self.temp_folder + '/' + image
 
             self.imaging_api.delete_image_search(
-                DeleteImageSearchRequest(self.search_context_id,
-                                                dest_server_path,
-                                                storage=self.test_storage))
+                DeleteSearchImageRequest(self.search_context_id,
+                                         dest_server_path,
+                                         storage=self.test_storage))
 
             self.assertRaises(ApiException,
                               self.imaging_api.get_search_image,
