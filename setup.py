@@ -99,6 +99,7 @@ setup(
         "cmx",
         "pdf",
         "svg",
+        "otg",
         "reverse",
         "search"],
     install_requires=REQUIRES,
