@@ -27,8 +27,9 @@
 from __future__ import absolute_import
 
 import six
-from asposeimagingcloud.rest import ApiException
+
 from asposeimagingcloud.api_client import ApiClient
+from asposeimagingcloud.rest import ApiException
 
 
 class ImagingApi(object):
@@ -1410,7 +1411,7 @@ class ImagingApi(object):
         try:
             return call_api()
         except ApiException as ex:
-            if ex.status == 401:
+            if ex.code == 401:
                 self.__request_token()
                 return call_api()
             raise
@@ -1436,7 +1437,7 @@ class ImagingApi(object):
         try:
             return call_api_async()
         except ApiException as ex:
-            if ex.status == 401:
+            if ex.code == 401:
                 self.__request_token()
                 return call_api_async()
             raise

@@ -201,7 +201,7 @@ imaging_api.delete_image_search(DeleteImageSearchRequest(search_context_id))
 try:
     imaging_api.delete_image_search(DeleteImageSearchRequest(search_context_id))
 except ApiException as ex:
-    print(ex.status)
-    print(ex.reason)
-    # inspect ex.body
+    print(ex.code)
+    print(ex.message)
+    # inspect ex.error
 ```

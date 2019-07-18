@@ -46,7 +46,7 @@ class TestStorageApi(StorageApiTester):
                 requests.GetDiscUsageRequest(self.test_storage))
             self.assertLess(disk_usage.used_size, disk_usage.total_size)
         except ApiException as ex:
-            self.assertEqual(501, ex.status)
+            self.assertEqual(501, ex.error_code)
 
     def test_storage_exists(self):
         storage_exists = self.imaging_api.storage_exists(
