@@ -1,5 +1,5 @@
 # Aspose.Imaging Cloud Python SDK 
-[Aspose.Imaging Cloud](https://products.aspose.cloud/imaging/cloud) is a true REST API that enables you to perform a wide range of image processing operations including creation, manipulation and conversion in the cloud, with zero initial costs. Our Cloud SDKs are wrappers around REST API in various programming languages, allowing you to process images in language of your choice quickly and easily, gaining all benefits of strong types and IDE highlights. 
+[Aspose.Imaging Cloud](https://products.aspose.cloud/imaging) is a true REST API that enables you to perform a wide range of image processing operations including creation, manipulation and conversion in the cloud, with zero initial costs. Our Cloud SDKs are wrappers around REST API in various programming languages, allowing you to process images in language of your choice quickly and easily, gaining all benefits of strong types and IDE highlights. 
 
 This repository contains Aspose.Imaging Cloud Python SDK source code. This SDK allows you to work with Aspose.Imaging Cloud REST APIs in your Python applications quickly and easily, with zero initial cost.
 
@@ -72,10 +72,13 @@ It gives you an ability to:
 * Check if certain file, folder or storage exists
 
 # Usage
-Please, add the following [NuGet package](https://www.nuget.org/packages/Aspose.Imaging-Cloud/) to your project.
+This SDK will be published to [PyPi](https://pypi.org/) soon.
 
 # Examples
-This SDK will be published to pip soon.
+Please, look at [Examples](EXAMPLES.md) document.
+
+# Asynchronous API
+Each API method has its' async version with *Async* postfix, using *multiprocessing.pool.ThreadPool*.
 
 # Tests
 Tests are intended for internal usage only.
@@ -91,6 +94,6 @@ Your feedback is very important to us. Please feel free to contact via
 # Resources
 + [**Web API reference**](https://apireference.aspose.cloud/imaging/)
 + [**Website**](https://www.aspose.cloud)
-+ [**Product Home**](https://products.aspose.cloud/imaging/cloud)
++ [**Product Home**](https://products.aspose.cloud/imaging)
 + [**Documentation**](https://docs.aspose.cloud/display/imagingcloud/Home)
 + [**Blog**](https://blog.aspose.cloud/category/aspose-products/aspose.imaging-cloud/)
