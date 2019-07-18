@@ -1,7 +1,7 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
 #  <copyright company="Aspose" file="rest.py">
-#    Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
+#    Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
 #    Permission is hereby granted, free of charge, to any person obtaining a
@@ -50,6 +50,7 @@ try:
 except ImportError:
     raise ImportError('Swagger python client requires urllib3.')
 
+
 LOGGER = logging.getLogger(__name__)
 
 
@@ -89,15 +90,14 @@ class RESTClientObject(object):
 
         # ca_certs
         if configuration.ssl_ca_cert:
-            ca_certs = configuration.ssl_ca_cert  # For `GET`, `HEAD`
+            ca_certs = configuration.ssl_ca_cert# For `GET`, `HEAD`
         else:
             # if not set certificate file, use Mozilla's root certificates.
             ca_certs = certifi.where()
 
         addition_pool_args = {}
         if configuration.assert_hostname is not None:
-            addition_pool_args[
-                'assert_hostname'] = configuration.assert_hostname
+            addition_pool_args['assert_hostname'] = configuration.assert_hostname
 
         if maxsize is None:
             if configuration.connection_pool_maxsize is not None:
@@ -168,7 +168,7 @@ class RESTClientObject(object):
 
         timeout = None
         if _request_timeout:
-            if isinstance(_request_timeout, (int,) if six.PY3 else (
+            if isinstance(_request_timeout, (int, ) if six.PY3 else (
                     int, long)):  # pylint: disable=undefined-variable
                 timeout = urllib3.Timeout(total=_request_timeout)
             elif (isinstance(_request_timeout, tuple) and
@@ -196,8 +196,7 @@ class RESTClientObject(object):
                         preload_content=_preload_content,
                         timeout=timeout,
                         headers=headers)
-                elif headers[
-                    'Content-Type'] == 'application/x-www-form-urlencoded':
+                elif headers['Content-Type'] == 'application/x-www-form-urlencoded':
                     req = self.pool_manager.request(
                         method, url,
                         fields=post_params,
@@ -233,7 +232,7 @@ class RESTClientObject(object):
                     msg = """Cannot prepare a request message for provided
                              arguments. Please check that your arguments match
                              declared content type."""
-                    raise ApiException(msg, 0)
+                    raise ApiException(message=msg, code=0)
             # For `GET`, `HEAD`
             else:
                 request_body = ''
@@ -248,7 +247,7 @@ class RESTClientObject(object):
                     headers=headers)
         except urllib3.exceptions.SSLError as ex:
             msg = "{0}\n{1}".format(type(ex).__name__, str(ex))
-            raise ApiException(msg, 0)
+            raise ApiException(message=msg, code=0)
 
         if _preload_content:
             req = RESTResponse(req)
@@ -264,8 +263,7 @@ class RESTClientObject(object):
             finally:
                 raise ApiException(
                     '{0} Error connecting to the API {1}; Message: {2}'
-                        .format(req.status, url, req.reason), req.status,
-                    error)
+                    .format(req.status, url, req.reason), req.status, error)
 
         return req
 

@@ -1,7 +1,7 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
 #  <copyright company="Aspose" file="imaging_api.py">
-#    Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
+#    Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
 #    Permission is hereby granted, free of charge, to any person obtaining a
@@ -27,9 +27,8 @@
 from __future__ import absolute_import
 
 import six
-
-from asposeimagingcloud.api_client import ApiClient
 from asposeimagingcloud.rest import ApiException
+from asposeimagingcloud.api_client import ApiClient
 
 
 class ImagingApi(object):

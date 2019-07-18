@@ -1,7 +1,7 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
 #  <copyright company="Aspose" file="error_details.py">
-#    Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
+#    Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
 #    Permission is hereby granted, free of charge, to any person obtaining a
@@ -42,25 +42,25 @@ class ErrorDetails(object):
     """
     swagger_types = {
         'request_id': 'str',
-        'date': 'datetime'
+        '_date': 'datetime'
     }
 
     attribute_map = {
         'request_id': 'RequestId',
-        'date': 'Date'
+        '_date': 'Date'
     }
 
-    def __init__(self, request_id=None, date=None):
+    def __init__(self, request_id=None, _date=None):
         """ErrorDetails - a model defined in Swagger"""
 
         self._request_id = None
-        self._date = None
+        self.__date = None
         self.discriminator = None
 
         if request_id is not None:
             self.request_id = request_id
-        if date is not None:
-            self.date = date
+        if _date is not None:
+            self._date = _date
 
     @property
     def request_id(self):
@@ -85,28 +85,28 @@ class ErrorDetails(object):
         self._request_id = request_id
 
     @property
-    def date(self):
-        """Gets the date of this ErrorDetails.
+    def _date(self):
+        """Gets the _date of this ErrorDetails.
 
         Date
 
-        :return: The date of this ErrorDetails.
+        :return: The _date of this ErrorDetails.
         :rtype: datetime
         """
-        return self._date
+        return self.__date
 
-    @date.setter
-    def date(self, date):
-        """Sets the date of this ErrorDetails.
+    @_date.setter
+    def _date(self, _date):
+        """Sets the _date of this ErrorDetails.
 
         Date
 
-        :param date: The date of this ErrorDetails.
+        :param _date: The _date of this ErrorDetails.
         :type: datetime
         """
-        if date is None:
-            raise ValueError("Invalid value for `date`, must not be `None`")
-        self._date = date
+        if _date is None:
+            raise ValueError("Invalid value for `_date`, must not be `None`")
+        self.__date = _date
 
     def to_dict(self):
         """Returns the model properties as a dict"""
