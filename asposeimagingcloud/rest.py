@@ -262,7 +262,7 @@ class RESTClientObject(object):
                     req.data = req.data.decode('utf8')
                 req.data = json.loads(req.data)["error"]
                 error = ObjectHelper.deserialize(
-                    req, "Error", self.temp_folder_path)
+                    req, 'Error', self.temp_folder_path)
             finally:
                 raise ApiException(
                     '{0} Error connecting to the API {1}; Message: {2}'
@@ -421,6 +421,10 @@ class ObjectHelper:
 
         :return: deserialized object.
         """
+        # check if data from the response object is already processed
+        if isinstance(response.data, dict):
+            return ObjectHelper.__deserialize(response.data, response_type)
+
         # handle file downloading
         # save response body into a tmp file and return the instance
         if response_type == "file":
