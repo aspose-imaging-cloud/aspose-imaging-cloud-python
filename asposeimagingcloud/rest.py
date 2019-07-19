@@ -258,8 +258,11 @@ class RESTClientObject(object):
         if not 200 <= req.status <= 299:
             error = None
             try:
+                if six.PY3:
+                    req.data = req.data.decode('utf8')
+                req.data = json.loads(req.data)["error"]
                 error = ObjectHelper.deserialize(
-                    req.data, type(Error), self.temp_folder_path)
+                    req, "Error", self.temp_folder_path)
             finally:
                 raise ApiException(
                     '{0} Error connecting to the API {1}; Message: {2}'
