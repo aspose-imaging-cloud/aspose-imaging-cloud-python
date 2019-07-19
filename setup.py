@@ -26,7 +26,7 @@
 
 from setuptools import setup, find_packages
 
-NAME = "aspose-imaging-cloud-sdk"
+NAME = "aspose-imaging-cloud"
 VERSION = "19.7.0"
 # To install the library, run the following
 #
@@ -41,6 +41,9 @@ REQUIRES = [
     "certifi>=2018.1",
     "python_dateutil>=2.8"
 ]
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
 
 setup(
     name=NAME,
@@ -106,7 +109,6 @@ setup(
     packages=find_packages(exclude=["test", "test*"]),
     include_package_data=True,
     data_files=[("", ["LICENSE"])],
-    long_description="""\
-    Aspose.Imaging Cloud Python SDK"
-    """
+    long_description=long_description,
+    long_description_content_type="text/markdown"
 )

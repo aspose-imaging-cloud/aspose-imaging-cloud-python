@@ -72,17 +72,17 @@ It gives you an ability to:
 * Check if certain file, folder or storage exists
 
 # Usage
-1. Please, add the following [PyPi package](https://pypi.org/project/aspose-imaging-cloud-sdk/) to your requirements.txt.
+1. Please, add the following [PyPi package](https://pypi.org/project/aspose-imaging-cloud/) to your requirements.txt.
 ```
-aspose_imaging_cloud_sdk>=19.7
+aspose-imaging-cloud>=19.7
 ```
 Or install it using command line.
 ```
-pip install aspose-imaging-cloud-sdk
+pip install aspose-imaging-cloud
 ```
 2. Import the dependencies to your code as follows.
 ```python
-import aspose_imaging_cloud_sdk
+import aspose-imaging-cloud
 ```
 
 # Examples
