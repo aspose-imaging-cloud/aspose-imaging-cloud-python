@@ -130,18 +130,22 @@ class ApiTester(unittest.TestCase):
                 base_url = server_file_info['BaseURL']
                 print('Set default Base URL')
 
-        if not (
-                app_key and app_sid and base_url and api_version or is_metered):
+        elif not is_metered:
             raise ValueError(
                 'Please, specify valid access data (AppKey, AppSid, Base URL)')
 
+        print('Is metered: ' + str(is_metered))
         print('App key: ' + app_key)
         print('App SID: ' + app_sid)
         print('Storage: ' + self.test_storage)
         print('Base URL: ' + base_url)
         print('API version: ' + api_version)
 
-        self.imaging_api = ImagingApi(app_key, app_sid, base_url, api_version)
+        if is_metered:
+            self.imaging_api = ImagingApi.create_metered(base_url, api_version)
+        else:
+            self.imaging_api = ImagingApi.create_cloud(app_key, app_sid,
+                                                       base_url, api_version)
 
         self.input_test_files = self.imaging_api.get_files_list(
             requests.GetFilesListRequest(

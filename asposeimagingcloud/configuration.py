@@ -26,7 +26,6 @@
 
 from __future__ import absolute_import
 
-import copy
 import logging
 import multiprocessing
 import sys
@@ -36,36 +35,37 @@ import urllib3
 from six.moves import http_client as httplib
 
 
-class TypeWithDefault(type):
-    def __init__(cls, name, bases, dct):
-        super(TypeWithDefault, cls).__init__(name, bases, dct)
-        cls._default = None
-
-    def __call__(cls):
-        if cls._default is None:
-            cls._default = type.__call__(cls)
-        return copy.copy(cls._default)
-
-    def set_default(cls, default):
-        cls._default = copy.copy(default)
-
-
-class Configuration(six.with_metaclass(TypeWithDefault, object)):
+class Configuration(object):
     """ Class which contains configuration parameters
     """
 
-    def __init__(self):
+    default_base_url = 'https://api.aspose.cloud'
+
+    default_api_version = 'v3.0'
+
+    def __init__(self, app_key=None, app_sid=None, base_url=None,
+                 api_version=None,
+                 debug=False, is_metered=False):
         """Constructor"""
-        # Default Base url
-        self.host = "https://api.aspose.cloud"
+        # Base url
+        if base_url:
+            self.host = base_url
+        else:
+            self.host = Configuration.default_base_url
+
         # Default api version is v3
-        self.api_version = "v3"
+        if api_version:
+            self.api_version = api_version
+        else:
+            self.api_version = Configuration.default_api_version
+
         # Temp file folder for downloading files
         self.temp_folder_path = None
 
         # Authentication Settings
         # dict to store API key(s)
-        self.api_key = {'api_key': "", 'app_sid': ""}
+        self.api_key = {'api_key': app_key if app_key else "",
+                        'app_sid': app_sid if app_sid else ""}
         # dict to store API prefix (e.g. Bearer)
         self.api_key_prefix = {}
 
@@ -87,11 +87,13 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         # Debug file location
         self.__logger_file = None
         self.logger_file = None
+
         # Debug switch
-        self.debug = False
-        self.__debug = False
+        self.debug = debug
+        self.__debug = debug
+
         # Metered switch
-        self.is_metered = False
+        self.is_metered = is_metered
 
         # SSL/TLS verification
         # Set this to false to skip verifying SSL certificate when calling API
