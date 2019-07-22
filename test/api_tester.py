@@ -27,6 +27,7 @@
 import getpass
 import json
 import os
+from distutils.util import strtobool
 
 import six
 
@@ -96,7 +97,7 @@ class ApiTester(unittest.TestCase):
     def __create_api_instance(self):
         print('Trying to obtain configuration from environment variables.')
         on_premise = True if os.environ.get('OnPremise') and \
-                             os.environ.get('OnPremise') == 'True' \
+                             bool(strtobool(os.environ.get('OnPremise'))) \
             else False
         app_key = None if on_premise else os.environ.get('AppKey')
         app_sid = None if on_premise else os.environ.get('AppSid')
@@ -135,14 +136,16 @@ class ApiTester(unittest.TestCase):
                 'Please, specify valid access data (AppKey, AppSid, Base URL)')
 
         print('On Premise: ' + str(on_premise))
-        print('App key: ' + app_key)
-        print('App SID: ' + app_sid)
+        if not on_premise:
+            print('App key: ' + app_key)
+            print('App SID: ' + app_sid)
         print('Storage: ' + self.test_storage)
         print('Base URL: ' + base_url)
         print('API version: ' + api_version)
 
         if on_premise:
-            self.imaging_api = ImagingApi.create_metered(base_url, api_version)
+            self.imaging_api = ImagingApi.create_on_premise(base_url,
+                                                            api_version)
         else:
             self.imaging_api = ImagingApi.create_cloud(app_key, app_sid,
                                                        base_url, api_version)
