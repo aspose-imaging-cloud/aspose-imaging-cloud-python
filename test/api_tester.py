@@ -95,15 +95,15 @@ class ApiTester(unittest.TestCase):
 
     def __create_api_instance(self):
         print('Trying to obtain configuration from environment variables.')
-        is_metered = True if os.environ.get('IsMetered') and \
-                             os.environ.get('IsMetered') == 'True' \
+        on_premise = True if os.environ.get('OnPremise') and \
+                             os.environ.get('OnPremise') == 'True' \
             else False
-        app_key = None if is_metered else os.environ.get('AppKey')
-        app_sid = None if is_metered else os.environ.get('AppSid')
+        app_key = None if on_premise else os.environ.get('AppKey')
+        app_sid = None if on_premise else os.environ.get('AppSid')
         base_url = os.environ.get('ApiEndpoint')
         api_version = os.environ.get('ApiVersion')
 
-        if (not is_metered and (
+        if (not on_premise and (
                 not app_key or not app_sid)) or not base_url or not api_version:
             print('Access data isn\'t set completely by environment variables.'
                   ' Filling unset data with default values.')
@@ -118,11 +118,11 @@ class ApiTester(unittest.TestCase):
             server_file_info = json.load(f)
 
         if server_file_info:
-            if not app_key and not is_metered:
+            if not app_key and not on_premise:
                 app_key = server_file_info['AppKey']
                 print('Set default App key')
 
-            if not app_sid and not is_metered:
+            if not app_sid and not on_premise:
                 app_sid = server_file_info['AppSid']
                 print('Set default App SID')
 
@@ -130,18 +130,18 @@ class ApiTester(unittest.TestCase):
                 base_url = server_file_info['BaseURL']
                 print('Set default Base URL')
 
-        elif not is_metered:
+        elif not on_premise:
             raise ValueError(
                 'Please, specify valid access data (AppKey, AppSid, Base URL)')
 
-        print('Is metered: ' + str(is_metered))
+        print('On Premise: ' + str(on_premise))
         print('App key: ' + app_key)
         print('App SID: ' + app_sid)
         print('Storage: ' + self.test_storage)
         print('Base URL: ' + base_url)
         print('API version: ' + api_version)
 
-        if is_metered:
+        if on_premise:
             self.imaging_api = ImagingApi.create_metered(base_url, api_version)
         else:
             self.imaging_api = ImagingApi.create_cloud(app_key, app_sid,

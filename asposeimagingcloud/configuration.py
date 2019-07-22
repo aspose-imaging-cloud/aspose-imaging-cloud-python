@@ -45,7 +45,7 @@ class Configuration(object):
 
     def __init__(self, app_key=None, app_sid=None, base_url=None,
                  api_version=None,
-                 debug=False, is_metered=False):
+                 debug=False, on_premise=False):
         """Constructor"""
         # Base url
         if base_url:
@@ -92,8 +92,8 @@ class Configuration(object):
         self.debug = debug
         self.__debug = debug
 
-        # Metered switch
-        self.is_metered = is_metered
+        # On-premise switch
+        self.on_premise = on_premise
 
         # SSL/TLS verification
         # Set this to false to skip verifying SSL certificate when calling API

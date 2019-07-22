@@ -40,7 +40,7 @@ class ImagingApi(object):
     """
 
     def __init__(self, app_key=None, app_sid=None, base_url=None,
-                 api_version=None, debug=False, is_metered=False):
+                 api_version=None, debug=False, on_premise=False):
         """
         Initializes a new instance of the ImagingApi class.
 
@@ -49,7 +49,7 @@ class ImagingApi(object):
         :param base_url: The base URL.
         :param api_version: API version.
         :param debug: If debug mode is enabled. False by default.
-        :param is_metered:
+        :param on_premise:
             True for on-premise solution with metered license usage.
             False for Aspose Cloud-hosted solution usage, default.
         """
@@ -58,7 +58,7 @@ class ImagingApi(object):
                                       base_url=base_url,
                                       api_version=api_version,
                                       debug=debug,
-                                      is_metered=is_metered)
+                                      on_premise=on_premise)
         self.api_client = ApiClient(configuration)
 
     @classmethod
@@ -85,10 +85,10 @@ class ImagingApi(object):
                           base_url=base_url,
                           api_version=api_version,
                           debug=debug,
-                          is_metered=False)
+                          on_premise=False)
 
     @classmethod
-    def create_metered(cls, base_url, api_version=None, debug=False):
+    def create_on_premise(cls, base_url, api_version=None, debug=False):
         """
         Initializes a new instance of the ImagingApi class for on-premise solution with metered license usage.
 
@@ -103,7 +103,7 @@ class ImagingApi(object):
         return ImagingApi(base_url=base_url,
                           api_version=api_version,
                           debug=debug,
-                          is_metered=True)
+                          on_premise=True)
 
     def add_search_image(self, request):
         """Add image and images features to search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.

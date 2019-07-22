@@ -92,9 +92,9 @@ Please, look at [Examples](EXAMPLES.md) document.
 Each API method has its' async version with *Async* postfix, using *multiprocessing.pool.ThreadPool*.
 Please, look at [Examples](EXAMPLES.md) document
 
-# Aspose Cloud-hosted service VS on-premise deployment
+# Aspose Cloud-hosted service VS on-premise deployment (*experimental feature*)
 Starting from v19.7, you can choose either to use Aspose Cloud-hosted image processing service (the standard way) or the Docker image from Docker Hub deployed on-premise to serve the requests.
-The details about key differences and deployment process is described on the dedicated Docker Hub page.
+The details about key differences and deployment process will be described on the dedicated Docker Hub page  as soon as it's released.
 
 To succeed with your on-premise service usage by the SDK, you need to:
 1. Use the new API class constructor with base URL required parameter, API version and debug mode optional parameters.

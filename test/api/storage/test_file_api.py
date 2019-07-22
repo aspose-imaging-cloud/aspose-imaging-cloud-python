@@ -121,7 +121,7 @@ class TestFileApi(StorageApiTester):
                         folder, self.test_storage)).exists)
 
     def test_file_versions_copy(self):
-        if self.imaging_api.api_client.configuration.is_metered:
+        if self.imaging_api.api_client.configuration.on_premise:
             return
 
         folder = self.temp_folder + '/Storage'
@@ -200,7 +200,7 @@ class TestFileApi(StorageApiTester):
                         folder, self.test_storage, True))
 
     def test_file_versions_create(self):
-        if self.imaging_api.api_client.configuration.is_metered:
+        if self.imaging_api.api_client.configuration.on_premise:
             return
 
         folder = self.temp_folder + '/Storage'
@@ -266,7 +266,7 @@ class TestFileApi(StorageApiTester):
                         folder, self.test_storage, True))
 
     def test_file_versions_delete(self):
-        if self.imaging_api.api_client.configuration.is_metered:
+        if self.imaging_api.api_client.configuration.on_premise:
             return
 
         folder = self.temp_folder + '/Storage'
@@ -361,7 +361,7 @@ class TestFileApi(StorageApiTester):
                         folder, self.test_storage, True))
 
     def test_file_versions_download(self):
-        if self.imaging_api.api_client.configuration.is_metered:
+        if self.imaging_api.api_client.configuration.on_premise:
             return
 
         folder = self.temp_folder + '/Storage'
@@ -418,7 +418,7 @@ class TestFileApi(StorageApiTester):
                         folder, self.test_storage, True))
 
     def test_file_versions_move(self):
-        if self.imaging_api.api_client.configuration.is_metered:
+        if self.imaging_api.api_client.configuration.on_premise:
             return
 
         folder = self.temp_folder + '/Storage'
