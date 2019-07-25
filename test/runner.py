@@ -27,6 +27,7 @@
 import argparse
 import os
 import sys
+from distutils.util import strtobool
 
 import six
 import xmlrunner
@@ -49,7 +50,8 @@ args = parser.parse_args()
 
 # set EXTENDED_TEST from env
 if os.environ.get('ExtendedTests'):
-    test.api_tester.ApiTester.EXTENDED_TEST = os.environ.get('ExtendedTests')
+    test.api_tester.ApiTester.EXTENDED_TEST = bool(
+        strtobool((os.environ.get('ExtendedTests'))))
 
 # get test categories from env
 test_categories = None
