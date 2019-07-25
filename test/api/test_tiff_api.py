@@ -197,7 +197,7 @@ class TestTiffApi(ImagingApiTester):
                         out_path, storage)))
 
             self.imaging_api.append_tiff(
-                requests.CreateModifiedTiffRequest(
+                requests.AppendTiffRequest(
                     result_file_name, input_file_name, storage, folder))
 
             result_info = self._get_storage_file_info(
