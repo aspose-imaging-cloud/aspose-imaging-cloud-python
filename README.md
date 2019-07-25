@@ -96,7 +96,7 @@ The details about key differences and deployment process will be described on th
 To succeed with your on-premise service usage by the SDK, you need to:
 1. Use the new API class constructor with base URL required parameter, API version and debug mode optional parameters.
 ```python
-imagingApi = ImagingApi("yourServiceUrl");
+ImagingApi(base_url='yourServiceUrl')
 ```
 2. Set *storage* or *storageName* parameters for each request where they're present (mandatory!).
 
