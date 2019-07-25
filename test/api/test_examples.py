@@ -46,7 +46,8 @@ class TestExamples(ImagingApiTester):
             # upload local image to storage
             result = imaging_api.upload_file(requests.UploadFileRequest(
                 'ExampleFolderPython/inputImage.png',
-                os.path.join(self._local_test_folder, 'test.png')))
+                os.path.join(self._local_test_folder, 'test.png'),
+                storage_name=self.test_storage))
 
             # inspect result.Errors list if there were any
             # inspect result.Uploaded list for uploaded file names
@@ -54,12 +55,14 @@ class TestExamples(ImagingApiTester):
             # convert image from storage to JPEG
             converted_image = imaging_api.save_image_as(
                 requests.SaveImageAsRequest('inputImage.png', 'jpg',
-                                            'ExampleFolderPython'))
+                                            'ExampleFolderPython',
+                                            storage=self.test_storage))
             # process resulting image
             # for example, save it to storage
 
             result = imaging_api.upload_file(requests.UploadFileRequest(
-                'ExampleFolderPython/resultImage.jpg', converted_image))
+                'ExampleFolderPython/resultImage.jpg', converted_image,
+                storage_name=self.test_storage))
 
             # inspect result.Errors list if there were any
             # inspect result.Uploaded list for uploaded file names
@@ -68,10 +71,12 @@ class TestExamples(ImagingApiTester):
             # remove files from storage
             imaging_api.delete_file(
                 requests.DeleteFileRequest(
-                    'ExampleFolderPython/inputImage.png'))
+                    'ExampleFolderPython/inputImage.png',
+                    storage_name=self.test_storage))
             imaging_api.delete_file(
                 requests.DeleteFileRequest(
-                    'ExampleFolderPython/resultImage.jpg'))
+                    'ExampleFolderPython/resultImage.jpg',
+                    storage_name=self.test_storage))
 
     def test_save_as_from_stream_example(self):
         """ Saves as from stream example """
@@ -90,19 +95,23 @@ class TestExamples(ImagingApiTester):
             # please, use outPath parameter for saving the result to storage
             imaging_api.create_saved_image_as(
                 requests.CreateSavedImageAsRequest(
-                    local_input_image, 'jpg', remote_result_image))
+                    local_input_image, 'jpg', remote_result_image,
+                    storage=self.test_storage))
 
             #  download saved image from storage
             saved_file = imaging_api.download_file(
-                requests.DownloadFileRequest(remote_result_image))
+                requests.DownloadFileRequest(remote_result_image,
+                                             storage_name=self.test_storage))
             # TODO: process resulting image from storage
 
             # convert image from request stream to JPEG and read it from
             # resulting stream
             image_stream = imaging_api.create_saved_image_as(
-                requests.CreateSavedImageAsRequest(local_input_image, "jpg"))
+                requests.CreateSavedImageAsRequest(local_input_image, "jpg",
+                                                   storage=self.test_storage))
             # TODO: process resulting image from response stream
 
         finally:
             imaging_api.delete_file(
-                requests.DeleteFileRequest(remote_result_image))
+                requests.DeleteFileRequest(remote_result_image,
+                                           storage_name=self.test_storage))

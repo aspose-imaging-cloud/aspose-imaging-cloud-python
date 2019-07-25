@@ -104,12 +104,12 @@ class TestFolderApi(StorageApiTester):
             self.assertGreater(len(original_files), 0)
             self.assertGreater(len(copied_files), 0)
             self.assertEqual(len(original_files), len(copied_files))
-            for i in range(len(original_files)):
-                self.assertEqual(
-                    original_files[i].is_folder,
-                    copied_files[i].is_folder)
-                self.assertEqual(original_files[i].name, copied_files[i].name)
-                self.assertEqual(original_files[i].size, copied_files[i].size)
+            for original_file in original_files:
+                self.assertIsNotNone(
+                    next(copied_file for copied_file in copied_files
+                         if copied_file.is_folder == original_file.is_folder
+                         and copied_file.size == original_file.size
+                         and copied_file.name == original_file.name))
 
         finally:
             if self.imaging_api.object_exists(
@@ -192,12 +192,12 @@ class TestFolderApi(StorageApiTester):
             self.assertGreater(len(original_files), 0)
             self.assertGreater(len(copied_files), 0)
             self.assertEqual(len(original_files), len(copied_files))
-            for i in range(len(original_files)):
-                self.assertEqual(
-                    original_files[i].is_folder,
-                    copied_files[i].is_folder)
-                self.assertEqual(original_files[i].name, copied_files[i].name)
-                self.assertEqual(original_files[i].size, copied_files[i].size)
+            for original_file in original_files:
+                self.assertIsNotNone(
+                    next(copied_file for copied_file in copied_files
+                         if copied_file.is_folder == original_file.is_folder
+                         and copied_file.size == original_file.size
+                         and copied_file.name == original_file.name))
 
         finally:
             if self.imaging_api.object_exists(

@@ -27,27 +27,38 @@
 from __future__ import absolute_import
 
 import six
-from asposeimagingcloud.rest import ApiException
+
 from asposeimagingcloud.api_client import ApiClient
+from asposeimagingcloud.configuration import Configuration
+from asposeimagingcloud.rest import ApiException
 
 
 class ImagingApi(object):
     """
     Aspose.Imaging Cloud API
 
-    :param app_key: The app key.
-    :param app_sid: The app sid.
-    :param base_url: The base URL.
-    :param api_version: API version.
     """
-    def __init__(self, app_key, app_sid, base_url=None, api_version=None):
-        self.api_client = ApiClient()
-        self.api_client.configuration.api_key['api_key'] = app_key
-        self.api_client.configuration.api_key['app_sid'] = app_sid
-        if base_url:
-            self.api_client.configuration.host = base_url
-        if api_version:
-            self.api_client.configuration.api_version = api_version
+
+    def __init__(self, app_key=None, app_sid=None, base_url=None,
+                 api_version=None, debug=False):
+        """
+        Initializes a new instance of the ImagingApi class.
+
+        :param app_key: The app key.
+        :param app_sid: The app sid.
+        :param base_url: The base URL.
+        :param api_version: API version.
+        :param debug: If debug mode is enabled. False by default.
+        :param on_premise:
+            True for on-premise solution with metered license usage.
+            False for Aspose Cloud-hosted solution usage, default.
+        """
+        configuration = Configuration(app_key=app_key,
+                                      app_sid=app_sid,
+                                      base_url=base_url,
+                                      api_version=api_version,
+                                      debug=debug)
+        self.api_client = ApiClient(configuration)
 
     def add_search_image(self, request):
         """Add image and images features to search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
