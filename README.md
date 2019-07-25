@@ -88,12 +88,9 @@ import aspose-imaging-cloud
 # Examples
 Please, look at [Examples](EXAMPLES.md) document.
 
-# Asynchronous API
-Each API method has its' async version with *Async* postfix, using *multiprocessing.pool.ThreadPool*.
-
-# Aspose Cloud-hosted service VS on-premise deployment (*experimental feature*)
+### Aspose Cloud-hosted service VS on-premise deployment
 Starting from v19.7, you can choose either to use Aspose Cloud-hosted image processing service (the standard way) or the Docker image from Docker Hub deployed on-premise to serve the requests.
-The details about key differences and deployment process will be described on the dedicated Docker Hub page  as soon as it's released.
+The details about key differences and deployment process is described on the dedicated Docker Hub page.
 
 To succeed with your on-premise service usage by the SDK, you need to:
 1. Use the new API class constructor with base URL required parameter, API version and debug mode optional parameters.
@@ -102,7 +99,8 @@ imagingApi = ImagingApi("yourServiceUrl");
 ```
 2. Set *storage* or *storageName* parameters for each request where they're present (mandatory!).
 
-
+# Asynchronous API
+Each API method has its' async version with *_async* postfix, using *multiprocessing.pool.ThreadPool*.
 
 # Tests
 Tests are intended for internal usage only.
