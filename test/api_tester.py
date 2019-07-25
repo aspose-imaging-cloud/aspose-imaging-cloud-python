@@ -45,7 +45,7 @@ class ApiTester(unittest.TestCase):
 
     def setUp(self):
         self.failed_any_test = False
-        self.default_storage = 'Imaging-CI'
+        self.default_storage = 'Local-CI'
         self.cloud_test_folder_prefix = 'ImagingCloudTestPython'
         self.original_data_folder = 'ImagingIntegrationTestData'
         self._server_access_file = 'serverAccess.json'
@@ -143,12 +143,7 @@ class ApiTester(unittest.TestCase):
         print('Base URL: ' + base_url)
         print('API version: ' + api_version)
 
-        if on_premise:
-            self.imaging_api = ImagingApi.create_on_premise(base_url,
-                                                            api_version)
-        else:
-            self.imaging_api = ImagingApi.create_cloud(app_key, app_sid,
-                                                       base_url, api_version)
+        self.imaging_api = ImagingApi(app_key, app_sid, base_url, api_version)
 
         self.input_test_files = self.imaging_api.get_files_list(
             requests.GetFilesListRequest(

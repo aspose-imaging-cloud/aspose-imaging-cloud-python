@@ -44,8 +44,7 @@ class Configuration(object):
     default_api_version = 'v3.0'
 
     def __init__(self, app_key=None, app_sid=None, base_url=None,
-                 api_version=None,
-                 debug=False, on_premise=False):
+                 api_version=None, debug=False):
         """Constructor"""
         # Base url
         if base_url:
@@ -55,6 +54,9 @@ class Configuration(object):
 
         # Default api version is v3
         if api_version:
+            if api_version.startswith('v1') or api_version.startswith('v2'):
+                raise Exception('This Aspose.Imaging Cloud SDK version is '
+                                'intended to be used with API v3.0 or later!')
             self.api_version = api_version
         else:
             self.api_version = Configuration.default_api_version
@@ -93,7 +95,7 @@ class Configuration(object):
         self.__debug = debug
 
         # On-premise switch
-        self.on_premise = on_premise
+        self.on_premise = not (app_key or app_sid) and base_url
 
         # SSL/TLS verification
         # Set this to false to skip verifying SSL certificate when calling API

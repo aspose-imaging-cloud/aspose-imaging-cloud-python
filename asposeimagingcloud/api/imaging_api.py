@@ -40,7 +40,7 @@ class ImagingApi(object):
     """
 
     def __init__(self, app_key=None, app_sid=None, base_url=None,
-                 api_version=None, debug=False, on_premise=False):
+                 api_version=None, debug=False):
         """
         Initializes a new instance of the ImagingApi class.
 
@@ -57,53 +57,8 @@ class ImagingApi(object):
                                       app_sid=app_sid,
                                       base_url=base_url,
                                       api_version=api_version,
-                                      debug=debug,
-                                      on_premise=on_premise)
+                                      debug=debug)
         self.api_client = ApiClient(configuration)
-
-    @classmethod
-    def create_cloud(cls, app_key, app_sid, base_url=None, api_version=None,
-                     debug=False):
-        """
-        Initializes a new instance of the ImagingApi class for Aspose Cloud-hosted solution usage
-
-        :param app_key: The app key.
-        :param app_sid: The app sid.
-        :param base_url: The base URL.
-        :param api_version: API version.
-        :param debug: If debug mode is enabled. False by default.
-        :return:
-        """
-        if not base_url:
-            base_url = Configuration.default_base_url
-
-        if not api_version:
-            api_version = Configuration.default_api_version
-
-        return ImagingApi(app_key=app_key,
-                          app_sid=app_sid,
-                          base_url=base_url,
-                          api_version=api_version,
-                          debug=debug,
-                          on_premise=False)
-
-    @classmethod
-    def create_on_premise(cls, base_url, api_version=None, debug=False):
-        """
-        Initializes a new instance of the ImagingApi class for on-premise solution with metered license usage.
-
-        :param base_url: The base URL.
-        :param api_version: API version.
-        :param debug: If debug mode is enabled. False by default.
-        :return:
-        """
-        if not api_version:
-            api_version = Configuration.default_api_version
-
-        return ImagingApi(base_url=base_url,
-                          api_version=api_version,
-                          debug=debug,
-                          on_premise=True)
 
     def add_search_image(self, request):
         """Add image and images features to search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
