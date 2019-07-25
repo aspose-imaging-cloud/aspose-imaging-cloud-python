@@ -90,7 +90,6 @@ Please, look at [Examples](EXAMPLES.md) document.
 
 # Asynchronous API
 Each API method has its' async version with *Async* postfix, using *multiprocessing.pool.ThreadPool*.
-Please, look at [Examples](EXAMPLES.md) document
 
 # Aspose Cloud-hosted service VS on-premise deployment (*experimental feature*)
 Starting from v19.7, you can choose either to use Aspose Cloud-hosted image processing service (the standard way) or the Docker image from Docker Hub deployed on-premise to serve the requests.
