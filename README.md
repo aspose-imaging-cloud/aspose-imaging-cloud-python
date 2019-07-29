@@ -24,6 +24,7 @@ Export the following images to various formats (generally supported ones are BMP
 * DICOM
 * CDR
 * ODG
+* OTG
 * DNG
 * SVG
 * CMX
@@ -88,14 +89,14 @@ import aspose-imaging-cloud
 # Examples
 Please, look at [Examples](EXAMPLES.md) document.
 
-### Aspose Cloud-hosted service VS on-premise deployment
+### Aspose Cloud-hosted service VS on-premise deployment (*experimental feature*)
 Starting from v19.7, you can choose either to use Aspose Cloud-hosted image processing service (the standard way) or the Docker image from Docker Hub deployed on-premise to serve the requests.
-The details about key differences and deployment process is described on the dedicated Docker Hub page.
+The details about key differences and deployment process will be described on the dedicated Docker Hub page as soon as it's released.
 
 To succeed with your on-premise service usage by the SDK, you need to:
 1. Use the new API class constructor with base URL required parameter, API version and debug mode optional parameters.
 ```python
-imagingApi = ImagingApi("yourServiceUrl");
+ImagingApi(base_url='yourServiceUrl')
 ```
 2. Set *storage* or *storageName* parameters for each request where they're present (mandatory!).
 
