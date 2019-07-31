@@ -153,12 +153,11 @@ class ApiClient(object):
         # request url
         url = ''
         if six.PY3:
-            url = self.configuration.host + '/' + \
-                  self.configuration.api_version + resource_path
+            url = self.configuration.host + self.configuration.api_version + \
+                  resource_path
         else:
-            url = (self.configuration.host + '/' +
-                   self.configuration.api_version + resource_path)\
-                .encode('utf8')
+            url = (self.configuration.host + self.configuration.api_version +
+                   resource_path).encode('utf8')
 
         # perform request and return response
         response_data = self.request(

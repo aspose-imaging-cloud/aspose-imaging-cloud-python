@@ -51,6 +51,8 @@ class Configuration(object):
             self.host = base_url
         else:
             self.host = Configuration.default_base_url
+        if str.endswith(self.host, '/'):
+            self.host = self.host[:-1]
 
         # Default api version is v3
         if api_version:
@@ -60,6 +62,10 @@ class Configuration(object):
             self.api_version = api_version
         else:
             self.api_version = Configuration.default_api_version
+        if self.api_version and str.endswith(self.api_version, '/'):
+            self.api_version = self.api_version[:-1]
+        if self.api_version and not str.startswith(self.api_version, '/'):
+            self.api_version = '/' + self.api_version
 
         # Temp file folder for downloading files
         self.temp_folder_path = None
