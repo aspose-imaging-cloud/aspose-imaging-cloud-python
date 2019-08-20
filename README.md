@@ -75,7 +75,7 @@ It gives you an ability to:
 # Usage
 1. Please, add the following [PyPi package](https://pypi.org/project/aspose-imaging-cloud/) to your requirements.txt.
 ```
-aspose-imaging-cloud>=19.7
+aspose-imaging-cloud>=19.8
 ```
 Or install it using command line.
 ```
