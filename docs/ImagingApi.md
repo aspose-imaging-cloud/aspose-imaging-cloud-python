@@ -794,6 +794,66 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 
+<a name="create_modified_svg"></a>
+# **create_modified_svg**
+> create_modified_svg(self, create_modified_svg_request)
+
+Update parameters of SVG image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+### Return type
+
+**file**
+
+<a name="create_modified_svg_async"></a>
+# **create_modified_svg_async**
+> create_modified_svg_async(self, create_modified_svg_request)
+
+Update parameters of SVG image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+Performs operation asynchronously.
+
+### Return type
+
+**file**
+
+### CreateModifiedSvgRequest Parameters
+```python
+__init__(self, 
+    image_data, 
+    color_type=color_type, 
+    text_as_shapes=text_as_shapes, 
+    scale_x=scale_x, 
+    scale_y=scale_y, 
+    page_width=page_width, 
+    page_height=page_height, 
+    border_x=border_x, 
+    border_y=border_y, 
+    bk_color=bk_color, 
+    from_scratch=from_scratch, 
+    out_path=out_path, 
+    storage=storage, 
+    format=format)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **image_data** | **file**| Input image | 
+ **color_type** | **str**| Color type for SVG image. Only RGB is supported for now. | [optional] [default to Rgb]
+ **text_as_shapes** | **bool**| Whether text must be converted as shapes. true if all text is turned into SVG shapes in the convertion; otherwise, false | [optional] [default to false]
+ **scale_x** | **float**| Scale X. | [optional] [default to 0.0]
+ **scale_y** | **float**| Scale Y. | [optional] [default to 0.0]
+ **page_width** | **int**| Width of the page. | [optional] 
+ **page_height** | **int**| Height of the page. | [optional] 
+ **border_x** | **int**| Border width. | [optional] 
+ **border_y** | **int**| Border height. | [optional] 
+ **bk_color** | **str**| Background color (Default is white). | [optional] [default to white]
+ **from_scratch** | **bool**| Specifies where additional parameters we do not support should be taken from. If this is true – they will be taken from default values for standard image, if it is false – they will be saved from current image. Default is false. | [optional] [default to false]
+ **out_path** | **str**| Path to updated file (if this is empty, response contains streamed image). | [optional] 
+ **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
+ **format** | **str**| Export format (PNG is the default one). Please, refer to the export table from https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases. | [optional] [default to png]
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
 <a name="create_modified_tiff"></a>
 # **create_modified_tiff**
 > create_modified_tiff(self, create_modified_tiff_request)
@@ -2283,6 +2343,66 @@ Name | Type | Description  | Notes
  **from_scratch** | **bool**| Specifies where additional parameters we do not support should be taken from. If this is true – they will be taken from default values for standard image, if it is false – they will be saved from current image. Default is false. | [optional] [default to false]
  **folder** | **str**| Folder with image to process. | [optional] 
  **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="modify_svg"></a>
+# **modify_svg**
+> modify_svg(self, modify_svg_request)
+
+Update parameters of existing SVG image.
+
+### Return type
+
+**file**
+
+<a name="modify_svg_async"></a>
+# **modify_svg_async**
+> modify_svg_async(self, modify_svg_request)
+
+Update parameters of existing SVG image.
+
+Performs operation asynchronously.
+
+### Return type
+
+**file**
+
+### ModifySvgRequest Parameters
+```python
+__init__(self, 
+    name, 
+    color_type=color_type, 
+    text_as_shapes=text_as_shapes, 
+    scale_x=scale_x, 
+    scale_y=scale_y, 
+    page_width=page_width, 
+    page_height=page_height, 
+    border_x=border_x, 
+    border_y=border_y, 
+    bk_color=bk_color, 
+    from_scratch=from_scratch, 
+    folder=folder, 
+    storage=storage, 
+    format=format)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **str**| Filename of image. | 
+ **color_type** | **str**| Color type for SVG image. Only RGB is supported for now. | [optional] [default to Rgb]
+ **text_as_shapes** | **bool**| Whether text must be converted as shapes. true if all text is turned into SVG shapes in the convertion; otherwise, false | [optional] [default to false]
+ **scale_x** | **float**| Scale X. | [optional] [default to 0.0]
+ **scale_y** | **float**| Scale Y. | [optional] [default to 0.0]
+ **page_width** | **int**| Width of the page. | [optional] 
+ **page_height** | **int**| Height of the page. | [optional] 
+ **border_x** | **int**| Border width. | [optional] 
+ **border_y** | **int**| Border height. | [optional] 
+ **bk_color** | **str**| Background color (Default is white). | [optional] [default to white]
+ **from_scratch** | **bool**| Specifies where additional parameters we do not support should be taken from. If this is true – they will be taken from default values for standard image, if it is false – they will be saved from current image. Default is false. | [optional] [default to false]
+ **folder** | **str**| Folder with image to process. | [optional] 
+ **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
+ **format** | **str**| Export format (PNG is the default one). Please, refer to the export table from https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases. | [optional] [default to svg]
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 

@@ -38,6 +38,7 @@ from asposeimagingcloud.models.jpeg_properties import JpegProperties
 from asposeimagingcloud.models.odg_properties import OdgProperties
 from asposeimagingcloud.models.png_properties import PngProperties
 from asposeimagingcloud.models.psd_properties import PsdProperties
+from asposeimagingcloud.models.svg_properties import SvgProperties
 from asposeimagingcloud.models.tiff_properties import TiffProperties
 from asposeimagingcloud.models.web_p_properties import WebPProperties
 
@@ -69,6 +70,7 @@ class ImagingResponse(object):
         'dicom_properties': 'DicomProperties',
         'dng_properties': 'DngProperties',
         'odg_properties': 'OdgProperties',
+        'svg_properties': 'SvgProperties',
         'horizontal_resolution': 'float',
         'vertical_resolution': 'float',
         'is_cached': 'bool'
@@ -90,12 +92,13 @@ class ImagingResponse(object):
         'dicom_properties': 'DicomProperties',
         'dng_properties': 'DngProperties',
         'odg_properties': 'OdgProperties',
+        'svg_properties': 'SvgProperties',
         'horizontal_resolution': 'HorizontalResolution',
         'vertical_resolution': 'VerticalResolution',
         'is_cached': 'IsCached'
     }
 
-    def __init__(self, height=None, width=None, bits_per_pixel=None, bmp_properties=None, gif_properties=None, jpeg_properties=None, png_properties=None, tiff_properties=None, psd_properties=None, djvu_properties=None, web_p_properties=None, jpeg2000_properties=None, dicom_properties=None, dng_properties=None, odg_properties=None, horizontal_resolution=None, vertical_resolution=None, is_cached=None):
+    def __init__(self, height=None, width=None, bits_per_pixel=None, bmp_properties=None, gif_properties=None, jpeg_properties=None, png_properties=None, tiff_properties=None, psd_properties=None, djvu_properties=None, web_p_properties=None, jpeg2000_properties=None, dicom_properties=None, dng_properties=None, odg_properties=None, svg_properties=None, horizontal_resolution=None, vertical_resolution=None, is_cached=None):
         """ImagingResponse - a model defined in Swagger"""
 
         self._height = None
@@ -113,6 +116,7 @@ class ImagingResponse(object):
         self._dicom_properties = None
         self._dng_properties = None
         self._odg_properties = None
+        self._svg_properties = None
         self._horizontal_resolution = None
         self._vertical_resolution = None
         self._is_cached = None
@@ -148,6 +152,8 @@ class ImagingResponse(object):
             self.dng_properties = dng_properties
         if odg_properties is not None:
             self.odg_properties = odg_properties
+        if svg_properties is not None:
+            self.svg_properties = svg_properties
         if horizontal_resolution is not None:
             self.horizontal_resolution = horizontal_resolution
         if vertical_resolution is not None:
@@ -490,6 +496,28 @@ class ImagingResponse(object):
         :type: OdgProperties
         """
         self._odg_properties = odg_properties
+
+    @property
+    def svg_properties(self):
+        """Gets the svg_properties of this ImagingResponse.
+
+        Gets or sets the SVG properties.
+
+        :return: The svg_properties of this ImagingResponse.
+        :rtype: SvgProperties
+        """
+        return self._svg_properties
+
+    @svg_properties.setter
+    def svg_properties(self, svg_properties):
+        """Sets the svg_properties of this ImagingResponse.
+
+        Gets or sets the SVG properties.
+
+        :param svg_properties: The svg_properties of this ImagingResponse.
+        :type: SvgProperties
+        """
+        self._svg_properties = svg_properties
 
     @property
     def horizontal_resolution(self):

@@ -34,7 +34,7 @@ class ModifySvgRequest(ImagingRequest):
     Initializes a new instance.
 
     :param name Filename of image.
-    :param color_type Color type for SVG image.
+    :param color_type Color type for SVG image. Only RGB is supported for now.
     :param text_as_shapes Whether text must be converted as shapes. true if all text is turned into SVG shapes in the convertion; otherwise, false
     :param scale_x Scale X.
     :param scale_y Scale Y.

@@ -45,12 +45,12 @@ class ApiTester(unittest.TestCase):
 
     def setUp(self):
         self.failed_any_test = False
-        self.default_storage = 'Local-CI'
+        self.default_storage = 'Local-CI-Linux'
         self.cloud_test_folder_prefix = 'ImagingCloudTestPython'
         self.original_data_folder = 'ImagingIntegrationTestData'
         self._server_access_file = 'serverAccess.json'
         self._api_version = 'v3.0'
-        self._base_url = 'https://api.aspose.cloud/'
+        self._base_url = 'http://localhost:57972'
         self._local_test_folder = os.path.join(
             os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
             'TestData/')
@@ -118,7 +118,10 @@ class ApiTester(unittest.TestCase):
         with open(server_access_info) as f:
             server_file_info = json.load(f)
 
+        print('server file info' + str(bool(server_file_info)))
         if server_file_info:
+            print('Hit')
+
             if not app_key and not on_premise:
                 app_key = server_file_info['AppKey']
                 print('Set default App key')
@@ -131,7 +134,8 @@ class ApiTester(unittest.TestCase):
                 base_url = server_file_info['BaseURL']
                 print('Set default Base URL')
 
-        elif not on_premise:
+        if (not on_premise and (
+                not app_key or not app_sid)) or not base_url or not api_version:
             raise ValueError(
                 'Please, specify valid access data (AppKey, AppSid, Base URL)')
 

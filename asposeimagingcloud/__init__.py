@@ -63,6 +63,7 @@ from asposeimagingcloud.models.search_result import SearchResult
 from asposeimagingcloud.models.search_results_set import SearchResultsSet
 from asposeimagingcloud.models.storage_exist import StorageExist
 from asposeimagingcloud.models.storage_file import StorageFile
+from asposeimagingcloud.models.svg_properties import SvgProperties
 from asposeimagingcloud.models.tiff_frame import TiffFrame
 from asposeimagingcloud.models.tiff_options import TiffOptions
 from asposeimagingcloud.models.tiff_properties import TiffProperties
