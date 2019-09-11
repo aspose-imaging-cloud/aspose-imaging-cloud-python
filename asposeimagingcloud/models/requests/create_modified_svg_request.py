@@ -40,8 +40,8 @@ class CreateModifiedSvgRequest(ImagingRequest):
     :param scale_y Scale Y.
     :param page_width Width of the page.
     :param page_height Height of the page.
-    :param border_x Border width.
-    :param border_y Border height.
+    :param border_x Border width. Only 0 is supported for now.
+    :param border_y Border height. Only 0 is supported for now.
     :param bk_color Background color (Default is white).
     :param from_scratch Specifies where additional parameters we do not support should be taken from. If this is true – they will be taken from default values for standard image, if it is false – they will be saved from current image. Default is false.
     :param out_path Path to updated file (if this is empty, response contains streamed image).

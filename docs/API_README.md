@@ -40,6 +40,8 @@ Class | Method | HTTP request | Description
 *ImagingApi* | [**create_modified_jpeg2000_async**](ImagingApi.md#create_modified_jpeg2000_async) | **POST** /imaging/jpg2000 | Update parameters of JPEG2000 image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_modified_psd**](ImagingApi.md#create_modified_psd) | **POST** /imaging/psd | Update parameters of PSD image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_modified_psd_async**](ImagingApi.md#create_modified_psd_async) | **POST** /imaging/psd | Update parameters of PSD image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+*ImagingApi* | [**create_modified_svg**](ImagingApi.md#create_modified_svg) | **POST** /imaging/svg | Update parameters of SVG image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+*ImagingApi* | [**create_modified_svg_async**](ImagingApi.md#create_modified_svg_async) | **POST** /imaging/svg | Update parameters of SVG image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_modified_tiff**](ImagingApi.md#create_modified_tiff) | **POST** /imaging/tiff | Update parameters of TIFF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_modified_tiff_async**](ImagingApi.md#create_modified_tiff_async) | **POST** /imaging/tiff | Update parameters of TIFF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_modified_web_p**](ImagingApi.md#create_modified_web_p) | **POST** /imaging/webp | Update parameters of WEBP image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
@@ -110,6 +112,8 @@ Class | Method | HTTP request | Description
 *ImagingApi* | [**modify_jpeg2000_async**](ImagingApi.md#modify_jpeg2000_async) | **GET** /imaging/{name}/jpg2000 | Update parameters of existing JPEG2000 image.
 *ImagingApi* | [**modify_psd**](ImagingApi.md#modify_psd) | **GET** /imaging/{name}/psd | Update parameters of existing PSD image.
 *ImagingApi* | [**modify_psd_async**](ImagingApi.md#modify_psd_async) | **GET** /imaging/{name}/psd | Update parameters of existing PSD image.
+*ImagingApi* | [**modify_svg**](ImagingApi.md#modify_svg) | **GET** /imaging/{name}/svg | Update parameters of existing SVG image.
+*ImagingApi* | [**modify_svg_async**](ImagingApi.md#modify_svg_async) | **GET** /imaging/{name}/svg | Update parameters of existing SVG image.
 *ImagingApi* | [**modify_tiff**](ImagingApi.md#modify_tiff) | **GET** /imaging/{name}/tiff | Update parameters of existing TIFF image.
 *ImagingApi* | [**modify_tiff_async**](ImagingApi.md#modify_tiff_async) | **GET** /imaging/{name}/tiff | Update parameters of existing TIFF image.
 *ImagingApi* | [**modify_web_p**](ImagingApi.md#modify_web_p) | **GET** /imaging/{name}/webp | Update parameters of existing WEBP image.
@@ -172,6 +176,7 @@ Class | Method | HTTP request | Description
  - [asposeimagingcloud.models.SearchResultsSet](SearchResultsSet.md)
  - [asposeimagingcloud.models.StorageExist](StorageExist.md)
  - [asposeimagingcloud.models.StorageFile](StorageFile.md)
+ - [asposeimagingcloud.models.SvgProperties](SvgProperties.md)
  - [asposeimagingcloud.models.TiffFrame](TiffFrame.md)
  - [asposeimagingcloud.models.TiffOptions](TiffOptions.md)
  - [asposeimagingcloud.models.TiffProperties](TiffProperties.md)
