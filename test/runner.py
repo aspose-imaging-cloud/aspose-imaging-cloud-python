@@ -139,6 +139,10 @@ save_as_suite = unittest.TestSuite(
     loader.loadTestsFromModule(sys.modules['test.api.test_save_as_api']))
 suites_dict['SaveAs'] = save_as_suite
 
+svg_suite = unittest.TestSuite(
+    loader.loadTestsFromModule(sys.modules['test.api.test_svg_api']))
+suites_dict['Svg'] = svg_suite
+
 update_suite = unittest.TestSuite(
     loader.loadTestsFromModule(sys.modules['test.api.test_update_image_api']))
 suites_dict['Update'] = update_suite
