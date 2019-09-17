@@ -131,7 +131,8 @@ class ApiTester(unittest.TestCase):
                 base_url = server_file_info['BaseURL']
                 print('Set default Base URL')
 
-        elif not on_premise:
+        if (not on_premise and (
+                not app_key or not app_sid)) or not base_url or not api_version:
             raise ValueError(
                 'Please, specify valid access data (AppKey, AppSid, Base URL)')
 

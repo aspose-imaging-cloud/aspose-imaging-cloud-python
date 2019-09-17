@@ -420,6 +420,26 @@ class ImagingApi(object):
         http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request_async(http_request, 'POST', 'file')
 
+    def create_modified_svg(self, request):
+        """Update parameters of SVG image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_modified_svg_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', 'file')
+
+    def create_modified_svg_async(self, request):
+        """Update parameters of SVG image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_modified_svg_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'POST', 'file')
+
     def create_modified_tiff(self, request):
         """Update parameters of TIFF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 
@@ -1115,6 +1135,26 @@ class ImagingApi(object):
 
 
         :param request modify_psd_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'GET', 'file')
+
+    def modify_svg(self, request):
+        """Update parameters of existing SVG image.
+
+
+        :param request modify_svg_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'GET', 'file')
+
+    def modify_svg_async(self, request):
+        """Update parameters of existing SVG image.
+
+
+        :param request modify_svg_request object with parameters
         :return: file
         """
         http_request = request.to_http_info(self.api_client.configuration)
