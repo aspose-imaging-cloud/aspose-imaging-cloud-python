@@ -52,10 +52,10 @@ class DiscUsage(object):
 
     def __init__(self, used_size=None, total_size=None):
         """DiscUsage - a model defined in Swagger"""
+        super(DiscUsage, self).__init__()
 
         self._used_size = None
         self._total_size = None
-        self.discriminator = None
 
         if used_size is not None:
             self.used_size = used_size

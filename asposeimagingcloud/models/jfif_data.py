@@ -56,12 +56,12 @@ class JfifData(object):
 
     def __init__(self, density_units=None, version=None, x_density=None, y_density=None):
         """JfifData - a model defined in Swagger"""
+        super(JfifData, self).__init__()
 
         self._density_units = None
         self._version = None
         self._x_density = None
         self._y_density = None
-        self.discriminator = None
 
         if density_units is not None:
             self.density_units = density_units

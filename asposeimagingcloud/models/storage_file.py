@@ -62,13 +62,13 @@ class StorageFile(object):
 
     def __init__(self, name=None, is_folder=None, modified_date=None, size=None, path=None):
         """StorageFile - a model defined in Swagger"""
+        super(StorageFile, self).__init__()
 
         self._name = None
         self._is_folder = None
         self._modified_date = None
         self._size = None
         self._path = None
-        self.discriminator = 'Type'
 
         if name is not None:
             self.name = name

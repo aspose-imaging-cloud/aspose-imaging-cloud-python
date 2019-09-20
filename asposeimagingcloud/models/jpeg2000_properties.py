@@ -52,10 +52,10 @@ class Jpeg2000Properties(object):
 
     def __init__(self, comments=None, codec=None):
         """Jpeg2000Properties - a model defined in Swagger"""
+        super(Jpeg2000Properties, self).__init__()
 
         self._comments = None
         self._codec = None
-        self.discriminator = None
 
         if comments is not None:
             self.comments = comments

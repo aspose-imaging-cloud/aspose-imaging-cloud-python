@@ -52,9 +52,9 @@ class FilesList(object):
 
     def __init__(self, value=None):
         """FilesList - a model defined in Swagger"""
+        super(FilesList, self).__init__()
 
         self._value = None
-        self.discriminator = None
 
         if value is not None:
             self.value = value

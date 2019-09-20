@@ -254,6 +254,7 @@ class ExifData(object):
 
     def __init__(self, aperture_value=None, body_serial_number=None, brightness_value=None, cfa_pattern=None, camera_owner_name=None, color_space=None, components_configuration=None, compressed_bits_per_pixel=None, contrast=None, custom_rendered=None, date_time_digitized=None, date_time_original=None, device_setting_description=None, digital_zoom_ratio=None, exif_version=None, exposure_bias_value=None, exposure_index=None, exposure_mode=None, exposure_program=None, exposure_time=None, f_number=None, file_source=None, flash=None, flash_energy=None, flashpix_version=None, focal_length=None, focal_length_in35_mm_film=None, focal_plane_resolution_unit=None, focal_plane_x_resolution=None, focal_plane_y_resolution=None, gps_altitude=None, gps_altitude_ref=None, gps_area_information=None, gpsdop=None, gps_dest_bearing=None, gps_dest_bearing_ref=None, gps_dest_distance=None, gps_dest_distance_ref=None, gps_dest_latitude=None, gps_dest_latitude_ref=None, gps_dest_longitude=None, gps_dest_longitude_ref=None, gps_differential=None, gps_img_direction=None, gps_img_direction_ref=None, gps_date_stamp=None, gps_latitude=None, gps_latitude_ref=None, gps_longitude=None, gps_longitude_ref=None, gps_map_datum=None, gps_measure_mode=None, gps_processing_method=None, gps_satellites=None, gps_speed=None, gps_speed_ref=None, gps_status=None, gps_timestamp=None, gps_track=None, gps_track_ref=None, gps_version_id=None, gain_control=None, gamma=None, iso_speed=None, iso_speed_latitude_yyy=None, iso_speed_latitude_zzz=None, photographic_sensitivity=None, image_unique_id=None, lens_make=None, lens_model=None, lens_serial_number=None, lens_specification=None, light_source=None, maker_note_raw_data=None, max_aperture_value=None, metering_mode=None, oecf=None, pixel_x_dimension=None, pixel_y_dimension=None, recommended_exposure_index=None, related_sound_file=None, saturation=None, scene_capture_type=None, scene_type=None, sensing_method=None, sensitivity_type=None, sharpness=None, shutter_speed_value=None, spatial_frequency_response=None, spectral_sensitivity=None, standard_output_sensitivity=None, subject_area=None, subject_distance=None, subject_distance_range=None, subject_location=None, subsec_time=None, subsec_time_digitized=None, subsec_time_original=None, user_comment=None, white_balance=None, white_point=None):
         """ExifData - a model defined in Swagger"""
+        super(ExifData, self).__init__()
 
         self._aperture_value = None
         self._body_serial_number = None
@@ -356,7 +357,6 @@ class ExifData(object):
         self._user_comment = None
         self._white_balance = None
         self._white_point = None
-        self.discriminator = 'Type'
 
         if aperture_value is not None:
             self.aperture_value = aperture_value

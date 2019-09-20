@@ -59,12 +59,12 @@ class TiffFrame(object):
 
     def __init__(self, frame_options=None, height=None, width=None, exif_data=None):
         """TiffFrame - a model defined in Swagger"""
+        super(TiffFrame, self).__init__()
 
         self._frame_options = None
         self._height = None
         self._width = None
         self._exif_data = None
-        self.discriminator = None
 
         if frame_options is not None:
             self.frame_options = frame_options

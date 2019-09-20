@@ -780,6 +780,26 @@ class ImagingApi(object):
         http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request_async(http_request, 'POST', 'ImagingResponse')
 
+    def filter_effect_image(self, request):
+        """Performs filtering effects on an existing image.
+
+
+        :param request filter_effect_image_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'PUT', 'file')
+
+    def filter_effect_image_async(self, request):
+        """Performs filtering effects on an existing image.
+
+
+        :param request filter_effect_image_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'PUT', 'file')
+
     def find_image_duplicates(self, request):
         """Find images duplicates.
 

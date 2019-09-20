@@ -78,6 +78,10 @@ file_suite = unittest.TestSuite(
     loader.loadTestsFromModule(sys.modules['test.api.storage.test_file_api']))
 suites_dict['File'] = file_suite
 
+filter_effect_suite = unittest.TestSuite(loader.loadTestsFromModule(
+    sys.modules['test.api.test_filter_effect_api.py']))
+suites_dict['FilterEffect'] = filter_effect_suite
+
 folder_suite = unittest.TestSuite(loader.loadTestsFromModule(
     sys.modules['test.api.storage.test_folder_api']))
 suites_dict['Folder'] = folder_suite

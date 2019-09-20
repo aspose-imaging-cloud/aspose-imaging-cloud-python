@@ -56,12 +56,12 @@ class WebPProperties(object):
 
     def __init__(self, lossless=None, quality=None, anim_loop_count=None, anim_background_color=None):
         """WebPProperties - a model defined in Swagger"""
+        super(WebPProperties, self).__init__()
 
         self._lossless = None
         self._quality = None
         self._anim_loop_count = None
         self._anim_background_color = None
-        self.discriminator = None
 
         if lossless is not None:
             self.lossless = lossless

@@ -70,6 +70,7 @@ class DngProperties(object):
 
     def __init__(self, dng_version=None, description=None, model=None, camera_manufacturer=None, is_foveon=None, software=None, raw_count=None, filters=None, colors_count=None, xmp_data=None, translation_cfa_dng=None):
         """DngProperties - a model defined in Swagger"""
+        super(DngProperties, self).__init__()
 
         self._dng_version = None
         self._description = None
@@ -82,7 +83,6 @@ class DngProperties(object):
         self._colors_count = None
         self._xmp_data = None
         self._translation_cfa_dng = None
-        self.discriminator = None
 
         if dng_version is not None:
             self.dng_version = dng_version

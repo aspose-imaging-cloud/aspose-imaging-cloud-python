@@ -52,10 +52,10 @@ class OdgPage(object):
 
     def __init__(self, width=None, height=None):
         """OdgPage - a model defined in Swagger"""
+        super(OdgPage, self).__init__()
 
         self._width = None
         self._height = None
-        self.discriminator = None
 
         if width is not None:
             self.width = width

@@ -56,12 +56,12 @@ class PsdProperties(object):
 
     def __init__(self, bits_per_channel=None, channels_count=None, color_mode=None, compression=None):
         """PsdProperties - a model defined in Swagger"""
+        super(PsdProperties, self).__init__()
 
         self._bits_per_channel = None
         self._channels_count = None
         self._color_mode = None
         self._compression = None
-        self.discriminator = None
 
         if bits_per_channel is not None:
             self.bits_per_channel = bits_per_channel

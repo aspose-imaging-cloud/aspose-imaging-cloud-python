@@ -57,11 +57,11 @@ class TiffProperties(object):
 
     def __init__(self, frames=None, byte_order=None, exif_data=None):
         """TiffProperties - a model defined in Swagger"""
+        super(TiffProperties, self).__init__()
 
         self._frames = None
         self._byte_order = None
         self._exif_data = None
-        self.discriminator = None
 
         if frames is not None:
             self.frames = frames
