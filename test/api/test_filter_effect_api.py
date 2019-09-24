@@ -36,13 +36,16 @@ class TestFilterEffectApi(ImagingApiTester):
         """ Test filter_effect_image """
 
         additional_export_formats = set()
-        format_extension_test_cases = [
-            '.dicom',
-            '.djvu',
-            '.gif',
-            '.psd',
-            '.tiff',
-            '.webp']
+        if not self.EXTENDED_TEST:
+            format_extension_test_cases = ['.psd']
+        else:
+            format_extension_test_cases = [
+                '.dicom',
+                '.djvu',
+                '.gif',
+                '.psd',
+                '.tiff',
+                '.webp']
 
         for format_extension in format_extension_test_cases:
             with self.subTest('format_extension: ' + str(format_extension)):
