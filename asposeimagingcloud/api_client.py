@@ -73,12 +73,12 @@ class ApiClient(object):
         self.pool = ThreadPool()
         self.rest_client = rest.RESTClientObject(configuration)
         self.default_headers = {'x-aspose-client': 'python sdk',
-                                'x-aspose-version': '19.8'}
+                                'x-aspose-version': '19.9'}
         if header_name is not None:
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'python sdk 19.8'
+        self.user_agent = 'python sdk 19.9'
 
         self.last_response = None
 
