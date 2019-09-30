@@ -781,7 +781,7 @@ class ImagingApi(object):
         return self.__make_request_async(http_request, 'POST', 'ImagingResponse')
 
     def filter_effect_image(self, request):
-        """Performs filtering effects on an existing image.
+        """Apply filtering effects to an existing image.
 
 
         :param request filter_effect_image_request object with parameters
@@ -791,7 +791,7 @@ class ImagingApi(object):
         return self.__make_request(http_request, 'PUT', 'file')
 
     def filter_effect_image_async(self, request):
-        """Performs filtering effects on an existing image.
+        """Apply filtering effects to an existing image.
 
 
         :param request filter_effect_image_request object with parameters

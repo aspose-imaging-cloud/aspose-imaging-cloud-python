@@ -1580,23 +1580,23 @@ Name | Type | Description  | Notes
 # **filter_effect_image**
 > filter_effect_image(self, filter_effect_image_request)
 
-Performs filtering effects on an existing image.
+Apply filtering effects to an existing image.
 
 ### Return type
 
-[**file**](file.md)
+**file**
 
 <a name="filter_effect_image_async"></a>
 # **filter_effect_image_async**
 > filter_effect_image_async(self, filter_effect_image_request)
 
-Performs filtering effects on an existing image.
+Apply filtering effects to an existing image.
 
 Performs operation asynchronously.
 
 ### Return type
 
-[**file**](file.md)
+**file**
 
 ### FilterEffectImageRequest Parameters
 ```python

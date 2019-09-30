@@ -76,6 +76,8 @@ Class | Method | HTTP request | Description
 *ImagingApi* | [**extract_image_frame_properties_async**](ImagingApi.md#extract_image_frame_properties_async) | **POST** /imaging/frames/{frameId}/properties | Get separate frame properties of existing TIFF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**extract_image_properties**](ImagingApi.md#extract_image_properties) | **POST** /imaging/properties | Get properties of an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**extract_image_properties_async**](ImagingApi.md#extract_image_properties_async) | **POST** /imaging/properties | Get properties of an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+*ImagingApi* | [**filter_effect_image**](ImagingApi.md#filter_effect_image) | **PUT** /imaging/{name}/filterEffect | Apply filtering effects to an existing image.
+*ImagingApi* | [**filter_effect_image_async**](ImagingApi.md#filter_effect_image_async) | **PUT** /imaging/{name}/filterEffect | Apply filtering effects to an existing image.
 *ImagingApi* | [**find_image_duplicates**](ImagingApi.md#find_image_duplicates) | **GET** /imaging/ai/imageSearch/{searchContextId}/findDuplicates | Find images duplicates.
 *ImagingApi* | [**find_image_duplicates_async**](ImagingApi.md#find_image_duplicates_async) | **GET** /imaging/ai/imageSearch/{searchContextId}/findDuplicates | Find images duplicates.
 *ImagingApi* | [**find_images_by_tags**](ImagingApi.md#find_images_by_tags) | **POST** /imaging/ai/imageSearch/{searchContextId}/findByTags | Find images by tags. Tags JSON string is passed as zero-indexed multipart/form-data content or as raw body stream.
@@ -157,6 +159,7 @@ Class | Method | HTTP request | Description
  - [asposeimagingcloud.models.FileVersions](FileVersions.md)
  - [asposeimagingcloud.models.FilesList](FilesList.md)
  - [asposeimagingcloud.models.FilesUploadResult](FilesUploadResult.md)
+ - [asposeimagingcloud.models.FilterPropertiesBase](FilterPropertiesBase.md)
  - [asposeimagingcloud.models.GifProperties](GifProperties.md)
  - [asposeimagingcloud.models.ImageDuplicates](ImageDuplicates.md)
  - [asposeimagingcloud.models.ImageDuplicatesSet](ImageDuplicatesSet.md)
@@ -181,6 +184,16 @@ Class | Method | HTTP request | Description
  - [asposeimagingcloud.models.TiffOptions](TiffOptions.md)
  - [asposeimagingcloud.models.TiffProperties](TiffProperties.md)
  - [asposeimagingcloud.models.WebPProperties](WebPProperties.md)
+ - [asposeimagingcloud.models.BigRectangularFilterProperties](BigRectangularFilterProperties.md)
+ - [asposeimagingcloud.models.BilateralSmoothingFilterProperties](BilateralSmoothingFilterProperties.md)
+ - [asposeimagingcloud.models.ConvolutionFilterProperties](ConvolutionFilterProperties.md)
+ - [asposeimagingcloud.models.DeconvolutionFilterProperties](DeconvolutionFilterProperties.md)
  - [asposeimagingcloud.models.FileVersion](FileVersion.md)
  - [asposeimagingcloud.models.JpegExifData](JpegExifData.md)
+ - [asposeimagingcloud.models.MedianFilterProperties](MedianFilterProperties.md)
+ - [asposeimagingcloud.models.SmallRectangularFilterProperties](SmallRectangularFilterProperties.md)
+ - [asposeimagingcloud.models.GaussWienerFilterProperties](GaussWienerFilterProperties.md)
+ - [asposeimagingcloud.models.GaussianBlurFilterProperties](GaussianBlurFilterProperties.md)
+ - [asposeimagingcloud.models.MotionWienerFilterProperties](MotionWienerFilterProperties.md)
+ - [asposeimagingcloud.models.SharpenFilterProperties](SharpenFilterProperties.md)
 
