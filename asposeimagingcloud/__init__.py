@@ -63,6 +63,7 @@ from asposeimagingcloud.models.search_result import SearchResult
 from asposeimagingcloud.models.search_results_set import SearchResultsSet
 from asposeimagingcloud.models.storage_exist import StorageExist
 from asposeimagingcloud.models.storage_file import StorageFile
+from asposeimagingcloud.models.svg_properties import SvgProperties
 from asposeimagingcloud.models.tiff_frame import TiffFrame
 from asposeimagingcloud.models.tiff_options import TiffOptions
 from asposeimagingcloud.models.tiff_properties import TiffProperties
@@ -87,6 +88,7 @@ from asposeimagingcloud.models.requests.create_modified_gif_request import Creat
 from asposeimagingcloud.models.requests.create_modified_jpeg2000_request import CreateModifiedJpeg2000Request
 from asposeimagingcloud.models.requests.create_modified_jpeg_request import CreateModifiedJpegRequest
 from asposeimagingcloud.models.requests.create_modified_psd_request import CreateModifiedPsdRequest
+from asposeimagingcloud.models.requests.create_modified_svg_request import CreateModifiedSvgRequest
 from asposeimagingcloud.models.requests.create_modified_tiff_request import CreateModifiedTiffRequest
 from asposeimagingcloud.models.requests.create_modified_web_p_request import CreateModifiedWebPRequest
 from asposeimagingcloud.models.requests.create_modified_wmf_request import CreateModifiedWmfRequest
@@ -124,6 +126,7 @@ from asposeimagingcloud.models.requests.modify_gif_request import ModifyGifReque
 from asposeimagingcloud.models.requests.modify_jpeg2000_request import ModifyJpeg2000Request
 from asposeimagingcloud.models.requests.modify_jpeg_request import ModifyJpegRequest
 from asposeimagingcloud.models.requests.modify_psd_request import ModifyPsdRequest
+from asposeimagingcloud.models.requests.modify_svg_request import ModifySvgRequest
 from asposeimagingcloud.models.requests.modify_tiff_request import ModifyTiffRequest
 from asposeimagingcloud.models.requests.modify_web_p_request import ModifyWebPRequest
 from asposeimagingcloud.models.requests.modify_wmf_request import ModifyWmfRequest
