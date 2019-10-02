@@ -45,7 +45,7 @@ class ApiTester(unittest.TestCase):
 
     def setUp(self):
         self.failed_any_test = False
-        self.default_storage = 'Local-CI'
+        self.default_storage = 'Imaging-CI'
         self.cloud_test_folder_prefix = 'ImagingCloudTestPython'
         self.original_data_folder = 'ImagingIntegrationTestData'
         self._server_access_file = 'serverAccess.json'
