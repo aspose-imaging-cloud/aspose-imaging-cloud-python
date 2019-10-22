@@ -87,7 +87,7 @@ class GetImageSearchStatusRequest(ImagingRequest):
             ['application/json'])
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self._select_header_content_type(
+        header_params['Content-Type'] = 'multipart/form-data' if form_params else self._select_header_content_type(
             ['application/json'])
 
         # Authentication setting
