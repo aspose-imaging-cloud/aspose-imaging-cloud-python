@@ -140,6 +140,7 @@ class TiffOptions(object):
 
     def __init__(self, is_valid=None, artist=None, byte_order=None, bits_per_sample=None, compression=None, copyright=None, color_map=None, date_time=None, document_name=None, alpha_storage=None, fill_order=None, half_tone_hints=None, image_description=None, ink_names=None, scanner_manufacturer=None, max_sample_value=None, min_sample_value=None, scanner_model=None, page_name=None, orientation=None, page_number=None, photometric=None, planar_configuration=None, resolution_unit=None, rows_per_strip=None, sample_format=None, samples_per_pixel=None, smax_sample_value=None, smin_sample_value=None, software_type=None, strip_byte_counts=None, strip_offsets=None, sub_file_type=None, target_printer=None, threshholding=None, total_pages=None, xposition=None, xresolution=None, yposition=None, yresolution=None, fax_t4_options=None, predictor=None, image_length=None, image_width=None, valid_tag_count=None, bits_per_pixel=None):
         """TiffOptions - a model defined in Swagger"""
+        super(TiffOptions, self).__init__()
 
         self._is_valid = None
         self._artist = None
@@ -187,7 +188,6 @@ class TiffOptions(object):
         self._image_width = None
         self._valid_tag_count = None
         self._bits_per_pixel = None
-        self.discriminator = None
 
         if is_valid is not None:
             self.is_valid = is_valid

@@ -96,6 +96,7 @@ class DicomProperties(object):
 
     def __init__(self, planar_configuration=None, reds=None, greens=None, blues=None, dicom_header_info_by_bytes=None, signed_image=None, dicom_info=None, samples_per_pixel=None, bits_allocated=None, photo_interpretation=None, width_tag_found=None, height_tag_found=None, width=None, height=None, window_centre=None, window_width=None, pixel_representation=None, rescale_intercept=None, rescale_slope=None, number_of_frames=None, length_value=None, is_little_endian=None, offset=None, dicom_found=None):
         """DicomProperties - a model defined in Swagger"""
+        super(DicomProperties, self).__init__()
 
         self._planar_configuration = None
         self._reds = None
@@ -121,7 +122,6 @@ class DicomProperties(object):
         self._is_little_endian = None
         self._offset = None
         self._dicom_found = None
-        self.discriminator = None
 
         if planar_configuration is not None:
             self.planar_configuration = planar_configuration

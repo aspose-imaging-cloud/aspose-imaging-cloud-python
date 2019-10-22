@@ -54,11 +54,11 @@ class DjvuProperties(object):
 
     def __init__(self, background_color=None, has_background_color=None, pages_count=None):
         """DjvuProperties - a model defined in Swagger"""
+        super(DjvuProperties, self).__init__()
 
         self._background_color = None
         self._has_background_color = None
         self._pages_count = None
-        self.discriminator = None
 
         if background_color is not None:
             self.background_color = background_color

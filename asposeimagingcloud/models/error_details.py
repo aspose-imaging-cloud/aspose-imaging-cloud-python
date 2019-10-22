@@ -52,10 +52,10 @@ class ErrorDetails(object):
 
     def __init__(self, request_id=None, _date=None):
         """ErrorDetails - a model defined in Swagger"""
+        super(ErrorDetails, self).__init__()
 
         self._request_id = None
         self.__date = None
-        self.discriminator = None
 
         if request_id is not None:
             self.request_id = request_id

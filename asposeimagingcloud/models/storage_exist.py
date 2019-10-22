@@ -50,9 +50,9 @@ class StorageExist(object):
 
     def __init__(self, exists=None):
         """StorageExist - a model defined in Swagger"""
+        super(StorageExist, self).__init__()
 
         self._exists = None
-        self.discriminator = None
 
         if exists is not None:
             self.exists = exists

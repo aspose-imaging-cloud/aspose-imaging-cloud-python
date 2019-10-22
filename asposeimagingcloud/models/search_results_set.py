@@ -52,9 +52,9 @@ class SearchResultsSet(object):
 
     def __init__(self, results=None):
         """SearchResultsSet - a model defined in Swagger"""
+        super(SearchResultsSet, self).__init__()
 
         self._results = None
-        self.discriminator = None
 
         if results is not None:
             self.results = results

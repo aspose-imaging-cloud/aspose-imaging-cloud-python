@@ -52,10 +52,10 @@ class ObjectExist(object):
 
     def __init__(self, exists=None, is_folder=None):
         """ObjectExist - a model defined in Swagger"""
+        super(ObjectExist, self).__init__()
 
         self._exists = None
         self._is_folder = None
-        self.discriminator = None
 
         if exists is not None:
             self.exists = exists

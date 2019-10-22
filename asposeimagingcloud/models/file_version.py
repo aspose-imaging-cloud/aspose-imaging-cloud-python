@@ -54,10 +54,10 @@ class FileVersion(StorageFile):
 
     def __init__(self, version_id=None, is_latest=None):
         """FileVersion - a model defined in Swagger"""
+        super(FileVersion, self).__init__()
 
         self._version_id = None
         self._is_latest = None
-        self.discriminator = None
 
         if version_id is not None:
             self.version_id = version_id

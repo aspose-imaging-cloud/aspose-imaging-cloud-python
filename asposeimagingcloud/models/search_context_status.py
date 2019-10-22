@@ -52,10 +52,10 @@ class SearchContextStatus(object):
 
     def __init__(self, id=None, search_status=None):
         """SearchContextStatus - a model defined in Swagger"""
+        super(SearchContextStatus, self).__init__()
 
         self._id = None
         self._search_status = None
-        self.discriminator = None
 
         if id is not None:
             self.id = id

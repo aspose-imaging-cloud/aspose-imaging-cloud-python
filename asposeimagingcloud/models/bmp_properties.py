@@ -50,9 +50,9 @@ class BmpProperties(object):
 
     def __init__(self, compression=None):
         """BmpProperties - a model defined in Swagger"""
+        super(BmpProperties, self).__init__()
 
         self._compression = None
-        self.discriminator = None
 
         if compression is not None:
             self.compression = compression

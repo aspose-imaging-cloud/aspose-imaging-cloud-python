@@ -82,6 +82,7 @@ class JpegExifData(ExifData):
 
     def __init__(self, artist=None, copyright=None, date_time=None, image_description=None, make=None, model=None, orientation=None, primary_chromaticities=None, reference_black_white=None, resolution_unit=None, software=None, transfer_function=None, x_resolution=None, y_cb_cr_coefficients=None, y_cb_cr_positioning=None, y_resolution=None):
         """JpegExifData - a model defined in Swagger"""
+        super(JpegExifData, self).__init__()
 
         self._artist = None
         self._copyright = None
@@ -99,7 +100,6 @@ class JpegExifData(ExifData):
         self._y_cb_cr_coefficients = None
         self._y_cb_cr_positioning = None
         self._y_resolution = None
-        self.discriminator = None
 
         if artist is not None:
             self.artist = artist

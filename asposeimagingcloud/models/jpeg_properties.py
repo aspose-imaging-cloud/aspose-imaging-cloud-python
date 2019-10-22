@@ -57,11 +57,11 @@ class JpegProperties(object):
 
     def __init__(self, comment=None, jpeg_exif_data=None, jpeg_jfif_data=None):
         """JpegProperties - a model defined in Swagger"""
+        super(JpegProperties, self).__init__()
 
         self._comment = None
         self._jpeg_exif_data = None
         self._jpeg_jfif_data = None
-        self.discriminator = None
 
         if comment is not None:
             self.comment = comment

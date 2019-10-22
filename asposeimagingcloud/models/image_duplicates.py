@@ -52,9 +52,9 @@ class ImageDuplicates(object):
 
     def __init__(self, duplicate_images=None):
         """ImageDuplicates - a model defined in Swagger"""
+        super(ImageDuplicates, self).__init__()
 
         self._duplicate_images = None
-        self.discriminator = None
 
         if duplicate_images is not None:
             self.duplicate_images = duplicate_images

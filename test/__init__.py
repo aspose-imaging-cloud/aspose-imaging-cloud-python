@@ -39,6 +39,7 @@ from test.api.test_emf_api import TestEmfApi
 from test.api.test_examples import TestExamples
 from test.api.test_frames_get_api import TestFramesGetApi
 from test.api.test_frames_post_api import TestFramesPostApi
+from test.api.test_filter_effect_api import TestFilterEffectApi
 from test.api.test_gif_api import TestGifApi
 from test.api.test_jpeg2000_api import TestJpeg2000Api
 from test.api.test_jpg_api import TestJpgApi
