@@ -23,6 +23,7 @@
 #   DEALINGS IN THE SOFTWARE.
 #  </summary>
 #  ----------------------------------------------------------------------------
+import json
 
 from asposeimagingcloud import FindSimilarImagesRequest, \
     DownloadFileRequest, CreateImageTagRequest, \
@@ -66,12 +67,15 @@ class TestFindImages(AiApiTester):
                                                self.search_context_id, tag,
                                                storage=self.test_storage))
 
+            tags = json.dumps([tag])
             response = self.imaging_api.find_images_by_tags(
-                FindImagesByTagsRequest([tag],
+                FindImagesByTagsRequest(tags,
                                                    self.search_context_id,
                                                    similarity_threshold=60,
                                                    max_count=5,
                                                    storage=self.test_storage))
 
-            self.assertEqual(1, len(response.result))
+            self.assertEqual(1, len(response.results))
             self.assertTrue('2.jpg' in response.results[0].image_id)
+
+        self._run_test_with_logging('FindSimilarImagesByTagTest', test)
