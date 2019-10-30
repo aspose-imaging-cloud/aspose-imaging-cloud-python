@@ -48,7 +48,7 @@ class PngProperties(object):
 
     def __init__(self):
         """PngProperties - a model defined in Swagger"""
-        self.discriminator = None
+        super(PngProperties, self).__init__()
 
     def to_dict(self):
         """Returns the model properties as a dict"""

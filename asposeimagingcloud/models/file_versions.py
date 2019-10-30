@@ -52,9 +52,9 @@ class FileVersions(object):
 
     def __init__(self, value=None):
         """FileVersions - a model defined in Swagger"""
+        super(FileVersions, self).__init__()
 
         self._value = None
-        self.discriminator = None
 
         if value is not None:
             self.value = value

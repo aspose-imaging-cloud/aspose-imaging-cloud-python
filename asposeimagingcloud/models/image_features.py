@@ -56,12 +56,12 @@ class ImageFeatures(object):
 
     def __init__(self, image_id=None, features_count=None, feature_length_in_bits=None, features=None):
         """ImageFeatures - a model defined in Swagger"""
+        super(ImageFeatures, self).__init__()
 
         self._image_id = None
         self._features_count = None
         self._feature_length_in_bits = None
         self._features = None
-        self.discriminator = None
 
         if image_id is not None:
             self.image_id = image_id

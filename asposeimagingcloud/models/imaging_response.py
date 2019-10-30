@@ -100,6 +100,7 @@ class ImagingResponse(object):
 
     def __init__(self, height=None, width=None, bits_per_pixel=None, bmp_properties=None, gif_properties=None, jpeg_properties=None, png_properties=None, tiff_properties=None, psd_properties=None, djvu_properties=None, web_p_properties=None, jpeg2000_properties=None, dicom_properties=None, dng_properties=None, odg_properties=None, svg_properties=None, horizontal_resolution=None, vertical_resolution=None, is_cached=None):
         """ImagingResponse - a model defined in Swagger"""
+        super(ImagingResponse, self).__init__()
 
         self._height = None
         self._width = None
@@ -120,7 +121,6 @@ class ImagingResponse(object):
         self._horizontal_resolution = None
         self._vertical_resolution = None
         self._is_cached = None
-        self.discriminator = None
 
         if height is not None:
             self.height = height

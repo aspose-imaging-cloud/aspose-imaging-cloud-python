@@ -52,10 +52,10 @@ class SearchResult(object):
 
     def __init__(self, image_id=None, similarity=None):
         """SearchResult - a model defined in Swagger"""
+        super(SearchResult, self).__init__()
 
         self._image_id = None
         self._similarity = None
-        self.discriminator = None
 
         if image_id is not None:
             self.image_id = image_id

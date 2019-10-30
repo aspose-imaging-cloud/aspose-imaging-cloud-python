@@ -56,12 +56,12 @@ class GifProperties(object):
 
     def __init__(self, background_color=None, has_background_color=None, has_trailer=None, pixel_aspect_ratio=None):
         """GifProperties - a model defined in Swagger"""
+        super(GifProperties, self).__init__()
 
         self._background_color = None
         self._has_background_color = None
         self._has_trailer = None
         self._pixel_aspect_ratio = None
-        self.discriminator = None
 
         if background_color is not None:
             self.background_color = background_color

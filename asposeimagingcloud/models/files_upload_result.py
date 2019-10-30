@@ -54,10 +54,10 @@ class FilesUploadResult(object):
 
     def __init__(self, uploaded=None, errors=None):
         """FilesUploadResult - a model defined in Swagger"""
+        super(FilesUploadResult, self).__init__()
 
         self._uploaded = None
         self._errors = None
-        self.discriminator = None
 
         if uploaded is not None:
             self.uploaded = uploaded

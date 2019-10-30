@@ -57,11 +57,11 @@ class OdgProperties(object):
 
     def __init__(self, page_count=None, metadata=None, pages=None):
         """OdgProperties - a model defined in Swagger"""
+        super(OdgProperties, self).__init__()
 
         self._page_count = None
         self._metadata = None
         self._pages = None
-        self.discriminator = None
 
         if page_count is not None:
             self.page_count = page_count

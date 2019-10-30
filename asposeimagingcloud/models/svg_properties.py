@@ -50,9 +50,9 @@ class SvgProperties(object):
 
     def __init__(self, color_type=None):
         """SvgProperties - a model defined in Swagger"""
+        super(SvgProperties, self).__init__()
 
         self._color_type = None
-        self.discriminator = None
 
         if color_type is not None:
             self.color_type = color_type

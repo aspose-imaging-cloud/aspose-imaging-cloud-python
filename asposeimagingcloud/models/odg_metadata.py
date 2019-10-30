@@ -84,6 +84,7 @@ class OdgMetadata(object):
 
     def __init__(self, generator=None, title=None, description=None, subject=None, keywords=None, initial_creator=None, creator=None, printed_by=None, creation_date_time=None, modification_date_time=None, print_date_time=None, document_template=None, automatic_reload=None, hyperlink_behavior=None, language=None, editing_cycles=None, editing_duration=None, document_statistics=None):
         """OdgMetadata - a model defined in Swagger"""
+        super(OdgMetadata, self).__init__()
 
         self._generator = None
         self._title = None
@@ -103,7 +104,6 @@ class OdgMetadata(object):
         self._editing_cycles = None
         self._editing_duration = None
         self._document_statistics = None
-        self.discriminator = None
 
         if generator is not None:
             self.generator = generator

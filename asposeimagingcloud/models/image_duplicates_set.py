@@ -52,9 +52,9 @@ class ImageDuplicatesSet(object):
 
     def __init__(self, duplicates=None):
         """ImageDuplicatesSet - a model defined in Swagger"""
+        super(ImageDuplicatesSet, self).__init__()
 
         self._duplicates = None
-        self.discriminator = None
 
         if duplicates is not None:
             self.duplicates = duplicates
