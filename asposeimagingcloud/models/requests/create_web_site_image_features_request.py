@@ -1,6 +1,6 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
-#  <copyright company="Aspose" file="create_image_features_request.py">
+#  <copyright company="Aspose" file="create_web_site_image_features_request.py">
 #    Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
@@ -28,25 +28,21 @@ from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
 from asposeimagingcloud.models.requests.http_request import HttpRequest
 
 
-class CreateImageFeaturesRequest(ImagingRequest):
+class CreateWebSiteImageFeaturesRequest(ImagingRequest):
     """
-    Request model for create_image_features operation.
+    Request model for create_web_site_image_features operation.
     Initializes a new instance.
 
     :param search_context_id The search context identifier.
-    :param image_data Input image
-    :param image_id The image identifier.
-    :param images_folder Images source - a folder
+    :param images_source Images source - a web page
     :param folder The folder.
     :param storage The storage.
     """
 
-    def __init__(self, search_context_id, image_data=None, image_id=None, images_folder=None, folder=None, storage=None):
+    def __init__(self, search_context_id, images_source, folder=None, storage=None):
         ImagingRequest.__init__(self)
         self.search_context_id = search_context_id
-        self.image_data = image_data
-        self.image_id = image_id
-        self.images_folder = images_folder
+        self.images_source = images_source
         self.folder = folder
         self.storage = storage
 
@@ -61,25 +57,23 @@ class CreateImageFeaturesRequest(ImagingRequest):
         """
         # verify the required parameter 'search_context_id' is set
         if self.search_context_id is None:
-            raise ValueError("Missing the required parameter `search_context_id` when calling `create_image_features`")
+            raise ValueError("Missing the required parameter `search_context_id` when calling `create_web_site_image_features`")
+        # verify the required parameter 'images_source' is set
+        if self.images_source is None:
+            raise ValueError("Missing the required parameter `images_source` when calling `create_web_site_image_features`")
 
         collection_formats = {}
-        path = '/imaging/ai/imageSearch/{searchContextId}/features'
+        path = '/imaging/ai/imageSearch/{searchContextId}/features/web'
         path_params = {}
         if self.search_context_id is not None:
             path_params[self._lowercase_first_letter('searchContextId')] = self.search_context_id
 
         query_params = []
-        if self._lowercase_first_letter('imageId') in path:
-            path = path.replace('{' + self._lowercase_first_letter('imageId' + '}'), self.image_id if self.image_id is not None else '')
+        if self._lowercase_first_letter('imagesSource') in path:
+            path = path.replace('{' + self._lowercase_first_letter('imagesSource' + '}'), self.images_source if self.images_source is not None else '')
         else:
-            if self.image_id is not None:
-                query_params.append((self._lowercase_first_letter('imageId'), self.image_id))
-        if self._lowercase_first_letter('imagesFolder') in path:
-            path = path.replace('{' + self._lowercase_first_letter('imagesFolder' + '}'), self.images_folder if self.images_folder is not None else '')
-        else:
-            if self.images_folder is not None:
-                query_params.append((self._lowercase_first_letter('imagesFolder'), self.images_folder))
+            if self.images_source is not None:
+                query_params.append((self._lowercase_first_letter('imagesSource'), self.images_source))
         if self._lowercase_first_letter('folder') in path:
             path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
         else:
@@ -95,8 +89,6 @@ class CreateImageFeaturesRequest(ImagingRequest):
 
         form_params = []
         local_var_files = []
-        if self.image_data is not None:
-            local_var_files.append((self._lowercase_first_letter('imageData'), self.image_data))
 
         body_params = None
 
@@ -106,7 +98,7 @@ class CreateImageFeaturesRequest(ImagingRequest):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = 'multipart/form-data' if form_params else self._select_header_content_type(
-            ['multipart/form-data'])
+            ['application/json'])
 
         # Authentication setting
         auth_settings = ['JWT']
