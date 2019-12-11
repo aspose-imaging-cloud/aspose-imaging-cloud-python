@@ -1211,6 +1211,7 @@ void (empty response body)
 __init__(self, 
     search_context_id, 
     images_source, 
+    image_data=image_data, 
     folder=folder, 
     storage=storage)
 ```
@@ -1219,6 +1220,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **search_context_id** | **str**| The search context identifier. | 
  **images_source** | **str**| Images source - a web page | 
+ **image_data** | **file**| Input image | [optional] 
  **folder** | **str**| The folder. | [optional] 
  **storage** | **str**| The storage. | [optional] 
 

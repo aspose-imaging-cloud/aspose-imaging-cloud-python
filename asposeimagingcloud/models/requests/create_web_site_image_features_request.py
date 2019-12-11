@@ -35,14 +35,16 @@ class CreateWebSiteImageFeaturesRequest(ImagingRequest):
 
     :param search_context_id The search context identifier.
     :param images_source Images source - a web page
+    :param image_data Input image
     :param folder The folder.
     :param storage The storage.
     """
 
-    def __init__(self, search_context_id, images_source, folder=None, storage=None):
+    def __init__(self, search_context_id, images_source, image_data=None, folder=None, storage=None):
         ImagingRequest.__init__(self)
         self.search_context_id = search_context_id
         self.images_source = images_source
+        self.image_data = image_data
         self.folder = folder
         self.storage = storage
 
@@ -89,6 +91,8 @@ class CreateWebSiteImageFeaturesRequest(ImagingRequest):
 
         form_params = []
         local_var_files = []
+        if self.image_data is not None:
+            local_var_files.append((self._lowercase_first_letter('imageData'), self.image_data))
 
         body_params = None
 
@@ -98,7 +102,7 @@ class CreateWebSiteImageFeaturesRequest(ImagingRequest):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = 'multipart/form-data' if form_params else self._select_header_content_type(
-            ['application/json'])
+            ['multipart/form-data'])
 
         # Authentication setting
         auth_settings = ['JWT']
