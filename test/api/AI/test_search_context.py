@@ -62,6 +62,8 @@ class TestSearchContext(AiApiTester):
                               GetImageSearchStatusRequest(
                                   self.search_context_id,
                                   storage=self.test_storage))
+			
+			self.search_context_id = ""
 
         self._run_test_with_logging('DeleteImageSearchTest', test)
 
