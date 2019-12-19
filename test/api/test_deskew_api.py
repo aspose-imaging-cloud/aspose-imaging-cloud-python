@@ -48,7 +48,9 @@ class TestDeskewApi(ImagingApiTester):
                 '.png',
                 '.psd',
                 '.tiff',
-                '.webp']
+                '.webp',
+                '.dng',
+                '.djvu']
 
         for format_extension in format_extension_test_cases:
             with self.subTest('format_extension: ' + str(format_extension)):
@@ -102,7 +104,9 @@ class TestDeskewApi(ImagingApiTester):
                 '.png',
                 '.psd',
                 '.tiff',
-                '.webp']
+                '.webp',
+                '.dng',
+                '.djvu']
 
         save_result_to_storage_test_cases = [True, False]
 
