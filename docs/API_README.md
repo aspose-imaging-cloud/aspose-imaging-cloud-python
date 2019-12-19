@@ -18,6 +18,8 @@ Class | Method | HTTP request | Description
 *ImagingApi* | [**copy_folder_async**](ImagingApi.md#copy_folder_async) | **PUT** /imaging/storage/folder/copy/{srcPath} | Copy folder
 *ImagingApi* | [**create_cropped_image**](ImagingApi.md#create_cropped_image) | **POST** /imaging/crop | Crop an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_cropped_image_async**](ImagingApi.md#create_cropped_image_async) | **POST** /imaging/crop | Crop an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+*ImagingApi* | [**create_deskewed_image**](ImagingApi.md#create_deskewed_image) | **POST** /imaging/deskew | Crop an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+*ImagingApi* | [**create_deskewed_image_async**](ImagingApi.md#create_deskewed_image_async) | **POST** /imaging/deskew | Crop an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_folder**](ImagingApi.md#create_folder) | **PUT** /imaging/storage/folder/{path} | Create the folder
 *ImagingApi* | [**create_folder_async**](ImagingApi.md#create_folder_async) | **PUT** /imaging/storage/folder/{path} | Create the folder
 *ImagingApi* | [**create_image_features**](ImagingApi.md#create_image_features) | **POST** /imaging/ai/imageSearch/{searchContextId}/features | Extract images features and add them to search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
@@ -70,6 +72,8 @@ Class | Method | HTTP request | Description
 *ImagingApi* | [**delete_image_search_async**](ImagingApi.md#delete_image_search_async) | **DELETE** /imaging/ai/imageSearch/{searchContextId} | Deletes the search context.
 *ImagingApi* | [**delete_search_image**](ImagingApi.md#delete_search_image) | **DELETE** /imaging/ai/imageSearch/{searchContextId}/image | Delete image and images features from search context
 *ImagingApi* | [**delete_search_image_async**](ImagingApi.md#delete_search_image_async) | **DELETE** /imaging/ai/imageSearch/{searchContextId}/image | Delete image and images features from search context
+*ImagingApi* | [**deskew_image**](ImagingApi.md#deskew_image) | **GET** /imaging/{name}/deskew | Deskew an existing image.
+*ImagingApi* | [**deskew_image_async**](ImagingApi.md#deskew_image_async) | **GET** /imaging/{name}/deskew | Deskew an existing image.
 *ImagingApi* | [**download_file**](ImagingApi.md#download_file) | **GET** /imaging/storage/file/{path} | Download file
 *ImagingApi* | [**download_file_async**](ImagingApi.md#download_file_async) | **GET** /imaging/storage/file/{path} | Download file
 *ImagingApi* | [**extract_image_features**](ImagingApi.md#extract_image_features) | **GET** /imaging/ai/imageSearch/{searchContextId}/image2features | Extract features from image without adding to search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.

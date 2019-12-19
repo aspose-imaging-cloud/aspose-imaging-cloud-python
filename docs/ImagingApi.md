@@ -294,6 +294,48 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 
+<a name="create_deskewed_image"></a>
+# **create_deskewed_image**
+> create_deskewed_image(self, create_deskewed_image_request)
+
+Crop an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+### Return type
+
+**file**
+
+<a name="create_deskewed_image_async"></a>
+# **create_deskewed_image_async**
+> create_deskewed_image_async(self, create_deskewed_image_request)
+
+Crop an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+Performs operation asynchronously.
+
+### Return type
+
+**file**
+
+### CreateDeskewedImageRequest Parameters
+```python
+__init__(self, 
+    image_data, 
+    resize_proportionally, 
+    bk_color=bk_color, 
+    out_path=out_path, 
+    storage=storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **image_data** | **file**| Input image | 
+ **resize_proportionally** | **bool**| Resize proportionally | 
+ **bk_color** | **str**| background color | [optional] 
+ **out_path** | **str**| Path to updated file (if this is empty, response contains streamed image) | [optional] 
+ **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
 <a name="create_folder"></a>
 # **create_folder**
 > create_folder(self, create_folder_request)
@@ -1462,6 +1504,48 @@ Name | Type | Description  | Notes
  **search_context_id** | **str**| Search context identifier. | 
  **image_id** | **str**| Image identifier. | 
  **folder** | **str**| Folder. | [optional] 
+ **storage** | **str**| Storage | [optional] 
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="deskew_image"></a>
+# **deskew_image**
+> deskew_image(self, deskew_image_request)
+
+Deskew an existing image.
+
+### Return type
+
+**file**
+
+<a name="deskew_image_async"></a>
+# **deskew_image_async**
+> deskew_image_async(self, deskew_image_request)
+
+Deskew an existing image.
+
+Performs operation asynchronously.
+
+### Return type
+
+**file**
+
+### DeskewImageRequest Parameters
+```python
+__init__(self, 
+    name, 
+    resize_proportionally, 
+    bk_color=bk_color, 
+    folder=folder, 
+    storage=storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **str**| Filename of an image. | 
+ **resize_proportionally** | **bool**| Resize proportionally | 
+ **bk_color** | **str**| Background color | [optional] 
+ **folder** | **str**| Folder | [optional] 
  **storage** | **str**| Storage | [optional] 
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
