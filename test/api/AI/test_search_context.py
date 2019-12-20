@@ -63,7 +63,7 @@ class TestSearchContext(AiApiTester):
                                   self.search_context_id,
                                   storage=self.test_storage))
 			
-			self.search_context_id = ''
+			self.search_context_id = None
 
         self._run_test_with_logging('DeleteImageSearchTest', test)
 
