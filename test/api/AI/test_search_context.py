@@ -61,9 +61,11 @@ class TestSearchContext(AiApiTester):
                               self.imaging_api.get_image_search_status,
                               GetImageSearchStatusRequest(
                                   self.search_context_id,
-                                  storage=self.test_storage))
+                                  storage=self.test_storage))		
+			
+            self.search_context_id = None								  
 
-        self._run_test_with_logging('DeleteImageSearchTest', test)
+        self._run_test_with_logging('DeleteImageSearchTest', test)	
 
     def test_add_image(self):
         self._run_test_with_logging('AddImageTest',
