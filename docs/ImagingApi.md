@@ -298,7 +298,7 @@ Name | Type | Description  | Notes
 # **create_deskewed_image**
 > create_deskewed_image(self, create_deskewed_image_request)
 
-Crop an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+Deskew an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 
 ### Return type
 
@@ -308,7 +308,7 @@ Crop an image. Image data is passed as zero-indexed multipart/form-data content 
 # **create_deskewed_image_async**
 > create_deskewed_image_async(self, create_deskewed_image_request)
 
-Crop an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+Deskew an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 
 Performs operation asynchronously.
 
@@ -330,7 +330,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **image_data** | **file**| Input image | 
  **resize_proportionally** | **bool**| Resize proportionally | 
- **bk_color** | **str**| background color | [optional] 
+ **bk_color** | **str**| Background color | [optional] 
  **out_path** | **str**| Path to updated file (if this is empty, response contains streamed image) | [optional] 
  **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
 

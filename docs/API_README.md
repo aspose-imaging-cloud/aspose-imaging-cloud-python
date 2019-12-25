@@ -18,8 +18,8 @@ Class | Method | HTTP request | Description
 *ImagingApi* | [**copy_folder_async**](ImagingApi.md#copy_folder_async) | **PUT** /imaging/storage/folder/copy/{srcPath} | Copy folder
 *ImagingApi* | [**create_cropped_image**](ImagingApi.md#create_cropped_image) | **POST** /imaging/crop | Crop an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_cropped_image_async**](ImagingApi.md#create_cropped_image_async) | **POST** /imaging/crop | Crop an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-*ImagingApi* | [**create_deskewed_image**](ImagingApi.md#create_deskewed_image) | **POST** /imaging/deskew | Crop an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-*ImagingApi* | [**create_deskewed_image_async**](ImagingApi.md#create_deskewed_image_async) | **POST** /imaging/deskew | Crop an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+*ImagingApi* | [**create_deskewed_image**](ImagingApi.md#create_deskewed_image) | **POST** /imaging/deskew | Deskew an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+*ImagingApi* | [**create_deskewed_image_async**](ImagingApi.md#create_deskewed_image_async) | **POST** /imaging/deskew | Deskew an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_folder**](ImagingApi.md#create_folder) | **PUT** /imaging/storage/folder/{path} | Create the folder
 *ImagingApi* | [**create_folder_async**](ImagingApi.md#create_folder_async) | **PUT** /imaging/storage/folder/{path} | Create the folder
 *ImagingApi* | [**create_image_features**](ImagingApi.md#create_image_features) | **POST** /imaging/ai/imageSearch/{searchContextId}/features | Extract images features and add them to search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.

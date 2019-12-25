@@ -201,7 +201,7 @@ class ImagingApi(object):
         return self.__make_request_async(http_request, 'POST', 'file')
 
     def create_deskewed_image(self, request):
-        """Crop an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+        """Deskew an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 
 
         :param request create_deskewed_image_request object with parameters
@@ -211,7 +211,7 @@ class ImagingApi(object):
         return self.__make_request(http_request, 'POST', 'file')
 
     def create_deskewed_image_async(self, request):
-        """Crop an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+        """Deskew an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 
 
         :param request create_deskewed_image_request object with parameters

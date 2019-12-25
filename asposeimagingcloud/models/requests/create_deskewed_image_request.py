@@ -35,7 +35,7 @@ class CreateDeskewedImageRequest(ImagingRequest):
 
     :param image_data Input image
     :param resize_proportionally Resize proportionally
-    :param bk_color background color
+    :param bk_color Background color
     :param out_path Path to updated file (if this is empty, response contains streamed image)
     :param storage Your Aspose Cloud Storage name.
     """
