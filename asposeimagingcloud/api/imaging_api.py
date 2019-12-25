@@ -580,6 +580,26 @@ class ImagingApi(object):
         http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request_async(http_request, 'POST', 'file')
 
+    def create_web_site_image_features(self, request):
+        """Extract images features from web page and add them to search context
+
+
+        :param request create_web_site_image_features_request object with parameters
+        :return: None
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', None)
+
+    def create_web_site_image_features_async(self, request):
+        """Extract images features from web page and add them to search context
+
+
+        :param request create_web_site_image_features_request object with parameters
+        :return: None
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'POST', None)
+
     def crop_image(self, request):
         """Crop an existing image.
 

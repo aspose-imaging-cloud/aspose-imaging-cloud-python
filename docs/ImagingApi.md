@@ -368,7 +368,7 @@ Name | Type | Description  | Notes
  **search_context_id** | **str**| The search context identifier. | 
  **image_data** | **file**| Input image | [optional] 
  **image_id** | **str**| The image identifier. | [optional] 
- **images_folder** | **str**| Images folder. | [optional] 
+ **images_folder** | **str**| Images source - a folder | [optional] 
  **folder** | **str**| The folder. | [optional] 
  **storage** | **str**| The storage. | [optional] 
 
@@ -1181,6 +1181,46 @@ Name | Type | Description  | Notes
  **rotate_flip_method** | **str**| RotateFlip method (Rotate180FlipNone, Rotate180FlipX, Rotate180FlipXY, Rotate180FlipY, Rotate270FlipNone, Rotate270FlipX, Rotate270FlipXY, Rotate270FlipY, Rotate90FlipNone, Rotate90FlipX, Rotate90FlipXY, Rotate90FlipY, RotateNoneFlipNone, RotateNoneFlipX, RotateNoneFlipXY, RotateNoneFlipY). Default is RotateNoneFlipNone. | 
  **out_path** | **str**| Path to updated file (if this is empty, response contains streamed image). | [optional] 
  **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="create_web_site_image_features"></a>
+# **create_web_site_image_features**
+> create_web_site_image_features(self, create_web_site_image_features_request)
+
+Extract images features from web page and add them to search context
+
+### Return type
+
+void (empty response body)
+
+<a name="create_web_site_image_features_async"></a>
+# **create_web_site_image_features_async**
+> create_web_site_image_features_async(self, create_web_site_image_features_request)
+
+Extract images features from web page and add them to search context
+
+Performs operation asynchronously.
+
+### Return type
+
+void (empty response body)
+
+### CreateWebSiteImageFeaturesRequest Parameters
+```python
+__init__(self, 
+    search_context_id, 
+    images_source, 
+    folder=folder, 
+    storage=storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **search_context_id** | **str**| The search context identifier. | 
+ **images_source** | **str**| Images source - a web page | 
+ **folder** | **str**| The folder. | [optional] 
+ **storage** | **str**| The storage. | [optional] 
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 

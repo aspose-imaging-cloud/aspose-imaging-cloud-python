@@ -25,7 +25,6 @@
 #  ----------------------------------------------------------------------------
 
 import os
-
 import six
 
 from asposeimagingcloud import GetImageSearchStatusRequest, \
@@ -33,14 +32,16 @@ from asposeimagingcloud import GetImageSearchStatusRequest, \
     GetSearchImageRequest, CreateImageFeaturesRequest, \
     GetImageFeaturesRequest, UpdateSearchImageRequest, \
     ExtractImageFeaturesRequest, UpdateImageFeaturesRequest, \
-    DeleteSearchImageRequest
+    DeleteSearchImageRequest, CreateWebSiteImageFeaturesRequest
 from asposeimagingcloud.rest import ApiException
 from test.api.AI.ai_api_tester import AiApiTester
 
 if six.PY2:
     import unittest2 as unittest
+    import urllib as urllib
 else:
     import unittest
+    import urllib.parse as urllib
 
 
 class TestSearchContext(AiApiTester):
@@ -60,9 +61,11 @@ class TestSearchContext(AiApiTester):
                               self.imaging_api.get_image_search_status,
                               GetImageSearchStatusRequest(
                                   self.search_context_id,
-                                  storage=self.test_storage))
+                                  storage=self.test_storage))		
+			
+            self.search_context_id = None								  
 
-        self._run_test_with_logging('DeleteImageSearchTest', test)
+        self._run_test_with_logging('DeleteImageSearchTest', test)	
 
     def test_add_image(self):
         self._run_test_with_logging('AddImageTest',
@@ -168,6 +171,20 @@ class TestSearchContext(AiApiTester):
 
         self._run_test_with_logging('ExtractAndAddImageFeaturesFromFolderTest',
                                     test)
+
+    def test_extract_and_add_image_features_from_website_test(self):
+        def test():
+            image_source_url = urllib.quote_plus('https://www.f1news.ru/interview/hamilton/140909.shtml')
+            self.imaging_api.create_web_site_image_features(CreateWebSiteImageFeaturesRequest(self.search_context_id, image_source_url, storage=self.test_storage))
+
+            self._wait_search_context_idle()
+
+            image_url = urllib.quote_plus('https://cdn.f1ne.ws/userfiles/hamilton/140909.jpg')
+            response = self.imaging_api.get_image_features(GetImageFeaturesRequest(self.search_context_id, image_url, storage=self.test_storage))
+
+            self.assertGreater(len(response.features), 0)
+
+        self._run_test_with_logging('ExtractAndAddImageFeaturesFromWebsiteTest', test)
 
     def test_get_image_feature(self):
         def test():
