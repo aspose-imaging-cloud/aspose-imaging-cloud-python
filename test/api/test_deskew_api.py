@@ -79,7 +79,7 @@ class TestDeskewApi(ImagingApiTester):
                         'DeskewImageTest',
                         'Input image: {0}; Output format: {1}; Resize proportionally: {2}; BkColor: {3};'.format(
                             name,
-                            format,
+                            format_extension,
                             resize_proportinoally,
                             bk_color
                         ),
