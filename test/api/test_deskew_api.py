@@ -42,15 +42,16 @@ class TestDeskewApi(ImagingApiTester):
             format_extension_test_cases = [
                 '.jpg',
                 '.bmp',
-                '.dicom',
+                #'.dicom',
                 '.gif',
                 '.j2k',
                 '.png',
                 '.psd',
                 '.tiff',
-                '.webp',
-                '.dng',
-                '.djvu']
+                '.webp'
+                #'.dng',
+                #'.djvu'
+                ]
 
         for format_extension in format_extension_test_cases:
             with self.subTest('format_extension: ' + str(format_extension)):
@@ -98,15 +99,16 @@ class TestDeskewApi(ImagingApiTester):
             format_extension_test_cases = [
                 '.jpg',
                 '.bmp',
-                '.dicom',
+                #'.dicom',
                 '.gif',
                 '.j2k',
                 '.png',
                 '.psd',
                 '.tiff',
-                '.webp',
-                '.dng',
-                '.djvu']
+                '.webp'
+                #'.dng',
+                #'.djvu'
+                ]
 
         save_result_to_storage_test_cases = [True, False]
 
