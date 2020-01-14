@@ -1542,7 +1542,7 @@ __init__(self,
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**| Filename of an image. | 
+ **name** | **str**| Image file name. | 
  **resize_proportionally** | **bool**| Resize proportionally | 
  **bk_color** | **str**| Background color | [optional] 
  **folder** | **str**| Folder | [optional] 
