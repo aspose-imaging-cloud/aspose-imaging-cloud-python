@@ -34,19 +34,19 @@ class FilterEffectImageRequest(ImagingRequest):
     Initializes a new instance.
 
     :param name Filename of an image.
-    :param format Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases.
     :param filter_type Filter type (BigRectangular, SmallRectangular, Median, GaussWiener, MotionWiener, GaussianBlur, Sharpen, BilateralSmoothing).
     :param filter_properties Filter properties.
+    :param format Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases.
     :param folder Folder with image to process.
     :param storage Your Aspose Cloud Storage name.
     """
 
-    def __init__(self, name, format, filter_type, filter_properties, folder=None, storage=None):
+    def __init__(self, name, filter_type, filter_properties, format=None, folder=None, storage=None):
         ImagingRequest.__init__(self)
         self.name = name
-        self.format = format
         self.filter_type = filter_type
         self.filter_properties = filter_properties
+        self.format = format
         self.folder = folder
         self.storage = storage
 
@@ -62,9 +62,6 @@ class FilterEffectImageRequest(ImagingRequest):
         # verify the required parameter 'name' is set
         if self.name is None:
             raise ValueError("Missing the required parameter `name` when calling `filter_effect_image`")
-        # verify the required parameter 'format' is set
-        if self.format is None:
-            raise ValueError("Missing the required parameter `format` when calling `filter_effect_image`")
         # verify the required parameter 'filter_type' is set
         if self.filter_type is None:
             raise ValueError("Missing the required parameter `filter_type` when calling `filter_effect_image`")
@@ -79,16 +76,16 @@ class FilterEffectImageRequest(ImagingRequest):
             path_params[self._lowercase_first_letter('name')] = self.name
 
         query_params = []
-        if self._lowercase_first_letter('format') in path:
-            path = path.replace('{' + self._lowercase_first_letter('format' + '}'), self.format if self.format is not None else '')
-        else:
-            if self.format is not None:
-                query_params.append((self._lowercase_first_letter('format'), self.format))
         if self._lowercase_first_letter('filterType') in path:
             path = path.replace('{' + self._lowercase_first_letter('filterType' + '}'), self.filter_type if self.filter_type is not None else '')
         else:
             if self.filter_type is not None:
                 query_params.append((self._lowercase_first_letter('filterType'), self.filter_type))
+        if self._lowercase_first_letter('format') in path:
+            path = path.replace('{' + self._lowercase_first_letter('format' + '}'), self.format if self.format is not None else '')
+        else:
+            if self.format is not None:
+                query_params.append((self._lowercase_first_letter('format'), self.format))
         if self._lowercase_first_letter('folder') in path:
             path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
         else:

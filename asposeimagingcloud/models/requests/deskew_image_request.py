@@ -33,7 +33,7 @@ class DeskewImageRequest(ImagingRequest):
     Request model for deskew_image operation.
     Initializes a new instance.
 
-    :param name Filename of an image.
+    :param name Image file name.
     :param resize_proportionally Resize proportionally
     :param bk_color Background color
     :param folder Folder

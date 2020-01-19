@@ -34,17 +34,17 @@ class CreateRotateFlippedImageRequest(ImagingRequest):
     Initializes a new instance.
 
     :param image_data Input image
-    :param format Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases.
     :param method RotateFlip method (Rotate180FlipNone, Rotate180FlipX, Rotate180FlipXY, Rotate180FlipY, Rotate270FlipNone, Rotate270FlipX, Rotate270FlipXY, Rotate270FlipY, Rotate90FlipNone, Rotate90FlipX, Rotate90FlipXY, Rotate90FlipY, RotateNoneFlipNone, RotateNoneFlipX, RotateNoneFlipXY, RotateNoneFlipY).
+    :param format Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases.
     :param out_path Path to updated file (if this is empty, response contains streamed image).
     :param storage Your Aspose Cloud Storage name.
     """
 
-    def __init__(self, image_data, format, method, out_path=None, storage=None):
+    def __init__(self, image_data, method, format=None, out_path=None, storage=None):
         ImagingRequest.__init__(self)
         self.image_data = image_data
-        self.format = format
         self.method = method
+        self.format = format
         self.out_path = out_path
         self.storage = storage
 
@@ -60,9 +60,6 @@ class CreateRotateFlippedImageRequest(ImagingRequest):
         # verify the required parameter 'image_data' is set
         if self.image_data is None:
             raise ValueError("Missing the required parameter `image_data` when calling `create_rotate_flipped_image`")
-        # verify the required parameter 'format' is set
-        if self.format is None:
-            raise ValueError("Missing the required parameter `format` when calling `create_rotate_flipped_image`")
         # verify the required parameter 'method' is set
         if self.method is None:
             raise ValueError("Missing the required parameter `method` when calling `create_rotate_flipped_image`")
@@ -72,16 +69,16 @@ class CreateRotateFlippedImageRequest(ImagingRequest):
         path_params = {}
 
         query_params = []
-        if self._lowercase_first_letter('format') in path:
-            path = path.replace('{' + self._lowercase_first_letter('format' + '}'), self.format if self.format is not None else '')
-        else:
-            if self.format is not None:
-                query_params.append((self._lowercase_first_letter('format'), self.format))
         if self._lowercase_first_letter('method') in path:
             path = path.replace('{' + self._lowercase_first_letter('method' + '}'), self.method if self.method is not None else '')
         else:
             if self.method is not None:
                 query_params.append((self._lowercase_first_letter('method'), self.method))
+        if self._lowercase_first_letter('format') in path:
+            path = path.replace('{' + self._lowercase_first_letter('format' + '}'), self.format if self.format is not None else '')
+        else:
+            if self.format is not None:
+                query_params.append((self._lowercase_first_letter('format'), self.format))
         if self._lowercase_first_letter('outPath') in path:
             path = path.replace('{' + self._lowercase_first_letter('outPath' + '}'), self.out_path if self.out_path is not None else '')
         else:
