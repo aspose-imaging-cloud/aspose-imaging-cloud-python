@@ -37,25 +37,24 @@ class TestDeskewApi(ImagingApiTester):
         """ Test deskew_image """
 
         if not self.EXTENDED_TEST:
-            format_extension_test_cases = [".jpg"]
+            format_extension_test_cases = ['.jpg']
         else:
             format_extension_test_cases = [
-                ".jpg",
-                ".bmp",
-                ".gif",
-                ".j2k",
-                ".png",
-                ".psd",
-                ".tiff",
-                ".webp"
-                # the following tests should be uncommented once export method is implemented for them (see https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap)
+                '.jpg',
+                '.bmp',
                 #'.dicom',
+                '.gif',
+                '.j2k',
+                '.png',
+                '.psd',
+                '.tiff',
+                '.webp'
                 #'.dng',
                 #'.djvu'
-            ]
+                ]
 
         for format_extension in format_extension_test_cases:
-            with self.subTest("format_extension: " + str(format_extension)):
+            with self.subTest('format_extension: ' + str(format_extension)):
                 folder = self.temp_folder
                 storage = self.test_storage
                 resize_proportinoally = True
@@ -63,14 +62,12 @@ class TestDeskewApi(ImagingApiTester):
 
                 def request_invoker():
                     return self.imaging_api.deskew_image(
-                        requests.DeskewImageRequest(
-                            name, resize_proportinoally, bk_color, folder, storage
-                        )
-                    )
+                        requests.DeskewImageRequest(name, resize_proportinoally, bk_color, folder, storage))
 
                 def properties_tester(
-                    original_properties, result_properties, result_stream
-                ):
+                        original_properties,
+                        result_properties,
+                        result_stream):
                     self.assertIsNotNone(result_stream)
 
                 for input_file in self.input_test_files:
@@ -80,46 +77,49 @@ class TestDeskewApi(ImagingApiTester):
                     name = input_file.name
 
                     self.get_request_tester(
-                        "DeskewImageTest",
-                        "Input image: {0}; Output format: {1}; Resize proportionally: {2}; BkColor: {3};".format(
-                            name, format_extension, resize_proportinoally, bk_color
+                        'DeskewImageTest',
+                        'Input image: {0}; Output format: {1}; Resize proportionally: {2}; BkColor: {3};'.format(
+                            name,
+                            format_extension,
+                            resize_proportinoally,
+                            bk_color
                         ),
                         name,
                         request_invoker,
                         properties_tester,
                         folder,
-                        storage,
-                    )
+                        storage)
 
     def test_create_deskewed_image(self):
         """ Test create_deskewed_image"""
 
         if not self.EXTENDED_TEST:
-            format_extension_test_cases = [".jpg"]
+            format_extension_test_cases = ['.jpg']
         else:
             format_extension_test_cases = [
-                ".jpg",
-                ".bmp",
-                ".gif",
-                ".j2k",
-                ".png",
-                ".psd",
-                ".tiff",
-                ".webp"
-                # the following tests should be uncommented once export method is implemented for them (see https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap)
+                '.jpg',
+                '.bmp',
                 #'.dicom',
+                '.gif',
+                '.j2k',
+                '.png',
+                '.psd',
+                '.tiff',
+                '.webp'
                 #'.dng',
                 #'.djvu'
-            ]
+                ]
 
         save_result_to_storage_test_cases = [True, False]
 
-        for (save_result_to_storage, format_extension) in list(
-            product(save_result_to_storage_test_cases, format_extension_test_cases)
-        ):
-            with self.subTest(
-                "save_result_to_storage: " + str(save_result_to_storage)
-            ) and self.subTest("format_extension: " + str(format_extension)):
+        for (
+                save_result_to_storage,
+                format_extension) in list(
+            product(
+                save_result_to_storage_test_cases,
+                format_extension_test_cases)):
+            with self.subTest('save_result_to_storage: ' + str(save_result_to_storage)) and \
+                 self.subTest('format_extension: ' + str(format_extension)):
                 resize_proportionally = True
                 bk_color = "green"
                 folder = self.temp_folder
@@ -128,20 +128,13 @@ class TestDeskewApi(ImagingApiTester):
                 def request_invoker(input_stream, out_path):
                     return self.imaging_api.create_deskewed_image(
                         requests.CreateDeskewedImageRequest(
-                            input_stream,
-                            resize_proportionally,
-                            bk_color,
-                            out_path,
-                            storage,
-                        )
-                    )
+                            input_stream, resize_proportionally, bk_color, out_path, storage))
 
                 def properties_tester(
-                    original_properties, result_properties, result_stream
-                ):
-                    self.assertNotEqual(
-                        original_properties.width, result_properties.width
-                    )
+                        original_properties,
+                        result_properties,
+                        result_stream):
+                    self.assertNotEqual(original_properties.width, result_properties.width)
 
                 for input_file in self.input_test_files:
                     if not str(input_file.name).endswith(format_extension):
@@ -149,18 +142,20 @@ class TestDeskewApi(ImagingApiTester):
 
                     name = input_file.name
 
-                    out_name = "{0}_deskew.{1}".format(name, format_extension)
+                    out_name = '{0}_deskew.{1}'.format(name, format_extension)
 
                     self.post_request_tester(
-                        "CreateDeskewedImageTest",
+                        'CreateDeskewedImageTest',
                         save_result_to_storage,
-                        "Input image: {0}; Output format: {1}; Resize Proportionally: {2}; Background color: {3};".format(
-                            name, format_extension, resize_proportionally, bk_color
-                        ),
+                        'Input image: {0}; Output format: {1}; Resize Proportionally: {2}; Background color: {3};'
+                            .format(
+                                name,
+                                format_extension,
+                                resize_proportionally,
+                                bk_color),
                         name,
                         out_name,
                         request_invoker,
                         properties_tester,
                         folder,
-                        storage,
-                    )
+                        storage)
