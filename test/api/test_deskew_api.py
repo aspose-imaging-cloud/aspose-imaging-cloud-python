@@ -42,13 +42,14 @@ class TestDeskewApi(ImagingApiTester):
             format_extension_test_cases = [
                 '.jpg',
                 '.bmp',
-                #'.dicom',
                 '.gif',
                 '.j2k',
                 '.png',
                 '.psd',
                 '.tiff',
                 '.webp'
+                # the following tests should be uncommented once export method is implemented for them (see https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap)
+                #'.dicom',
                 #'.dng',
                 #'.djvu'
                 ]
@@ -99,13 +100,14 @@ class TestDeskewApi(ImagingApiTester):
             format_extension_test_cases = [
                 '.jpg',
                 '.bmp',
-                #'.dicom',
                 '.gif',
                 '.j2k',
                 '.png',
                 '.psd',
                 '.tiff',
                 '.webp'
+                # the following tests should be uncommented once export method is implemented for them (see https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap)
+                #'.dicom',
                 #'.dng',
                 #'.djvu'
                 ]
