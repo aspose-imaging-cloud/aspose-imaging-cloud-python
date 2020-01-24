@@ -34,23 +34,23 @@ class CropImageRequest(ImagingRequest):
     Initializes a new instance.
 
     :param name Filename of an image.
-    :param format Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases.
     :param x X position of start point for cropping rectangle.
     :param y Y position of start point for cropping rectangle.
     :param width Width of cropping rectangle
     :param height Height of cropping rectangle.
+    :param format Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases.
     :param folder Folder with image to process.
     :param storage Your Aspose Cloud Storage name.
     """
 
-    def __init__(self, name, format, x, y, width, height, folder=None, storage=None):
+    def __init__(self, name, x, y, width, height, format=None, folder=None, storage=None):
         ImagingRequest.__init__(self)
         self.name = name
-        self.format = format
         self.x = x
         self.y = y
         self.width = width
         self.height = height
+        self.format = format
         self.folder = folder
         self.storage = storage
 
@@ -66,9 +66,6 @@ class CropImageRequest(ImagingRequest):
         # verify the required parameter 'name' is set
         if self.name is None:
             raise ValueError("Missing the required parameter `name` when calling `crop_image`")
-        # verify the required parameter 'format' is set
-        if self.format is None:
-            raise ValueError("Missing the required parameter `format` when calling `crop_image`")
         # verify the required parameter 'x' is set
         if self.x is None:
             raise ValueError("Missing the required parameter `x` when calling `crop_image`")
@@ -89,11 +86,6 @@ class CropImageRequest(ImagingRequest):
             path_params[self._lowercase_first_letter('name')] = self.name
 
         query_params = []
-        if self._lowercase_first_letter('format') in path:
-            path = path.replace('{' + self._lowercase_first_letter('format' + '}'), self.format if self.format is not None else '')
-        else:
-            if self.format is not None:
-                query_params.append((self._lowercase_first_letter('format'), self.format))
         if self._lowercase_first_letter('x') in path:
             path = path.replace('{' + self._lowercase_first_letter('x' + '}'), self.x if self.x is not None else '')
         else:
@@ -114,6 +106,11 @@ class CropImageRequest(ImagingRequest):
         else:
             if self.height is not None:
                 query_params.append((self._lowercase_first_letter('height'), self.height))
+        if self._lowercase_first_letter('format') in path:
+            path = path.replace('{' + self._lowercase_first_letter('format' + '}'), self.format if self.format is not None else '')
+        else:
+            if self.format is not None:
+                query_params.append((self._lowercase_first_letter('format'), self.format))
         if self._lowercase_first_letter('folder') in path:
             path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
         else:

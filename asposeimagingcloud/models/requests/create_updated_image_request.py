@@ -34,7 +34,6 @@ class CreateUpdatedImageRequest(ImagingRequest):
     Initializes a new instance.
 
     :param image_data Input image
-    :param format Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases.
     :param new_width New width of the scaled image.
     :param new_height New height of the scaled image.
     :param x X position of start point for cropping rectangle.
@@ -42,14 +41,14 @@ class CreateUpdatedImageRequest(ImagingRequest):
     :param rect_width Width of cropping rectangle.
     :param rect_height Height of cropping rectangle.
     :param rotate_flip_method RotateFlip method (Rotate180FlipNone, Rotate180FlipX, Rotate180FlipXY, Rotate180FlipY, Rotate270FlipNone, Rotate270FlipX, Rotate270FlipXY, Rotate270FlipY, Rotate90FlipNone, Rotate90FlipX, Rotate90FlipXY, Rotate90FlipY, RotateNoneFlipNone, RotateNoneFlipX, RotateNoneFlipXY, RotateNoneFlipY). Default is RotateNoneFlipNone.
+    :param format Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases.
     :param out_path Path to updated file (if this is empty, response contains streamed image).
     :param storage Your Aspose Cloud Storage name.
     """
 
-    def __init__(self, image_data, format, new_width, new_height, x, y, rect_width, rect_height, rotate_flip_method, out_path=None, storage=None):
+    def __init__(self, image_data, new_width, new_height, x, y, rect_width, rect_height, rotate_flip_method, format=None, out_path=None, storage=None):
         ImagingRequest.__init__(self)
         self.image_data = image_data
-        self.format = format
         self.new_width = new_width
         self.new_height = new_height
         self.x = x
@@ -57,6 +56,7 @@ class CreateUpdatedImageRequest(ImagingRequest):
         self.rect_width = rect_width
         self.rect_height = rect_height
         self.rotate_flip_method = rotate_flip_method
+        self.format = format
         self.out_path = out_path
         self.storage = storage
 
@@ -72,9 +72,6 @@ class CreateUpdatedImageRequest(ImagingRequest):
         # verify the required parameter 'image_data' is set
         if self.image_data is None:
             raise ValueError("Missing the required parameter `image_data` when calling `create_updated_image`")
-        # verify the required parameter 'format' is set
-        if self.format is None:
-            raise ValueError("Missing the required parameter `format` when calling `create_updated_image`")
         # verify the required parameter 'new_width' is set
         if self.new_width is None:
             raise ValueError("Missing the required parameter `new_width` when calling `create_updated_image`")
@@ -102,11 +99,6 @@ class CreateUpdatedImageRequest(ImagingRequest):
         path_params = {}
 
         query_params = []
-        if self._lowercase_first_letter('format') in path:
-            path = path.replace('{' + self._lowercase_first_letter('format' + '}'), self.format if self.format is not None else '')
-        else:
-            if self.format is not None:
-                query_params.append((self._lowercase_first_letter('format'), self.format))
         if self._lowercase_first_letter('newWidth') in path:
             path = path.replace('{' + self._lowercase_first_letter('newWidth' + '}'), self.new_width if self.new_width is not None else '')
         else:
@@ -142,6 +134,11 @@ class CreateUpdatedImageRequest(ImagingRequest):
         else:
             if self.rotate_flip_method is not None:
                 query_params.append((self._lowercase_first_letter('rotateFlipMethod'), self.rotate_flip_method))
+        if self._lowercase_first_letter('format') in path:
+            path = path.replace('{' + self._lowercase_first_letter('format' + '}'), self.format if self.format is not None else '')
+        else:
+            if self.format is not None:
+                query_params.append((self._lowercase_first_letter('format'), self.format))
         if self._lowercase_first_letter('outPath') in path:
             path = path.replace('{' + self._lowercase_first_letter('outPath' + '}'), self.out_path if self.out_path is not None else '')
         else:

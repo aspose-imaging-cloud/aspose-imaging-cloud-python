@@ -34,19 +34,19 @@ class ResizeImageRequest(ImagingRequest):
     Initializes a new instance.
 
     :param name Filename of an image.
-    :param format Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases.
     :param new_width New width.
     :param new_height New height.
+    :param format Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases.
     :param folder Folder with image to process.
     :param storage Your Aspose Cloud Storage name.
     """
 
-    def __init__(self, name, format, new_width, new_height, folder=None, storage=None):
+    def __init__(self, name, new_width, new_height, format=None, folder=None, storage=None):
         ImagingRequest.__init__(self)
         self.name = name
-        self.format = format
         self.new_width = new_width
         self.new_height = new_height
+        self.format = format
         self.folder = folder
         self.storage = storage
 
@@ -62,9 +62,6 @@ class ResizeImageRequest(ImagingRequest):
         # verify the required parameter 'name' is set
         if self.name is None:
             raise ValueError("Missing the required parameter `name` when calling `resize_image`")
-        # verify the required parameter 'format' is set
-        if self.format is None:
-            raise ValueError("Missing the required parameter `format` when calling `resize_image`")
         # verify the required parameter 'new_width' is set
         if self.new_width is None:
             raise ValueError("Missing the required parameter `new_width` when calling `resize_image`")
@@ -79,11 +76,6 @@ class ResizeImageRequest(ImagingRequest):
             path_params[self._lowercase_first_letter('name')] = self.name
 
         query_params = []
-        if self._lowercase_first_letter('format') in path:
-            path = path.replace('{' + self._lowercase_first_letter('format' + '}'), self.format if self.format is not None else '')
-        else:
-            if self.format is not None:
-                query_params.append((self._lowercase_first_letter('format'), self.format))
         if self._lowercase_first_letter('newWidth') in path:
             path = path.replace('{' + self._lowercase_first_letter('newWidth' + '}'), self.new_width if self.new_width is not None else '')
         else:
@@ -94,6 +86,11 @@ class ResizeImageRequest(ImagingRequest):
         else:
             if self.new_height is not None:
                 query_params.append((self._lowercase_first_letter('newHeight'), self.new_height))
+        if self._lowercase_first_letter('format') in path:
+            path = path.replace('{' + self._lowercase_first_letter('format' + '}'), self.format if self.format is not None else '')
+        else:
+            if self.format is not None:
+                query_params.append((self._lowercase_first_letter('format'), self.format))
         if self._lowercase_first_letter('folder') in path:
             path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
         else:
