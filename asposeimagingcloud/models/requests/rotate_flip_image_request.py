@@ -34,17 +34,17 @@ class RotateFlipImageRequest(ImagingRequest):
     Initializes a new instance.
 
     :param name Filename of an image.
-    :param format Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases.
     :param method RotateFlip method (Rotate180FlipNone, Rotate180FlipX, Rotate180FlipXY, Rotate180FlipY, Rotate270FlipNone, Rotate270FlipX, Rotate270FlipXY, Rotate270FlipY, Rotate90FlipNone, Rotate90FlipX, Rotate90FlipXY, Rotate90FlipY, RotateNoneFlipNone, RotateNoneFlipX, RotateNoneFlipXY, RotateNoneFlipY).
+    :param format Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases.
     :param folder Folder with image to process.
     :param storage Your Aspose Cloud Storage name.
     """
 
-    def __init__(self, name, format, method, folder=None, storage=None):
+    def __init__(self, name, method, format=None, folder=None, storage=None):
         ImagingRequest.__init__(self)
         self.name = name
-        self.format = format
         self.method = method
+        self.format = format
         self.folder = folder
         self.storage = storage
 
@@ -60,9 +60,6 @@ class RotateFlipImageRequest(ImagingRequest):
         # verify the required parameter 'name' is set
         if self.name is None:
             raise ValueError("Missing the required parameter `name` when calling `rotate_flip_image`")
-        # verify the required parameter 'format' is set
-        if self.format is None:
-            raise ValueError("Missing the required parameter `format` when calling `rotate_flip_image`")
         # verify the required parameter 'method' is set
         if self.method is None:
             raise ValueError("Missing the required parameter `method` when calling `rotate_flip_image`")
@@ -74,16 +71,16 @@ class RotateFlipImageRequest(ImagingRequest):
             path_params[self._lowercase_first_letter('name')] = self.name
 
         query_params = []
-        if self._lowercase_first_letter('format') in path:
-            path = path.replace('{' + self._lowercase_first_letter('format' + '}'), self.format if self.format is not None else '')
-        else:
-            if self.format is not None:
-                query_params.append((self._lowercase_first_letter('format'), self.format))
         if self._lowercase_first_letter('method') in path:
             path = path.replace('{' + self._lowercase_first_letter('method' + '}'), self.method if self.method is not None else '')
         else:
             if self.method is not None:
                 query_params.append((self._lowercase_first_letter('method'), self.method))
+        if self._lowercase_first_letter('format') in path:
+            path = path.replace('{' + self._lowercase_first_letter('format' + '}'), self.format if self.format is not None else '')
+        else:
+            if self.format is not None:
+                query_params.append((self._lowercase_first_letter('format'), self.format))
         if self._lowercase_first_letter('folder') in path:
             path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
         else:
