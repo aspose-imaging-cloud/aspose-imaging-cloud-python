@@ -70,7 +70,6 @@ class TestUpdateImageApi(ImagingApiTester):
                     return self.imaging_api.update_image(
                         requests.UpdateImageRequest(
                             name,
-                            format,
                             new_width,
                             new_height,
                             x,
@@ -78,6 +77,7 @@ class TestUpdateImageApi(ImagingApiTester):
                             rect_width,
                             rect_height,
                             rotate_flip_method,
+                            format,
                             folder,
                             storage))
 
@@ -162,7 +162,6 @@ class TestUpdateImageApi(ImagingApiTester):
                     return self.imaging_api.create_updated_image(
                         requests.CreateUpdatedImageRequest(
                             input_stream,
-                            format,
                             new_width,
                             new_height,
                             x,
@@ -170,6 +169,7 @@ class TestUpdateImageApi(ImagingApiTester):
                             rect_width,
                             rect_height,
                             rotate_flip_method,
+                            format,
                             out_path,
                             storage))
 

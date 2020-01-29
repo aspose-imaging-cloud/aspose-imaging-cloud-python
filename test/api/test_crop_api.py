@@ -66,7 +66,7 @@ class TestCropApi(ImagingApiTester):
                 def request_invoker():
                     return self.imaging_api.crop_image(
                         requests.CropImageRequest(
-                            name, format, x, y, width, height, folder,
+                            name, x, y, width, height, format, folder,
                             storage))
 
                 def properties_tester(
@@ -140,7 +140,7 @@ class TestCropApi(ImagingApiTester):
                 def request_invoker(input_stream, out_path):
                     return self.imaging_api.create_cropped_image(
                         requests.CreateCroppedImageRequest(
-                        input_stream, format, x, y, width, height, out_path, storage))
+                        input_stream, x, y, width, height, format, out_path, storage))
 
                 def properties_tester(
                         original_properties,

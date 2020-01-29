@@ -65,7 +65,7 @@ class TestResizeApi(ImagingApiTester):
                 def request_invoker():
                     return self.imaging_api.resize_image(
                         requests.ResizeImageRequest(
-                            name, format, new_width, new_height, folder,
+                            name, new_width, new_height, format, folder,
                             storage))
 
                 def properties_tester(
@@ -137,7 +137,7 @@ class TestResizeApi(ImagingApiTester):
                 def request_invoker(input_stream, out_path):
                     return self.imaging_api.create_resized_image(
                         requests.CreateResizedImageRequest(
-                        input_stream, format, new_width, new_height, out_path, storage))
+                        input_stream, new_width, new_height, format, out_path, storage))
 
                 def properties_tester(
                         original_properties,
