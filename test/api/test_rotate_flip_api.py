@@ -64,7 +64,7 @@ class TestRotateFlipApi(ImagingApiTester):
                 def request_invoker():
                     return self.imaging_api.rotate_flip_image(
                         requests.RotateFlipImageRequest(
-                            name, format, method, folder, storage))
+                            name, method, format, folder, storage))
 
                 def properties_tester(
                         original_properties,
@@ -152,7 +152,7 @@ class TestRotateFlipApi(ImagingApiTester):
 
                     return self.imaging_api.create_rotate_flipped_image(
                         requests.CreateRotateFlippedImageRequest(
-                            input_stream, format, method, out_path, storage))
+                            input_stream, method, format, out_path, storage))
 
                 def properties_tester(
                         original_properties,

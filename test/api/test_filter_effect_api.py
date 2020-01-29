@@ -57,7 +57,9 @@ class TestFilterEffectApi(ImagingApiTester):
                     self.basic_export_formats).union(additional_export_formats)
 
                 def request_invoker():
-                    return self.imaging_api.filter_effect_image(requests.FilterEffectImageRequest(name, format, filter.filter_type, filter.filter_properties, folder, storage))
+                    return self.imaging_api.filter_effect_image(requests.FilterEffectImageRequest(name,
+                                                                                                  filter.filter_type,
+                                                                                                  filter.filter_properties, format, folder, storage))
 
                 def properties_tester(
                         original_properties,
