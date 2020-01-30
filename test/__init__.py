@@ -25,6 +25,7 @@
 #  ----------------------------------------------------------------------------
 
 from test import api_tester
+from test.api.test_deskew_api import TestDeskewApi
 from test.api.AI import test_compare_images
 from test.api.AI.test_compare_images import TestCompareImages
 from test.api.AI.test_find_duplicates import TestFindDuplicates

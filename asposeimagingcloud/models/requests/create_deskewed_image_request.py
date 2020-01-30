@@ -1,6 +1,6 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
-#  <copyright company="Aspose" file="create_resized_image_request.py">
+#  <copyright company="Aspose" file="create_deskewed_image_request.py">
 #    Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
@@ -28,25 +28,23 @@ from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
 from asposeimagingcloud.models.requests.http_request import HttpRequest
 
 
-class CreateResizedImageRequest(ImagingRequest):
+class CreateDeskewedImageRequest(ImagingRequest):
     """
-    Request model for create_resized_image operation.
+    Request model for create_deskewed_image operation.
     Initializes a new instance.
 
     :param image_data Input image
-    :param new_width New width.
-    :param new_height New height.
-    :param format Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases.
-    :param out_path Path to updated file (if this is empty, response contains streamed image).
+    :param resize_proportionally Resize proportionally
+    :param bk_color Background color
+    :param out_path Path to updated file (if this is empty, response contains streamed image)
     :param storage Your Aspose Cloud Storage name.
     """
 
-    def __init__(self, image_data, new_width, new_height, format=None, out_path=None, storage=None):
+    def __init__(self, image_data, resize_proportionally, bk_color=None, out_path=None, storage=None):
         ImagingRequest.__init__(self)
         self.image_data = image_data
-        self.new_width = new_width
-        self.new_height = new_height
-        self.format = format
+        self.resize_proportionally = resize_proportionally
+        self.bk_color = bk_color
         self.out_path = out_path
         self.storage = storage
 
@@ -61,34 +59,26 @@ class CreateResizedImageRequest(ImagingRequest):
         """
         # verify the required parameter 'image_data' is set
         if self.image_data is None:
-            raise ValueError("Missing the required parameter `image_data` when calling `create_resized_image`")
-        # verify the required parameter 'new_width' is set
-        if self.new_width is None:
-            raise ValueError("Missing the required parameter `new_width` when calling `create_resized_image`")
-        # verify the required parameter 'new_height' is set
-        if self.new_height is None:
-            raise ValueError("Missing the required parameter `new_height` when calling `create_resized_image`")
+            raise ValueError("Missing the required parameter `image_data` when calling `create_deskewed_image`")
+        # verify the required parameter 'resize_proportionally' is set
+        if self.resize_proportionally is None:
+            raise ValueError("Missing the required parameter `resize_proportionally` when calling `create_deskewed_image`")
 
         collection_formats = {}
-        path = '/imaging/resize'
+        path = '/imaging/deskew'
         path_params = {}
 
         query_params = []
-        if self._lowercase_first_letter('newWidth') in path:
-            path = path.replace('{' + self._lowercase_first_letter('newWidth' + '}'), self.new_width if self.new_width is not None else '')
+        if self._lowercase_first_letter('resizeProportionally') in path:
+            path = path.replace('{' + self._lowercase_first_letter('resizeProportionally' + '}'), self.resize_proportionally if self.resize_proportionally is not None else '')
         else:
-            if self.new_width is not None:
-                query_params.append((self._lowercase_first_letter('newWidth'), self.new_width))
-        if self._lowercase_first_letter('newHeight') in path:
-            path = path.replace('{' + self._lowercase_first_letter('newHeight' + '}'), self.new_height if self.new_height is not None else '')
+            if self.resize_proportionally is not None:
+                query_params.append((self._lowercase_first_letter('resizeProportionally'), self.resize_proportionally))
+        if self._lowercase_first_letter('bkColor') in path:
+            path = path.replace('{' + self._lowercase_first_letter('bkColor' + '}'), self.bk_color if self.bk_color is not None else '')
         else:
-            if self.new_height is not None:
-                query_params.append((self._lowercase_first_letter('newHeight'), self.new_height))
-        if self._lowercase_first_letter('format') in path:
-            path = path.replace('{' + self._lowercase_first_letter('format' + '}'), self.format if self.format is not None else '')
-        else:
-            if self.format is not None:
-                query_params.append((self._lowercase_first_letter('format'), self.format))
+            if self.bk_color is not None:
+                query_params.append((self._lowercase_first_letter('bkColor'), self.bk_color))
         if self._lowercase_first_letter('outPath') in path:
             path = path.replace('{' + self._lowercase_first_letter('outPath' + '}'), self.out_path if self.out_path is not None else '')
         else:

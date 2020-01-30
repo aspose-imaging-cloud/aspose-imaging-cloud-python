@@ -272,11 +272,11 @@ Performs operation asynchronously.
 ```python
 __init__(self, 
     image_data, 
-    format, 
     x, 
     y, 
     width, 
     height, 
+    format=format, 
     out_path=out_path, 
     storage=storage)
 ```
@@ -284,12 +284,54 @@ __init__(self,
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **image_data** | **file**| Input image | 
- **format** | **str**| Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases. | 
  **x** | **int**| X position of start point for cropping rectangle. | 
  **y** | **int**| Y position of start point for cropping rectangle. | 
  **width** | **int**| Width of cropping rectangle. | 
  **height** | **int**| Height of cropping rectangle. | 
+ **format** | **str**| Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases. | [optional] 
  **out_path** | **str**| Path to updated file (if this is empty, response contains streamed image). | [optional] 
+ **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="create_deskewed_image"></a>
+# **create_deskewed_image**
+> create_deskewed_image(self, create_deskewed_image_request)
+
+Deskew an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+### Return type
+
+**file**
+
+<a name="create_deskewed_image_async"></a>
+# **create_deskewed_image_async**
+> create_deskewed_image_async(self, create_deskewed_image_request)
+
+Deskew an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+Performs operation asynchronously.
+
+### Return type
+
+**file**
+
+### CreateDeskewedImageRequest Parameters
+```python
+__init__(self, 
+    image_data, 
+    resize_proportionally, 
+    bk_color=bk_color, 
+    out_path=out_path, 
+    storage=storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **image_data** | **file**| Input image | 
+ **resize_proportionally** | **bool**| Resize proportionally | 
+ **bk_color** | **str**| Background color | [optional] 
+ **out_path** | **str**| Path to updated file (if this is empty, response contains streamed image) | [optional] 
  **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
@@ -1030,9 +1072,9 @@ Performs operation asynchronously.
 ```python
 __init__(self, 
     image_data, 
-    format, 
     new_width, 
     new_height, 
+    format=format, 
     out_path=out_path, 
     storage=storage)
 ```
@@ -1040,9 +1082,9 @@ __init__(self,
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **image_data** | **file**| Input image | 
- **format** | **str**| Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases. | 
  **new_width** | **int**| New width. | 
  **new_height** | **int**| New height. | 
+ **format** | **str**| Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases. | [optional] 
  **out_path** | **str**| Path to updated file (if this is empty, response contains streamed image). | [optional] 
  **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
 
@@ -1074,8 +1116,8 @@ Performs operation asynchronously.
 ```python
 __init__(self, 
     image_data, 
-    format, 
     method, 
+    format=format, 
     out_path=out_path, 
     storage=storage)
 ```
@@ -1083,8 +1125,8 @@ __init__(self,
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **image_data** | **file**| Input image | 
- **format** | **str**| Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases. | 
  **method** | **str**| RotateFlip method (Rotate180FlipNone, Rotate180FlipX, Rotate180FlipXY, Rotate180FlipY, Rotate270FlipNone, Rotate270FlipX, Rotate270FlipXY, Rotate270FlipY, Rotate90FlipNone, Rotate90FlipX, Rotate90FlipXY, Rotate90FlipY, RotateNoneFlipNone, RotateNoneFlipX, RotateNoneFlipXY, RotateNoneFlipY). | 
+ **format** | **str**| Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases. | [optional] 
  **out_path** | **str**| Path to updated file (if this is empty, response contains streamed image). | [optional] 
  **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
 
@@ -1156,7 +1198,6 @@ Performs operation asynchronously.
 ```python
 __init__(self, 
     image_data, 
-    format, 
     new_width, 
     new_height, 
     x, 
@@ -1164,6 +1205,7 @@ __init__(self,
     rect_width, 
     rect_height, 
     rotate_flip_method, 
+    format=format, 
     out_path=out_path, 
     storage=storage)
 ```
@@ -1171,7 +1213,6 @@ __init__(self,
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **image_data** | **file**| Input image | 
- **format** | **str**| Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases. | 
  **new_width** | **int**| New width of the scaled image. | 
  **new_height** | **int**| New height of the scaled image. | 
  **x** | **int**| X position of start point for cropping rectangle. | 
@@ -1179,6 +1220,7 @@ Name | Type | Description  | Notes
  **rect_width** | **int**| Width of cropping rectangle. | 
  **rect_height** | **int**| Height of cropping rectangle. | 
  **rotate_flip_method** | **str**| RotateFlip method (Rotate180FlipNone, Rotate180FlipX, Rotate180FlipXY, Rotate180FlipY, Rotate270FlipNone, Rotate270FlipX, Rotate270FlipXY, Rotate270FlipY, Rotate90FlipNone, Rotate90FlipX, Rotate90FlipXY, Rotate90FlipY, RotateNoneFlipNone, RotateNoneFlipX, RotateNoneFlipXY, RotateNoneFlipY). Default is RotateNoneFlipNone. | 
+ **format** | **str**| Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases. | [optional] 
  **out_path** | **str**| Path to updated file (if this is empty, response contains streamed image). | [optional] 
  **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
 
@@ -1250,11 +1292,11 @@ Performs operation asynchronously.
 ```python
 __init__(self, 
     name, 
-    format, 
     x, 
     y, 
     width, 
     height, 
+    format=format, 
     folder=folder, 
     storage=storage)
 ```
@@ -1262,11 +1304,11 @@ __init__(self,
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **str**| Filename of an image. | 
- **format** | **str**| Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases. | 
  **x** | **int**| X position of start point for cropping rectangle. | 
  **y** | **int**| Y position of start point for cropping rectangle. | 
  **width** | **int**| Width of cropping rectangle | 
  **height** | **int**| Height of cropping rectangle. | 
+ **format** | **str**| Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases. | [optional] 
  **folder** | **str**| Folder with image to process. | [optional] 
  **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
 
@@ -1466,6 +1508,48 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 
+<a name="deskew_image"></a>
+# **deskew_image**
+> deskew_image(self, deskew_image_request)
+
+Deskew an existing image.
+
+### Return type
+
+**file**
+
+<a name="deskew_image_async"></a>
+# **deskew_image_async**
+> deskew_image_async(self, deskew_image_request)
+
+Deskew an existing image.
+
+Performs operation asynchronously.
+
+### Return type
+
+**file**
+
+### DeskewImageRequest Parameters
+```python
+__init__(self, 
+    name, 
+    resize_proportionally, 
+    bk_color=bk_color, 
+    folder=folder, 
+    storage=storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **str**| Image file name. | 
+ **resize_proportionally** | **bool**| Resize proportionally | 
+ **bk_color** | **str**| Background color | [optional] 
+ **folder** | **str**| Folder | [optional] 
+ **storage** | **str**| Storage | [optional] 
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
 <a name="download_file"></a>
 # **download_file**
 > download_file(self, download_file_request)
@@ -1642,9 +1726,9 @@ Performs operation asynchronously.
 ```python
 __init__(self, 
     name, 
-    format, 
     filter_type, 
     filter_properties, 
+    format=format, 
     folder=folder, 
     storage=storage)
 ```
@@ -1652,9 +1736,9 @@ __init__(self,
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **str**| Filename of an image. | 
- **format** | **str**| Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases. | 
  **filter_type** | **str**| Filter type (BigRectangular, SmallRectangular, Median, GaussWiener, MotionWiener, GaussianBlur, Sharpen, BilateralSmoothing). | 
  **filter_properties** | [**FilterPropertiesBase**](FilterPropertiesBase.md)| Filter properties. | 
+ **format** | **str**| Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases. | [optional] 
  **folder** | **str**| Folder with image to process. | [optional] 
  **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
 
@@ -2786,9 +2870,9 @@ Performs operation asynchronously.
 ```python
 __init__(self, 
     name, 
-    format, 
     new_width, 
     new_height, 
+    format=format, 
     folder=folder, 
     storage=storage)
 ```
@@ -2796,9 +2880,9 @@ __init__(self,
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **str**| Filename of an image. | 
- **format** | **str**| Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases. | 
  **new_width** | **int**| New width. | 
  **new_height** | **int**| New height. | 
+ **format** | **str**| Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases. | [optional] 
  **folder** | **str**| Folder with image to process. | [optional] 
  **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
 
@@ -2830,8 +2914,8 @@ Performs operation asynchronously.
 ```python
 __init__(self, 
     name, 
-    format, 
     method, 
+    format=format, 
     folder=folder, 
     storage=storage)
 ```
@@ -2839,8 +2923,8 @@ __init__(self,
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **str**| Filename of an image. | 
- **format** | **str**| Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases. | 
  **method** | **str**| RotateFlip method (Rotate180FlipNone, Rotate180FlipX, Rotate180FlipXY, Rotate180FlipY, Rotate270FlipNone, Rotate270FlipX, Rotate270FlipXY, Rotate270FlipY, Rotate90FlipNone, Rotate90FlipX, Rotate90FlipXY, Rotate90FlipY, RotateNoneFlipNone, RotateNoneFlipX, RotateNoneFlipXY, RotateNoneFlipY). | 
+ **format** | **str**| Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases. | [optional] 
  **folder** | **str**| Folder with image to process. | [optional] 
  **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
 
@@ -2946,7 +3030,6 @@ Performs operation asynchronously.
 ```python
 __init__(self, 
     name, 
-    format, 
     new_width, 
     new_height, 
     x, 
@@ -2954,6 +3037,7 @@ __init__(self,
     rect_width, 
     rect_height, 
     rotate_flip_method, 
+    format=format, 
     folder=folder, 
     storage=storage)
 ```
@@ -2961,7 +3045,6 @@ __init__(self,
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **str**| Filename of an image. | 
- **format** | **str**| Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases. | 
  **new_width** | **int**| New width of the scaled image. | 
  **new_height** | **int**| New height of the scaled image. | 
  **x** | **int**| X position of start point for cropping rectangle. | 
@@ -2969,6 +3052,7 @@ Name | Type | Description  | Notes
  **rect_width** | **int**| Width of cropping rectangle. | 
  **rect_height** | **int**| Height of cropping rectangle. | 
  **rotate_flip_method** | **str**| RotateFlip method (Rotate180FlipNone, Rotate180FlipX, Rotate180FlipXY, Rotate180FlipY, Rotate270FlipNone, Rotate270FlipX, Rotate270FlipXY, Rotate270FlipY, Rotate90FlipNone, Rotate90FlipX, Rotate90FlipXY, Rotate90FlipY, RotateNoneFlipNone, RotateNoneFlipX, RotateNoneFlipXY, RotateNoneFlipY). Default is RotateNoneFlipNone. | 
+ **format** | **str**| Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases. | [optional] 
  **folder** | **str**| Folder with image to process. | [optional] 
  **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
 

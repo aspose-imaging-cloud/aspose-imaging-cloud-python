@@ -1,6 +1,6 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
-#  <copyright company="Aspose" file="test_resize_api.py">
+#  <copyright company="Aspose" file="test_deskew_api.py">
 #    Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
@@ -27,53 +27,49 @@
 from itertools import product
 
 import asposeimagingcloud.models.requests as requests
-from test.api import ImagingApiTester
+from test.api.imaging_api_tester import ImagingApiTester
 
 
-class TestResizeApi(ImagingApiTester):
-    """ Class for testing ResizeAPI"""
+class TestDeskewApi(ImagingApiTester):
+    """ Class for testing DeskewAPI """
 
-    def test_resize_image(self):
-        """  Test resize_image """
+    def test_deskew_image(self):
+        """ Test deskew_image """
 
-        additional_export_formats = set()
         if not self.EXTENDED_TEST:
             format_extension_test_cases = ['.jpg']
         else:
             format_extension_test_cases = [
                 '.jpg',
                 '.bmp',
-                '.dicom',
                 '.gif',
                 '.j2k',
                 '.png',
                 '.psd',
                 '.tiff',
-                '.webp']
+                '.webp'
+                # the following tests should be uncommented once export method is implemented for them (see https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap)
+                #'.dicom',
+                #'.dng',
+                #'.djvu'
+                ]
 
         for format_extension in format_extension_test_cases:
             with self.subTest('format_extension: ' + str(format_extension)):
-
-                new_width = 100
-                new_height = 150
                 folder = self.temp_folder
                 storage = self.test_storage
-
-                formats_to_export = set(
-                    self.basic_export_formats).union(additional_export_formats)
+                resize_proportinoally = True
+                bk_color = "green"
 
                 def request_invoker():
-                    return self.imaging_api.resize_image(
-                        requests.ResizeImageRequest(
-                            name, new_width, new_height, format, folder,
-                            storage))
+                    return self.imaging_api.deskew_image(
+                        requests.DeskewImageRequest(name, resize_proportinoally, bk_color, folder, storage))
 
                 def properties_tester(
                         original_properties,
                         result_properties,
                         result_stream):
-                    self.assertEqual(new_width, result_properties.width)
-                    self.assertEqual(new_height, result_properties.height)
+                    self.assertIsNotNone(result_stream)
 
                 for input_file in self.input_test_files:
                     if not str(input_file.name).endswith(format_extension):
@@ -81,70 +77,66 @@ class TestResizeApi(ImagingApiTester):
 
                     name = input_file.name
 
-                    for format in formats_to_export:
-                        out_name = '{0}_crop.{1}'.format(name, format)
-
-                        self.get_request_tester(
-                            'ResizeImageTest',
-                            'Input image: {0}; Output format: {1}; New width: {2}; New height: '
-                            '{3};'.format(
-                                name,
-                                format,
-                                new_width,
-                                new_height),
+                    self.get_request_tester(
+                        'DeskewImageTest',
+                        'Input image: {0}; Output format: {1}; Resize proportionally: {2}; BkColor: {3};'.format(
                             name,
-                            request_invoker,
-                            properties_tester,
-                            folder,
-                            storage)
+                            format_extension,
+                            resize_proportinoally,
+                            bk_color
+                        ),
+                        name,
+                        request_invoker,
+                        properties_tester,
+                        folder,
+                        storage)
 
-    def test_create_resized_image(self):
-        """ Test create_resized_image """
+    def test_create_deskewed_image(self):
+        """ Test create_deskewed_image"""
 
-        additional_export_formats = set()
         if not self.EXTENDED_TEST:
             format_extension_test_cases = ['.jpg']
         else:
             format_extension_test_cases = [
                 '.jpg',
                 '.bmp',
-                '.dicom',
                 '.gif',
                 '.j2k',
                 '.png',
                 '.psd',
                 '.tiff',
-                '.webp']
+                '.webp'
+                # the following tests should be uncommented once export method is implemented for them (see https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap)
+                #'.dicom',
+                #'.dng',
+                #'.djvu'
+                ]
 
         save_result_to_storage_test_cases = [True, False]
 
         for (
                 save_result_to_storage,
                 format_extension) in list(
-                product(
+            product(
                 save_result_to_storage_test_cases,
                 format_extension_test_cases)):
             with self.subTest('save_result_to_storage: ' + str(save_result_to_storage)) and \
-                    self.subTest('format_extension: ' + str(format_extension)):
-                new_width = 100
-                new_height = 150
+                 self.subTest('format_extension: ' + str(format_extension)):
+                resize_proportionally = True
+                bk_color = "green"
                 folder = self.temp_folder
                 storage = self.test_storage
 
-                formats_to_export = set(
-                    self.basic_export_formats).union(additional_export_formats)
-
                 def request_invoker(input_stream, out_path):
-                    return self.imaging_api.create_resized_image(
-                        requests.CreateResizedImageRequest(
-                        input_stream, new_width, new_height, format, out_path, storage))
+                    return self.imaging_api.create_deskewed_image(
+                        requests.CreateDeskewedImageRequest(
+                            input_stream, resize_proportionally, bk_color, out_path, storage))
 
                 def properties_tester(
                         original_properties,
                         result_properties,
                         result_stream):
-                    self.assertEqual(new_width, result_properties.width)
-                    self.assertEqual(new_height, result_properties.height)
+                    self.assertNotEqual(original_properties.width, result_properties.width)
 
                 for input_file in self.input_test_files:
                     if not str(input_file.name).endswith(format_extension):
@@ -152,21 +144,20 @@ class TestResizeApi(ImagingApiTester):
 
                     name = input_file.name
 
-                    for format in formats_to_export:
-                        out_name = '{0}_crop.{1}'.format(name, format)
+                    out_name = '{0}_deskew.{1}'.format(name, format_extension)
 
-                        self.post_request_tester(
-                            'CreateResizedImageTest',
-                            save_result_to_storage,
-                            'Input image: {0}; Output format: {1}; New width: {2}; New height: '
-                            '{3};'.format(
+                    self.post_request_tester(
+                        'CreateDeskewedImageTest',
+                        save_result_to_storage,
+                        'Input image: {0}; Output format: {1}; Resize Proportionally: {2}; Background color: {3};'
+                            .format(
                                 name,
-                                format,
-                                new_width,
-                                new_height),
-                            name,
-                            out_name,
-                            request_invoker,
-                            properties_tester,
-                            folder,
-                            storage)
+                                format_extension,
+                                resize_proportionally,
+                                bk_color),
+                        name,
+                        out_name,
+                        request_invoker,
+                        properties_tester,
+                        folder,
+                        storage)

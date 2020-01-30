@@ -1,6 +1,6 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
-#  <copyright company="Aspose" file="create_rotate_flipped_image_request.py">
+#  <copyright company="Aspose" file="deskew_image_request.py">
 #    Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
@@ -28,24 +28,24 @@ from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
 from asposeimagingcloud.models.requests.http_request import HttpRequest
 
 
-class CreateRotateFlippedImageRequest(ImagingRequest):
+class DeskewImageRequest(ImagingRequest):
     """
-    Request model for create_rotate_flipped_image operation.
+    Request model for deskew_image operation.
     Initializes a new instance.
 
-    :param image_data Input image
-    :param method RotateFlip method (Rotate180FlipNone, Rotate180FlipX, Rotate180FlipXY, Rotate180FlipY, Rotate270FlipNone, Rotate270FlipX, Rotate270FlipXY, Rotate270FlipY, Rotate90FlipNone, Rotate90FlipX, Rotate90FlipXY, Rotate90FlipY, RotateNoneFlipNone, RotateNoneFlipX, RotateNoneFlipXY, RotateNoneFlipY).
-    :param format Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases.
-    :param out_path Path to updated file (if this is empty, response contains streamed image).
-    :param storage Your Aspose Cloud Storage name.
+    :param name Image file name.
+    :param resize_proportionally Resize proportionally
+    :param bk_color Background color
+    :param folder Folder
+    :param storage Storage
     """
 
-    def __init__(self, image_data, method, format=None, out_path=None, storage=None):
+    def __init__(self, name, resize_proportionally, bk_color=None, folder=None, storage=None):
         ImagingRequest.__init__(self)
-        self.image_data = image_data
-        self.method = method
-        self.format = format
-        self.out_path = out_path
+        self.name = name
+        self.resize_proportionally = resize_proportionally
+        self.bk_color = bk_color
+        self.folder = folder
         self.storage = storage
 
     def to_http_info(self, config):
@@ -57,33 +57,35 @@ class CreateRotateFlippedImageRequest(ImagingRequest):
         :return: http_request configured http request
         :rtype: Configuration.models.requests.HttpRequest
         """
-        # verify the required parameter 'image_data' is set
-        if self.image_data is None:
-            raise ValueError("Missing the required parameter `image_data` when calling `create_rotate_flipped_image`")
-        # verify the required parameter 'method' is set
-        if self.method is None:
-            raise ValueError("Missing the required parameter `method` when calling `create_rotate_flipped_image`")
+        # verify the required parameter 'name' is set
+        if self.name is None:
+            raise ValueError("Missing the required parameter `name` when calling `deskew_image`")
+        # verify the required parameter 'resize_proportionally' is set
+        if self.resize_proportionally is None:
+            raise ValueError("Missing the required parameter `resize_proportionally` when calling `deskew_image`")
 
         collection_formats = {}
-        path = '/imaging/rotateflip'
+        path = '/imaging/{name}/deskew'
         path_params = {}
+        if self.name is not None:
+            path_params[self._lowercase_first_letter('name')] = self.name
 
         query_params = []
-        if self._lowercase_first_letter('method') in path:
-            path = path.replace('{' + self._lowercase_first_letter('method' + '}'), self.method if self.method is not None else '')
+        if self._lowercase_first_letter('resizeProportionally') in path:
+            path = path.replace('{' + self._lowercase_first_letter('resizeProportionally' + '}'), self.resize_proportionally if self.resize_proportionally is not None else '')
         else:
-            if self.method is not None:
-                query_params.append((self._lowercase_first_letter('method'), self.method))
-        if self._lowercase_first_letter('format') in path:
-            path = path.replace('{' + self._lowercase_first_letter('format' + '}'), self.format if self.format is not None else '')
+            if self.resize_proportionally is not None:
+                query_params.append((self._lowercase_first_letter('resizeProportionally'), self.resize_proportionally))
+        if self._lowercase_first_letter('bkColor') in path:
+            path = path.replace('{' + self._lowercase_first_letter('bkColor' + '}'), self.bk_color if self.bk_color is not None else '')
         else:
-            if self.format is not None:
-                query_params.append((self._lowercase_first_letter('format'), self.format))
-        if self._lowercase_first_letter('outPath') in path:
-            path = path.replace('{' + self._lowercase_first_letter('outPath' + '}'), self.out_path if self.out_path is not None else '')
+            if self.bk_color is not None:
+                query_params.append((self._lowercase_first_letter('bkColor'), self.bk_color))
+        if self._lowercase_first_letter('folder') in path:
+            path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
         else:
-            if self.out_path is not None:
-                query_params.append((self._lowercase_first_letter('outPath'), self.out_path))
+            if self.folder is not None:
+                query_params.append((self._lowercase_first_letter('folder'), self.folder))
         if self._lowercase_first_letter('storage') in path:
             path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
         else:
@@ -94,8 +96,6 @@ class CreateRotateFlippedImageRequest(ImagingRequest):
 
         form_params = []
         local_var_files = []
-        if self.image_data is not None:
-            local_var_files.append((self._lowercase_first_letter('imageData'), self.image_data))
 
         body_params = None
 
@@ -105,7 +105,7 @@ class CreateRotateFlippedImageRequest(ImagingRequest):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = 'multipart/form-data' if form_params else self._select_header_content_type(
-            ['multipart/form-data'])
+            ['application/json'])
 
         # Authentication setting
         auth_settings = ['JWT']
