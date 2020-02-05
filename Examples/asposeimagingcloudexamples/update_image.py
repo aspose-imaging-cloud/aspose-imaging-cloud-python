@@ -60,8 +60,8 @@ class UpdateImage(ImagingBase):
         folder = ImagingBase.CLOUD_PATH  # Input file is saved at the Examples folder in the storage
         storage = None  # We are using default Cloud Storage
 
-        request = requests.UpdateImageRequest(self._get_sample_image_file_name(), format, new_width, new_height, x,
-                                              y, rect_width, rect_height, rotate_flip_method, folder, storage)
+        request = requests.UpdateImageRequest(self._get_sample_image_file_name(), new_width, new_height, x,
+                                              y, rect_width, rect_height, rotate_flip_method, format, folder, storage)
 
         print('Call UpdateImage with params: new width: {0}, new height: {1}, x: {2}, y: {3}, rect width: {4}, '
               'rectHeight: {5}, rotate/flip method: {6}, format: {7}'
@@ -91,8 +91,8 @@ class UpdateImage(ImagingBase):
         folder = ImagingBase.CLOUD_PATH  # Input file is saved at the Examples folder in the storage
         storage = None  # We are using default Cloud Storage
 
-        request = requests.UpdateImageRequest(self._get_sample_image_file_name(), format, new_width, new_height, x, y,
-                                              rect_width, rect_height, rotate_flip_method, folder, storage)
+        request = requests.UpdateImageRequest(self._get_sample_image_file_name(), new_width, new_height, x, y,
+                                              rect_width, rect_height, rotate_flip_method, format, folder, storage)
 
         print('Call UpdateImage with params: new width: {0}, new height: {1}, x: {2}, y: {3}, rect width: {4}, '
               'rectHeight: {5}, rotate/flip method: {6}, format: {7}'
@@ -121,8 +121,8 @@ class UpdateImage(ImagingBase):
         out_path = None  # Path to updated file (if this is empty, response contains streamed image)
 
         input_stream = os.path.join(ImagingBase.EXAMPLE_IMAGES_FOLDER, self._get_sample_image_file_name())
-        request = requests.CreateUpdatedImageRequest(input_stream, format, new_width, new_height, x, y, rect_width,
-                                                     rect_height, rotate_flip_method, out_path, storage)
+        request = requests.CreateUpdatedImageRequest(input_stream, new_width, new_height, x, y, rect_width,
+                                                     rect_height, rotate_flip_method, format, out_path, storage)
 
         print('Call CreateUpdatedImage with params: new width: {0}, new height: {1}, x: {2}, y: {3}, rect width: {4}, '
               'rectHeight: {5}, rotate/flip method: {6}, format: {7}'

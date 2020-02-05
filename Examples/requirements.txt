@@ -1,1 +1,1 @@
-aspose-imaging-cloud>=19.12.0
+aspose-imaging-cloud>=20.1.0

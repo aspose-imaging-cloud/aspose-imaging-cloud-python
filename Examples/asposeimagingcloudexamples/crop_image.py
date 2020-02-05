@@ -57,7 +57,7 @@ class CropImage(ImagingBase):
         folder = ImagingBase.CLOUD_PATH  # Input file is saved at the Examples folder in the storage
         storage = None  # We are using default Cloud Storage
 
-        request = requests.CropImageRequest(self._get_sample_image_file_name(), format, x, y, width, height, folder,
+        request = requests.CropImageRequest(self._get_sample_image_file_name(), x, y, width, height, format, folder,
                                             storage)
 
         print('Call CropImage with params: x: {0}, y: {1}, width: {2}, height: {3}'.format(x, y, width, height))
@@ -83,7 +83,7 @@ class CropImage(ImagingBase):
         folder = ImagingBase.CLOUD_PATH  # Input file is saved at the Examples folder in the storage
         storage = None  # We are using default Cloud Storage
 
-        request = requests.CropImageRequest(self._get_sample_image_file_name(), format, x, y, width, height, folder,
+        request = requests.CropImageRequest(self._get_sample_image_file_name(), x, y, width, height, format, folder,
                                             storage)
 
         print('Call CropImage with params: x: {0}, y: {1}, width: {2}, height: {3}'.format(x, y, width, height))
@@ -108,7 +108,7 @@ class CropImage(ImagingBase):
         out_path = None  # Path to updated file (if this is empty, response contains streamed image)
 
         input_stream = os.path.join(ImagingBase.EXAMPLE_IMAGES_FOLDER, self._get_sample_image_file_name())
-        request = requests.CreateCroppedImageRequest(input_stream, format, x, y, width, height, out_path, storage)
+        request = requests.CreateCroppedImageRequest(input_stream, x, y, width, height, format, out_path, storage)
 
         print('Call CreateCroppedImage with params: x: {0},y: {1}, width: {2}, height: {3}'.format(x, y, width, height))
 

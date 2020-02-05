@@ -55,7 +55,7 @@ class ResizeImage(ImagingBase):
         folder = ImagingBase.CLOUD_PATH  # Input file is saved at the Examples folder in the storage
         storage = None  # We are using default Cloud Storage
 
-        request = requests.ResizeImageRequest(self._get_sample_image_file_name(), format, new_width, new_height,
+        request = requests.ResizeImageRequest(self._get_sample_image_file_name(), new_width, new_height, format,
                                               folder, storage)
 
         print('Call ResizeImage with params: new width: {0}, new height: {1}, format: {2}'.format(new_width,
@@ -80,7 +80,7 @@ class ResizeImage(ImagingBase):
         folder = ImagingBase.CLOUD_PATH  # Input file is saved at the Examples folder in the storage
         storage = None  # We are using default Cloud Storage
 
-        request = requests.ResizeImageRequest(self._get_sample_image_file_name(), format, new_width, new_height,
+        request = requests.ResizeImageRequest(self._get_sample_image_file_name(), new_width, new_height, format,
                                               folder, storage)
 
         print('Call ResizeImage with params: new width: {0}, new height: {1}, format: {2}'.format(new_width,
@@ -104,7 +104,7 @@ class ResizeImage(ImagingBase):
         out_path = None  # Path to updated file (if this is empty, response contains streamed image)
 
         input_stream = os.path.join(ImagingBase.EXAMPLE_IMAGES_FOLDER, self._get_sample_image_file_name())
-        request = requests.CreateResizedImageRequest(input_stream, format, new_width, new_height, out_path, storage)
+        request = requests.CreateResizedImageRequest(input_stream, new_width, new_height, format, out_path, storage)
 
         print('Call CreateResizedImage with params: new width: {0}, new height: {1}, format: {2}'.format(new_width, new_height, format))
 

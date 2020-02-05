@@ -54,7 +54,7 @@ class RotateFlipImage(ImagingBase):
         folder = ImagingBase.CLOUD_PATH  # Input file is saved at the Examples folder in the storage
         storage = None  # We are using default Cloud Storage
 
-        request = requests.RotateFlipImageRequest(self._get_sample_image_file_name(), format, method, folder, storage)
+        request = requests.RotateFlipImageRequest(self._get_sample_image_file_name(), method, format, folder, storage)
 
         print('Call RotateFlipImage with params: method:{0}, format:{1}'.format(method, format))
 
@@ -76,7 +76,7 @@ class RotateFlipImage(ImagingBase):
         folder = ImagingBase.CLOUD_PATH  # Input file is saved at the Examples folder in the storage
         storage = None  # We are using default Cloud Storage
 
-        request = requests.RotateFlipImageRequest(self._get_sample_image_file_name(), format, method, folder, storage)
+        request = requests.RotateFlipImageRequest(self._get_sample_image_file_name(), method, format, folder, storage)
 
         print('Call RotateFlipImage with params: method: {0}, format: {1}'.format(method, format))
 
@@ -97,7 +97,7 @@ class RotateFlipImage(ImagingBase):
         out_path = None  # Path to updated file (if this is empty, response contains streamed image)
 
         input_stream = os.path.join(ImagingBase.EXAMPLE_IMAGES_FOLDER, self._get_sample_image_file_name())
-        request = requests.CreateRotateFlippedImageRequest(input_stream, format, method, out_path, storage)
+        request = requests.CreateRotateFlippedImageRequest(input_stream, method, format, out_path, storage)
 
         print('Call CreateRotateFlippedImage with params: method: {0}, format: {1}'.format(method, format))
 
