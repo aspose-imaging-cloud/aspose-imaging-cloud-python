@@ -31,6 +31,7 @@ import sys
 from asposeimagingcloud import ImagingApi
 
 from asposeimagingcloudexamples.crop_image import CropImage
+from asposeimagingcloudexamples.deskew_image import DeskewImage
 from asposeimagingcloudexamples.export_image import ExportImage
 from asposeimagingcloudexamples.filter_image import FilterImage
 from asposeimagingcloudexamples.image_properties import ImageProperties
@@ -104,6 +105,12 @@ def main():
         crop_image.crop_image_from_storage()
         crop_image.crop_image_and_upload_to_storage()
         crop_image.create_cropped_image_from_request_body()
+
+        # Deskew an existing image
+        deskew_image = DeskewImage(api)
+        deskew_image.deskew_image_from_storage()
+        deskew_image.deskew_image_and_upload_to_storage()
+        deskew_image.create_deskewed_image_from_request_body()
 
         # Export existing image to another format
         export_image = ExportImage(api)
