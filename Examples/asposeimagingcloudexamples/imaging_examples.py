@@ -34,6 +34,7 @@ from asposeimagingcloudexamples.AI.compare_images import CompareImages
 from asposeimagingcloudexamples.AI.find_duplicate_images import \
     FindDuplicateImages
 from asposeimagingcloudexamples.AI.find_similar_images import FindSimilarImages
+from asposeimagingcloudexamples.AI.search_images import SearchImages
 from asposeimagingcloudexamples.crop_image import CropImage
 from asposeimagingcloudexamples.export_image import ExportImage
 from asposeimagingcloudexamples.image_properties import ImageProperties
@@ -152,8 +153,8 @@ def main():
         tiff_frames.get_image_frame_properties_from_storage()
         # Get separate frame properties of existing TIFF image
         tiff_frames.extract_image_frame_properties_from_request_body()
-
-        # Update parameters of existing TIFF image
+        #
+        # # Update parameters of existing TIFF image
         tiff_image = UpdateTiffImage(api)
         tiff_image.modify_tiff_from_storage()
         tiff_image.modify_tiff_and_upload_to_storage()
@@ -238,6 +239,12 @@ def main():
         find_similar_images.find_similar_images()
         find_similar_images.find_images_by_tag()
         find_similar_images.delete_search_context()
+
+        # Search Images
+        search_images = SearchImages(api)
+        search_images.prepare_search_context()
+        search_images.search_image_from_web_source()
+        search_images.delete_search_context()
     except Exception as e:
         print('Something goes wrong: ' + str(e))
         sys.exit(1)

@@ -87,7 +87,7 @@ class ImagingAiBase:
 
         if is_folder:
             print('Creating Search context image features...')
-            self.__wait_idle(self._search_context_id)
+            self._wait_idle(self._search_context_id)
         else:
             print("Created Search context image features for {0}".format(source_path))
 
@@ -107,7 +107,7 @@ class ImagingAiBase:
         print(header)
         print()
 
-    def __wait_idle(self, search_context_id):
+    def _wait_idle(self, search_context_id):
         """Waits the idle"""
         print('Waiting Search context Idle...')
 
