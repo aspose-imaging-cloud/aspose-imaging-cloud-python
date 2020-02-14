@@ -56,14 +56,14 @@ class FindSimilarImages(ImagingAiBase):
         """Prepares the search context"""
         self._create_search_context()
 
-        # Upload images to Cloud Storage
-        for image_name in ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg']:
-            # Upload local image to Cloud Storage
-            self._upload_image_to_cloud(image_name)
-
-        self._create_image_features(self.__images_path, True)
-
-        print()
+        # # Upload images to Cloud Storage
+        # for image_name in ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg']:
+        #     # Upload local image to Cloud Storage
+        #     self._upload_image_to_cloud(image_name)
+        #
+        # self._create_image_features(self.__images_path, True)
+        #
+        # print()
 
     def find_similar_images(self):
         """Finds the similar images"""
