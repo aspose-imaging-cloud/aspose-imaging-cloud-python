@@ -122,7 +122,7 @@ class FindSimilarImages(ImagingAiBase):
         """Finds the similar images from the URL source"""
         print('Finds similar images from URL:')
 
-        similarity_threshold = 70.0
+        similarity_threshold = 30.0
         max_count = 3
         folder = ImagingAiBase.CLOUD_PATH  # Folder with image to process
         storage = None  # We are using default Cloud Storage
@@ -140,14 +140,14 @@ class FindSimilarImages(ImagingAiBase):
         f = tempfile.NamedTemporaryFile()
         f.write(image_data.content)
 
-        # Rotate and flip downloaded image
-        rotated_image = self._imaging_api.create_rotate_flipped_image(requests.CreateRotateFlippedImageRequest(
-            f.name, "Rotate180FlipX", "jpg", storage=storage))
+        # Resize downloaded image
+        resized_image = self._imaging_api.create_resized_image(requests.CreateResizedImageRequest(
+            f.name, 600, 400, "jpg", storage=storage))
         f.close()
 
         # Upload image to cloud
         self._imaging_api.upload_file(requests.UploadFileRequest(ImagingAiBase.CLOUD_PATH + "/" +
-                                                                 "ReverseSearch.jpg", rotated_image, storage))
+                                                                 "ReverseSearch.jpg", resized_image, storage))
 
         # Find similar images in the search context
         find_response = self._imaging_api.find_similar_images(requests.FindSimilarImagesRequest(
