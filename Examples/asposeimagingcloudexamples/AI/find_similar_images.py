@@ -26,7 +26,16 @@
 
 import json
 import os
+import tempfile
 
+import six
+
+if six.PY2:
+    import urllib as urllib
+else:
+    import urllib.parse as urllib
+
+import requests as req
 import asposeimagingcloud.models.requests as requests
 
 from asposeimagingcloudexamples.AI.imaging_ai_base import ImagingAiBase
@@ -108,3 +117,42 @@ class FindSimilarImages(ImagingAiBase):
         for find_result in find_response.results:
             print('Image name: ' + find_result.image_id + ', similarity: ' + find_result.similarity)
         print()
+
+    def search_image_from_web_source(self):
+        """Finds the similar images from the URL source"""
+        print('Finds similar images from URL:')
+
+        similarity_threshold = 70.0
+        max_count = 3
+        folder = ImagingAiBase.CLOUD_PATH  # Folder with image to process
+        storage = None  # We are using default Cloud Storage
+
+        # Add images from the website to the search context
+        image_source_url = urllib.quote_plus('https://www.f1news.ru/interview/hamilton/140909.shtml')
+        self._imaging_api.create_web_site_image_features(
+            requests.CreateWebSiteImageFeaturesRequest(self._search_context_id, image_source_url,
+                                                       folder, storage))
+
+        self._wait_idle(self._search_context_id)
+
+        # Download the image from the website
+        image_data = req.get('https://cdn.f1ne.ws/userfiles/hamilton/140909.jpg')
+        f = tempfile.NamedTemporaryFile()
+        f.write(image_data.content)
+
+        # Rotate and flip downloaded image
+        rotated_image = self._imaging_api.create_rotate_flipped_image(requests.CreateRotateFlippedImageRequest(
+            f.name, "Rotate180FlipX", "jpg", storage=storage))
+        f.close()
+
+        # Upload image to cloud
+        self._imaging_api.upload_file(requests.UploadFileRequest(ImagingAiBase.CLOUD_PATH + "/" +
+                                                                 "ReverseSearch.jpg", rotated_image, storage))
+
+        # Find similar images in the search context
+        find_response = self._imaging_api.find_similar_images(requests.FindSimilarImagesRequest(
+            self._search_context_id, similarity_threshold, max_count, image_id=ImagingAiBase.CLOUD_PATH + "/" +
+                                                                               "ReverseSearch.jpg", folder=folder,
+            storage=storage))
+
+        print('Similar images found: ' + str(len(find_response.results)))
