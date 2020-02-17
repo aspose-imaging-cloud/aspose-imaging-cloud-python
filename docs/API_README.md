@@ -22,6 +22,8 @@ Class | Method | HTTP request | Description
 *ImagingApi* | [**create_deskewed_image_async**](ImagingApi.md#create_deskewed_image_async) | **POST** /imaging/deskew | Deskew an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_folder**](ImagingApi.md#create_folder) | **PUT** /imaging/storage/folder/{path} | Create the folder
 *ImagingApi* | [**create_folder_async**](ImagingApi.md#create_folder_async) | **PUT** /imaging/storage/folder/{path} | Create the folder
+*ImagingApi* | [**create_grayscaled_image**](ImagingApi.md#create_grayscaled_image) | **POST** /imaging/grayscale | Grayscales an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+*ImagingApi* | [**create_grayscaled_image_async**](ImagingApi.md#create_grayscaled_image_async) | **POST** /imaging/grayscale | Grayscales an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_image_features**](ImagingApi.md#create_image_features) | **POST** /imaging/ai/imageSearch/{searchContextId}/features | Extract images features and add them to search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_image_features_async**](ImagingApi.md#create_image_features_async) | **POST** /imaging/ai/imageSearch/{searchContextId}/features | Extract images features and add them to search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_image_frame**](ImagingApi.md#create_image_frame) | **POST** /imaging/frames/{frameId} | Get separate frame from existing TIFF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
@@ -108,6 +110,8 @@ Class | Method | HTTP request | Description
 *ImagingApi* | [**get_image_search_status_async**](ImagingApi.md#get_image_search_status_async) | **GET** /imaging/ai/imageSearch/{searchContextId}/status | Gets the search context status.
 *ImagingApi* | [**get_search_image**](ImagingApi.md#get_search_image) | **GET** /imaging/ai/imageSearch/{searchContextId}/image | Get image from search context
 *ImagingApi* | [**get_search_image_async**](ImagingApi.md#get_search_image_async) | **GET** /imaging/ai/imageSearch/{searchContextId}/image | Get image from search context
+*ImagingApi* | [**grayscale_image**](ImagingApi.md#grayscale_image) | **GET** /imaging/{name}/grayscale | Grayscale an existing image.
+*ImagingApi* | [**grayscale_image_async**](ImagingApi.md#grayscale_image_async) | **GET** /imaging/{name}/grayscale | Grayscale an existing image.
 *ImagingApi* | [**modify_bmp**](ImagingApi.md#modify_bmp) | **GET** /imaging/{name}/bmp | Update parameters of existing BMP image.
 *ImagingApi* | [**modify_bmp_async**](ImagingApi.md#modify_bmp_async) | **GET** /imaging/{name}/bmp | Update parameters of existing BMP image.
 *ImagingApi* | [**modify_emf**](ImagingApi.md#modify_emf) | **GET** /imaging/{name}/emf | Process existing EMF imaging using given parameters.

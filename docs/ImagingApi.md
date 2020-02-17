@@ -372,6 +372,44 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 
+<a name="create_grayscaled_image"></a>
+# **create_grayscaled_image**
+> create_grayscaled_image(self, create_grayscaled_image_request)
+
+Grayscales an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+### Return type
+
+**file**
+
+<a name="create_grayscaled_image_async"></a>
+# **create_grayscaled_image_async**
+> create_grayscaled_image_async(self, create_grayscaled_image_request)
+
+Grayscales an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+Performs operation asynchronously.
+
+### Return type
+
+**file**
+
+### CreateGrayscaledImageRequest Parameters
+```python
+__init__(self, 
+    image_data, 
+    out_path=out_path, 
+    storage=storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **image_data** | **file**| Input image | 
+ **out_path** | **str**| Path to updated file (if this is empty, response contains streamed image) | [optional] 
+ **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
 <a name="create_image_features"></a>
 # **create_image_features**
 > create_image_features(self, create_image_features_request)
@@ -2228,6 +2266,44 @@ Name | Type | Description  | Notes
  **search_context_id** | **str**| Search context identifier. | 
  **image_id** | **str**| Image identifier. | 
  **folder** | **str**| Folder. | [optional] 
+ **storage** | **str**| Storage | [optional] 
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="grayscale_image"></a>
+# **grayscale_image**
+> grayscale_image(self, grayscale_image_request)
+
+Grayscale an existing image.
+
+### Return type
+
+**file**
+
+<a name="grayscale_image_async"></a>
+# **grayscale_image_async**
+> grayscale_image_async(self, grayscale_image_request)
+
+Grayscale an existing image.
+
+Performs operation asynchronously.
+
+### Return type
+
+**file**
+
+### GrayscaleImageRequest Parameters
+```python
+__init__(self, 
+    name, 
+    folder=folder, 
+    storage=storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **str**| Image file name. | 
+ **folder** | **str**| Folder | [optional] 
  **storage** | **str**| Storage | [optional] 
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
