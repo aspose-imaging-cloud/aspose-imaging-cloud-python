@@ -137,9 +137,8 @@ class FindSimilarImages(ImagingAiBase):
         # Download the image from the website
         image_data = req.get('https://cdn.f1ne.ws/userfiles/hamilton/140909.jpg')
         path = os.path.abspath(os.path.join(ImagingAiBase.OUTPUT_FOLDER, 'WebSearchSample.jpg'))
-        f = open(path, 'wb')
-        f.write(image_data.content)
-        f.close()
+        with open(path, "wb") as f:
+            f.write(image_data.content)
 
         # Resize downloaded image
         resized_image = self._imaging_api.create_resized_image(requests.CreateResizedImageRequest(
