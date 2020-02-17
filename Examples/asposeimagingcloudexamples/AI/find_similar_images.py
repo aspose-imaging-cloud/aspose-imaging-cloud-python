@@ -129,8 +129,7 @@ class FindSimilarImages(ImagingAiBase):
         # Add images from the website to the search context
         image_source_url = urllib.quote_plus('https://www.f1news.ru/interview/hamilton/140909.shtml')
         self._imaging_api.create_web_site_image_features(
-            requests.CreateWebSiteImageFeaturesRequest(self._search_context_id, image_source_url,
-                                                       folder, storage))
+            requests.CreateWebSiteImageFeaturesRequest(self._search_context_id, image_source_url, folder, storage))
 
         self._wait_idle(self._search_context_id)
 
@@ -145,13 +144,14 @@ class FindSimilarImages(ImagingAiBase):
             path, 600, 400, "jpg", storage=storage))
 
         # Upload image to cloud
-        self._imaging_api.upload_file(requests.UploadFileRequest(ImagingAiBase.CLOUD_PATH + "/" +
-                                                                 "ReverseSearch.jpg", resized_image, storage))
+        image_name = 'ReverseSearch.jpg'
+        self._imaging_api.upload_file(requests.UploadFileRequest(ImagingAiBase.CLOUD_PATH + "/" + image_name,
+                                                                 resized_image, storage))
 
         # Find similar images in the search context
-        find_response = self._imaging_api.find_similar_images(requests.FindSimilarImagesRequest(
-            self._search_context_id, similarity_threshold, max_count, image_id=ImagingAiBase.CLOUD_PATH + "/" +
-                                                                               "ReverseSearch.jpg", folder=folder,
-            storage=storage))
+        find_response = self._imaging_api.find_similar_images(
+            requests.FindSimilarImagesRequest(self._search_context_id, similarity_threshold, max_count,
+                                              image_id=ImagingAiBase.CLOUD_PATH + "/" + image_name,
+                                              folder=folder, storage=storage))
 
         print('Similar images found: ' + str(len(find_response.results)))
