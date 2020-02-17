@@ -137,7 +137,7 @@ class FindSimilarImages(ImagingAiBase):
 
         # Download the image from the website
         image_data = req.get('https://cdn.f1ne.ws/userfiles/hamilton/140909.jpg')
-        f = tempfile.NamedTemporaryFile(dir=os.path.dirname(os.path.realpath(__file__)))
+        f = tempfile.TemporaryFile()
         f.write(image_data.content)
 
         # Resize downloaded image
