@@ -26,7 +26,6 @@
 
 import json
 import os
-import tempfile
 
 import six
 
@@ -137,13 +136,14 @@ class FindSimilarImages(ImagingAiBase):
 
         # Download the image from the website
         image_data = req.get('https://cdn.f1ne.ws/userfiles/hamilton/140909.jpg')
-        f = tempfile.TemporaryFile()
+        path = os.path.abspath(os.path.join(ImagingAiBase.OUTPUT_FOLDER, 'WebSearchSample.jpg'))
+        f = open(path, 'wb')
         f.write(image_data.content)
+        f.close()
 
         # Resize downloaded image
         resized_image = self._imaging_api.create_resized_image(requests.CreateResizedImageRequest(
-            f.name, 600, 400, "jpg", storage=storage))
-        f.close()
+            path, 600, 400, "jpg", storage=storage))
 
         # Upload image to cloud
         self._imaging_api.upload_file(requests.UploadFileRequest(ImagingAiBase.CLOUD_PATH + "/" +

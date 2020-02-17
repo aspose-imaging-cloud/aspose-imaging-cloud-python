@@ -39,7 +39,7 @@ class ImagingAiBase:
 
     # The output folder path
     OUTPUT_FOLDER = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__)))),
-                                 os.path.join('Output', 'AI'))
+                                 'Output')
 
     # The cloud path
     CLOUD_PATH = os.path.join('Examples', 'AI')
