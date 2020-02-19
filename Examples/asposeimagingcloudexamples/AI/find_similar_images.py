@@ -139,7 +139,7 @@ class FindSimilarImages(ImagingAiBase):
         with open(path, "wb") as f:
             f.write(image_data.content)
 
-        # Resize downloaded image
+        # Resize downloaded image to demonstrate search engine capabilities
         resized_image = self._imaging_api.create_resized_image(requests.CreateResizedImageRequest(
             path, 600, 400, "jpg", storage=storage))
 
@@ -155,3 +155,5 @@ class FindSimilarImages(ImagingAiBase):
                                               folder=folder, storage=storage))
 
         print('Similar images found: ' + str(len(find_response.results)))
+        print('Similar image id: ' + find_response.results[0].image_id)
+        print('Similarity: ' + str(find_response.results[0].similarity))
