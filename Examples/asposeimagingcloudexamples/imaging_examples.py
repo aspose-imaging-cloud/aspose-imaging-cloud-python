@@ -32,6 +32,7 @@ from asposeimagingcloud import ImagingApi
 
 from asposeimagingcloudexamples.crop_image import CropImage
 from asposeimagingcloudexamples.export_image import ExportImage
+from asposeimagingcloudexamples.filter_image import FilterImage
 from asposeimagingcloudexamples.image_properties import ImageProperties
 from asposeimagingcloudexamples.imaging_base import ImagingBase
 from asposeimagingcloudexamples.resize_image import ResizeImage
@@ -109,6 +110,11 @@ def main():
         export_image.save_image_as_from_storage()
         export_image.save_image_as_and_upload_to_storage()
         export_image.create_saved_image_as_from_request_body()
+
+        # Apply a filtering effect to an image
+        filter_image = FilterImage(api)
+        filter_image.filter_image_from_storage()
+        filter_image.filter_image_and_upload_to_storage()
 
         # Get properties of an image
         image_properties = ImageProperties(api)
