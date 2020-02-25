@@ -38,7 +38,7 @@ class DeskewImage(ImagingBase):
         self._print_header('Deskew image example:')
 
     def _get_sample_image_file_name(self):
-        return 'DeskewSampleImage.bmp'
+        return 'DeskewSampleImage.tif'
 
     def deskew_image_from_storage(self):
         """Deskews the image from cloud storage"""
@@ -47,7 +47,7 @@ class DeskewImage(ImagingBase):
         self._upload_sample_image_to_cloud()
 
         resize_proportionally = True
-        bk_color = 'green'
+        bk_color = 'white'
         folder = ImagingBase.CLOUD_PATH  # Input file is saved at the Examples folder in the storage
         storage = None  # We are using default Cloud Storage
 
@@ -67,7 +67,7 @@ class DeskewImage(ImagingBase):
         self._upload_sample_image_to_cloud()
 
         resize_proportionally = True
-        bk_color = 'green'
+        bk_color = 'white'
         folder = ImagingBase.CLOUD_PATH  # Input file is saved at the Examples folder in the storage
         storage = None  # We are using default Cloud Storage
 
@@ -85,7 +85,7 @@ class DeskewImage(ImagingBase):
         print('Deskews the image from request body')
 
         resize_proportionally = True
-        bk_color = 'green'
+        bk_color = 'white'
         storage = None  # We are using default Cloud Storage
         out_path = None  # Path to updated file (if this is empty, response contains streamed image)
 

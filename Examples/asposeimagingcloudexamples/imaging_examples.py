@@ -160,7 +160,7 @@ def main():
         tiff_frames.get_image_frame_properties_from_storage()
         # Get separate frame properties of existing TIFF image
         tiff_frames.extract_image_frame_properties_from_request_body()
-        #
+
         # # Update parameters of existing TIFF image
         tiff_image = UpdateTiffImage(api)
         tiff_image.modify_tiff_from_storage()
