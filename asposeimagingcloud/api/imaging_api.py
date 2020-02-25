@@ -240,6 +240,26 @@ class ImagingApi(object):
         http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request_async(http_request, 'PUT', None)
 
+    def create_grayscaled_image(self, request):
+        """Grayscales an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_grayscaled_image_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', 'file')
+
+    def create_grayscaled_image_async(self, request):
+        """Grayscales an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+
+        :param request create_grayscaled_image_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'POST', 'file')
+
     def create_image_features(self, request):
         """Extract images features and add them to search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
 
@@ -1095,6 +1115,26 @@ class ImagingApi(object):
 
 
         :param request get_search_image_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'GET', 'file')
+
+    def grayscale_image(self, request):
+        """Grayscale an existing image.
+
+
+        :param request grayscale_image_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'GET', 'file')
+
+    def grayscale_image_async(self, request):
+        """Grayscale an existing image.
+
+
+        :param request grayscale_image_request object with parameters
         :return: file
         """
         http_request = request.to_http_info(self.api_client.configuration)
