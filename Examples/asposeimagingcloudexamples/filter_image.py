@@ -38,7 +38,7 @@ class FilterImage(ImagingBase):
         self._print_header('Filter image example:')
 
     def _get_sample_image_file_name(self):
-        return 'FilterEffectSampleImage2.psd'
+        return 'FilterEffectSampleImage.psd'
 
     def filter_image_from_storage(self):
         """Applies filtering effect to an image from cloud storage"""
