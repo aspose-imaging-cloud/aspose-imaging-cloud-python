@@ -24,7 +24,7 @@
 #  </summary>
 #  ----------------------------------------------------------------------------
 
-from asposeimagingcloud.models.big_rectangular_filter_properties import BigRectangularFilterProperties
+from asposeimagingcloud.models.gaussian_blur_filter_properties import GaussianBlurFilterProperties
 from asposeimagingcloud.models.requests.filter_effect_image_request import FilterEffectImageRequest
 
 from asposeimagingcloudexamples.imaging_base import ImagingBase
@@ -38,7 +38,7 @@ class FilterImage(ImagingBase):
         self._print_header('Filter image example:')
 
     def _get_sample_image_file_name(self):
-        return 'FilterEffectSampleImage.psd'
+        return 'FilterEffectSampleImage2.psd'
 
     def filter_image_from_storage(self):
         """Applies filtering effect to an image from cloud storage"""
@@ -46,8 +46,8 @@ class FilterImage(ImagingBase):
 
         self._upload_sample_image_to_cloud()
 
-        filter_type = 'BigRectangular'
-        filter_properties = BigRectangularFilterProperties()
+        filter_type = 'GaussianBlur'
+        filter_properties = GaussianBlurFilterProperties(4, 2.1)
         format = 'bmp'
         folder = ImagingBase.CLOUD_PATH
         storage = None
@@ -55,7 +55,8 @@ class FilterImage(ImagingBase):
         request = FilterEffectImageRequest(self._get_sample_image_file_name(), filter_type, filter_properties,
                                            format, folder, storage)
 
-        print('Call FilterEffectImage with params: filter type: {0}, format: {1}'.format(filter_type, format))
+        print('Call FilterEffectImage with params: filter type: {0}, radius: {1}, sigma: {2}, format: {3}'.format(
+            filter_type, filter_properties.radius, filter_properties.sigma, format))
 
         updated_image = self._imaging_api.filter_effect_image(request)
         self._save_updated_sample_image_to_output(updated_image, False, format)
@@ -67,8 +68,8 @@ class FilterImage(ImagingBase):
 
         self._upload_sample_image_to_cloud()
 
-        filter_type = 'BigRectangular'
-        filter_properties = BigRectangularFilterProperties()
+        filter_type = 'GaussianBlur'
+        filter_properties = GaussianBlurFilterProperties(4, 2.1)
         format = 'bmp'
         folder = ImagingBase.CLOUD_PATH
         storage = None
@@ -76,7 +77,8 @@ class FilterImage(ImagingBase):
         request = FilterEffectImageRequest(self._get_sample_image_file_name(), filter_type, filter_properties,
                                            format, folder, storage)
 
-        print('Call FilterEffectImage with params: filter type: {0}, format: {1}'.format(filter_type, format))
+        print('Call FilterEffectImage with params: filter type: {0}, radius: {1}, sigma: {2}, format: {3}'.format(
+            filter_type, filter_properties.radius, filter_properties.sigma, format))
 
         updated_image = self._imaging_api.filter_effect_image(request)
         self._save_updated_image_to_output(self._get_modified_sample_image_file_name(False, format), updated_image)
