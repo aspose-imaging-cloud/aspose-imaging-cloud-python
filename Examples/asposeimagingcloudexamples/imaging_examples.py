@@ -30,13 +30,9 @@ import sys
 
 from asposeimagingcloud import ImagingApi
 
-from asposeimagingcloudexamples.AI.compare_images import CompareImages
-from asposeimagingcloudexamples.AI.find_duplicate_images import \
-    FindDuplicateImages
-from asposeimagingcloudexamples.AI.find_similar_images import FindSimilarImages
-from asposeimagingcloudexamples.AI.search_images import SearchImages
 from asposeimagingcloudexamples.crop_image import CropImage
 from asposeimagingcloudexamples.export_image import ExportImage
+from asposeimagingcloudexamples.filter_image import FilterImage
 from asposeimagingcloudexamples.image_properties import ImageProperties
 from asposeimagingcloudexamples.imaging_base import ImagingBase
 from asposeimagingcloudexamples.resize_image import ResizeImage
@@ -46,8 +42,7 @@ from asposeimagingcloudexamples.update_bmp_image import UpdateBmpImage
 from asposeimagingcloudexamples.update_emf_image import UpdateEmfImage
 from asposeimagingcloudexamples.update_gif_image import UpdateGifImage
 from asposeimagingcloudexamples.update_image import UpdateImage
-from asposeimagingcloudexamples.update_jpeg2000_image import \
-    UpdateJpeg2000Image
+from asposeimagingcloudexamples.update_jpeg2000_image import UpdateJpeg2000Image
 from asposeimagingcloudexamples.update_jpeg_image import UpdateJpegImage
 from asposeimagingcloudexamples.update_psd_image import UpdatePsdImage
 from asposeimagingcloudexamples.update_tiff_image import UpdateTiffImage
@@ -115,6 +110,11 @@ def main():
         export_image.save_image_as_from_storage()
         export_image.save_image_as_and_upload_to_storage()
         export_image.create_saved_image_as_from_request_body()
+
+        # Apply a filtering effect to an image
+        filter_image = FilterImage(api)
+        filter_image.filter_image_from_storage()
+        filter_image.filter_image_and_upload_to_storage()
 
         # Get properties of an image
         image_properties = ImageProperties(api)
@@ -215,36 +215,6 @@ def main():
         wmf_image.modify_wmf_from_storage()
         wmf_image.modify_wmf_and_upload_to_storage()
         wmf_image.create_modified_wmf_from_request_body()
-
-        # AI APIs
-        print('Running AI examples:')
-        print()
-
-        # Compare two images
-        compare_images = CompareImages(api)
-        compare_images.prepare_search_context()
-        compare_images.compare_two_images_in_cloud()
-        compare_images.compare_loaded_image_to_image_in_cloud()
-        compare_images.delete_search_context()
-
-        # Find Duplicate Images
-        find_duplicate_images = FindDuplicateImages(api)
-        find_duplicate_images.prepare_search_context()
-        find_duplicate_images.find_image_duplicates()
-        find_duplicate_images.delete_search_context()
-
-        # Find Similar Images
-        find_similar_images = FindSimilarImages(api)
-        find_similar_images.prepare_search_context()
-        find_similar_images.find_similar_images()
-        find_similar_images.find_images_by_tag()
-        find_similar_images.delete_search_context()
-
-        # Search Images
-        search_images = SearchImages(api)
-        search_images.prepare_search_context()
-        search_images.search_image_from_web_source()
-        search_images.delete_search_context()
     except Exception as e:
         print('Something goes wrong: ' + str(e))
         sys.exit(1)
