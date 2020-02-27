@@ -81,7 +81,7 @@ Detalied official documentation can be found at the [following link](https://doc
 
 Please, add the following [PyPi package](https://pypi.org/project/aspose-imaging-cloud/) to your requirements.txt.
 ```
-aspose-imaging-cloud>=20.1
+aspose-imaging-cloud>=20.2
 ```
 Or install it using command line.
 ```
@@ -94,7 +94,7 @@ import aspose-imaging-cloud
 4. **Using the SDK**. The best way to become familiar with how to use the SDK is to read the [Developer Guide](https://docs.aspose.cloud/display/imagingcloud/Developer+Guide). The [Getting Started Guide](https://docs.aspose.cloud/display/imagingcloud/Getting+Started) will help you to become familiar with the common concepts.
 
 ## Quick Examples
-Please, look at [Examples](EXAMPLES.md) document.
+Please, look at [Examples](EXAMPLES.md) document for basic usage or use the [Examples](Examples) folder for more sophisticated scenarios.
 
 #### Aspose Cloud-hosted service VS on-premise deployment (*experimental feature*)
 Starting from v19.7, you can choose either to use Aspose Cloud-hosted image processing service (the standard way) or the Docker image from Docker Hub deployed on-premise to serve the requests.
