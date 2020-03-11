@@ -68,7 +68,7 @@ class FindSimilarImages(ImagingAiBase):
         """Finds the similar images"""
         print('Finds the similar images:')
 
-        find_image_id = os.path.join(self.CLOUD_PATH, self.__image_to_find)
+        find_image_id = os.path.join(self.CLOUD_PATH, self.__images_path, self.__image_to_find)
         similarity_threshold = 60
         max_count = 3
         folder = None
