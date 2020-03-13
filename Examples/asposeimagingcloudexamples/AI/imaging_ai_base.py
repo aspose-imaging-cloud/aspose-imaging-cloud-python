@@ -85,11 +85,10 @@ class ImagingAiBase:
                 ImagingAiBase.CLOUD_PATH, source_path), folder=folder, storage=storage)
         self._imaging_api.create_image_features(request)
 
-        if is_folder:
-            print('Creating Search context image features...')
-            self._wait_idle(self._search_context_id)
-        else:
-            print("Created Search context image features for {0}".format(source_path))
+        print('Creating Search context image features...' if is_folder else
+              "Created Search context image features for {0}".format(source_path))
+
+        self._wait_idle(self._search_context_id)
 
     def _upload_image_to_cloud(self, image_name, sub_folder=None):
         """Uploads the image to cloud"""
