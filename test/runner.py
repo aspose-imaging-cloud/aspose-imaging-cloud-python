@@ -108,10 +108,6 @@ examples_suite = unittest.TestSuite(
 suites_dict['Examples'] = examples_suite
 
 tiff_suite = unittest.TestSuite(
-    loader.loadTestsFromModule(sys.modules['test.api.test_frames_get_api']))
-tiff_suite.addTests(
-    loader.loadTestsFromModule(sys.modules['test.api.test_frames_post_api']))
-tiff_suite.addTests(
     loader.loadTestsFromModule(sys.modules['test.api.test_tiff_api']))
 suites_dict['Tiff'] = tiff_suite
 
