@@ -143,6 +143,10 @@ svg_suite = unittest.TestSuite(
     loader.loadTestsFromModule(sys.modules['test.api.test_svg_api']))
 suites_dict['Svg'] = svg_suite
 
+frames_suite = unittest.TestSuite(
+    loader.loadTestsFromModule(sys.modules['test.api.test_frames_api']))
+suites_dict['Frames'] = frames_suite
+
 update_suite = unittest.TestSuite(
     loader.loadTestsFromModule(sys.modules['test.api.test_update_image_api']))
 suites_dict['Update'] = update_suite
