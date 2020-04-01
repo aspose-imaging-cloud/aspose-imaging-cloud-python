@@ -32,7 +32,7 @@ from distutils.util import strtobool
 import six
 
 import asposeimagingcloud.models.requests as requests
-from asposeimagingcloud import ImagingApi
+from asposeimagingcloud import ImagingApi, ImagingResponse
 
 if six.PY2:
     import unittest2 as unittest
@@ -146,10 +146,16 @@ class ApiTester(unittest.TestCase):
 
         self.imaging_api = ImagingApi(app_key, app_sid, base_url, api_version)
 
-        self.input_test_files = self.imaging_api.get_files_list(
+        self._input_test_files = self.imaging_api.get_files_list(
             requests.GetFilesListRequest(
                 self.original_data_folder,
                 self.test_storage)).value
+
+        self.basic_input_test_files = list(filter(lambda x: not str.startswith(x.name, 'multipage_'),
+                                                  self._input_test_files))
+
+        self.multipage_input_test_files = list(filter(lambda x: str.startswith(x.name, 'multipage_'),
+                                                      self._input_test_files))
 
     def __request_tester(
             self,
@@ -167,27 +173,7 @@ class ApiTester(unittest.TestCase):
 
         print(test_method_name)
 
-        if not self._check_input_file_exists(input_file_name):
-            raise ValueError(
-                "Input file {0} doesn't exist in the specified storage folder: {1}. Please, upload it first.".format(
-                    input_file_name, folder))
-
-        if not self.imaging_api.object_exists(
-                requests.ObjectExistsRequest(
-                    os.path.join(
-                        folder,
-                        input_file_name),
-                    storage)).exists:
-            self.imaging_api.copy_file(
-                requests.CopyFileRequest(
-                    os.path.join(
-                        self.original_data_folder,
-                        input_file_name),
-                    os.path.join(
-                        folder,
-                        input_file_name),
-                    storage,
-                    storage))
+        self._copy_input_file_to_test_folder(input_file_name, folder, storage)
         passed = False
         out_path = str(None)
 
@@ -215,12 +201,11 @@ class ApiTester(unittest.TestCase):
                         "Result file {0} doesn't exist in the specified storage folder: {1}. "
                         "Result isn't present in the storage by an unknown reason.".format(
                             result_file_name, folder))
-
-                result_properties = self.imaging_api.get_image_properties(
-                    requests.GetImagePropertiesRequest(result_file_name,
-                                                       folder, storage))
-                self.assertIsNotNone(result_properties)
-            else:
+                if not (str.endswith(result_file_name, '.pdf') or str.endswith(result_file_name, '.pdf;')):
+                    result_properties = self.imaging_api.get_image_properties(
+                       requests.GetImagePropertiesRequest(result_file_name, folder, storage))
+                    self.assertIsNotNone(result_properties)
+            elif not (str.endswith(str(response), '.pdf') or str.endswith(str(response), '.pdf;')):
                 result_properties = self.imaging_api.extract_image_properties(
                     requests.ExtractImagePropertiesRequest(response))
                 self.assertIsNotNone(result_properties)
@@ -310,7 +295,7 @@ class ApiTester(unittest.TestCase):
     def _check_input_file_exists(self, input_file_name):
         return any(input_file_name ==
                    storage_file_info.name for storage_file_info in
-                   self.input_test_files)
+                   self._input_test_files)
 
     def _get_storage_file_info(self, folder, file_name, storage):
         file_list_response = self.imaging_api.get_files_list(
@@ -325,7 +310,8 @@ class ApiTester(unittest.TestCase):
         response = request_invoker()
 
         self.assertIsNotNone(response)
-        self.assertGreater(os.path.getsize(response), 0)
+        if not isinstance(response, ImagingResponse):
+            self.assertGreater(os.path.getsize(response), 0)
 
         return response
 
@@ -346,3 +332,26 @@ class ApiTester(unittest.TestCase):
 
         self.assertIsNotNone(response)
         return response
+
+    def _copy_input_file_to_test_folder(self, input_file_name, folder, storage):
+        if not self._check_input_file_exists(input_file_name):
+            raise ValueError(
+                "Input file {0} doesn't exist in the specified storage folder: {1}. Please, upload it first.".format(
+                    input_file_name, folder))
+
+        if not self.imaging_api.object_exists(
+                requests.ObjectExistsRequest(
+                    os.path.join(
+                        folder,
+                        input_file_name),
+                    storage)).exists:
+            self.imaging_api.copy_file(
+                requests.CopyFileRequest(
+                    os.path.join(
+                        self.original_data_folder,
+                        input_file_name),
+                    os.path.join(
+                        folder,
+                        input_file_name),
+                    storage,
+                    storage))

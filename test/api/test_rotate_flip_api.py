@@ -88,7 +88,7 @@ class TestRotateFlipApi(ImagingApiTester):
                             original_properties.width - 1,
                             result_properties.height)
 
-                for input_file in self.input_test_files:
+                for input_file in self.basic_input_test_files:
                     if not str(input_file.name).endswith(format_extension):
                         continue
 
@@ -176,7 +176,7 @@ class TestRotateFlipApi(ImagingApiTester):
                             original_properties.width - 1,
                             result_properties.height)
 
-                for input_file in self.input_test_files:
+                for input_file in self.basic_input_test_files:
                     if not str(input_file.name).endswith(format_extension):
                         continue
 

@@ -53,7 +53,7 @@ class TestGrayscaleApi(ImagingApiTester):
                         result_stream):
                     self.assertIsNotNone(result_stream)
 
-                for input_file in self.input_test_files:
+                for input_file in self.basic_input_test_files:
                     if not str(input_file.name).endswith(format_extension):
                         continue
 
@@ -100,7 +100,7 @@ class TestGrayscaleApi(ImagingApiTester):
                         result_stream):
                     self.assertEqual(original_properties.bits_per_pixel, result_properties.bits_per_pixel)
 
-                for input_file in self.input_test_files:
+                for input_file in self.basic_input_test_files:
                     if not str(input_file.name).endswith(format_extension):
                         continue
 
