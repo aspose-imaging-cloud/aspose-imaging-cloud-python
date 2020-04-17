@@ -1,7 +1,7 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
 #  <copyright company="Aspose" file="imaging_request.py">
-#    Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
+#    Copyright (c) 2018-2020 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
 #    Permission is hereby granted, free of charge, to any person obtaining a
@@ -88,3 +88,4 @@ class ImagingRequest(object):
             return string
 
         return string[0].lower() + string[1:]
+

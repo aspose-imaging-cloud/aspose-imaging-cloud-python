@@ -1,7 +1,7 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
 #  <copyright company="Aspose" file="__init__.py">
-#    Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
+#    Copyright (c) 2018-2020 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
 #    Permission is hereby granted, free of charge, to any person obtaining a
@@ -81,6 +81,7 @@ from asposeimagingcloud.models.gauss_wiener_filter_properties import GaussWiener
 from asposeimagingcloud.models.gaussian_blur_filter_properties import GaussianBlurFilterProperties
 from asposeimagingcloud.models.motion_wiener_filter_properties import MotionWienerFilterProperties
 from asposeimagingcloud.models.sharpen_filter_properties import SharpenFilterProperties
+
 from asposeimagingcloud.models.requests.add_search_image_request import AddSearchImageRequest
 from asposeimagingcloud.models.requests.append_tiff_request import AppendTiffRequest
 from asposeimagingcloud.models.requests.compare_images_request import CompareImagesRequest
