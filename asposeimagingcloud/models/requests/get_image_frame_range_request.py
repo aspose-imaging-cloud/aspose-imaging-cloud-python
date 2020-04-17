@@ -1,6 +1,6 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
-#  <copyright company="Aspose" file="get_image_frame_request.py">
+#  <copyright company="Aspose" file="get_image_frame_range_request.py">
 #    Copyright (c) 2018-2020 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
@@ -28,13 +28,14 @@ from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
 from asposeimagingcloud.models.requests.http_request import HttpRequest
 
 
-class GetImageFrameRequest(ImagingRequest):
+class GetImageFrameRangeRequest(ImagingRequest):
     """
-    Request model for get_image_frame operation.
+    Request model for get_image_frame_range operation.
     Initializes a new instance.
 
     :param name Filename of image.
-    :param frame_id Number of a frame.
+    :param start_frame_id Index of the first frame in range.
+    :param end_frame_id Index of the last frame in range.
     :param new_width New width.
     :param new_height New height.
     :param x X position of start point for cropping rectangle.
@@ -47,10 +48,11 @@ class GetImageFrameRequest(ImagingRequest):
     :param storage Your Aspose Cloud Storage name.
     """
 
-    def __init__(self, name, frame_id, new_width=None, new_height=None, x=None, y=None, rect_width=None, rect_height=None, rotate_flip_method=None, save_other_frames=None, folder=None, storage=None):
+    def __init__(self, name, start_frame_id, end_frame_id, new_width=None, new_height=None, x=None, y=None, rect_width=None, rect_height=None, rotate_flip_method=None, save_other_frames=None, folder=None, storage=None):
         ImagingRequest.__init__(self)
         self.name = name
-        self.frame_id = frame_id
+        self.start_frame_id = start_frame_id
+        self.end_frame_id = end_frame_id
         self.new_width = new_width
         self.new_height = new_height
         self.x = x
@@ -73,20 +75,31 @@ class GetImageFrameRequest(ImagingRequest):
         """
         # verify the required parameter 'name' is set
         if self.name is None:
-            raise ValueError("Missing the required parameter `name` when calling `get_image_frame`")
-        # verify the required parameter 'frame_id' is set
-        if self.frame_id is None:
-            raise ValueError("Missing the required parameter `frame_id` when calling `get_image_frame`")
+            raise ValueError("Missing the required parameter `name` when calling `get_image_frame_range`")
+        # verify the required parameter 'start_frame_id' is set
+        if self.start_frame_id is None:
+            raise ValueError("Missing the required parameter `start_frame_id` when calling `get_image_frame_range`")
+        # verify the required parameter 'end_frame_id' is set
+        if self.end_frame_id is None:
+            raise ValueError("Missing the required parameter `end_frame_id` when calling `get_image_frame_range`")
 
         collection_formats = {}
-        path = '/imaging/{name}/frames/{frameId}'
+        path = '/imaging/{name}/frames/range'
         path_params = {}
         if self.name is not None:
             path_params[self._lowercase_first_letter('name')] = self.name
-        if self.frame_id is not None:
-            path_params[self._lowercase_first_letter('frameId')] = self.frame_id
 
         query_params = []
+        if self._lowercase_first_letter('startFrameId') in path:
+            path = path.replace('{' + self._lowercase_first_letter('startFrameId' + '}'), self.start_frame_id if self.start_frame_id is not None else '')
+        else:
+            if self.start_frame_id is not None:
+                query_params.append((self._lowercase_first_letter('startFrameId'), self.start_frame_id))
+        if self._lowercase_first_letter('endFrameId') in path:
+            path = path.replace('{' + self._lowercase_first_letter('endFrameId' + '}'), self.end_frame_id if self.end_frame_id is not None else '')
+        else:
+            if self.end_frame_id is not None:
+                query_params.append((self._lowercase_first_letter('endFrameId'), self.end_frame_id))
         if self._lowercase_first_letter('newWidth') in path:
             path = path.replace('{' + self._lowercase_first_letter('newWidth' + '}'), self.new_width if self.new_width is not None else '')
         else:

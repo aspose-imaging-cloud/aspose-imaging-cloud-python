@@ -1,7 +1,7 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
 #  <copyright company="Aspose" file="__init__.py">
-#    Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
+#    Copyright (c) 2018-2020 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
 #    Permission is hereby granted, free of charge, to any person obtaining a
@@ -81,6 +81,7 @@ from asposeimagingcloud.models.gauss_wiener_filter_properties import GaussWiener
 from asposeimagingcloud.models.gaussian_blur_filter_properties import GaussianBlurFilterProperties
 from asposeimagingcloud.models.motion_wiener_filter_properties import MotionWienerFilterProperties
 from asposeimagingcloud.models.sharpen_filter_properties import SharpenFilterProperties
+
 from asposeimagingcloud.models.requests.add_search_image_request import AddSearchImageRequest
 from asposeimagingcloud.models.requests.append_tiff_request import AppendTiffRequest
 from asposeimagingcloud.models.requests.compare_images_request import CompareImagesRequest
@@ -92,6 +93,7 @@ from asposeimagingcloud.models.requests.create_deskewed_image_request import Cre
 from asposeimagingcloud.models.requests.create_folder_request import CreateFolderRequest
 from asposeimagingcloud.models.requests.create_grayscaled_image_request import CreateGrayscaledImageRequest
 from asposeimagingcloud.models.requests.create_image_features_request import CreateImageFeaturesRequest
+from asposeimagingcloud.models.requests.create_image_frame_range_request import CreateImageFrameRangeRequest
 from asposeimagingcloud.models.requests.create_image_frame_request import CreateImageFrameRequest
 from asposeimagingcloud.models.requests.create_image_search_request import CreateImageSearchRequest
 from asposeimagingcloud.models.requests.create_image_tag_request import CreateImageTagRequest
@@ -130,6 +132,7 @@ from asposeimagingcloud.models.requests.get_files_list_request import GetFilesLi
 from asposeimagingcloud.models.requests.get_file_versions_request import GetFileVersionsRequest
 from asposeimagingcloud.models.requests.get_image_features_request import GetImageFeaturesRequest
 from asposeimagingcloud.models.requests.get_image_frame_properties_request import GetImageFramePropertiesRequest
+from asposeimagingcloud.models.requests.get_image_frame_range_request import GetImageFrameRangeRequest
 from asposeimagingcloud.models.requests.get_image_frame_request import GetImageFrameRequest
 from asposeimagingcloud.models.requests.get_image_properties_request import GetImagePropertiesRequest
 from asposeimagingcloud.models.requests.get_image_search_status_request import GetImageSearchStatusRequest

@@ -88,7 +88,7 @@ class TestUpdateImageApi(ImagingApiTester):
                     self.assertEqual(rect_height, result_properties.width)
                     self.assertEqual(rect_width, result_properties.height)
 
-                for input_file in self.input_test_files:
+                for input_file in self.basic_input_test_files:
                     if not str(input_file.name).endswith(format_extension):
                         continue
 
@@ -180,7 +180,7 @@ class TestUpdateImageApi(ImagingApiTester):
                     self.assertEqual(rect_height, result_properties.width)
                     self.assertEqual(rect_width, result_properties.height)
 
-                for input_file in self.input_test_files:
+                for input_file in self.basic_input_test_files:
                     if not str(input_file.name).endswith(format_extension):
                         continue
 
