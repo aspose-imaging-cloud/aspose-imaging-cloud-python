@@ -281,7 +281,7 @@ class ImagingApi(object):
         return self.__make_request_async(http_request, 'POST', None)
 
     def create_image_frame(self, request):
-        """Get separate frame from existing image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+        """Get separate frame from existing TIFF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 
 
         :param request create_image_frame_request object with parameters
@@ -291,30 +291,10 @@ class ImagingApi(object):
         return self.__make_request(http_request, 'POST', 'file')
 
     def create_image_frame_async(self, request):
-        """Get separate frame from existing image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+        """Get separate frame from existing TIFF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 
 
         :param request create_image_frame_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', 'file')
-
-    def create_image_frame_range(self, request):
-        """Get separate frame from existing image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request create_image_frame_range_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', 'file')
-
-    def create_image_frame_range_async(self, request):
-        """Get separate frame from existing image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-
-
-        :param request create_image_frame_range_request object with parameters
         :return: file
         """
         http_request = request.to_http_info(self.api_client.configuration)
@@ -841,7 +821,7 @@ class ImagingApi(object):
         return self.__make_request_async(http_request, 'GET', 'ImageFeatures')
 
     def extract_image_frame_properties(self, request):
-        """Get separate frame properties of existing image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+        """Get separate frame properties of existing TIFF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 
 
         :param request extract_image_frame_properties_request object with parameters
@@ -851,7 +831,7 @@ class ImagingApi(object):
         return self.__make_request(http_request, 'POST', 'ImagingResponse')
 
     def extract_image_frame_properties_async(self, request):
-        """Get separate frame properties of existing image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+        """Get separate frame properties of existing TIFF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 
 
         :param request extract_image_frame_properties_request object with parameters
@@ -1041,7 +1021,7 @@ class ImagingApi(object):
         return self.__make_request_async(http_request, 'GET', 'ImageFeatures')
 
     def get_image_frame(self, request):
-        """Get separate frame from existing image.
+        """Get separate frame from existing TIFF image.
 
 
         :param request get_image_frame_request object with parameters
@@ -1051,7 +1031,7 @@ class ImagingApi(object):
         return self.__make_request(http_request, 'GET', 'file')
 
     def get_image_frame_async(self, request):
-        """Get separate frame from existing image.
+        """Get separate frame from existing TIFF image.
 
 
         :param request get_image_frame_request object with parameters
@@ -1061,7 +1041,7 @@ class ImagingApi(object):
         return self.__make_request_async(http_request, 'GET', 'file')
 
     def get_image_frame_properties(self, request):
-        """Get separate frame properties of existing image.
+        """Get separate frame properties of existing TIFF image.
 
 
         :param request get_image_frame_properties_request object with parameters
@@ -1071,7 +1051,7 @@ class ImagingApi(object):
         return self.__make_request(http_request, 'GET', 'ImagingResponse')
 
     def get_image_frame_properties_async(self, request):
-        """Get separate frame properties of existing image.
+        """Get separate frame properties of existing TIFF image.
 
 
         :param request get_image_frame_properties_request object with parameters
@@ -1079,26 +1059,6 @@ class ImagingApi(object):
         """
         http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request_async(http_request, 'GET', 'ImagingResponse')
-
-    def get_image_frame_range(self, request):
-        """Get frames range from existing image.
-
-
-        :param request get_image_frame_range_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'GET', 'file')
-
-    def get_image_frame_range_async(self, request):
-        """Get frames range from existing image.
-
-
-        :param request get_image_frame_range_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'GET', 'file')
 
     def get_image_properties(self, request):
         """Get properties of an image.
