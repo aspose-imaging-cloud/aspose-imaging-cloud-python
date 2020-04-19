@@ -75,7 +75,7 @@ class TestFilterEffectApi(ImagingApiTester):
 
                     for filter in self.__filters:
                         for format in formats_to_export:                        
-                            if formatExtension == ".psd" and format == "webp"
+                            if formatExtension == ".psd" and format == "webp":
                                 continue
                                 
                             out_name = '{0}_crop.{1}'.format(name, format)
