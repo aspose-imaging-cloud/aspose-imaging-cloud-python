@@ -67,7 +67,7 @@ class TestFilterEffectApi(ImagingApiTester):
                         result_stream):
                     pass
 
-                for input_file in self.input_test_files:
+                for input_file in self.basic_input_test_files:
                     if not str(input_file.name).endswith(format_extension):
                         continue
 
