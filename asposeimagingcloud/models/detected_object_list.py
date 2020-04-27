@@ -1,6 +1,6 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
-#  <copyright company="Aspose" file="filter_properties_base.py">
+#  <copyright company="Aspose" file="detected_object_list.py">
 #    Copyright (c) 2018-2020 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
@@ -28,9 +28,11 @@ import pprint
 import re
 import six
 
+from asposeimagingcloud.models.detected_object import DetectedObject
 
-class FilterPropertiesBase(object):
-    """Filter Options Base, abstract class
+
+class DetectedObjectList(object):
+    """Wrapper for detected objects array
     """
 
     """
@@ -41,61 +43,43 @@ class FilterPropertiesBase(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'discriminator': 'str'
+        'detected_objects': 'list[DetectedObject]'
     }
 
     attribute_map = {
-        'discriminator': 'discriminator'
+        'detected_objects': 'DetectedObjects'
     }
 
-    discriminator_value_class_map = {
-        'BigRectangularFilterProperties': 'BigRectangularFilterProperties',
-        'SmallRectangularFilterProperties': 'SmallRectangularFilterProperties',
-        'DeconvolutionFilterProperties': 'DeconvolutionFilterProperties',
-        'GaussWienerFilterProperties': 'GaussWienerFilterProperties',
-        'SharpenFilterProperties': 'SharpenFilterProperties',
-        'MotionWienerFilterProperties': 'MotionWienerFilterProperties',
-        'MedianFilterProperties': 'MedianFilterProperties',
-        'BilateralSmoothingFilterProperties': 'BilateralSmoothingFilterProperties',
-        'ConvolutionFilterProperties': 'ConvolutionFilterProperties',
-        'GaussianBlurFilterProperties': 'GaussianBlurFilterProperties'
-    }
+    def __init__(self, detected_objects=None):
+        """DetectedObjectList - a model defined in Swagger"""
+        super(DetectedObjectList, self).__init__()
 
-    def __init__(self, discriminator=None):
-        """FilterPropertiesBase - a model defined in Swagger"""
-        super(FilterPropertiesBase, self).__init__()
+        self._detected_objects = None
 
-        self._discriminator = None
-
-        if discriminator is not None:
-            self.discriminator = discriminator
+        if detected_objects is not None:
+            self.detected_objects = detected_objects
 
     @property
-    def discriminator(self):
-        """Gets the discriminator of this FilterPropertiesBase.
+    def detected_objects(self):
+        """Gets the detected_objects of this DetectedObjectList.
 
+        detected objects
 
-        :return: The discriminator of this FilterPropertiesBase.
-        :rtype: str
+        :return: The detected_objects of this DetectedObjectList.
+        :rtype: list[DetectedObject]
         """
-        return self._discriminator
+        return self._detected_objects
 
-    @discriminator.setter
-    def discriminator(self, discriminator):
-        """Sets the discriminator of this FilterPropertiesBase.
+    @detected_objects.setter
+    def detected_objects(self, detected_objects):
+        """Sets the detected_objects of this DetectedObjectList.
 
+        detected objects
 
-        :param discriminator: The discriminator of this FilterPropertiesBase.
-        :type: str
+        :param detected_objects: The detected_objects of this DetectedObjectList.
+        :type: list[DetectedObject]
         """
-        if discriminator is None:
-            raise ValueError("Invalid value for `discriminator`, must not be `None`")
-        self._discriminator = discriminator
-
-    def get_real_child_model(self, data):
-        """Returns the real base class specified by the discriminator"""
-        discriminator_value = data.get(self.discriminator)
-        return self.discriminator_value_class_map.get(discriminator_value.lower()) if discriminator_value else None
+        self._detected_objects = detected_objects
 
     def to_dict(self):
         """Returns the model properties as a dict"""
@@ -131,7 +115,7 @@ class FilterPropertiesBase(object):
 
     def __eq__(self, other):
         """Returns true if both objects are equal"""
-        if not isinstance(other, FilterPropertiesBase):
+        if not isinstance(other, DetectedObjectList):
             return False
 
         return self.__dict__ == other.__dict__

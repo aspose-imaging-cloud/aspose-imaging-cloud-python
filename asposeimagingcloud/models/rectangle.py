@@ -1,6 +1,6 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
-#  <copyright company="Aspose" file="filter_properties_base.py">
+#  <copyright company="Aspose" file="rectangle.py">
 #    Copyright (c) 2018-2020 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
@@ -29,8 +29,8 @@ import re
 import six
 
 
-class FilterPropertiesBase(object):
-    """Filter Options Base, abstract class
+class Rectangle(object):
+    """
     """
 
     """
@@ -41,61 +41,124 @@ class FilterPropertiesBase(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'discriminator': 'str'
+        'x': 'float',
+        'y': 'float',
+        'width': 'float',
+        'height': 'float'
     }
 
     attribute_map = {
-        'discriminator': 'discriminator'
+        'x': 'X',
+        'y': 'Y',
+        'width': 'Width',
+        'height': 'Height'
     }
 
-    discriminator_value_class_map = {
-        'BigRectangularFilterProperties': 'BigRectangularFilterProperties',
-        'SmallRectangularFilterProperties': 'SmallRectangularFilterProperties',
-        'DeconvolutionFilterProperties': 'DeconvolutionFilterProperties',
-        'GaussWienerFilterProperties': 'GaussWienerFilterProperties',
-        'SharpenFilterProperties': 'SharpenFilterProperties',
-        'MotionWienerFilterProperties': 'MotionWienerFilterProperties',
-        'MedianFilterProperties': 'MedianFilterProperties',
-        'BilateralSmoothingFilterProperties': 'BilateralSmoothingFilterProperties',
-        'ConvolutionFilterProperties': 'ConvolutionFilterProperties',
-        'GaussianBlurFilterProperties': 'GaussianBlurFilterProperties'
-    }
+    def __init__(self, x=None, y=None, width=None, height=None):
+        """Rectangle - a model defined in Swagger"""
+        super(Rectangle, self).__init__()
 
-    def __init__(self, discriminator=None):
-        """FilterPropertiesBase - a model defined in Swagger"""
-        super(FilterPropertiesBase, self).__init__()
+        self._x = None
+        self._y = None
+        self._width = None
+        self._height = None
 
-        self._discriminator = None
-
-        if discriminator is not None:
-            self.discriminator = discriminator
+        if x is not None:
+            self.x = x
+        if y is not None:
+            self.y = y
+        if width is not None:
+            self.width = width
+        if height is not None:
+            self.height = height
 
     @property
-    def discriminator(self):
-        """Gets the discriminator of this FilterPropertiesBase.
+    def x(self):
+        """Gets the x of this Rectangle.
 
 
-        :return: The discriminator of this FilterPropertiesBase.
-        :rtype: str
+        :return: The x of this Rectangle.
+        :rtype: float
         """
-        return self._discriminator
+        return self._x
 
-    @discriminator.setter
-    def discriminator(self, discriminator):
-        """Sets the discriminator of this FilterPropertiesBase.
+    @x.setter
+    def x(self, x):
+        """Sets the x of this Rectangle.
 
 
-        :param discriminator: The discriminator of this FilterPropertiesBase.
-        :type: str
+        :param x: The x of this Rectangle.
+        :type: float
         """
-        if discriminator is None:
-            raise ValueError("Invalid value for `discriminator`, must not be `None`")
-        self._discriminator = discriminator
+        if x is None:
+            raise ValueError("Invalid value for `x`, must not be `None`")
+        self._x = x
 
-    def get_real_child_model(self, data):
-        """Returns the real base class specified by the discriminator"""
-        discriminator_value = data.get(self.discriminator)
-        return self.discriminator_value_class_map.get(discriminator_value.lower()) if discriminator_value else None
+    @property
+    def y(self):
+        """Gets the y of this Rectangle.
+
+
+        :return: The y of this Rectangle.
+        :rtype: float
+        """
+        return self._y
+
+    @y.setter
+    def y(self, y):
+        """Sets the y of this Rectangle.
+
+
+        :param y: The y of this Rectangle.
+        :type: float
+        """
+        if y is None:
+            raise ValueError("Invalid value for `y`, must not be `None`")
+        self._y = y
+
+    @property
+    def width(self):
+        """Gets the width of this Rectangle.
+
+
+        :return: The width of this Rectangle.
+        :rtype: float
+        """
+        return self._width
+
+    @width.setter
+    def width(self, width):
+        """Sets the width of this Rectangle.
+
+
+        :param width: The width of this Rectangle.
+        :type: float
+        """
+        if width is None:
+            raise ValueError("Invalid value for `width`, must not be `None`")
+        self._width = width
+
+    @property
+    def height(self):
+        """Gets the height of this Rectangle.
+
+
+        :return: The height of this Rectangle.
+        :rtype: float
+        """
+        return self._height
+
+    @height.setter
+    def height(self, height):
+        """Sets the height of this Rectangle.
+
+
+        :param height: The height of this Rectangle.
+        :type: float
+        """
+        if height is None:
+            raise ValueError("Invalid value for `height`, must not be `None`")
+        self._height = height
 
     def to_dict(self):
         """Returns the model properties as a dict"""
@@ -131,7 +194,7 @@ class FilterPropertiesBase(object):
 
     def __eq__(self, other):
         """Returns true if both objects are equal"""
-        if not isinstance(other, FilterPropertiesBase):
+        if not isinstance(other, Rectangle):
             return False
 
         return self.__dict__ == other.__dict__
