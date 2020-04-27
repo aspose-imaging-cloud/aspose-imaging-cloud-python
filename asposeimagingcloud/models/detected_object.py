@@ -1,6 +1,6 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
-#  <copyright company="Aspose" file="filter_properties_base.py">
+#  <copyright company="Aspose" file="detected_object.py">
 #    Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
@@ -28,9 +28,11 @@ import pprint
 import re
 import six
 
+from asposeimagingcloud.models.rectangle import Rectangle
 
-class FilterPropertiesBase(object):
-    """Filter Options Base, abstract class
+
+class DetectedObject(object):
+    """
     """
 
     """
@@ -41,61 +43,95 @@ class FilterPropertiesBase(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'discriminator': 'str'
+        'label': 'str',
+        'score': 'float',
+        'bounds': 'Rectangle'
     }
 
     attribute_map = {
-        'discriminator': 'discriminator'
+        'label': 'Label',
+        'score': 'Score',
+        'bounds': 'Bounds'
     }
 
-    discriminator_value_class_map = {
-        'BigRectangularFilterProperties': 'BigRectangularFilterProperties',
-        'SmallRectangularFilterProperties': 'SmallRectangularFilterProperties',
-        'DeconvolutionFilterProperties': 'DeconvolutionFilterProperties',
-        'GaussWienerFilterProperties': 'GaussWienerFilterProperties',
-        'SharpenFilterProperties': 'SharpenFilterProperties',
-        'MotionWienerFilterProperties': 'MotionWienerFilterProperties',
-        'MedianFilterProperties': 'MedianFilterProperties',
-        'BilateralSmoothingFilterProperties': 'BilateralSmoothingFilterProperties',
-        'ConvolutionFilterProperties': 'ConvolutionFilterProperties',
-        'GaussianBlurFilterProperties': 'GaussianBlurFilterProperties'
-    }
+    def __init__(self, label=None, score=None, bounds=None):
+        """DetectedObject - a model defined in Swagger"""
+        super(DetectedObject, self).__init__()
 
-    def __init__(self, discriminator=None):
-        """FilterPropertiesBase - a model defined in Swagger"""
-        super(FilterPropertiesBase, self).__init__()
+        self._label = None
+        self._score = None
+        self._bounds = None
 
-        self._discriminator = None
-
-        if discriminator is not None:
-            self.discriminator = discriminator
+        if label is not None:
+            self.label = label
+        if score is not None:
+            self.score = score
+        if bounds is not None:
+            self.bounds = bounds
 
     @property
-    def discriminator(self):
-        """Gets the discriminator of this FilterPropertiesBase.
+    def label(self):
+        """Gets the label of this DetectedObject.
 
 
-        :return: The discriminator of this FilterPropertiesBase.
+        :return: The label of this DetectedObject.
         :rtype: str
         """
-        return self._discriminator
+        return self._label
 
-    @discriminator.setter
-    def discriminator(self, discriminator):
-        """Sets the discriminator of this FilterPropertiesBase.
+    @label.setter
+    def label(self, label):
+        """Sets the label of this DetectedObject.
 
 
-        :param discriminator: The discriminator of this FilterPropertiesBase.
+        :param label: The label of this DetectedObject.
         :type: str
         """
-        if discriminator is None:
-            raise ValueError("Invalid value for `discriminator`, must not be `None`")
-        self._discriminator = discriminator
+        self._label = label
 
-    def get_real_child_model(self, data):
-        """Returns the real base class specified by the discriminator"""
-        discriminator_value = data.get(self.discriminator)
-        return self.discriminator_value_class_map.get(discriminator_value.lower()) if discriminator_value else None
+    @property
+    def score(self):
+        """Gets the score of this DetectedObject.
+
+
+        :return: The score of this DetectedObject.
+        :rtype: float
+        """
+        return self._score
+
+    @score.setter
+    def score(self, score):
+        """Sets the score of this DetectedObject.
+
+
+        :param score: The score of this DetectedObject.
+        :type: float
+        """
+        if score is None:
+            raise ValueError("Invalid value for `score`, must not be `None`")
+        self._score = score
+
+    @property
+    def bounds(self):
+        """Gets the bounds of this DetectedObject.
+
+
+        :return: The bounds of this DetectedObject.
+        :rtype: Rectangle
+        """
+        return self._bounds
+
+    @bounds.setter
+    def bounds(self, bounds):
+        """Sets the bounds of this DetectedObject.
+
+
+        :param bounds: The bounds of this DetectedObject.
+        :type: Rectangle
+        """
+        if bounds is None:
+            raise ValueError("Invalid value for `bounds`, must not be `None`")
+        self._bounds = bounds
 
     def to_dict(self):
         """Returns the model properties as a dict"""
@@ -131,7 +167,7 @@ class FilterPropertiesBase(object):
 
     def __eq__(self, other):
         """Returns true if both objects are equal"""
-        if not isinstance(other, FilterPropertiesBase):
+        if not isinstance(other, DetectedObject):
             return False
 
         return self.__dict__ == other.__dict__

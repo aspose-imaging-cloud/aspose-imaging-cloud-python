@@ -28,6 +28,7 @@ from __future__ import absolute_import
 
 # import models into model package
 from asposeimagingcloud.models.bmp_properties import BmpProperties
+from asposeimagingcloud.models.detected_object import DetectedObject
 from asposeimagingcloud.models.dicom_properties import DicomProperties
 from asposeimagingcloud.models.disc_usage import DiscUsage
 from asposeimagingcloud.models.djvu_properties import DjvuProperties
@@ -53,6 +54,7 @@ from asposeimagingcloud.models.odg_page import OdgPage
 from asposeimagingcloud.models.odg_properties import OdgProperties
 from asposeimagingcloud.models.png_properties import PngProperties
 from asposeimagingcloud.models.psd_properties import PsdProperties
+from asposeimagingcloud.models.rectangle import Rectangle
 from asposeimagingcloud.models.search_context_status import SearchContextStatus
 from asposeimagingcloud.models.search_result import SearchResult
 from asposeimagingcloud.models.search_results_set import SearchResultsSet

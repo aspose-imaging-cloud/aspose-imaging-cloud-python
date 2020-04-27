@@ -251,6 +251,87 @@ class ApiTester(unittest.TestCase):
                         out_path, storage))
             print("Test passed: " + str(passed) + os.linesep)
 
+    def __object_detection_request_tester(
+            self,
+            test_method_name,
+            save_result_to_storage,
+            parameters_line,
+            input_file_name,
+            result_file_name,
+            invoke_request_action,
+            response_tester,
+            folder,
+            storage=None):
+        if not storage:
+            storage = self.default_storage
+
+        print(test_method_name)
+
+        if not self._check_input_file_exists(input_file_name):
+            raise ValueError(
+                "Input file {0} doesn't exist in the specified storage folder: {1}. Please, upload it first.".format(
+                    input_file_name, folder))
+
+        if not self.imaging_api.object_exists(
+                requests.ObjectExistsRequest(
+                    os.path.join(
+                        folder,
+                        input_file_name),
+                    storage)).exists:
+            self.imaging_api.copy_file(
+                requests.CopyFileRequest(
+                    os.path.join(
+                        self.original_data_folder,
+                        input_file_name),
+                    os.path.join(
+                        folder,
+                        input_file_name),
+                    storage,
+                    storage))
+        passed = False
+        out_path = str(None)
+
+        try:
+            print(parameters_line)
+
+            if save_result_to_storage:
+                out_path = os.path.join(folder, result_file_name)
+
+                if self.imaging_api.object_exists(
+                        requests.ObjectExistsRequest(
+                            out_path, storage)).exists:
+                    self.imaging_api.delete_file(
+                        requests.DeleteFileRequest(
+                            out_path, storage))
+
+            response = invoke_request_action()
+            if save_result_to_storage:
+
+                result_info = self._get_storage_file_info(
+                    folder, result_file_name, storage)
+                if not result_info:
+                    raise ValueError(
+                        "Result file {0} doesn't exist in the specified storage folder: {1}. "
+                        "Result isn't present in the storage by an unknown reason.".format(
+                            result_file_name, folder))
+            
+            response_tester(response)
+
+            passed = True
+
+        except Exception as e:
+            self.failed_any_test = True
+            print(str(e))
+            raise
+        finally:
+            if passed and save_result_to_storage and self.remove_result \
+                    and self.imaging_api.object_exists(
+                requests.ObjectExistsRequest(out_path, storage)).exists:
+                self.imaging_api.delete_file(
+                    requests.DeleteFileRequest(
+                        out_path, storage))
+            print("Test passed: " + str(passed) + os.linesep)
+
     def get_request_tester(
             self,
             test_method_name,
@@ -271,6 +352,29 @@ class ApiTester(unittest.TestCase):
             None,
             lambda: self._obtain_get_response(request_invoker),
             properties_tester,
+            folder,
+            storage)
+
+    def get_object_detection_request_tester(
+            self,
+            test_method_name,
+            parameters_line,
+            input_file_name,
+            request_invoker,
+            response_tester,
+            folder,
+            storage=None):
+        if not storage:
+            storage = self.default_storage
+
+        self.__object_detection_request_tester(
+            test_method_name,
+            False,
+            parameters_line,
+            input_file_name,
+            None,
+            lambda: self._obtain_object_detection_get_response(request_invoker),
+            response_tester,
             folder,
             storage)
 
@@ -307,6 +411,39 @@ class ApiTester(unittest.TestCase):
             folder,
             storage)
 
+    def post_request_object_detection_tester(
+            self,
+            test_method_name,
+            save_result_to_storage,
+            parameters_line,
+            input_file_name,
+            result_file_name,
+            request_invoker,
+            properties_tester,
+            folder,
+            storage=None):
+        if not storage:
+            storage = self.default_storage
+
+        self.__object_detection_request_tester(
+            test_method_name,
+            save_result_to_storage,
+            parameters_line,
+            input_file_name,
+            result_file_name,
+            lambda: self._obtain_object_detection_post_response(
+                os.path.join(
+                    folder,
+                    input_file_name),
+                os.path.join(
+                    folder,
+                    result_file_name) if save_result_to_storage else None,
+                storage,
+                request_invoker),
+            properties_tester,
+            folder,
+            storage)
+
     def _check_input_file_exists(self, input_file_name):
         return any(input_file_name ==
                    storage_file_info.name for storage_file_info in
@@ -329,6 +466,13 @@ class ApiTester(unittest.TestCase):
 
         return response
 
+    def _obtain_object_detection_get_response(self, request_invoker):
+        response = request_invoker()
+
+        self.assertIsNotNone(response)
+
+        return response
+
     def _obtain_post_response(
             self,
             input_path,
@@ -346,3 +490,20 @@ class ApiTester(unittest.TestCase):
 
         self.assertIsNotNone(response)
         return response
+
+    def _obtain_object_detection_post_response(
+            self,
+            input_path,
+            out_path,
+            storage,
+            request_invoker):
+        res = self.imaging_api.download_file(
+            requests.DownloadFileRequest(
+                input_path, storage))
+
+        response = request_invoker(res, out_path)
+
+        self.assertIsNotNone(response)
+        return response
+
+
