@@ -1,7 +1,7 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
 #  <copyright company="Aspose" file="__init__.py">
-#    Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
+#    Copyright (c) 2018-2020 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
 #    Permission is hereby granted, free of charge, to any person obtaining a
@@ -28,3 +28,4 @@ from __future__ import absolute_import
 
 # import apis into api package
 from asposeimagingcloud.api.imaging_api import ImagingApi
+

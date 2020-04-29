@@ -67,14 +67,18 @@ class TestFilterEffectApi(ImagingApiTester):
                         result_stream):
                     pass
 
-                for input_file in self.input_test_files:
+                for input_file in self.basic_input_test_files:
                     if not str(input_file.name).endswith(format_extension):
                         continue
 
                     name = input_file.name
 
                     for filter in self.__filters:
-                        for format in formats_to_export:
+                        for format in formats_to_export:                        
+
+                            if format_extension == ".psd" and format == "webp":
+                                continue
+                                
                             out_name = '{0}_crop.{1}'.format(name, format)
 
                             self.get_request_tester(

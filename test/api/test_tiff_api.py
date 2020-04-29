@@ -59,7 +59,42 @@ class TestTiffApi(ImagingApiTester):
                                     name), name, request_invoker,
                                 properties_tester, folder, storage)
 
-    #  TODO: test_modify_tiff
+    def test_create_fax_tiff(self):
+        """ Test create_fax_tiff """
+
+        save_result_to_storage_test_cases = [True, False]
+
+        for save_result_to_storage in save_result_to_storage_test_cases:
+            with self.subTest('save_result_to_storage: ' + str(save_result_to_storage)):
+                name = 'test.tiff'
+                folder = self.temp_folder
+                storage = self.test_storage
+                out_name = name + '_specific.tiff'
+
+                def request_invoker(input_stream, out_path):
+                    return self.imaging_api.create_fax_tiff(
+                        requests.CreateFaxTiffRequest(input_stream, out_path, storage))
+
+                def properties_tester(
+                        original_properties,
+                        result_properties,
+                        result_stream):
+                    self.assertIsNotNone(result_properties.tiff_properties)
+                    self.assertEqual(1, result_properties.bits_per_pixel)
+                    self.assertEqual(196, result_properties.vertical_resolution)
+                    self.assertEqual(204, result_properties.horizontal_resolution)
+                    self.assertEqual(1728, result_properties.width)
+                    self.assertEqual(2200, result_properties.height)
+
+                self.post_request_tester('CreateFaxTiff',
+                                         save_result_to_storage,
+                                         'Input image: {0}'.format(name),
+                                         name,
+                                         out_name,
+                                         request_invoker,
+                                         properties_tester,
+                                         folder,
+                                         storage)
 
     def test_create_modified_tiff(self):
         """ Test create_modified_tiff """

@@ -108,10 +108,6 @@ examples_suite = unittest.TestSuite(
 suites_dict['Examples'] = examples_suite
 
 tiff_suite = unittest.TestSuite(
-    loader.loadTestsFromModule(sys.modules['test.api.test_frames_get_api']))
-tiff_suite.addTests(
-    loader.loadTestsFromModule(sys.modules['test.api.test_frames_post_api']))
-tiff_suite.addTests(
     loader.loadTestsFromModule(sys.modules['test.api.test_tiff_api']))
 suites_dict['Tiff'] = tiff_suite
 
@@ -146,6 +142,10 @@ suites_dict['SaveAs'] = save_as_suite
 svg_suite = unittest.TestSuite(
     loader.loadTestsFromModule(sys.modules['test.api.test_svg_api']))
 suites_dict['Svg'] = svg_suite
+
+frames_suite = unittest.TestSuite(
+    loader.loadTestsFromModule(sys.modules['test.api.test_frames_api']))
+suites_dict['Frames'] = frames_suite
 
 update_suite = unittest.TestSuite(
     loader.loadTestsFromModule(sys.modules['test.api.test_update_image_api']))

@@ -336,6 +336,44 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 
+<a name="create_fax_tiff"></a>
+# **create_fax_tiff**
+> create_fax_tiff(self, create_fax_tiff_request)
+
+Update parameters of TIFF image accordingly to fax parameters. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+### Return type
+
+**file**
+
+<a name="create_fax_tiff_async"></a>
+# **create_fax_tiff_async**
+> create_fax_tiff_async(self, create_fax_tiff_request)
+
+Update parameters of TIFF image accordingly to fax parameters. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+Performs operation asynchronously.
+
+### Return type
+
+**file**
+
+### CreateFaxTiffRequest Parameters
+```python
+__init__(self, 
+    image_data, 
+    out_path=out_path, 
+    storage=storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **image_data** | **file**| Input image | 
+ **out_path** | **str**| Path to updated file (if this is empty, response contains streamed image). | [optional] 
+ **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
 <a name="create_folder"></a>
 # **create_folder**
 > create_folder(self, create_folder_request)
@@ -458,7 +496,7 @@ Name | Type | Description  | Notes
 # **create_image_frame**
 > create_image_frame(self, create_image_frame_request)
 
-Get separate frame from existing TIFF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+Get separate frame from existing image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 
 ### Return type
 
@@ -468,7 +506,7 @@ Get separate frame from existing TIFF image. Image data is passed as zero-indexe
 # **create_image_frame_async**
 > create_image_frame_async(self, create_image_frame_request)
 
-Get separate frame from existing TIFF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+Get separate frame from existing image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 
 Performs operation asynchronously.
 
@@ -497,6 +535,64 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **image_data** | **file**| Input image | 
  **frame_id** | **int**| Number of a frame. | 
+ **new_width** | **int**| New width. | [optional] 
+ **new_height** | **int**| New height. | [optional] 
+ **x** | **int**| X position of start point for cropping rectangle. | [optional] 
+ **y** | **int**| Y position of start point for cropping rectangle. | [optional] 
+ **rect_width** | **int**| Width of cropping rectangle. | [optional] 
+ **rect_height** | **int**| Height of cropping rectangle. | [optional] 
+ **rotate_flip_method** | **str**| RotateFlip method (Rotate180FlipNone, Rotate180FlipX, Rotate180FlipXY, Rotate180FlipY, Rotate270FlipNone, Rotate270FlipX, Rotate270FlipXY, Rotate270FlipY, Rotate90FlipNone, Rotate90FlipX, Rotate90FlipXY, Rotate90FlipY, RotateNoneFlipNone, RotateNoneFlipX, RotateNoneFlipXY, RotateNoneFlipY). Default is RotateNoneFlipNone. | [optional] 
+ **save_other_frames** | **bool**| If result will include all other frames or just a specified frame. | [optional] [default to false]
+ **out_path** | **str**| Path to updated file (if this is empty, response contains streamed image). | [optional] 
+ **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="create_image_frame_range"></a>
+# **create_image_frame_range**
+> create_image_frame_range(self, create_image_frame_range_request)
+
+Get separate frame from existing image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+### Return type
+
+**file**
+
+<a name="create_image_frame_range_async"></a>
+# **create_image_frame_range_async**
+> create_image_frame_range_async(self, create_image_frame_range_request)
+
+Get separate frame from existing image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+
+Performs operation asynchronously.
+
+### Return type
+
+**file**
+
+### CreateImageFrameRangeRequest Parameters
+```python
+__init__(self, 
+    image_data, 
+    start_frame_id, 
+    end_frame_id, 
+    new_width=new_width, 
+    new_height=new_height, 
+    x=x, 
+    y=y, 
+    rect_width=rect_width, 
+    rect_height=rect_height, 
+    rotate_flip_method=rotate_flip_method, 
+    save_other_frames=save_other_frames, 
+    out_path=out_path, 
+    storage=storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **image_data** | **file**| Input image | 
+ **start_frame_id** | **int**| Index of the first frame in range. | 
+ **end_frame_id** | **int**| Index of the last frame in range. | 
  **new_width** | **int**| New width. | [optional] 
  **new_height** | **int**| New height. | [optional] 
  **x** | **int**| X position of start point for cropping rectangle. | [optional] 
@@ -1672,7 +1768,7 @@ Name | Type | Description  | Notes
 # **extract_image_frame_properties**
 > extract_image_frame_properties(self, extract_image_frame_properties_request)
 
-Get separate frame properties of existing TIFF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+Get separate frame properties of existing image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 
 ### Return type
 
@@ -1682,7 +1778,7 @@ Get separate frame properties of existing TIFF image. Image data is passed as ze
 # **extract_image_frame_properties_async**
 > extract_image_frame_properties_async(self, extract_image_frame_properties_request)
 
-Get separate frame properties of existing TIFF image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+Get separate frame properties of existing image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 
 Performs operation asynchronously.
 
@@ -2062,7 +2158,7 @@ Name | Type | Description  | Notes
 # **get_image_frame**
 > get_image_frame(self, get_image_frame_request)
 
-Get separate frame from existing TIFF image.
+Get separate frame from existing image.
 
 ### Return type
 
@@ -2072,7 +2168,7 @@ Get separate frame from existing TIFF image.
 # **get_image_frame_async**
 > get_image_frame_async(self, get_image_frame_request)
 
-Get separate frame from existing TIFF image.
+Get separate frame from existing image.
 
 Performs operation asynchronously.
 
@@ -2118,7 +2214,7 @@ Name | Type | Description  | Notes
 # **get_image_frame_properties**
 > get_image_frame_properties(self, get_image_frame_properties_request)
 
-Get separate frame properties of existing TIFF image.
+Get separate frame properties of existing image.
 
 ### Return type
 
@@ -2128,7 +2224,7 @@ Get separate frame properties of existing TIFF image.
 # **get_image_frame_properties_async**
 > get_image_frame_properties_async(self, get_image_frame_properties_request)
 
-Get separate frame properties of existing TIFF image.
+Get separate frame properties of existing image.
 
 Performs operation asynchronously.
 
@@ -2149,6 +2245,64 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **str**| Filename with image. | 
  **frame_id** | **int**| Number of a frame. | 
+ **folder** | **str**| Folder with image to process. | [optional] 
+ **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="get_image_frame_range"></a>
+# **get_image_frame_range**
+> get_image_frame_range(self, get_image_frame_range_request)
+
+Get frames range from existing image.
+
+### Return type
+
+**file**
+
+<a name="get_image_frame_range_async"></a>
+# **get_image_frame_range_async**
+> get_image_frame_range_async(self, get_image_frame_range_request)
+
+Get frames range from existing image.
+
+Performs operation asynchronously.
+
+### Return type
+
+**file**
+
+### GetImageFrameRangeRequest Parameters
+```python
+__init__(self, 
+    name, 
+    start_frame_id, 
+    end_frame_id, 
+    new_width=new_width, 
+    new_height=new_height, 
+    x=x, 
+    y=y, 
+    rect_width=rect_width, 
+    rect_height=rect_height, 
+    rotate_flip_method=rotate_flip_method, 
+    save_other_frames=save_other_frames, 
+    folder=folder, 
+    storage=storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **str**| Filename of image. | 
+ **start_frame_id** | **int**| Index of the first frame in range. | 
+ **end_frame_id** | **int**| Index of the last frame in range. | 
+ **new_width** | **int**| New width. | [optional] 
+ **new_height** | **int**| New height. | [optional] 
+ **x** | **int**| X position of start point for cropping rectangle. | [optional] 
+ **y** | **int**| Y position of start point for cropping rectangle. | [optional] 
+ **rect_width** | **int**| Width of cropping rectangle. | [optional] 
+ **rect_height** | **int**| Height of cropping rectangle. | [optional] 
+ **rotate_flip_method** | **str**| RotateFlip method (Rotate180FlipNone, Rotate180FlipX, Rotate180FlipXY, Rotate180FlipY, Rotate270FlipNone, Rotate270FlipX, Rotate270FlipXY, Rotate270FlipY, Rotate90FlipNone, Rotate90FlipX, Rotate90FlipXY, Rotate90FlipY, RotateNoneFlipNone, RotateNoneFlipX, RotateNoneFlipXY, RotateNoneFlipY). Default is RotateNoneFlipNone. | [optional] 
+ **save_other_frames** | **bool**| If result will include all other frames or just a specified frame. | [optional] [default to false]
  **folder** | **str**| Folder with image to process. | [optional] 
  **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
 
