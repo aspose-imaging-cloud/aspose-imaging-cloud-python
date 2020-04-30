@@ -94,7 +94,7 @@ import aspose-imaging-cloud
 4. **Using the SDK**. The best way to become familiar with how to use the SDK is to read the [Developer Guide](https://docs.aspose.cloud/display/imagingcloud/Developer+Guide). The [Getting Started Guide](https://docs.aspose.cloud/display/imagingcloud/Getting+Started) will help you to become familiar with the common concepts.
 
 ## Quick Examples
-Please, look at [Examples](EXAMPLES.md) document for basic usage or use the [Examples](Examples) folder for more sophisticated scenarios.
+Please, look at [Examples](https://github.com/aspose-imaging-cloud/aspose-imaging-cloud-python/blob/master/EXAMPLES.md) document for basic usage or use the [Examples](https://github.com/aspose-imaging-cloud/aspose-imaging-cloud-python/tree/master/Examples) folder for more sophisticated scenarios.
 
 #### Aspose Cloud-hosted service VS on-premise deployment (*experimental feature*)
 Starting from v19.7, you can choose either to use Aspose Cloud-hosted image processing service (the standard way) or the Docker image from Docker Hub deployed on-premise to serve the requests.
@@ -108,7 +108,7 @@ ImagingApi(base_url='yourServiceUrl')
 2. Set *storage* or *storageName* parameters for each request where they're present (mandatory!).
 
 ## Content
-You may check our full [API endpoints list](docs/API_README.md#documentation-for-api-endpoints) or [models available](docs/API_README.md#documentation-for-models) in the SDK.
+You may check our full [API endpoints list and models available](https://github.com/aspose-imaging-cloud/aspose-imaging-cloud-python/blob/master/docs/API_README.md) in the SDK.
 
 ## Dependencies
 * [Python 2.7 or later](https://www.python.org/downloads/)
