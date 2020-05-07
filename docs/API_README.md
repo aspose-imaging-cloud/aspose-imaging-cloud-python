@@ -56,6 +56,8 @@ Class | Method | HTTP request | Description
 *ImagingApi* | [**create_modified_web_p_async**](ImagingApi.md#create_modified_web_p_async) | **POST** /imaging/webp | Update parameters of WEBP image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_modified_wmf**](ImagingApi.md#create_modified_wmf) | **POST** /imaging/wmf | Process existing WMF image using given parameters. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_modified_wmf_async**](ImagingApi.md#create_modified_wmf_async) | **POST** /imaging/wmf | Process existing WMF image using given parameters. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+*ImagingApi* | [**create_object_bounds**](ImagingApi.md#create_object_bounds) | **POST** /imaging/ai/objectdetection/bounds | Detects objects bounds. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+*ImagingApi* | [**create_object_bounds_async**](ImagingApi.md#create_object_bounds_async) | **POST** /imaging/ai/objectdetection/bounds | Detects objects bounds. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_resized_image**](ImagingApi.md#create_resized_image) | **POST** /imaging/resize | Resize an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_resized_image_async**](ImagingApi.md#create_resized_image_async) | **POST** /imaging/resize | Resize an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_rotate_flipped_image**](ImagingApi.md#create_rotate_flipped_image) | **POST** /imaging/rotateflip | Rotate and/or flip an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
@@ -64,6 +66,8 @@ Class | Method | HTTP request | Description
 *ImagingApi* | [**create_saved_image_as_async**](ImagingApi.md#create_saved_image_as_async) | **POST** /imaging/saveAs | Export existing image to another format. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.             
 *ImagingApi* | [**create_updated_image**](ImagingApi.md#create_updated_image) | **POST** /imaging/updateImage | Perform scaling, cropping and flipping of an image in a single request. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_updated_image_async**](ImagingApi.md#create_updated_image_async) | **POST** /imaging/updateImage | Perform scaling, cropping and flipping of an image in a single request. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+*ImagingApi* | [**create_visual_object_bounds**](ImagingApi.md#create_visual_object_bounds) | **POST** /imaging/ai/objectdetection/visualbounds | Detect objects bounds and draw them on the original image
+*ImagingApi* | [**create_visual_object_bounds_async**](ImagingApi.md#create_visual_object_bounds_async) | **POST** /imaging/ai/objectdetection/visualbounds | Detect objects bounds and draw them on the original image
 *ImagingApi* | [**create_web_site_image_features**](ImagingApi.md#create_web_site_image_features) | **POST** /imaging/ai/imageSearch/{searchContextId}/features/web | Extract images features from web page and add them to search context
 *ImagingApi* | [**create_web_site_image_features_async**](ImagingApi.md#create_web_site_image_features_async) | **POST** /imaging/ai/imageSearch/{searchContextId}/features/web | Extract images features from web page and add them to search context
 *ImagingApi* | [**crop_image**](ImagingApi.md#crop_image) | **GET** /imaging/{name}/crop | Crop an existing image.
@@ -142,6 +146,8 @@ Class | Method | HTTP request | Description
 *ImagingApi* | [**move_file_async**](ImagingApi.md#move_file_async) | **PUT** /imaging/storage/file/move/{srcPath} | Move file
 *ImagingApi* | [**move_folder**](ImagingApi.md#move_folder) | **PUT** /imaging/storage/folder/move/{srcPath} | Move folder
 *ImagingApi* | [**move_folder_async**](ImagingApi.md#move_folder_async) | **PUT** /imaging/storage/folder/move/{srcPath} | Move folder
+*ImagingApi* | [**object_bounds**](ImagingApi.md#object_bounds) | **GET** /imaging/ai/objectdetection/bounds | Detect objects&#39; bounds
+*ImagingApi* | [**object_bounds_async**](ImagingApi.md#object_bounds_async) | **GET** /imaging/ai/objectdetection/bounds | Detect objects&#39; bounds
 *ImagingApi* | [**object_exists**](ImagingApi.md#object_exists) | **GET** /imaging/storage/exist/{path} | Check if file or folder exists
 *ImagingApi* | [**object_exists_async**](ImagingApi.md#object_exists_async) | **GET** /imaging/storage/exist/{path} | Check if file or folder exists
 *ImagingApi* | [**resize_image**](ImagingApi.md#resize_image) | **GET** /imaging/{name}/resize | Resize an existing image.
@@ -160,11 +166,15 @@ Class | Method | HTTP request | Description
 *ImagingApi* | [**update_search_image_async**](ImagingApi.md#update_search_image_async) | **PUT** /imaging/ai/imageSearch/{searchContextId}/image | Update image and images features in search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**upload_file**](ImagingApi.md#upload_file) | **PUT** /imaging/storage/file/{path} | Upload file
 *ImagingApi* | [**upload_file_async**](ImagingApi.md#upload_file_async) | **PUT** /imaging/storage/file/{path} | Upload file
+*ImagingApi* | [**visual_object_bounds**](ImagingApi.md#visual_object_bounds) | **GET** /imaging/ai/objectdetection/visualbounds | Detect objects bounds and draw them on the original image
+*ImagingApi* | [**visual_object_bounds_async**](ImagingApi.md#visual_object_bounds_async) | **GET** /imaging/ai/objectdetection/visualbounds | Detect objects bounds and draw them on the original image
 
 
 ## Documentation for Models
 
  - [asposeimagingcloud.models.BmpProperties](BmpProperties.md)
+ - [asposeimagingcloud.models.DetectedObject](DetectedObject.md)
+ - [asposeimagingcloud.models.DetectedObjectList](DetectedObjectList.md)
  - [asposeimagingcloud.models.DicomProperties](DicomProperties.md)
  - [asposeimagingcloud.models.DiscUsage](DiscUsage.md)
  - [asposeimagingcloud.models.DjvuProperties](DjvuProperties.md)
@@ -190,6 +200,7 @@ Class | Method | HTTP request | Description
  - [asposeimagingcloud.models.OdgProperties](OdgProperties.md)
  - [asposeimagingcloud.models.PngProperties](PngProperties.md)
  - [asposeimagingcloud.models.PsdProperties](PsdProperties.md)
+ - [asposeimagingcloud.models.Rectangle](Rectangle.md)
  - [asposeimagingcloud.models.SearchContextStatus](SearchContextStatus.md)
  - [asposeimagingcloud.models.SearchResult](SearchResult.md)
  - [asposeimagingcloud.models.SearchResultsSet](SearchResultsSet.md)
