@@ -47,7 +47,7 @@ class DetectedObjectList(object):
     }
 
     attribute_map = {
-        'detected_objects': 'DetectedObjects'
+        'detected_objects': 'detectedObjects'
     }
 
     def __init__(self, detected_objects=None):
