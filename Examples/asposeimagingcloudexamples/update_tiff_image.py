@@ -141,6 +141,23 @@ class UpdateTiffImage(ImagingBase):
         self._save_updated_image_to_output('ConvertTiffToFax.tiff', updated_image)
         print()
 
+    def convert_tiff_to_fax_from_request_body(self):
+        """Update parameters of TIFF image from request body according to fax parameters"""
+        print('Update parameters of TIFF image from request body according to fax parameters.')
+
+        # Update TIFF Image parameters according to fax parameters
+        out_path = None
+        storage = None  # We are using default Cloud Storage
+
+        input_stream = os.path.join(ImagingBase.EXAMPLE_IMAGES_FOLDER, self._get_sample_image_file_name())
+        create_fax_tiff_request = requests.CreateFaxTiffRequest(input_stream, out_path, storage)
+
+        print('Call CreateFaxTiff')
+
+        updated_image = self._imaging_api.create_fax_tiff(create_fax_tiff_request)
+        self._save_updated_sample_image_to_output(updated_image, True)
+        print()
+
     def append_tiff_from_storage(self):
         """Appends existing TIFF image to another existing TIFF image (i.e. merges TIFF images)"""
         print('Appends existing TIFF image to another existing TIFF image')
