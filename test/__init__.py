@@ -32,6 +32,7 @@ from test.api.AI.test_compare_images import TestCompareImages
 from test.api.AI.test_find_duplicates import TestFindDuplicates
 from test.api.AI.test_find_images import TestFindImages
 from test.api.AI.test_search_context import TestSearchContext
+from test.api.AI.test_objectdetection_api import TestObjectDetectionApi
 from test.api.storage.test_file_api import TestFileApi
 from test.api.storage.test_folder_api import TestFolderApi
 from test.api.storage.test_storage_api import TestStorageApi

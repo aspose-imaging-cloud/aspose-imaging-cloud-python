@@ -74,6 +74,10 @@ ai_suite.addTests(
     loader.loadTestsFromModule(sys.modules['test.api.AI.test_search_context']))
 suites_dict['Ai'] = ai_suite
 
+objectdetection_suite = unittest.TestSuite(
+    loader.loadTestsFromModule(sys.modules['test.api.AI.test_objectdetection_api']))
+suites_dict['ObjectDetection'] = objectdetection_suite
+
 file_suite = unittest.TestSuite(
     loader.loadTestsFromModule(sys.modules['test.api.storage.test_file_api']))
 suites_dict['File'] = file_suite

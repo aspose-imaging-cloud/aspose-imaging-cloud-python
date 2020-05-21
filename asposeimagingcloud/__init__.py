@@ -34,6 +34,8 @@ from asposeimagingcloud.api_client import ApiClient
 from asposeimagingcloud.configuration import Configuration
 # import models into sdk package
 from asposeimagingcloud.models.bmp_properties import BmpProperties
+from asposeimagingcloud.models.detected_object import DetectedObject
+from asposeimagingcloud.models.detected_object_list import DetectedObjectList
 from asposeimagingcloud.models.dicom_properties import DicomProperties
 from asposeimagingcloud.models.disc_usage import DiscUsage
 from asposeimagingcloud.models.djvu_properties import DjvuProperties
@@ -59,6 +61,7 @@ from asposeimagingcloud.models.odg_page import OdgPage
 from asposeimagingcloud.models.odg_properties import OdgProperties
 from asposeimagingcloud.models.png_properties import PngProperties
 from asposeimagingcloud.models.psd_properties import PsdProperties
+from asposeimagingcloud.models.rectangle import Rectangle
 from asposeimagingcloud.models.search_context_status import SearchContextStatus
 from asposeimagingcloud.models.search_result import SearchResult
 from asposeimagingcloud.models.search_results_set import SearchResultsSet
@@ -108,10 +111,12 @@ from asposeimagingcloud.models.requests.create_modified_svg_request import Creat
 from asposeimagingcloud.models.requests.create_modified_tiff_request import CreateModifiedTiffRequest
 from asposeimagingcloud.models.requests.create_modified_web_p_request import CreateModifiedWebPRequest
 from asposeimagingcloud.models.requests.create_modified_wmf_request import CreateModifiedWmfRequest
+from asposeimagingcloud.models.requests.create_object_bounds_request import CreateObjectBoundsRequest
 from asposeimagingcloud.models.requests.create_resized_image_request import CreateResizedImageRequest
 from asposeimagingcloud.models.requests.create_rotate_flipped_image_request import CreateRotateFlippedImageRequest
 from asposeimagingcloud.models.requests.create_saved_image_as_request import CreateSavedImageAsRequest
 from asposeimagingcloud.models.requests.create_updated_image_request import CreateUpdatedImageRequest
+from asposeimagingcloud.models.requests.create_visual_object_bounds_request import CreateVisualObjectBoundsRequest
 from asposeimagingcloud.models.requests.create_web_site_image_features_request import CreateWebSiteImageFeaturesRequest
 from asposeimagingcloud.models.requests.crop_image_request import CropImageRequest
 from asposeimagingcloud.models.requests.delete_file_request import DeleteFileRequest
@@ -153,6 +158,7 @@ from asposeimagingcloud.models.requests.modify_web_p_request import ModifyWebPRe
 from asposeimagingcloud.models.requests.modify_wmf_request import ModifyWmfRequest
 from asposeimagingcloud.models.requests.move_file_request import MoveFileRequest
 from asposeimagingcloud.models.requests.move_folder_request import MoveFolderRequest
+from asposeimagingcloud.models.requests.object_bounds_request import ObjectBoundsRequest
 from asposeimagingcloud.models.requests.object_exists_request import ObjectExistsRequest
 from asposeimagingcloud.models.requests.resize_image_request import ResizeImageRequest
 from asposeimagingcloud.models.requests.rotate_flip_image_request import RotateFlipImageRequest
@@ -162,4 +168,5 @@ from asposeimagingcloud.models.requests.update_image_features_request import Upd
 from asposeimagingcloud.models.requests.update_image_request import UpdateImageRequest
 from asposeimagingcloud.models.requests.update_search_image_request import UpdateSearchImageRequest
 from asposeimagingcloud.models.requests.upload_file_request import UploadFileRequest
+from asposeimagingcloud.models.requests.visual_object_bounds_request import VisualObjectBoundsRequest
 
