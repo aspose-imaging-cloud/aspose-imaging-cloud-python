@@ -34,12 +34,14 @@ class UploadFileRequest(ImagingRequest):
     Initializes a new instance.
 
     :param path Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.             
+    :param file File to upload
     :param storage_name Storage name
     """
 
-    def __init__(self, path, storage_name=None):
+    def __init__(self, path, file, storage_name=None):
         ImagingRequest.__init__(self)
         self.path = path
+        self.file = file
         self.storage_name = storage_name
 
     def to_http_info(self, config):
@@ -54,6 +56,9 @@ class UploadFileRequest(ImagingRequest):
         # verify the required parameter 'path' is set
         if self.path is None:
             raise ValueError("Missing the required parameter `path` when calling `upload_file`")
+        # verify the required parameter 'file' is set
+        if self.file is None:
+            raise ValueError("Missing the required parameter `file` when calling `upload_file`")
 
         collection_formats = {}
         path = '/imaging/storage/file/{path}'
@@ -72,6 +77,8 @@ class UploadFileRequest(ImagingRequest):
 
         form_params = []
         local_var_files = []
+        if self.file is not None:
+            local_var_files.append((self._lowercase_first_letter('File'), self.file))
 
         body_params = None
 
@@ -81,7 +88,7 @@ class UploadFileRequest(ImagingRequest):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = 'multipart/form-data' if form_params else self._select_header_content_type(
-            ['application/json'])
+            ['multipart/form-data'])
 
         # Authentication setting
         auth_settings = ['JWT']
