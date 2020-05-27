@@ -321,7 +321,7 @@ class ImagingApi(object):
         return self.__make_request_async(http_request, 'POST', 'file')
 
     def create_image_frame_range(self, request):
-        """Get separate frame from existing image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+        """Get frames range from existing image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 
 
         :param request create_image_frame_range_request object with parameters
@@ -331,7 +331,7 @@ class ImagingApi(object):
         return self.__make_request(http_request, 'POST', 'file')
 
     def create_image_frame_range_async(self, request):
-        """Get separate frame from existing image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+        """Get frames range from existing image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 
 
         :param request create_image_frame_range_request object with parameters
@@ -681,7 +681,7 @@ class ImagingApi(object):
         return self.__make_request_async(http_request, 'POST', 'file')
 
     def create_visual_object_bounds(self, request):
-        """Detect objects bounds and draw them on the original image
+        """Detects objects bounds and draw them on the original image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream
 
 
         :param request create_visual_object_bounds_request object with parameters
@@ -691,7 +691,7 @@ class ImagingApi(object):
         return self.__make_request(http_request, 'POST', 'file')
 
     def create_visual_object_bounds_async(self, request):
-        """Detect objects bounds and draw them on the original image
+        """Detects objects bounds and draw them on the original image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream
 
 
         :param request create_visual_object_bounds_request object with parameters
@@ -1200,6 +1200,26 @@ class ImagingApi(object):
         http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request_async(http_request, 'GET', 'SearchContextStatus')
 
+    def get_object_bounds(self, request):
+        """Detects objects&#39; bounds
+
+
+        :param request get_object_bounds_request object with parameters
+        :return: DetectedObjectList
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'GET', 'DetectedObjectList')
+
+    def get_object_bounds_async(self, request):
+        """Detects objects&#39; bounds
+
+
+        :param request get_object_bounds_request object with parameters
+        :return: DetectedObjectList
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'GET', 'DetectedObjectList')
+
     def get_search_image(self, request):
         """Get image from search context
 
@@ -1215,6 +1235,26 @@ class ImagingApi(object):
 
 
         :param request get_search_image_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'GET', 'file')
+
+    def get_visual_object_bounds(self, request):
+        """Detects objects bounds and draw them on the original image
+
+
+        :param request get_visual_object_bounds_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'GET', 'file')
+
+    def get_visual_object_bounds_async(self, request):
+        """Detects objects bounds and draw them on the original image
+
+
+        :param request get_visual_object_bounds_request object with parameters
         :return: file
         """
         http_request = request.to_http_info(self.api_client.configuration)
@@ -1480,26 +1520,6 @@ class ImagingApi(object):
         http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request_async(http_request, 'PUT', None)
 
-    def object_bounds(self, request):
-        """Detect objects&#39; bounds
-
-
-        :param request object_bounds_request object with parameters
-        :return: DetectedObjectList
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'GET', 'DetectedObjectList')
-
-    def object_bounds_async(self, request):
-        """Detect objects&#39; bounds
-
-
-        :param request object_bounds_request object with parameters
-        :return: DetectedObjectList
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'GET', 'DetectedObjectList')
-
     def object_exists(self, request):
         """Check if file or folder exists
 
@@ -1679,26 +1699,6 @@ class ImagingApi(object):
         """
         http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request_async(http_request, 'PUT', 'FilesUploadResult')
-
-    def visual_object_bounds(self, request):
-        """Detect objects bounds and draw them on the original image
-
-
-        :param request visual_object_bounds_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'GET', 'file')
-
-    def visual_object_bounds_async(self, request):
-        """Detect objects bounds and draw them on the original image
-
-
-        :param request visual_object_bounds_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'GET', 'file')
 
     def __make_request(self, http_request, method, return_type):
         def call_api():

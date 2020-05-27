@@ -43,8 +43,8 @@ class TestObjectDetectionApi(ImagingApiTester):
         storage = self.test_storage
 
         def request_invoker():
-            return self.imaging_api.visual_object_bounds(
-                requests.VisualObjectBoundsRequest(name, None, 20, True, True,  folder,
+            return self.imaging_api.get_visual_object_bounds(
+                requests.GetVisualObjectBoundsRequest(name, None, 20, True, True, "red",  folder,
                     storage))
 
         def properties_tester(
@@ -74,8 +74,8 @@ class TestObjectDetectionApi(ImagingApiTester):
         storage = self.test_storage
 
         def request_invoker():
-            return self.imaging_api.object_bounds(
-                requests.ObjectBoundsRequest(name, None, 20, True, True,  folder,
+            return self.imaging_api.get_object_bounds(
+                requests.GetObjectBoundsRequest(name, None, 20, True, True,  folder,
                     storage))
 
         def response_tester(bounds: DetectedObjectList):
@@ -115,7 +115,7 @@ class TestObjectDetectionApi(ImagingApiTester):
 
                 def request_invoker(input_stream, out_path):
                     req = requests.CreateVisualObjectBoundsRequest(
-                        input_stream, None, 20, True, True, out_path, storage)
+                        input_stream, None, 20, True, True, None, out_path, storage)
                     resp = self.imaging_api.create_visual_object_bounds(req)
                     return resp
 

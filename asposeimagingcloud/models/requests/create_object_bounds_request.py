@@ -36,18 +36,18 @@ class CreateObjectBoundsRequest(ImagingRequest):
     :param image_data Input image
     :param method Object detection method
     :param threshold Object detection probability threshold in percents
-    :param include_class Draw detected objects classes
+    :param include_label Draw detected objects labels
     :param include_score Draw detected objects scores
     :param out_path Path to updated file (if this is empty, response contains streamed image)
     :param storage Your Aspose Cloud Storage name.
     """
 
-    def __init__(self, image_data, method=None, threshold=None, include_class=None, include_score=None, out_path=None, storage=None):
+    def __init__(self, image_data, method=None, threshold=None, include_label=None, include_score=None, out_path=None, storage=None):
         ImagingRequest.__init__(self)
         self.image_data = image_data
         self.method = method
         self.threshold = threshold
-        self.include_class = include_class
+        self.include_label = include_label
         self.include_score = include_score
         self.out_path = out_path
         self.storage = storage
@@ -80,11 +80,11 @@ class CreateObjectBoundsRequest(ImagingRequest):
         else:
             if self.threshold is not None:
                 query_params.append((self._lowercase_first_letter('threshold'), self.threshold))
-        if self._lowercase_first_letter('includeClass') in path:
-            path = path.replace('{' + self._lowercase_first_letter('includeClass' + '}'), self.include_class if self.include_class is not None else '')
+        if self._lowercase_first_letter('includeLabel') in path:
+            path = path.replace('{' + self._lowercase_first_letter('includeLabel' + '}'), self.include_label if self.include_label is not None else '')
         else:
-            if self.include_class is not None:
-                query_params.append((self._lowercase_first_letter('includeClass'), self.include_class))
+            if self.include_label is not None:
+                query_params.append((self._lowercase_first_letter('includeLabel'), self.include_label))
         if self._lowercase_first_letter('includeScore') in path:
             path = path.replace('{' + self._lowercase_first_letter('includeScore' + '}'), self.include_score if self.include_score is not None else '')
         else:

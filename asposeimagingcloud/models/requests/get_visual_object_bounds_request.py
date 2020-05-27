@@ -1,6 +1,6 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
-#  <copyright company="Aspose" file="object_bounds_request.py">
+#  <copyright company="Aspose" file="get_visual_object_bounds_request.py">
 #    Copyright (c) 2018-2020 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
@@ -28,27 +28,29 @@ from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
 from asposeimagingcloud.models.requests.http_request import HttpRequest
 
 
-class ObjectBoundsRequest(ImagingRequest):
+class GetVisualObjectBoundsRequest(ImagingRequest):
     """
-    Request model for object_bounds operation.
+    Request model for get_visual_object_bounds operation.
     Initializes a new instance.
 
-    :param name Image file name.
+    :param name The image features detector.
     :param method Object detection method
     :param threshold Object detection probability threshold in percents
-    :param include_class Return detected objects classes
-    :param include_score Return detected objects score
-    :param folder Folder
-    :param storage Storage
+    :param include_label Draw detected objects labels
+    :param include_score Draw detected objects scores
+    :param color Bounds, labels, and scores text color
+    :param folder The folder.
+    :param storage The storage.
     """
 
-    def __init__(self, name, method=None, threshold=None, include_class=None, include_score=None, folder=None, storage=None):
+    def __init__(self, name, method=None, threshold=None, include_label=None, include_score=None, color=None, folder=None, storage=None):
         ImagingRequest.__init__(self)
         self.name = name
         self.method = method
         self.threshold = threshold
-        self.include_class = include_class
+        self.include_label = include_label
         self.include_score = include_score
+        self.color = color
         self.folder = folder
         self.storage = storage
 
@@ -63,18 +65,15 @@ class ObjectBoundsRequest(ImagingRequest):
         """
         # verify the required parameter 'name' is set
         if self.name is None:
-            raise ValueError("Missing the required parameter `name` when calling `object_bounds`")
+            raise ValueError("Missing the required parameter `name` when calling `get_visual_object_bounds`")
 
         collection_formats = {}
-        path = '/imaging/ai/objectdetection/bounds'
+        path = '/imaging/ai/objectdetection/{name}/visualbounds'
         path_params = {}
+        if self.name is not None:
+            path_params[self._lowercase_first_letter('name')] = self.name
 
         query_params = []
-        if self._lowercase_first_letter('name') in path:
-            path = path.replace('{' + self._lowercase_first_letter('name' + '}'), self.name if self.name is not None else '')
-        else:
-            if self.name is not None:
-                query_params.append((self._lowercase_first_letter('name'), self.name))
         if self._lowercase_first_letter('method') in path:
             path = path.replace('{' + self._lowercase_first_letter('method' + '}'), self.method if self.method is not None else '')
         else:
@@ -85,16 +84,21 @@ class ObjectBoundsRequest(ImagingRequest):
         else:
             if self.threshold is not None:
                 query_params.append((self._lowercase_first_letter('threshold'), self.threshold))
-        if self._lowercase_first_letter('includeClass') in path:
-            path = path.replace('{' + self._lowercase_first_letter('includeClass' + '}'), self.include_class if self.include_class is not None else '')
+        if self._lowercase_first_letter('includeLabel') in path:
+            path = path.replace('{' + self._lowercase_first_letter('includeLabel' + '}'), self.include_label if self.include_label is not None else '')
         else:
-            if self.include_class is not None:
-                query_params.append((self._lowercase_first_letter('includeClass'), self.include_class))
+            if self.include_label is not None:
+                query_params.append((self._lowercase_first_letter('includeLabel'), self.include_label))
         if self._lowercase_first_letter('includeScore') in path:
             path = path.replace('{' + self._lowercase_first_letter('includeScore' + '}'), self.include_score if self.include_score is not None else '')
         else:
             if self.include_score is not None:
                 query_params.append((self._lowercase_first_letter('includeScore'), self.include_score))
+        if self._lowercase_first_letter('color') in path:
+            path = path.replace('{' + self._lowercase_first_letter('color' + '}'), self.color if self.color is not None else '')
+        else:
+            if self.color is not None:
+                query_params.append((self._lowercase_first_letter('color'), self.color))
         if self._lowercase_first_letter('folder') in path:
             path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
         else:

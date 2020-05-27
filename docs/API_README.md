@@ -30,8 +30,8 @@ Class | Method | HTTP request | Description
 *ImagingApi* | [**create_image_features_async**](ImagingApi.md#create_image_features_async) | **POST** /imaging/ai/imageSearch/{searchContextId}/features | Extract images features and add them to search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_image_frame**](ImagingApi.md#create_image_frame) | **POST** /imaging/frames/{frameId} | Get separate frame from existing image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_image_frame_async**](ImagingApi.md#create_image_frame_async) | **POST** /imaging/frames/{frameId} | Get separate frame from existing image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-*ImagingApi* | [**create_image_frame_range**](ImagingApi.md#create_image_frame_range) | **POST** /imaging/frames/range | Get separate frame from existing image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-*ImagingApi* | [**create_image_frame_range_async**](ImagingApi.md#create_image_frame_range_async) | **POST** /imaging/frames/range | Get separate frame from existing image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+*ImagingApi* | [**create_image_frame_range**](ImagingApi.md#create_image_frame_range) | **POST** /imaging/frames/range | Get frames range from existing image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+*ImagingApi* | [**create_image_frame_range_async**](ImagingApi.md#create_image_frame_range_async) | **POST** /imaging/frames/range | Get frames range from existing image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_image_search**](ImagingApi.md#create_image_search) | **POST** /imaging/ai/imageSearch/create | Create new search context.
 *ImagingApi* | [**create_image_search_async**](ImagingApi.md#create_image_search_async) | **POST** /imaging/ai/imageSearch/create | Create new search context.
 *ImagingApi* | [**create_image_tag**](ImagingApi.md#create_image_tag) | **POST** /imaging/ai/imageSearch/{searchContextId}/addTag | Add tag and reference image to search context. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
@@ -66,8 +66,8 @@ Class | Method | HTTP request | Description
 *ImagingApi* | [**create_saved_image_as_async**](ImagingApi.md#create_saved_image_as_async) | **POST** /imaging/saveAs | Export existing image to another format. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.             
 *ImagingApi* | [**create_updated_image**](ImagingApi.md#create_updated_image) | **POST** /imaging/updateImage | Perform scaling, cropping and flipping of an image in a single request. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_updated_image_async**](ImagingApi.md#create_updated_image_async) | **POST** /imaging/updateImage | Perform scaling, cropping and flipping of an image in a single request. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-*ImagingApi* | [**create_visual_object_bounds**](ImagingApi.md#create_visual_object_bounds) | **POST** /imaging/ai/objectdetection/visualbounds | Detect objects bounds and draw them on the original image
-*ImagingApi* | [**create_visual_object_bounds_async**](ImagingApi.md#create_visual_object_bounds_async) | **POST** /imaging/ai/objectdetection/visualbounds | Detect objects bounds and draw them on the original image
+*ImagingApi* | [**create_visual_object_bounds**](ImagingApi.md#create_visual_object_bounds) | **POST** /imaging/ai/objectdetection/visualbounds | Detects objects bounds and draw them on the original image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream
+*ImagingApi* | [**create_visual_object_bounds_async**](ImagingApi.md#create_visual_object_bounds_async) | **POST** /imaging/ai/objectdetection/visualbounds | Detects objects bounds and draw them on the original image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream
 *ImagingApi* | [**create_web_site_image_features**](ImagingApi.md#create_web_site_image_features) | **POST** /imaging/ai/imageSearch/{searchContextId}/features/web | Extract images features from web page and add them to search context
 *ImagingApi* | [**create_web_site_image_features_async**](ImagingApi.md#create_web_site_image_features_async) | **POST** /imaging/ai/imageSearch/{searchContextId}/features/web | Extract images features from web page and add them to search context
 *ImagingApi* | [**crop_image**](ImagingApi.md#crop_image) | **GET** /imaging/{name}/crop | Crop an existing image.
@@ -118,8 +118,12 @@ Class | Method | HTTP request | Description
 *ImagingApi* | [**get_image_properties_async**](ImagingApi.md#get_image_properties_async) | **GET** /imaging/{name}/properties | Get properties of an image.
 *ImagingApi* | [**get_image_search_status**](ImagingApi.md#get_image_search_status) | **GET** /imaging/ai/imageSearch/{searchContextId}/status | Gets the search context status.
 *ImagingApi* | [**get_image_search_status_async**](ImagingApi.md#get_image_search_status_async) | **GET** /imaging/ai/imageSearch/{searchContextId}/status | Gets the search context status.
+*ImagingApi* | [**get_object_bounds**](ImagingApi.md#get_object_bounds) | **GET** /imaging/ai/objectdetection/{name}/bounds | Detects objects&#39; bounds
+*ImagingApi* | [**get_object_bounds_async**](ImagingApi.md#get_object_bounds_async) | **GET** /imaging/ai/objectdetection/{name}/bounds | Detects objects&#39; bounds
 *ImagingApi* | [**get_search_image**](ImagingApi.md#get_search_image) | **GET** /imaging/ai/imageSearch/{searchContextId}/image | Get image from search context
 *ImagingApi* | [**get_search_image_async**](ImagingApi.md#get_search_image_async) | **GET** /imaging/ai/imageSearch/{searchContextId}/image | Get image from search context
+*ImagingApi* | [**get_visual_object_bounds**](ImagingApi.md#get_visual_object_bounds) | **GET** /imaging/ai/objectdetection/{name}/visualbounds | Detects objects bounds and draw them on the original image
+*ImagingApi* | [**get_visual_object_bounds_async**](ImagingApi.md#get_visual_object_bounds_async) | **GET** /imaging/ai/objectdetection/{name}/visualbounds | Detects objects bounds and draw them on the original image
 *ImagingApi* | [**grayscale_image**](ImagingApi.md#grayscale_image) | **GET** /imaging/{name}/grayscale | Grayscale an existing image.
 *ImagingApi* | [**grayscale_image_async**](ImagingApi.md#grayscale_image_async) | **GET** /imaging/{name}/grayscale | Grayscale an existing image.
 *ImagingApi* | [**modify_bmp**](ImagingApi.md#modify_bmp) | **GET** /imaging/{name}/bmp | Update parameters of existing BMP image.
@@ -146,8 +150,6 @@ Class | Method | HTTP request | Description
 *ImagingApi* | [**move_file_async**](ImagingApi.md#move_file_async) | **PUT** /imaging/storage/file/move/{srcPath} | Move file
 *ImagingApi* | [**move_folder**](ImagingApi.md#move_folder) | **PUT** /imaging/storage/folder/move/{srcPath} | Move folder
 *ImagingApi* | [**move_folder_async**](ImagingApi.md#move_folder_async) | **PUT** /imaging/storage/folder/move/{srcPath} | Move folder
-*ImagingApi* | [**object_bounds**](ImagingApi.md#object_bounds) | **GET** /imaging/ai/objectdetection/bounds | Detect objects&#39; bounds
-*ImagingApi* | [**object_bounds_async**](ImagingApi.md#object_bounds_async) | **GET** /imaging/ai/objectdetection/bounds | Detect objects&#39; bounds
 *ImagingApi* | [**object_exists**](ImagingApi.md#object_exists) | **GET** /imaging/storage/exist/{path} | Check if file or folder exists
 *ImagingApi* | [**object_exists_async**](ImagingApi.md#object_exists_async) | **GET** /imaging/storage/exist/{path} | Check if file or folder exists
 *ImagingApi* | [**resize_image**](ImagingApi.md#resize_image) | **GET** /imaging/{name}/resize | Resize an existing image.
@@ -166,8 +168,6 @@ Class | Method | HTTP request | Description
 *ImagingApi* | [**update_search_image_async**](ImagingApi.md#update_search_image_async) | **PUT** /imaging/ai/imageSearch/{searchContextId}/image | Update image and images features in search context. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**upload_file**](ImagingApi.md#upload_file) | **PUT** /imaging/storage/file/{path} | Upload file
 *ImagingApi* | [**upload_file_async**](ImagingApi.md#upload_file_async) | **PUT** /imaging/storage/file/{path} | Upload file
-*ImagingApi* | [**visual_object_bounds**](ImagingApi.md#visual_object_bounds) | **GET** /imaging/ai/objectdetection/visualbounds | Detect objects bounds and draw them on the original image
-*ImagingApi* | [**visual_object_bounds_async**](ImagingApi.md#visual_object_bounds_async) | **GET** /imaging/ai/objectdetection/visualbounds | Detect objects bounds and draw them on the original image
 
 
 ## Documentation for Models

@@ -55,7 +55,9 @@ from asposeimagingcloud.models.requests.get_image_frame_range_request import Get
 from asposeimagingcloud.models.requests.get_image_frame_request import GetImageFrameRequest
 from asposeimagingcloud.models.requests.get_image_properties_request import GetImagePropertiesRequest
 from asposeimagingcloud.models.requests.get_image_search_status_request import GetImageSearchStatusRequest
+from asposeimagingcloud.models.requests.get_object_bounds_request import GetObjectBoundsRequest
 from asposeimagingcloud.models.requests.get_search_image_request import GetSearchImageRequest
+from asposeimagingcloud.models.requests.get_visual_object_bounds_request import GetVisualObjectBoundsRequest
 from asposeimagingcloud.models.requests.grayscale_image_request import GrayscaleImageRequest
 from asposeimagingcloud.models.requests.http_request import HttpRequest
 from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
@@ -71,7 +73,6 @@ from asposeimagingcloud.models.requests.modify_web_p_request import ModifyWebPRe
 from asposeimagingcloud.models.requests.modify_wmf_request import ModifyWmfRequest
 from asposeimagingcloud.models.requests.move_file_request import MoveFileRequest
 from asposeimagingcloud.models.requests.move_folder_request import MoveFolderRequest
-from asposeimagingcloud.models.requests.object_bounds_request import ObjectBoundsRequest
 from asposeimagingcloud.models.requests.object_exists_request import ObjectExistsRequest
 from asposeimagingcloud.models.requests.resize_image_request import ResizeImageRequest
 from asposeimagingcloud.models.requests.rotate_flip_image_request import RotateFlipImageRequest
@@ -81,5 +82,4 @@ from asposeimagingcloud.models.requests.update_image_features_request import Upd
 from asposeimagingcloud.models.requests.update_image_request import UpdateImageRequest
 from asposeimagingcloud.models.requests.update_search_image_request import UpdateSearchImageRequest
 from asposeimagingcloud.models.requests.upload_file_request import UploadFileRequest
-from asposeimagingcloud.models.requests.visual_object_bounds_request import VisualObjectBoundsRequest
 
