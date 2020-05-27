@@ -552,7 +552,7 @@ Name | Type | Description  | Notes
 # **create_image_frame_range**
 > create_image_frame_range(self, create_image_frame_range_request)
 
-Get separate frame from existing image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+Get frames range from existing image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 
 ### Return type
 
@@ -562,7 +562,7 @@ Get separate frame from existing image. Image data is passed as zero-indexed mul
 # **create_image_frame_range_async**
 > create_image_frame_range_async(self, create_image_frame_range_request)
 
-Get separate frame from existing image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+Get frames range from existing image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 
 Performs operation asynchronously.
 
@@ -1208,7 +1208,7 @@ __init__(self,
     image_data, 
     method=method, 
     threshold=threshold, 
-    include_class=include_class, 
+    include_label=include_label, 
     include_score=include_score, 
     out_path=out_path, 
     storage=storage)
@@ -1219,8 +1219,8 @@ Name | Type | Description  | Notes
  **image_data** | **file**| Input image | 
  **method** | **str**| Object detection method | [optional] [default to ssd]
  **threshold** | **int**| Object detection probability threshold in percents | [optional] [default to 50]
- **include_class** | **bool**| Draw detected objects classes | [optional] [default to true]
- **include_score** | **bool**| Draw detected objects scores | [optional] [default to true]
+ **include_label** | **bool**| Draw detected objects labels | [optional] [default to false]
+ **include_score** | **bool**| Draw detected objects scores | [optional] [default to false]
  **out_path** | **str**| Path to updated file (if this is empty, response contains streamed image) | [optional] 
  **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
 
@@ -1410,7 +1410,7 @@ Name | Type | Description  | Notes
 # **create_visual_object_bounds**
 > create_visual_object_bounds(self, create_visual_object_bounds_request)
 
-Detect objects bounds and draw them on the original image
+Detects objects bounds and draw them on the original image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream
 
 ### Return type
 
@@ -1420,7 +1420,7 @@ Detect objects bounds and draw them on the original image
 # **create_visual_object_bounds_async**
 > create_visual_object_bounds_async(self, create_visual_object_bounds_request)
 
-Detect objects bounds and draw them on the original image
+Detects objects bounds and draw them on the original image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream
 
 Performs operation asynchronously.
 
@@ -1434,8 +1434,9 @@ __init__(self,
     image_data, 
     method=method, 
     threshold=threshold, 
-    include_class=include_class, 
+    include_label=include_label, 
     include_score=include_score, 
+    color=color, 
     out_path=out_path, 
     storage=storage)
 ```
@@ -1445,8 +1446,9 @@ Name | Type | Description  | Notes
  **image_data** | **file**| Input image | 
  **method** | **str**| Object detection method | [optional] [default to ssd]
  **threshold** | **int**| Object detection probability threshold in percents | [optional] [default to 50]
- **include_class** | **bool**| Draw detected objects classes | [optional] [default to true]
- **include_score** | **bool**| Draw detected objects scores | [optional] [default to true]
+ **include_label** | **bool**| Draw detected objects classes | [optional] [default to false]
+ **include_score** | **bool**| Draw detected objects scores | [optional] [default to false]
+ **color** | **str**| Bounds, labels, and scores text color | [optional] 
  **out_path** | **str**| Path to updated file (if this is empty, response contains streamed image) | [optional] 
  **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
 
@@ -2476,6 +2478,52 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 
+<a name="get_object_bounds"></a>
+# **get_object_bounds**
+> get_object_bounds(self, get_object_bounds_request)
+
+Detects objects' bounds
+
+### Return type
+
+[**DetectedObjectList**](DetectedObjectList.md)
+
+<a name="get_object_bounds_async"></a>
+# **get_object_bounds_async**
+> get_object_bounds_async(self, get_object_bounds_request)
+
+Detects objects' bounds
+
+Performs operation asynchronously.
+
+### Return type
+
+[**DetectedObjectList**](DetectedObjectList.md)
+
+### GetObjectBoundsRequest Parameters
+```python
+__init__(self, 
+    name, 
+    method=method, 
+    threshold=threshold, 
+    include_label=include_label, 
+    include_score=include_score, 
+    folder=folder, 
+    storage=storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **str**| Image file name. | 
+ **method** | **str**| Object detection method | [optional] [default to ssd]
+ **threshold** | **int**| Object detection probability threshold in percents | [optional] [default to 50]
+ **include_label** | **bool**| Return detected objects labels | [optional] [default to false]
+ **include_score** | **bool**| Return detected objects score | [optional] [default to false]
+ **folder** | **str**| Folder | [optional] 
+ **storage** | **str**| Storage | [optional] 
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
 <a name="get_search_image"></a>
 # **get_search_image**
 > get_search_image(self, get_search_image_request)
@@ -2513,6 +2561,54 @@ Name | Type | Description  | Notes
  **image_id** | **str**| Image identifier. | 
  **folder** | **str**| Folder. | [optional] 
  **storage** | **str**| Storage | [optional] 
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="get_visual_object_bounds"></a>
+# **get_visual_object_bounds**
+> get_visual_object_bounds(self, get_visual_object_bounds_request)
+
+Detects objects bounds and draw them on the original image
+
+### Return type
+
+**file**
+
+<a name="get_visual_object_bounds_async"></a>
+# **get_visual_object_bounds_async**
+> get_visual_object_bounds_async(self, get_visual_object_bounds_request)
+
+Detects objects bounds and draw them on the original image
+
+Performs operation asynchronously.
+
+### Return type
+
+**file**
+
+### GetVisualObjectBoundsRequest Parameters
+```python
+__init__(self, 
+    name, 
+    method=method, 
+    threshold=threshold, 
+    include_label=include_label, 
+    include_score=include_score, 
+    color=color, 
+    folder=folder, 
+    storage=storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **str**| The image features detector. | 
+ **method** | **str**| Object detection method | [optional] [default to ssd]
+ **threshold** | **int**| Object detection probability threshold in percents | [optional] [default to 50]
+ **include_label** | **bool**| Draw detected objects labels | [optional] [default to false]
+ **include_score** | **bool**| Draw detected objects scores | [optional] [default to false]
+ **color** | **str**| Bounds, labels, and scores text color | [optional] 
+ **folder** | **str**| The folder. | [optional] 
+ **storage** | **str**| The storage. | [optional] 
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 
@@ -3128,52 +3224,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 
-<a name="object_bounds"></a>
-# **object_bounds**
-> object_bounds(self, object_bounds_request)
-
-Detect objects' bounds
-
-### Return type
-
-[**DetectedObjectList**](DetectedObjectList.md)
-
-<a name="object_bounds_async"></a>
-# **object_bounds_async**
-> object_bounds_async(self, object_bounds_request)
-
-Detect objects' bounds
-
-Performs operation asynchronously.
-
-### Return type
-
-[**DetectedObjectList**](DetectedObjectList.md)
-
-### ObjectBoundsRequest Parameters
-```python
-__init__(self, 
-    name, 
-    method=method, 
-    threshold=threshold, 
-    include_class=include_class, 
-    include_score=include_score, 
-    folder=folder, 
-    storage=storage)
-```
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **str**| Image file name. | 
- **method** | **str**| Object detection method | [optional] [default to ssd]
- **threshold** | **int**| Object detection probability threshold in percents | [optional] [default to 50]
- **include_class** | **bool**| Return detected objects classes | [optional] [default to true]
- **include_score** | **bool**| Return detected objects score | [optional] [default to true]
- **folder** | **str**| Folder | [optional] 
- **storage** | **str**| Storage | [optional] 
-
-[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
-
 <a name="object_exists"></a>
 # **object_exists**
 > object_exists(self, object_exists_request)
@@ -3545,52 +3595,6 @@ Name | Type | Description  | Notes
  **path** | **str**| Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.              | 
  **file** | **file**| File to upload | 
  **storage_name** | **str**| Storage name | [optional] 
-
-[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
-
-<a name="visual_object_bounds"></a>
-# **visual_object_bounds**
-> visual_object_bounds(self, visual_object_bounds_request)
-
-Detect objects bounds and draw them on the original image
-
-### Return type
-
-**file**
-
-<a name="visual_object_bounds_async"></a>
-# **visual_object_bounds_async**
-> visual_object_bounds_async(self, visual_object_bounds_request)
-
-Detect objects bounds and draw them on the original image
-
-Performs operation asynchronously.
-
-### Return type
-
-**file**
-
-### VisualObjectBoundsRequest Parameters
-```python
-__init__(self, 
-    name, 
-    method=method, 
-    threshold=threshold, 
-    include_class=include_class, 
-    include_score=include_score, 
-    folder=folder, 
-    storage=storage)
-```
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **str**| The image features detector. | 
- **method** | **str**| Object detection method | [optional] [default to ssd]
- **threshold** | **int**| Object detection probability threshold in percents | [optional] [default to 50]
- **include_class** | **bool**| Draw detected objects classes | [optional] [default to true]
- **include_score** | **bool**| Draw detected objects scores | [optional] [default to true]
- **folder** | **str**| The folder. | [optional] 
- **storage** | **str**| The storage. | [optional] 
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 
