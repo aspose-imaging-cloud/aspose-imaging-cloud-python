@@ -27,7 +27,7 @@
 from setuptools import setup, find_packages
 
 NAME = "aspose-imaging-cloud"
-VERSION = "20.4.0"
+VERSION = "20.5.0"
 # To install the library, run the following
 #
 # python setup.py install
@@ -76,6 +76,16 @@ setup(
         "API",
         "SDK",
         "image",
+        "object detection",
+        "reverse search",
+        "image effects",
+        "filters",
+        "deskewing",
+        "resize",
+        "crop",
+        "rotate",
+        "convert",
+        "metadata"
         "bmp",
         "dicom",
         "dng",
@@ -102,9 +112,7 @@ setup(
         "cmx",
         "pdf",
         "svg",
-        "otg",
-        "reverse",
-        "search"],
+        "otg"],
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "test*"]),
     include_package_data=True,

@@ -40,9 +40,9 @@ from asposeimagingcloudexamples.filter_image import FilterImage
 from asposeimagingcloudexamples.grayscale_image import GrayscaleImage
 from asposeimagingcloudexamples.image_properties import ImageProperties
 from asposeimagingcloudexamples.imaging_base import ImagingBase
+from asposeimagingcloudexamples.multiframe_image import MultiframeImage
 from asposeimagingcloudexamples.resize_image import ResizeImage
 from asposeimagingcloudexamples.rotate_flip_image import RotateFlipImage
-from asposeimagingcloudexamples.tiff_frames import TiffFrames
 from asposeimagingcloudexamples.update_bmp_image import UpdateBmpImage
 from asposeimagingcloudexamples.update_emf_image import UpdateEmfImage
 from asposeimagingcloudexamples.update_gif_image import UpdateGifImage
@@ -150,33 +150,24 @@ def main():
         rotate_flip_image.rotate_flip_image_and_upload_to_storage()
         rotate_flip_image.create_rotate_flipped_image_from_request_body()
 
-        # TIFF Frames
-        tiff_frames = TiffFrames(api)
-        # Get a specified frame from existing TIFF image
-        tiff_frames.get_image_frame_from_storage()
-        # Get a specified frame from existing TIFF image, and upload the frame to Cloud Storage
-        tiff_frames.get_image_frame_and_upload_to_storage()
-        # Resize a TIFF frame
-        tiff_frames.resize_image_frame_from_storage()
-        # Crop a TIFF frame
-        tiff_frames.crop_image_frame_from_storage()
-        # RotateFlip a TIFF frame
-        tiff_frames.rotate_flip_image_frame_from_storage()
-        # Get other frames from existing TIFF image
-        tiff_frames.get_all_image_frames_from_storage()
-        # Get separate frame from existing TIFF image
-        tiff_frames.create_image_frame_from_request_body()
-        # Get separate frame properties of existing TIFF image
-        tiff_frames.get_image_frame_properties_from_storage()
-        # Get separate frame properties of existing TIFF image
-        tiff_frames.extract_image_frame_properties_from_request_body()
+        # Multiframe image
+        multiframe_image = MultiframeImage(api)
+        multiframe_image.get_image_frame_from_storage()
+        multiframe_image.get_image_frame_and_upload_to_storage()
+        multiframe_image.create_image_frame_from_request_body()
+        multiframe_image.get_image_frame_range_from_storage()
+        multiframe_image.get_image_frame_range_and_upload_to_storage()
+        multiframe_image.create_image_frame_range_from_request_body()
+        multiframe_image.get_image_frame_properties_from_storage()
+        multiframe_image.extract_image_frame_properties_from_request_body()
 
-        # # Update parameters of existing TIFF image
+        # Update parameters of existing TIFF image
         tiff_image = UpdateTiffImage(api)
         tiff_image.modify_tiff_from_storage()
         tiff_image.modify_tiff_and_upload_to_storage()
         tiff_image.create_modified_tiff_from_request_body()
         tiff_image.update_tiff_to_fax_from_storage()
+        tiff_image.convert_tiff_to_fax_from_request_body()
         tiff_image.append_tiff_from_storage()
 
         # Update parameters of existing BMP image
