@@ -41,6 +41,7 @@ from asposeimagingcloudexamples.grayscale_image import GrayscaleImage
 from asposeimagingcloudexamples.image_properties import ImageProperties
 from asposeimagingcloudexamples.imaging_base import ImagingBase
 from asposeimagingcloudexamples.multiframe_image import MultiframeImage
+from asposeimagingcloudexamples.object_detection_image import ObjectDetectionImage
 from asposeimagingcloudexamples.resize_image import ResizeImage
 from asposeimagingcloudexamples.rotate_flip_image import RotateFlipImage
 from asposeimagingcloudexamples.update_bmp_image import UpdateBmpImage
@@ -248,6 +249,14 @@ def main():
         find_similar_images.find_images_by_tag()
         find_similar_images.search_image_from_web_source()
         find_similar_images.delete_search_context()
+
+        #Object Detection
+        object_detection_image = ObjectDetectionImage(api)
+        object_detection_image.detect_objects_image_from_request_body()
+        object_detection_image.detect_objects_image_from_storage()
+        object_detection_image.visualize_detected_objects_image_from_storage()
+        object_detection_image.visualize_detect_objects_image_from_request_body()
+
     except Exception as e:
         print('Something goes wrong: ' + str(e))
         sys.exit(1)
