@@ -27,6 +27,7 @@
 from __future__ import absolute_import
 
 # import models into model package
+from asposeimagingcloud.models.available_labels_list import AvailableLabelsList
 from asposeimagingcloud.models.bmp_properties import BmpProperties
 from asposeimagingcloud.models.detected_object import DetectedObject
 from asposeimagingcloud.models.detected_object_list import DetectedObjectList

@@ -38,17 +38,21 @@ class GetObjectBoundsRequest(ImagingRequest):
     :param threshold Object detection probability threshold in percents
     :param include_label Return detected objects labels
     :param include_score Return detected objects score
+    :param allowed_labels Comma-separated list of allowed labels
+    :param blocked_labels Comma-separated list of blocked labels
     :param folder Folder
     :param storage Storage
     """
 
-    def __init__(self, name, method=None, threshold=None, include_label=None, include_score=None, folder=None, storage=None):
+    def __init__(self, name, method=None, threshold=None, include_label=None, include_score=None, allowed_labels=None, blocked_labels=None, folder=None, storage=None):
         ImagingRequest.__init__(self)
         self.name = name
         self.method = method
         self.threshold = threshold
         self.include_label = include_label
         self.include_score = include_score
+        self.allowed_labels = allowed_labels
+        self.blocked_labels = blocked_labels
         self.folder = folder
         self.storage = storage
 
@@ -92,6 +96,16 @@ class GetObjectBoundsRequest(ImagingRequest):
         else:
             if self.include_score is not None:
                 query_params.append((self._lowercase_first_letter('includeScore'), self.include_score))
+        if self._lowercase_first_letter('allowedLabels') in path:
+            path = path.replace('{' + self._lowercase_first_letter('allowedLabels' + '}'), self.allowed_labels if self.allowed_labels is not None else '')
+        else:
+            if self.allowed_labels is not None:
+                query_params.append((self._lowercase_first_letter('allowedLabels'), self.allowed_labels))
+        if self._lowercase_first_letter('blockedLabels') in path:
+            path = path.replace('{' + self._lowercase_first_letter('blockedLabels' + '}'), self.blocked_labels if self.blocked_labels is not None else '')
+        else:
+            if self.blocked_labels is not None:
+                query_params.append((self._lowercase_first_letter('blockedLabels'), self.blocked_labels))
         if self._lowercase_first_letter('folder') in path:
             path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
         else:

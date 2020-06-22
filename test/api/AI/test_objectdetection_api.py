@@ -44,7 +44,7 @@ class TestObjectDetectionApi(ImagingApiTester):
 
         def request_invoker():
             return self.imaging_api.get_visual_object_bounds(
-                requests.GetVisualObjectBoundsRequest(name, None, 20, True, True, "red",  folder,
+                requests.GetVisualObjectBoundsRequest(name, None, 20, True, True, "dog", None, "red",  folder,
                     storage))
 
         def properties_tester(
@@ -75,7 +75,7 @@ class TestObjectDetectionApi(ImagingApiTester):
 
         def request_invoker():
             return self.imaging_api.get_object_bounds(
-                requests.GetObjectBoundsRequest(name, None, 20, True, True,  folder,
+                requests.GetObjectBoundsRequest(name, None, 20, True, True, "dog", None, folder,
                     storage))
 
         def response_tester(bounds: DetectedObjectList):
@@ -115,7 +115,7 @@ class TestObjectDetectionApi(ImagingApiTester):
 
                 def request_invoker(input_stream, out_path):
                     req = requests.CreateVisualObjectBoundsRequest(
-                        input_stream, None, 20, True, True, None, out_path, storage)
+                        input_stream, None, 20, True, True, "dog", None, None, out_path, storage)
                     resp = self.imaging_api.create_visual_object_bounds(req)
                     return resp
 
@@ -157,7 +157,7 @@ class TestObjectDetectionApi(ImagingApiTester):
 
                 def request_invoker(input_stream, out_path):
                     req = requests.CreateObjectBoundsRequest(
-                        input_stream, None, 20, True, True, out_path, storage)
+                        input_stream, None, 20, True, True, "dog", None, out_path, storage)
                     resp = self.imaging_api.create_object_bounds(req)
                     return resp
 
@@ -187,3 +187,15 @@ class TestObjectDetectionApi(ImagingApiTester):
                         properties_tester,
                         folder,
                         storage)
+
+    def test_available_labels(self):
+        """ Test test_create_object_bounds"""
+        req = requests.GetAvailableLabelsRequest("ssd");
+        labels = self.imaging_api.get_available_labels(req);
+        self.assertIsNotNone(labels);
+        self.assertIsNotNone(labels.available_labels);
+        self.assertGreater(len(labels.available_labels), 0);
+        # self.assertIsNotNone(bounds.detected_objects[0].score);
+        # self.assertIsNotNone(bounds.detected_objects[0].label);
+        # self.assertIsNotNone(bounds.detected_objects[0].bounds);
+

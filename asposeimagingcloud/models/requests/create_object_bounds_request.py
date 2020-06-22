@@ -38,17 +38,21 @@ class CreateObjectBoundsRequest(ImagingRequest):
     :param threshold Object detection probability threshold in percents
     :param include_label Draw detected objects labels
     :param include_score Draw detected objects scores
+    :param allowed_labels Comma-separated list of allowed labels
+    :param blocked_labels Comma-separated list of blocked labels
     :param out_path Path to updated file (if this is empty, response contains streamed image)
     :param storage Your Aspose Cloud Storage name.
     """
 
-    def __init__(self, image_data, method=None, threshold=None, include_label=None, include_score=None, out_path=None, storage=None):
+    def __init__(self, image_data, method=None, threshold=None, include_label=None, include_score=None, allowed_labels=None, blocked_labels=None, out_path=None, storage=None):
         ImagingRequest.__init__(self)
         self.image_data = image_data
         self.method = method
         self.threshold = threshold
         self.include_label = include_label
         self.include_score = include_score
+        self.allowed_labels = allowed_labels
+        self.blocked_labels = blocked_labels
         self.out_path = out_path
         self.storage = storage
 
@@ -90,6 +94,16 @@ class CreateObjectBoundsRequest(ImagingRequest):
         else:
             if self.include_score is not None:
                 query_params.append((self._lowercase_first_letter('includeScore'), self.include_score))
+        if self._lowercase_first_letter('allowedLabels') in path:
+            path = path.replace('{' + self._lowercase_first_letter('allowedLabels' + '}'), self.allowed_labels if self.allowed_labels is not None else '')
+        else:
+            if self.allowed_labels is not None:
+                query_params.append((self._lowercase_first_letter('allowedLabels'), self.allowed_labels))
+        if self._lowercase_first_letter('blockedLabels') in path:
+            path = path.replace('{' + self._lowercase_first_letter('blockedLabels' + '}'), self.blocked_labels if self.blocked_labels is not None else '')
+        else:
+            if self.blocked_labels is not None:
+                query_params.append((self._lowercase_first_letter('blockedLabels'), self.blocked_labels))
         if self._lowercase_first_letter('outPath') in path:
             path = path.replace('{' + self._lowercase_first_letter('outPath' + '}'), self.out_path if self.out_path is not None else '')
         else:

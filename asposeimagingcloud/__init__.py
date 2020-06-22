@@ -33,6 +33,7 @@ from asposeimagingcloud.api.imaging_api import ImagingApi
 from asposeimagingcloud.api_client import ApiClient
 from asposeimagingcloud.configuration import Configuration
 # import models into sdk package
+from asposeimagingcloud.models.available_labels_list import AvailableLabelsList
 from asposeimagingcloud.models.bmp_properties import BmpProperties
 from asposeimagingcloud.models.detected_object import DetectedObject
 from asposeimagingcloud.models.detected_object_list import DetectedObjectList
@@ -133,6 +134,7 @@ from asposeimagingcloud.models.requests.filter_effect_image_request import Filte
 from asposeimagingcloud.models.requests.find_images_by_tags_request import FindImagesByTagsRequest
 from asposeimagingcloud.models.requests.find_image_duplicates_request import FindImageDuplicatesRequest
 from asposeimagingcloud.models.requests.find_similar_images_request import FindSimilarImagesRequest
+from asposeimagingcloud.models.requests.get_available_labels_request import GetAvailableLabelsRequest
 from asposeimagingcloud.models.requests.get_disc_usage_request import GetDiscUsageRequest
 from asposeimagingcloud.models.requests.get_files_list_request import GetFilesListRequest
 from asposeimagingcloud.models.requests.get_file_versions_request import GetFileVersionsRequest

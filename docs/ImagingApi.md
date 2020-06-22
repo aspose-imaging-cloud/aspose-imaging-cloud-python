@@ -1210,6 +1210,8 @@ __init__(self,
     threshold=threshold, 
     include_label=include_label, 
     include_score=include_score, 
+    allowed_labels=allowed_labels, 
+    blocked_labels=blocked_labels, 
     out_path=out_path, 
     storage=storage)
 ```
@@ -1221,6 +1223,8 @@ Name | Type | Description  | Notes
  **threshold** | **int**| Object detection probability threshold in percents | [optional] [default to 50]
  **include_label** | **bool**| Draw detected objects labels | [optional] [default to false]
  **include_score** | **bool**| Draw detected objects scores | [optional] [default to false]
+ **allowed_labels** | **str**| Comma-separated list of allowed labels | [optional] [default to ]
+ **blocked_labels** | **str**| Comma-separated list of blocked labels | [optional] [default to ]
  **out_path** | **str**| Path to updated file (if this is empty, response contains streamed image) | [optional] 
  **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
 
@@ -1436,6 +1440,8 @@ __init__(self,
     threshold=threshold, 
     include_label=include_label, 
     include_score=include_score, 
+    allowed_labels=allowed_labels, 
+    blocked_labels=blocked_labels, 
     color=color, 
     out_path=out_path, 
     storage=storage)
@@ -1448,6 +1454,8 @@ Name | Type | Description  | Notes
  **threshold** | **int**| Object detection probability threshold in percents | [optional] [default to 50]
  **include_label** | **bool**| Draw detected objects classes | [optional] [default to false]
  **include_score** | **bool**| Draw detected objects scores | [optional] [default to false]
+ **allowed_labels** | **str**| Comma-separated list of allowed labels | [optional] [default to ]
+ **blocked_labels** | **str**| Comma-separated list of blocked labels | [optional] [default to ]
  **color** | **str**| Bounds, labels, and scores text color | [optional] 
  **out_path** | **str**| Path to updated file (if this is empty, response contains streamed image) | [optional] 
  **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
@@ -2102,6 +2110,40 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 
+<a name="get_available_labels"></a>
+# **get_available_labels**
+> get_available_labels(self, get_available_labels_request)
+
+Detects objects bounds and draw them on the original image
+
+### Return type
+
+[**AvailableLabelsList**](AvailableLabelsList.md)
+
+<a name="get_available_labels_async"></a>
+# **get_available_labels_async**
+> get_available_labels_async(self, get_available_labels_request)
+
+Detects objects bounds and draw them on the original image
+
+Performs operation asynchronously.
+
+### Return type
+
+[**AvailableLabelsList**](AvailableLabelsList.md)
+
+### GetAvailableLabelsRequest Parameters
+```python
+__init__(self, 
+    method)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **method** | **str**| Object detection method | 
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
 <a name="get_disc_usage"></a>
 # **get_disc_usage**
 > get_disc_usage(self, get_disc_usage_request)
@@ -2508,6 +2550,8 @@ __init__(self,
     threshold=threshold, 
     include_label=include_label, 
     include_score=include_score, 
+    allowed_labels=allowed_labels, 
+    blocked_labels=blocked_labels, 
     folder=folder, 
     storage=storage)
 ```
@@ -2519,6 +2563,8 @@ Name | Type | Description  | Notes
  **threshold** | **int**| Object detection probability threshold in percents | [optional] [default to 50]
  **include_label** | **bool**| Return detected objects labels | [optional] [default to false]
  **include_score** | **bool**| Return detected objects score | [optional] [default to false]
+ **allowed_labels** | **str**| Comma-separated list of allowed labels | [optional] [default to ]
+ **blocked_labels** | **str**| Comma-separated list of blocked labels | [optional] [default to ]
  **folder** | **str**| Folder | [optional] 
  **storage** | **str**| Storage | [optional] 
 
@@ -2594,6 +2640,8 @@ __init__(self,
     threshold=threshold, 
     include_label=include_label, 
     include_score=include_score, 
+    allowed_labels=allowed_labels, 
+    blocked_labels=blocked_labels, 
     color=color, 
     folder=folder, 
     storage=storage)
@@ -2606,6 +2654,8 @@ Name | Type | Description  | Notes
  **threshold** | **int**| Object detection probability threshold in percents | [optional] [default to 50]
  **include_label** | **bool**| Draw detected objects labels | [optional] [default to false]
  **include_score** | **bool**| Draw detected objects scores | [optional] [default to false]
+ **allowed_labels** | **str**| Comma-separated list of allowed labels | [optional] [default to ]
+ **blocked_labels** | **str**| Comma-separated list of blocked labels | [optional] [default to ]
  **color** | **str**| Bounds, labels, and scores text color | [optional] 
  **folder** | **str**| The folder. | [optional] 
  **storage** | **str**| The storage. | [optional] 

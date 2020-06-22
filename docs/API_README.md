@@ -100,6 +100,8 @@ Class | Method | HTTP request | Description
 *ImagingApi* | [**find_images_by_tags_async**](ImagingApi.md#find_images_by_tags_async) | **POST** /imaging/ai/imageSearch/{searchContextId}/findByTags | Find images by tags. Tags JSON string is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**find_similar_images**](ImagingApi.md#find_similar_images) | **GET** /imaging/ai/imageSearch/{searchContextId}/findSimilar | Find similar images. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**find_similar_images_async**](ImagingApi.md#find_similar_images_async) | **GET** /imaging/ai/imageSearch/{searchContextId}/findSimilar | Find similar images. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
+*ImagingApi* | [**get_available_labels**](ImagingApi.md#get_available_labels) | **GET** /imaging/ai/objectdetection/availablelabels/{method} | Detects objects bounds and draw them on the original image
+*ImagingApi* | [**get_available_labels_async**](ImagingApi.md#get_available_labels_async) | **GET** /imaging/ai/objectdetection/availablelabels/{method} | Detects objects bounds and draw them on the original image
 *ImagingApi* | [**get_disc_usage**](ImagingApi.md#get_disc_usage) | **GET** /imaging/storage/disc | Get disc usage
 *ImagingApi* | [**get_disc_usage_async**](ImagingApi.md#get_disc_usage_async) | **GET** /imaging/storage/disc | Get disc usage
 *ImagingApi* | [**get_file_versions**](ImagingApi.md#get_file_versions) | **GET** /imaging/storage/version/{path} | Get file versions
@@ -172,6 +174,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [asposeimagingcloud.models.AvailableLabelsList](AvailableLabelsList.md)
  - [asposeimagingcloud.models.BmpProperties](BmpProperties.md)
  - [asposeimagingcloud.models.DetectedObject](DetectedObject.md)
  - [asposeimagingcloud.models.DetectedObjectList](DetectedObjectList.md)
