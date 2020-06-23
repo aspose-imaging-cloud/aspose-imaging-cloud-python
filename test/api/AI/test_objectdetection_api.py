@@ -189,13 +189,16 @@ class TestObjectDetectionApi(ImagingApiTester):
                         storage)
 
     def test_available_labels(self):
-        """ Test test_create_object_bounds"""
-        req = requests.GetAvailableLabelsRequest("ssd");
-        labels = self.imaging_api.get_available_labels(req);
-        self.assertIsNotNone(labels);
-        self.assertIsNotNone(labels.available_labels);
-        self.assertGreater(len(labels.available_labels), 0);
-        # self.assertIsNotNone(bounds.detected_objects[0].score);
-        # self.assertIsNotNone(bounds.detected_objects[0].label);
-        # self.assertIsNotNone(bounds.detected_objects[0].bounds);
-
+        try:
+            print("test_available_labels")
+            req = requests.GetAvailableLabelsRequest("ssd");
+            labels = self.imaging_api.get_available_labels(req);
+            self.assertIsNotNone(labels);
+            self.assertIsNotNone(labels.available_labels);
+            self.assertGreater(len(labels.available_labels), 0);
+            print("test passed: true")
+        except Exception as e:
+            self.failed_any_test = True
+            print("test passed: false")
+            print(str(e))
+            raise
