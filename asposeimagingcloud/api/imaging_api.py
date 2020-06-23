@@ -1031,7 +1031,7 @@ class ImagingApi(object):
         return self.__make_request(http_request, 'GET', 'AvailableLabelsList')
 
     def get_available_labels_async(self, request):
-        self.list_ = """Detects objects bounds and draw them on the original image
+        """Detects objects bounds and draw them on the original image
 
 
         :param request get_available_labels_request object with parameters
