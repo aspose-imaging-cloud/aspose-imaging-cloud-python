@@ -1,6 +1,6 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
-#  <copyright company="Aspose" file="create_saved_image_as_request.py">
+#  <copyright company="Aspose" file="create_converted_image_request.py">
 #    Copyright (c) 2018-2020 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
@@ -28,18 +28,20 @@ from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
 from asposeimagingcloud.models.requests.http_request import HttpRequest
 
 
-class CreateSavedImageAsRequest(ImagingRequest):
+class CreateConvertedImageRequest(ImagingRequest):
     """
-    Request model for create_saved_image_as operation.
+    Request model for create_converted_image operation.
     Initializes a new instance.
 
+    :param image_data Input image
     :param format Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases.
     :param out_path Path to updated file (if this is empty, response contains streamed image).
     :param storage Your Aspose Cloud Storage name.
     """
 
-    def __init__(self, format, out_path=None, storage=None):
+    def __init__(self, image_data, format, out_path=None, storage=None):
         ImagingRequest.__init__(self)
+        self.image_data = image_data
         self.format = format
         self.out_path = out_path
         self.storage = storage
@@ -53,12 +55,15 @@ class CreateSavedImageAsRequest(ImagingRequest):
         :return: http_request configured http request
         :rtype: Configuration.models.requests.HttpRequest
         """
+        # verify the required parameter 'image_data' is set
+        if self.image_data is None:
+            raise ValueError("Missing the required parameter `image_data` when calling `create_converted_image`")
         # verify the required parameter 'format' is set
         if self.format is None:
-            raise ValueError("Missing the required parameter `format` when calling `create_saved_image_as`")
+            raise ValueError("Missing the required parameter `format` when calling `create_converted_image`")
 
         collection_formats = {}
-        path = '/imaging/saveAs'
+        path = '/imaging/convert'
         path_params = {}
 
         query_params = []
@@ -82,6 +87,8 @@ class CreateSavedImageAsRequest(ImagingRequest):
 
         form_params = []
         local_var_files = []
+        if self.image_data is not None:
+            local_var_files.append((self._lowercase_first_letter('imageData'), self.image_data))
 
         body_params = None
 
@@ -91,7 +98,7 @@ class CreateSavedImageAsRequest(ImagingRequest):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = 'multipart/form-data' if form_params else self._select_header_content_type(
-            ['application/json'])
+            ['multipart/form-data'])
 
         # Authentication setting
         auth_settings = ['JWT']

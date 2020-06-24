@@ -10,12 +10,16 @@ Class | Method | HTTP request | Description
 *ImagingApi* | [**append_tiff_async**](ImagingApi.md#append_tiff_async) | **POST** /imaging/tiff/{name}/appendTiff | Appends existing TIFF image to another existing TIFF image (i.e. merges TIFF images).
 *ImagingApi* | [**compare_images**](ImagingApi.md#compare_images) | **POST** /imaging/ai/imageSearch/{searchContextId}/compare | Compare two images. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**compare_images_async**](ImagingApi.md#compare_images_async) | **POST** /imaging/ai/imageSearch/{searchContextId}/compare | Compare two images. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
+*ImagingApi* | [**convert_image**](ImagingApi.md#convert_image) | **GET** /imaging/{name}/convert | Convert existing image to another format.
+*ImagingApi* | [**convert_image_async**](ImagingApi.md#convert_image_async) | **GET** /imaging/{name}/convert | Convert existing image to another format.
 *ImagingApi* | [**convert_tiff_to_fax**](ImagingApi.md#convert_tiff_to_fax) | **GET** /imaging/tiff/{name}/toFax | Update parameters of existing TIFF image accordingly to fax parameters.
 *ImagingApi* | [**convert_tiff_to_fax_async**](ImagingApi.md#convert_tiff_to_fax_async) | **GET** /imaging/tiff/{name}/toFax | Update parameters of existing TIFF image accordingly to fax parameters.
 *ImagingApi* | [**copy_file**](ImagingApi.md#copy_file) | **PUT** /imaging/storage/file/copy/{srcPath} | Copy file
 *ImagingApi* | [**copy_file_async**](ImagingApi.md#copy_file_async) | **PUT** /imaging/storage/file/copy/{srcPath} | Copy file
 *ImagingApi* | [**copy_folder**](ImagingApi.md#copy_folder) | **PUT** /imaging/storage/folder/copy/{srcPath} | Copy folder
 *ImagingApi* | [**copy_folder_async**](ImagingApi.md#copy_folder_async) | **PUT** /imaging/storage/folder/copy/{srcPath} | Copy folder
+*ImagingApi* | [**create_converted_image**](ImagingApi.md#create_converted_image) | **POST** /imaging/convert | Convert existing image to another format. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.             
+*ImagingApi* | [**create_converted_image_async**](ImagingApi.md#create_converted_image_async) | **POST** /imaging/convert | Convert existing image to another format. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.             
 *ImagingApi* | [**create_cropped_image**](ImagingApi.md#create_cropped_image) | **POST** /imaging/crop | Crop an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_cropped_image_async**](ImagingApi.md#create_cropped_image_async) | **POST** /imaging/crop | Crop an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_deskewed_image**](ImagingApi.md#create_deskewed_image) | **POST** /imaging/deskew | Deskew an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
