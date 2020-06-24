@@ -10,12 +10,16 @@ Class | Method | HTTP request | Description
 *ImagingApi* | [**append_tiff_async**](ImagingApi.md#append_tiff_async) | **POST** /imaging/tiff/{name}/appendTiff | Appends existing TIFF image to another existing TIFF image (i.e. merges TIFF images).
 *ImagingApi* | [**compare_images**](ImagingApi.md#compare_images) | **POST** /imaging/ai/imageSearch/{searchContextId}/compare | Compare two images. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**compare_images_async**](ImagingApi.md#compare_images_async) | **POST** /imaging/ai/imageSearch/{searchContextId}/compare | Compare two images. Image data may be passed as zero-indexed multipart/form-data content or as raw body stream.
+*ImagingApi* | [**convert_image**](ImagingApi.md#convert_image) | **GET** /imaging/{name}/convert | Convert existing image to another format.
+*ImagingApi* | [**convert_image_async**](ImagingApi.md#convert_image_async) | **GET** /imaging/{name}/convert | Convert existing image to another format.
 *ImagingApi* | [**convert_tiff_to_fax**](ImagingApi.md#convert_tiff_to_fax) | **GET** /imaging/tiff/{name}/toFax | Update parameters of existing TIFF image accordingly to fax parameters.
 *ImagingApi* | [**convert_tiff_to_fax_async**](ImagingApi.md#convert_tiff_to_fax_async) | **GET** /imaging/tiff/{name}/toFax | Update parameters of existing TIFF image accordingly to fax parameters.
 *ImagingApi* | [**copy_file**](ImagingApi.md#copy_file) | **PUT** /imaging/storage/file/copy/{srcPath} | Copy file
 *ImagingApi* | [**copy_file_async**](ImagingApi.md#copy_file_async) | **PUT** /imaging/storage/file/copy/{srcPath} | Copy file
 *ImagingApi* | [**copy_folder**](ImagingApi.md#copy_folder) | **PUT** /imaging/storage/folder/copy/{srcPath} | Copy folder
 *ImagingApi* | [**copy_folder_async**](ImagingApi.md#copy_folder_async) | **PUT** /imaging/storage/folder/copy/{srcPath} | Copy folder
+*ImagingApi* | [**create_converted_image**](ImagingApi.md#create_converted_image) | **POST** /imaging/convert | Convert existing image to another format. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.             
+*ImagingApi* | [**create_converted_image_async**](ImagingApi.md#create_converted_image_async) | **POST** /imaging/convert | Convert existing image to another format. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.             
 *ImagingApi* | [**create_cropped_image**](ImagingApi.md#create_cropped_image) | **POST** /imaging/crop | Crop an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_cropped_image_async**](ImagingApi.md#create_cropped_image_async) | **POST** /imaging/crop | Crop an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_deskewed_image**](ImagingApi.md#create_deskewed_image) | **POST** /imaging/deskew | Deskew an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
@@ -62,8 +66,6 @@ Class | Method | HTTP request | Description
 *ImagingApi* | [**create_resized_image_async**](ImagingApi.md#create_resized_image_async) | **POST** /imaging/resize | Resize an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_rotate_flipped_image**](ImagingApi.md#create_rotate_flipped_image) | **POST** /imaging/rotateflip | Rotate and/or flip an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_rotate_flipped_image_async**](ImagingApi.md#create_rotate_flipped_image_async) | **POST** /imaging/rotateflip | Rotate and/or flip an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
-*ImagingApi* | [**create_saved_image_as**](ImagingApi.md#create_saved_image_as) | **POST** /imaging/saveAs | Export existing image to another format. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.             
-*ImagingApi* | [**create_saved_image_as_async**](ImagingApi.md#create_saved_image_as_async) | **POST** /imaging/saveAs | Export existing image to another format. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.             
 *ImagingApi* | [**create_updated_image**](ImagingApi.md#create_updated_image) | **POST** /imaging/updateImage | Perform scaling, cropping and flipping of an image in a single request. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_updated_image_async**](ImagingApi.md#create_updated_image_async) | **POST** /imaging/updateImage | Perform scaling, cropping and flipping of an image in a single request. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**create_visual_object_bounds**](ImagingApi.md#create_visual_object_bounds) | **POST** /imaging/ai/objectdetection/visualbounds | Detects objects bounds and draw them on the original image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream
@@ -156,8 +158,6 @@ Class | Method | HTTP request | Description
 *ImagingApi* | [**resize_image_async**](ImagingApi.md#resize_image_async) | **GET** /imaging/{name}/resize | Resize an existing image.
 *ImagingApi* | [**rotate_flip_image**](ImagingApi.md#rotate_flip_image) | **GET** /imaging/{name}/rotateflip | Rotate and/or flip an existing image.
 *ImagingApi* | [**rotate_flip_image_async**](ImagingApi.md#rotate_flip_image_async) | **GET** /imaging/{name}/rotateflip | Rotate and/or flip an existing image.
-*ImagingApi* | [**save_image_as**](ImagingApi.md#save_image_as) | **GET** /imaging/{name}/saveAs | Export existing image to another format.
-*ImagingApi* | [**save_image_as_async**](ImagingApi.md#save_image_as_async) | **GET** /imaging/{name}/saveAs | Export existing image to another format.
 *ImagingApi* | [**storage_exists**](ImagingApi.md#storage_exists) | **GET** /imaging/storage/{storageName}/exist | Check if storage exists
 *ImagingApi* | [**storage_exists_async**](ImagingApi.md#storage_exists_async) | **GET** /imaging/storage/{storageName}/exist | Check if storage exists
 *ImagingApi* | [**update_image**](ImagingApi.md#update_image) | **GET** /imaging/{name}/updateImage | Perform scaling, cropping and flipping of an existing image in a single request.

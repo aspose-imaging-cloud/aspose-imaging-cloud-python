@@ -1,6 +1,6 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
-#  <copyright company="Aspose" file="create_saved_image_as_request.py">
+#  <copyright company="Aspose" file="convert_image_request.py">
 #    Copyright (c) 2018-2020 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
@@ -28,22 +28,22 @@ from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
 from asposeimagingcloud.models.requests.http_request import HttpRequest
 
 
-class CreateSavedImageAsRequest(ImagingRequest):
+class ConvertImageRequest(ImagingRequest):
     """
-    Request model for create_saved_image_as operation.
+    Request model for convert_image operation.
     Initializes a new instance.
 
-    :param image_data Input image
+    :param name Filename of image.
     :param format Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases.
-    :param out_path Path to updated file (if this is empty, response contains streamed image).
+    :param folder Folder with image to process.
     :param storage Your Aspose Cloud Storage name.
     """
 
-    def __init__(self, image_data, format, out_path=None, storage=None):
+    def __init__(self, name, format, folder=None, storage=None):
         ImagingRequest.__init__(self)
-        self.image_data = image_data
+        self.name = name
         self.format = format
-        self.out_path = out_path
+        self.folder = folder
         self.storage = storage
 
     def to_http_info(self, config):
@@ -55,16 +55,18 @@ class CreateSavedImageAsRequest(ImagingRequest):
         :return: http_request configured http request
         :rtype: Configuration.models.requests.HttpRequest
         """
-        # verify the required parameter 'image_data' is set
-        if self.image_data is None:
-            raise ValueError("Missing the required parameter `image_data` when calling `create_saved_image_as`")
+        # verify the required parameter 'name' is set
+        if self.name is None:
+            raise ValueError("Missing the required parameter `name` when calling `convert_image`")
         # verify the required parameter 'format' is set
         if self.format is None:
-            raise ValueError("Missing the required parameter `format` when calling `create_saved_image_as`")
+            raise ValueError("Missing the required parameter `format` when calling `convert_image`")
 
         collection_formats = {}
-        path = '/imaging/saveAs'
+        path = '/imaging/{name}/convert'
         path_params = {}
+        if self.name is not None:
+            path_params[self._lowercase_first_letter('name')] = self.name
 
         query_params = []
         if self._lowercase_first_letter('format') in path:
@@ -72,11 +74,11 @@ class CreateSavedImageAsRequest(ImagingRequest):
         else:
             if self.format is not None:
                 query_params.append((self._lowercase_first_letter('format'), self.format))
-        if self._lowercase_first_letter('outPath') in path:
-            path = path.replace('{' + self._lowercase_first_letter('outPath' + '}'), self.out_path if self.out_path is not None else '')
+        if self._lowercase_first_letter('folder') in path:
+            path = path.replace('{' + self._lowercase_first_letter('folder' + '}'), self.folder if self.folder is not None else '')
         else:
-            if self.out_path is not None:
-                query_params.append((self._lowercase_first_letter('outPath'), self.out_path))
+            if self.folder is not None:
+                query_params.append((self._lowercase_first_letter('folder'), self.folder))
         if self._lowercase_first_letter('storage') in path:
             path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
         else:
@@ -87,8 +89,6 @@ class CreateSavedImageAsRequest(ImagingRequest):
 
         form_params = []
         local_var_files = []
-        if self.image_data is not None:
-            local_var_files.append((self._lowercase_first_letter('imageData'), self.image_data))
 
         body_params = None
 
@@ -98,7 +98,7 @@ class CreateSavedImageAsRequest(ImagingRequest):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = 'multipart/form-data' if form_params else self._select_header_content_type(
-            ['multipart/form-data'])
+            ['application/json'])
 
         # Authentication setting
         auth_settings = ['JWT']
