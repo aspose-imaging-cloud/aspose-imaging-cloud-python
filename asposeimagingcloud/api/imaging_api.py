@@ -1020,6 +1020,26 @@ class ImagingApi(object):
         http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request_async(http_request, 'GET', 'SearchResultsSet')
 
+    def get_available_labels(self, request):
+        """Detects objects bounds and draw them on the original image
+
+
+        :param request get_available_labels_request object with parameters
+        :return: AvailableLabelsList
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'GET', 'AvailableLabelsList')
+
+    def get_available_labels_async(self, request):
+        """Detects objects bounds and draw them on the original image
+
+
+        :param request get_available_labels_request object with parameters
+        :return: AvailableLabelsList
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'GET', 'AvailableLabelsList')
+
     def get_disc_usage(self, request):
         """Get disc usage
 
