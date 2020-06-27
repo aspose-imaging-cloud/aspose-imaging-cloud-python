@@ -120,6 +120,26 @@ class ImagingApi(object):
         http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request_async(http_request, 'POST', 'SearchResultsSet')
 
+    def convert_image(self, request):
+        """Convert existing image to another format.
+
+
+        :param request convert_image_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'GET', 'file')
+
+    def convert_image_async(self, request):
+        """Convert existing image to another format.
+
+
+        :param request convert_image_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'GET', 'file')
+
     def convert_tiff_to_fax(self, request):
         """Update parameters of existing TIFF image accordingly to fax parameters.
 
@@ -179,6 +199,26 @@ class ImagingApi(object):
         """
         http_request = request.to_http_info(self.api_client.configuration)
         return self.__make_request_async(http_request, 'PUT', None)
+
+    def create_converted_image(self, request):
+        """Convert existing image to another format. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.             
+
+
+        :param request create_converted_image_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request(http_request, 'POST', 'file')
+
+    def create_converted_image_async(self, request):
+        """Convert existing image to another format. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.             
+
+
+        :param request create_converted_image_request object with parameters
+        :return: file
+        """
+        http_request = request.to_http_info(self.api_client.configuration)
+        return self.__make_request_async(http_request, 'POST', 'file')
 
     def create_cropped_image(self, request):
         """Crop an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
@@ -635,26 +675,6 @@ class ImagingApi(object):
 
 
         :param request create_rotate_flipped_image_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'POST', 'file')
-
-    def create_saved_image_as(self, request):
-        """Export existing image to another format. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.             
-
-
-        :param request create_saved_image_as_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'POST', 'file')
-
-    def create_saved_image_as_async(self, request):
-        """Export existing image to another format. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.             
-
-
-        :param request create_saved_image_as_request object with parameters
         :return: file
         """
         http_request = request.to_http_info(self.api_client.configuration)
@@ -1595,26 +1615,6 @@ class ImagingApi(object):
 
 
         :param request rotate_flip_image_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request_async(http_request, 'GET', 'file')
-
-    def save_image_as(self, request):
-        """Export existing image to another format.
-
-
-        :param request save_image_as_request object with parameters
-        :return: file
-        """
-        http_request = request.to_http_info(self.api_client.configuration)
-        return self.__make_request(http_request, 'GET', 'file')
-
-    def save_image_as_async(self, request):
-        """Export existing image to another format.
-
-
-        :param request save_image_as_request object with parameters
         :return: file
         """
         http_request = request.to_http_info(self.api_client.configuration)

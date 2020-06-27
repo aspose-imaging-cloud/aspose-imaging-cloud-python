@@ -1,6 +1,6 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
-#  <copyright company="Aspose" file="test_save_as_api.py">
+#  <copyright company="Aspose" file="test_convert_api.py">
 #    Copyright (c) 2019 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
@@ -30,12 +30,12 @@ import asposeimagingcloud.models.requests as requests
 from test.api import ImagingApiTester
 
 
-class TestSaveAsApi(ImagingApiTester):
-    """ Class for testing SaveAsAPI """
+class TestConvertApi(ImagingApiTester):
+    """ Class for testing ConvertAPI """
 
-    def test_save_image_as(self):
+    def test_convert_image(self):
         """
-        Performs SaveAs (export to another format) operation test with GET
+        Performs Convert (export to another format) operation test with GET
         method, taking input data from storage
         """
 
@@ -64,8 +64,8 @@ class TestSaveAsApi(ImagingApiTester):
                     self.basic_export_formats).union(additional_export_formats)
 
                 def request_invoker():
-                    return self.imaging_api.save_image_as(
-                        requests.SaveImageAsRequest(
+                    return self.imaging_api.convert_image(
+                        requests.ConvertImageRequest(
                             name, format, folder, storage))
 
                 for input_file in self.basic_input_test_files:
@@ -77,7 +77,7 @@ class TestSaveAsApi(ImagingApiTester):
                     for format in formats_to_export:
 
                         self.get_request_tester(
-                            'SaveImageAsTest',
+                            'ConvertImageTest',
                             'Input image: {0}; Output format: {1}'.format(
                                 name,
                                 format),
@@ -89,9 +89,9 @@ class TestSaveAsApi(ImagingApiTester):
                             folder,
                             storage)
 
-    def test_create_saved_image_as(self):
+    def test_create_converted_image(self):
         """
-        Performs SaveAs (export to another format) operation test with POST
+        Performs Convert (export to another format) operation test with POST
         method, sending input data in request stream.
         """
 
@@ -131,8 +131,8 @@ class TestSaveAsApi(ImagingApiTester):
                     if out_path:
                         kwargs["out_path"] = out_path
 
-                    return self.imaging_api.create_saved_image_as(
-                        requests.CreateSavedImageAsRequest(
+                    return self.imaging_api.create_converted_image(
+                        requests.CreateConvertedImageRequest(
                             input_stream, format, out_path, storage))
 
                 for input_file in self.basic_input_test_files:
@@ -145,7 +145,7 @@ class TestSaveAsApi(ImagingApiTester):
                         out_name = '{0}.{1}'.format(name, format)
 
                         self.post_request_tester(
-                            'CreateSavedImageAsTest',
+                            'CreateConvertedImageTest',
                             save_result_to_storage,
                             'Input image: {0}; Output format: {1}'.format(
                                 name,
