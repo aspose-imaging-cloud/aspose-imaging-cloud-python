@@ -30,7 +30,7 @@ import six
 
 
 class AvailableLabelsList(object):
-    """
+    """AvailableLabelsList
     """
 
     """
