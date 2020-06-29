@@ -50,12 +50,13 @@ class ObjectDetectionImage(ImagingBase):
         threshold = 50
         includeLabel = True
         includeScore = True
-
+        allowedLabels = "cat"
+        blockedLabels = "dog"
         folder = ImagingBase.CLOUD_PATH  # Input file is saved at the Examples folder in the storage
         storage = None  # We are using default Cloud Storage
 
         request = requests.GetObjectBoundsRequest(self._get_sample_image_file_name(), method, threshold,
-                                               includeLabel, includeScore, folder, storage)
+                                               includeLabel, includeScore, allowedLabels, blockedLabels, folder, storage)
 
         print('Call ObjectBoundsRequest with params: method: {0}, threshold: {1}, includeLabel: {2}, includeScore: {3}'.format(method, threshold, includeLabel, includeScore))
 
@@ -74,12 +75,14 @@ class ObjectDetectionImage(ImagingBase):
         includeLabel = True
         color = 'blue'
         includeScore = True
+        allowedLabels = "cat"
+        blockedLabels = "dog"
 
         folder = ImagingBase.CLOUD_PATH  # Input file is saved at the Examples folder in the storage
         storage = None  # We are using default Cloud Storage
 
         request = requests.GetVisualObjectBoundsRequest(self._get_sample_image_file_name(), method, threshold,
-                                               includeLabel, includeScore, color, folder, storage)
+                                               includeLabel, includeScore, allowedLabels, blockedLabels, color, folder, storage)
 
         print('Call VisualObjectBoundsRequest with params: method: {0}, threshold: {1}, includeLabel: {2}, includeScore: {3}, color: {4}'.format(method, threshold, includeLabel, includeScore, color))
 
@@ -96,12 +99,14 @@ class ObjectDetectionImage(ImagingBase):
         threshold = 50
         includeLabel = True
         includeScore = True
+        allowedLabels = "cat"
+        blockedLabels = "dog"
         input_stream = os.path.join(ImagingBase.EXAMPLE_IMAGES_FOLDER, self._get_sample_image_file_name())
         outPath = None
         storage = None  # We are using default Cloud Storage
 
         request = requests.CreateObjectBoundsRequest(input_stream, method, threshold,
-                                               includeLabel, includeScore, outPath, storage)
+                                               includeLabel, includeScore, allowedLabels, blockedLabels, outPath, storage)
 
         print('Call CreateObjectBoundsRequest with params: method: {0}, threshold: {1}, includeLabel: {2}, includeScore: {3}'.format(method, threshold, includeLabel, includeScore))
 
@@ -118,13 +123,15 @@ class ObjectDetectionImage(ImagingBase):
         threshold = 50
         includeLabel = True
         includeScore = True
+        allowedLabels = "cat"
+        blockedLabels = "dog"
         color = None
         input_stream = os.path.join(ImagingBase.EXAMPLE_IMAGES_FOLDER, self._get_sample_image_file_name())
         outPath = None
         storage = None  # We are using default Cloud Storage
 
         request = requests.CreateVisualObjectBoundsRequest(input_stream, method, threshold,
-                                               includeLabel, includeScore, color, outPath, storage)
+                                               includeLabel, includeScore, allowedLabels, blockedLabels, color, outPath, storage)
 
         print('Call CreateVisualObjectBoundsRequest with params: method: {0}, threshold: {1}, includeLabel: {2}, includeScore: {3}, color: {4}'.format(method, threshold, includeLabel, includeScore, color))
 
