@@ -1,6 +1,6 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
-#  <copyright company="Aspose" file="create_saved_image_as_request.py">
+#  <copyright company="Aspose" file="get_available_labels_request.py">
 #    Copyright (c) 2018-2020 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
@@ -28,23 +28,17 @@ from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
 from asposeimagingcloud.models.requests.http_request import HttpRequest
 
 
-class CreateSavedImageAsRequest(ImagingRequest):
+class GetAvailableLabelsRequest(ImagingRequest):
     """
-    Request model for create_saved_image_as operation.
+    Request model for get_available_labels operation.
     Initializes a new instance.
 
-    :param image_data Input image
-    :param format Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases.
-    :param out_path Path to updated file (if this is empty, response contains streamed image).
-    :param storage Your Aspose Cloud Storage name.
+    :param method Object detection method
     """
 
-    def __init__(self, image_data, format, out_path=None, storage=None):
+    def __init__(self, method):
         ImagingRequest.__init__(self)
-        self.image_data = image_data
-        self.format = format
-        self.out_path = out_path
-        self.storage = storage
+        self.method = method
 
     def to_http_info(self, config):
         """
@@ -55,40 +49,22 @@ class CreateSavedImageAsRequest(ImagingRequest):
         :return: http_request configured http request
         :rtype: Configuration.models.requests.HttpRequest
         """
-        # verify the required parameter 'image_data' is set
-        if self.image_data is None:
-            raise ValueError("Missing the required parameter `image_data` when calling `create_saved_image_as`")
-        # verify the required parameter 'format' is set
-        if self.format is None:
-            raise ValueError("Missing the required parameter `format` when calling `create_saved_image_as`")
+        # verify the required parameter 'method' is set
+        if self.method is None:
+            raise ValueError("Missing the required parameter `method` when calling `get_available_labels`")
 
         collection_formats = {}
-        path = '/imaging/saveAs'
+        path = '/imaging/ai/objectdetection/availablelabels/{method}'
         path_params = {}
+        if self.method is not None:
+            path_params[self._lowercase_first_letter('method')] = self.method
 
         query_params = []
-        if self._lowercase_first_letter('format') in path:
-            path = path.replace('{' + self._lowercase_first_letter('format' + '}'), self.format if self.format is not None else '')
-        else:
-            if self.format is not None:
-                query_params.append((self._lowercase_first_letter('format'), self.format))
-        if self._lowercase_first_letter('outPath') in path:
-            path = path.replace('{' + self._lowercase_first_letter('outPath' + '}'), self.out_path if self.out_path is not None else '')
-        else:
-            if self.out_path is not None:
-                query_params.append((self._lowercase_first_letter('outPath'), self.out_path))
-        if self._lowercase_first_letter('storage') in path:
-            path = path.replace('{' + self._lowercase_first_letter('storage' + '}'), self.storage if self.storage is not None else '')
-        else:
-            if self.storage is not None:
-                query_params.append((self._lowercase_first_letter('storage'), self.storage))
 
         header_params = {}
 
         form_params = []
         local_var_files = []
-        if self.image_data is not None:
-            local_var_files.append((self._lowercase_first_letter('imageData'), self.image_data))
 
         body_params = None
 
@@ -98,7 +74,7 @@ class CreateSavedImageAsRequest(ImagingRequest):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = 'multipart/form-data' if form_params else self._select_header_content_type(
-            ['multipart/form-data'])
+            ['application/json'])
 
         # Authentication setting
         auth_settings = ['JWT']

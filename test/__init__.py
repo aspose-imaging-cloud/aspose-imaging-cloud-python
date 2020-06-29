@@ -48,7 +48,7 @@ from test.api.test_jpg_api import TestJpgApi
 from test.api.test_psd_api import TestPsdApi
 from test.api.test_resize_api import TestResizeApi
 from test.api.test_rotate_flip_api import TestRotateFlipApi
-from test.api.test_save_as_api import TestSaveAsApi
+from test.api.test_convert_api import TestConvertApi
 from test.api.test_svg_api import TestSvgApi
 from test.api.test_tiff_api import TestTiffApi
 from test.api.test_update_image_api import TestUpdateImageApi

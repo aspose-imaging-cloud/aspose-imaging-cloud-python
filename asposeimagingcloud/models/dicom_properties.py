@@ -51,8 +51,6 @@ class DicomProperties(object):
         'samples_per_pixel': 'int',
         'bits_allocated': 'int',
         'photo_interpretation': 'str',
-        'width_tag_found': 'bool',
-        'height_tag_found': 'bool',
         'width': 'int',
         'height': 'int',
         'window_centre': 'float',
@@ -61,10 +59,8 @@ class DicomProperties(object):
         'rescale_intercept': 'float',
         'rescale_slope': 'float',
         'number_of_frames': 'int',
-        'length_value': 'int',
         'is_little_endian': 'bool',
-        'offset': 'int',
-        'dicom_found': 'bool'
+        'offset': 'int'
     }
 
     attribute_map = {
@@ -78,8 +74,6 @@ class DicomProperties(object):
         'samples_per_pixel': 'SamplesPerPixel',
         'bits_allocated': 'BitsAllocated',
         'photo_interpretation': 'PhotoInterpretation',
-        'width_tag_found': 'WidthTagFound',
-        'height_tag_found': 'HeightTagFound',
         'width': 'Width',
         'height': 'Height',
         'window_centre': 'WindowCentre',
@@ -88,13 +82,11 @@ class DicomProperties(object):
         'rescale_intercept': 'RescaleIntercept',
         'rescale_slope': 'RescaleSlope',
         'number_of_frames': 'NumberOfFrames',
-        'length_value': 'LengthValue',
         'is_little_endian': 'IsLittleEndian',
-        'offset': 'Offset',
-        'dicom_found': 'DicomFound'
+        'offset': 'Offset'
     }
 
-    def __init__(self, planar_configuration=None, reds=None, greens=None, blues=None, dicom_header_info_by_bytes=None, signed_image=None, dicom_info=None, samples_per_pixel=None, bits_allocated=None, photo_interpretation=None, width_tag_found=None, height_tag_found=None, width=None, height=None, window_centre=None, window_width=None, pixel_representation=None, rescale_intercept=None, rescale_slope=None, number_of_frames=None, length_value=None, is_little_endian=None, offset=None, dicom_found=None):
+    def __init__(self, planar_configuration=None, reds=None, greens=None, blues=None, dicom_header_info_by_bytes=None, signed_image=None, dicom_info=None, samples_per_pixel=None, bits_allocated=None, photo_interpretation=None, width=None, height=None, window_centre=None, window_width=None, pixel_representation=None, rescale_intercept=None, rescale_slope=None, number_of_frames=None, is_little_endian=None, offset=None):
         """DicomProperties - a model defined in Swagger"""
         super(DicomProperties, self).__init__()
 
@@ -108,8 +100,6 @@ class DicomProperties(object):
         self._samples_per_pixel = None
         self._bits_allocated = None
         self._photo_interpretation = None
-        self._width_tag_found = None
-        self._height_tag_found = None
         self._width = None
         self._height = None
         self._window_centre = None
@@ -118,10 +108,8 @@ class DicomProperties(object):
         self._rescale_intercept = None
         self._rescale_slope = None
         self._number_of_frames = None
-        self._length_value = None
         self._is_little_endian = None
         self._offset = None
-        self._dicom_found = None
 
         if planar_configuration is not None:
             self.planar_configuration = planar_configuration
@@ -143,10 +131,6 @@ class DicomProperties(object):
             self.bits_allocated = bits_allocated
         if photo_interpretation is not None:
             self.photo_interpretation = photo_interpretation
-        if width_tag_found is not None:
-            self.width_tag_found = width_tag_found
-        if height_tag_found is not None:
-            self.height_tag_found = height_tag_found
         if width is not None:
             self.width = width
         if height is not None:
@@ -163,14 +147,10 @@ class DicomProperties(object):
             self.rescale_slope = rescale_slope
         if number_of_frames is not None:
             self.number_of_frames = number_of_frames
-        if length_value is not None:
-            self.length_value = length_value
         if is_little_endian is not None:
             self.is_little_endian = is_little_endian
         if offset is not None:
             self.offset = offset
-        if dicom_found is not None:
-            self.dicom_found = dicom_found
 
     @property
     def planar_configuration(self):
@@ -409,54 +389,6 @@ class DicomProperties(object):
         self._photo_interpretation = photo_interpretation
 
     @property
-    def width_tag_found(self):
-        """Gets the width_tag_found of this DicomProperties.
-
-        Gets or sets a value indicating whether width tag found.
-
-        :return: The width_tag_found of this DicomProperties.
-        :rtype: bool
-        """
-        return self._width_tag_found
-
-    @width_tag_found.setter
-    def width_tag_found(self, width_tag_found):
-        """Sets the width_tag_found of this DicomProperties.
-
-        Gets or sets a value indicating whether width tag found.
-
-        :param width_tag_found: The width_tag_found of this DicomProperties.
-        :type: bool
-        """
-        if width_tag_found is None:
-            raise ValueError("Invalid value for `width_tag_found`, must not be `None`")
-        self._width_tag_found = width_tag_found
-
-    @property
-    def height_tag_found(self):
-        """Gets the height_tag_found of this DicomProperties.
-
-        Gets or sets a value indicating whether height tag found.
-
-        :return: The height_tag_found of this DicomProperties.
-        :rtype: bool
-        """
-        return self._height_tag_found
-
-    @height_tag_found.setter
-    def height_tag_found(self, height_tag_found):
-        """Sets the height_tag_found of this DicomProperties.
-
-        Gets or sets a value indicating whether height tag found.
-
-        :param height_tag_found: The height_tag_found of this DicomProperties.
-        :type: bool
-        """
-        if height_tag_found is None:
-            raise ValueError("Invalid value for `height_tag_found`, must not be `None`")
-        self._height_tag_found = height_tag_found
-
-    @property
     def width(self):
         """Gets the width of this DicomProperties.
 
@@ -649,30 +581,6 @@ class DicomProperties(object):
         self._number_of_frames = number_of_frames
 
     @property
-    def length_value(self):
-        """Gets the length_value of this DicomProperties.
-
-        Gets or sets the length of element.
-
-        :return: The length_value of this DicomProperties.
-        :rtype: int
-        """
-        return self._length_value
-
-    @length_value.setter
-    def length_value(self, length_value):
-        """Sets the length_value of this DicomProperties.
-
-        Gets or sets the length of element.
-
-        :param length_value: The length_value of this DicomProperties.
-        :type: int
-        """
-        if length_value is None:
-            raise ValueError("Invalid value for `length_value`, must not be `None`")
-        self._length_value = length_value
-
-    @property
     def is_little_endian(self):
         """Gets the is_little_endian of this DicomProperties.
 
@@ -719,30 +627,6 @@ class DicomProperties(object):
         if offset is None:
             raise ValueError("Invalid value for `offset`, must not be `None`")
         self._offset = offset
-
-    @property
-    def dicom_found(self):
-        """Gets the dicom_found of this DicomProperties.
-
-        Gets or sets a value indicating whether \"DICOM\" data is found.
-
-        :return: The dicom_found of this DicomProperties.
-        :rtype: bool
-        """
-        return self._dicom_found
-
-    @dicom_found.setter
-    def dicom_found(self, dicom_found):
-        """Sets the dicom_found of this DicomProperties.
-
-        Gets or sets a value indicating whether \"DICOM\" data is found.
-
-        :param dicom_found: The dicom_found of this DicomProperties.
-        :type: bool
-        """
-        if dicom_found is None:
-            raise ValueError("Invalid value for `dicom_found`, must not be `None`")
-        self._dicom_found = dicom_found
 
     def to_dict(self):
         """Returns the model properties as a dict"""

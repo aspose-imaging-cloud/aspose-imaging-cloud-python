@@ -1,6 +1,6 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
-#  <copyright company="Aspose" file="save_image_as_request.py">
+#  <copyright company="Aspose" file="convert_image_request.py">
 #    Copyright (c) 2018-2020 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
@@ -28,9 +28,9 @@ from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
 from asposeimagingcloud.models.requests.http_request import HttpRequest
 
 
-class SaveImageAsRequest(ImagingRequest):
+class ConvertImageRequest(ImagingRequest):
     """
-    Request model for save_image_as operation.
+    Request model for convert_image operation.
     Initializes a new instance.
 
     :param name Filename of image.
@@ -57,13 +57,13 @@ class SaveImageAsRequest(ImagingRequest):
         """
         # verify the required parameter 'name' is set
         if self.name is None:
-            raise ValueError("Missing the required parameter `name` when calling `save_image_as`")
+            raise ValueError("Missing the required parameter `name` when calling `convert_image`")
         # verify the required parameter 'format' is set
         if self.format is None:
-            raise ValueError("Missing the required parameter `format` when calling `save_image_as`")
+            raise ValueError("Missing the required parameter `format` when calling `convert_image`")
 
         collection_formats = {}
-        path = '/imaging/{name}/saveAs'
+        path = '/imaging/{name}/convert'
         path_params = {}
         if self.name is not None:
             path_params[self._lowercase_first_letter('name')] = self.name

@@ -139,9 +139,9 @@ rotate_flip_suite = unittest.TestSuite(
     loader.loadTestsFromModule(sys.modules['test.api.test_rotate_flip_api']))
 suites_dict['RotateFlip'] = rotate_flip_suite
 
-save_as_suite = unittest.TestSuite(
-    loader.loadTestsFromModule(sys.modules['test.api.test_save_as_api']))
-suites_dict['SaveAs'] = save_as_suite
+convert_suite = unittest.TestSuite(
+    loader.loadTestsFromModule(sys.modules['test.api.test_convert_api']))
+suites_dict['Convert'] = convert_suite
 
 svg_suite = unittest.TestSuite(
     loader.loadTestsFromModule(sys.modules['test.api.test_svg_api']))
@@ -166,13 +166,13 @@ suites_dict['Wmf'] = wmf_suite
 imaging_suit = unittest.TestSuite(
     [bmp_suite, crop_suite, emf_suite, examples_suite, tiff_suite, gif_suite,
      jpeg2000_suite, jpg_suite, psd_suite, resize_suite, rotate_flip_suite,
-     save_as_suite, update_suite, web_p_suite, wmf_suite])
+     convert_suite, update_suite, web_p_suite, wmf_suite])
 suites_dict['Imaging'] = imaging_suit
 
 v3_suite = unittest.TestSuite(
     [ai_suite, storage_suite, bmp_suite, crop_suite, emf_suite, examples_suite,
      tiff_suite, gif_suite, jpeg2000_suite, jpg_suite, psd_suite, resize_suite,
-     rotate_flip_suite, save_as_suite, update_suite, web_p_suite, wmf_suite])
+     rotate_flip_suite, convert_suite, update_suite, web_p_suite, wmf_suite])
 suites_dict['v3.0'] = v3_suite
 
 suite = unittest.TestSuite()

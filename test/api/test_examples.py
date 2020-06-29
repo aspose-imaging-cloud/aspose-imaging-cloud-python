@@ -34,8 +34,8 @@ from test.api import ImagingApiTester
 class TestExamples(ImagingApiTester):
     """ Tests that correspond with examples code """
 
-    def test_save_as_from_storage(self):
-        """ Saves as from storage example test """
+    def test_convert_from_storage(self):
+        """ Convert from storage example test """
 
         config = self.imaging_api.api_client.configuration
         imaging_api = ImagingApi(
@@ -53,8 +53,8 @@ class TestExamples(ImagingApiTester):
             # inspect result.Uploaded list for uploaded file names
 
             # convert image from storage to JPEG
-            converted_image = imaging_api.save_image_as(
-                requests.SaveImageAsRequest('inputImage.png', 'jpg',
+            converted_image = imaging_api.convert_image(
+                requests.ConvertImageRequest('inputImage.png', 'jpg',
                                             'ExampleFolderPython',
                                             storage=self.test_storage))
             # process resulting image
@@ -78,8 +78,8 @@ class TestExamples(ImagingApiTester):
                     'ExampleFolderPython/resultImage.jpg',
                     storage_name=self.test_storage))
 
-    def test_save_as_from_stream_example(self):
-        """ Saves as from stream example """
+    def test_convert_from_stream_example(self):
+        """ Convert from stream example """
 
         config = self.imaging_api.api_client.configuration
         imaging_api = ImagingApi(
@@ -93,8 +93,8 @@ class TestExamples(ImagingApiTester):
                 self._local_test_folder, 'test.png')
             # convert image from request stream to JPEG and save it to storage
             # please, use outPath parameter for saving the result to storage
-            imaging_api.create_saved_image_as(
-                requests.CreateSavedImageAsRequest(
+            imaging_api.create_converted_image(
+                requests.CreateConvertedImageRequest(
                     local_input_image, 'jpg', remote_result_image,
                     storage=self.test_storage))
 
@@ -106,8 +106,8 @@ class TestExamples(ImagingApiTester):
 
             # convert image from request stream to JPEG and read it from
             # resulting stream
-            image_stream = imaging_api.create_saved_image_as(
-                requests.CreateSavedImageAsRequest(local_input_image, "jpg",
+            image_stream = imaging_api.create_converted_image(
+                requests.CreateConvertedImageRequest(local_input_image, "jpg",
                                                    storage=self.test_storage))
             # TODO: process resulting image from response stream
 

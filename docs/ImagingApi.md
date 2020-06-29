@@ -126,6 +126,46 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 
+<a name="convert_image"></a>
+# **convert_image**
+> convert_image(self, convert_image_request)
+
+Convert existing image to another format.
+
+### Return type
+
+**file**
+
+<a name="convert_image_async"></a>
+# **convert_image_async**
+> convert_image_async(self, convert_image_request)
+
+Convert existing image to another format.
+
+Performs operation asynchronously.
+
+### Return type
+
+**file**
+
+### ConvertImageRequest Parameters
+```python
+__init__(self, 
+    name, 
+    format, 
+    folder=folder, 
+    storage=storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **str**| Filename of image. | 
+ **format** | **str**| Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases. | 
+ **folder** | **str**| Folder with image to process. | [optional] 
+ **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
 <a name="convert_tiff_to_fax"></a>
 # **convert_tiff_to_fax**
 > convert_tiff_to_fax(self, convert_tiff_to_fax_request)
@@ -243,6 +283,46 @@ Name | Type | Description  | Notes
  **dest_path** | **str**| Destination folder path e.g. &#39;/dst&#39; | 
  **src_storage_name** | **str**| Source storage name | [optional] 
  **dest_storage_name** | **str**| Destination storage name | [optional] 
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
+<a name="create_converted_image"></a>
+# **create_converted_image**
+> create_converted_image(self, create_converted_image_request)
+
+Convert existing image to another format. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.             
+
+### Return type
+
+**file**
+
+<a name="create_converted_image_async"></a>
+# **create_converted_image_async**
+> create_converted_image_async(self, create_converted_image_request)
+
+Convert existing image to another format. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.             
+
+Performs operation asynchronously.
+
+### Return type
+
+**file**
+
+### CreateConvertedImageRequest Parameters
+```python
+__init__(self, 
+    image_data, 
+    format, 
+    out_path=out_path, 
+    storage=storage)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **image_data** | **file**| Input image | 
+ **format** | **str**| Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases. | 
+ **out_path** | **str**| Path to updated file (if this is empty, response contains streamed image). | [optional] 
+ **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 
@@ -1210,6 +1290,8 @@ __init__(self,
     threshold=threshold, 
     include_label=include_label, 
     include_score=include_score, 
+    allowed_labels=allowed_labels, 
+    blocked_labels=blocked_labels, 
     out_path=out_path, 
     storage=storage)
 ```
@@ -1221,6 +1303,8 @@ Name | Type | Description  | Notes
  **threshold** | **int**| Object detection probability threshold in percents | [optional] [default to 50]
  **include_label** | **bool**| Draw detected objects labels | [optional] [default to false]
  **include_score** | **bool**| Draw detected objects scores | [optional] [default to false]
+ **allowed_labels** | **str**| Comma-separated list of allowed labels | [optional] [default to ]
+ **blocked_labels** | **str**| Comma-separated list of blocked labels | [optional] [default to ]
  **out_path** | **str**| Path to updated file (if this is empty, response contains streamed image) | [optional] 
  **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
 
@@ -1312,46 +1396,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 
-<a name="create_saved_image_as"></a>
-# **create_saved_image_as**
-> create_saved_image_as(self, create_saved_image_as_request)
-
-Export existing image to another format. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.             
-
-### Return type
-
-**file**
-
-<a name="create_saved_image_as_async"></a>
-# **create_saved_image_as_async**
-> create_saved_image_as_async(self, create_saved_image_as_request)
-
-Export existing image to another format. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.             
-
-Performs operation asynchronously.
-
-### Return type
-
-**file**
-
-### CreateSavedImageAsRequest Parameters
-```python
-__init__(self, 
-    image_data, 
-    format, 
-    out_path=out_path, 
-    storage=storage)
-```
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **image_data** | **file**| Input image | 
- **format** | **str**| Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases. | 
- **out_path** | **str**| Path to updated file (if this is empty, response contains streamed image). | [optional] 
- **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
-
-[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
-
 <a name="create_updated_image"></a>
 # **create_updated_image**
 > create_updated_image(self, create_updated_image_request)
@@ -1436,6 +1480,8 @@ __init__(self,
     threshold=threshold, 
     include_label=include_label, 
     include_score=include_score, 
+    allowed_labels=allowed_labels, 
+    blocked_labels=blocked_labels, 
     color=color, 
     out_path=out_path, 
     storage=storage)
@@ -1448,6 +1494,8 @@ Name | Type | Description  | Notes
  **threshold** | **int**| Object detection probability threshold in percents | [optional] [default to 50]
  **include_label** | **bool**| Draw detected objects classes | [optional] [default to false]
  **include_score** | **bool**| Draw detected objects scores | [optional] [default to false]
+ **allowed_labels** | **str**| Comma-separated list of allowed labels | [optional] [default to ]
+ **blocked_labels** | **str**| Comma-separated list of blocked labels | [optional] [default to ]
  **color** | **str**| Bounds, labels, and scores text color | [optional] 
  **out_path** | **str**| Path to updated file (if this is empty, response contains streamed image) | [optional] 
  **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
@@ -2102,6 +2150,40 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
 
+<a name="get_available_labels"></a>
+# **get_available_labels**
+> get_available_labels(self, get_available_labels_request)
+
+Detects objects bounds and draw them on the original image
+
+### Return type
+
+[**AvailableLabelsList**](AvailableLabelsList.md)
+
+<a name="get_available_labels_async"></a>
+# **get_available_labels_async**
+> get_available_labels_async(self, get_available_labels_request)
+
+Detects objects bounds and draw them on the original image
+
+Performs operation asynchronously.
+
+### Return type
+
+[**AvailableLabelsList**](AvailableLabelsList.md)
+
+### GetAvailableLabelsRequest Parameters
+```python
+__init__(self, 
+    method)
+```
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **method** | **str**| Object detection method | 
+
+[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
+
 <a name="get_disc_usage"></a>
 # **get_disc_usage**
 > get_disc_usage(self, get_disc_usage_request)
@@ -2508,6 +2590,8 @@ __init__(self,
     threshold=threshold, 
     include_label=include_label, 
     include_score=include_score, 
+    allowed_labels=allowed_labels, 
+    blocked_labels=blocked_labels, 
     folder=folder, 
     storage=storage)
 ```
@@ -2519,6 +2603,8 @@ Name | Type | Description  | Notes
  **threshold** | **int**| Object detection probability threshold in percents | [optional] [default to 50]
  **include_label** | **bool**| Return detected objects labels | [optional] [default to false]
  **include_score** | **bool**| Return detected objects score | [optional] [default to false]
+ **allowed_labels** | **str**| Comma-separated list of allowed labels | [optional] [default to ]
+ **blocked_labels** | **str**| Comma-separated list of blocked labels | [optional] [default to ]
  **folder** | **str**| Folder | [optional] 
  **storage** | **str**| Storage | [optional] 
 
@@ -2594,6 +2680,8 @@ __init__(self,
     threshold=threshold, 
     include_label=include_label, 
     include_score=include_score, 
+    allowed_labels=allowed_labels, 
+    blocked_labels=blocked_labels, 
     color=color, 
     folder=folder, 
     storage=storage)
@@ -2606,6 +2694,8 @@ Name | Type | Description  | Notes
  **threshold** | **int**| Object detection probability threshold in percents | [optional] [default to 50]
  **include_label** | **bool**| Draw detected objects labels | [optional] [default to false]
  **include_score** | **bool**| Draw detected objects scores | [optional] [default to false]
+ **allowed_labels** | **str**| Comma-separated list of allowed labels | [optional] [default to ]
+ **blocked_labels** | **str**| Comma-separated list of blocked labels | [optional] [default to ]
  **color** | **str**| Bounds, labels, and scores text color | [optional] 
  **folder** | **str**| The folder. | [optional] 
  **storage** | **str**| The storage. | [optional] 
@@ -3343,46 +3433,6 @@ Name | Type | Description  | Notes
  **name** | **str**| Filename of an image. | 
  **method** | **str**| RotateFlip method (Rotate180FlipNone, Rotate180FlipX, Rotate180FlipXY, Rotate180FlipY, Rotate270FlipNone, Rotate270FlipX, Rotate270FlipXY, Rotate270FlipY, Rotate90FlipNone, Rotate90FlipX, Rotate90FlipXY, Rotate90FlipY, RotateNoneFlipNone, RotateNoneFlipX, RotateNoneFlipXY, RotateNoneFlipY). | 
  **format** | **str**| Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases. | [optional] 
- **folder** | **str**| Folder with image to process. | [optional] 
- **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
-
-[[Back to top]](#) [[Back to API list]](API_README.md#documentation-for-api-endpoints) [[Back to Model list]](API_README.md#documentation-for-models) [[Back to API_README]](API_README.md)
-
-<a name="save_image_as"></a>
-# **save_image_as**
-> save_image_as(self, save_image_as_request)
-
-Export existing image to another format.
-
-### Return type
-
-**file**
-
-<a name="save_image_as_async"></a>
-# **save_image_as_async**
-> save_image_as_async(self, save_image_as_request)
-
-Export existing image to another format.
-
-Performs operation asynchronously.
-
-### Return type
-
-**file**
-
-### SaveImageAsRequest Parameters
-```python
-__init__(self, 
-    name, 
-    format, 
-    folder=folder, 
-    storage=storage)
-```
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **str**| Filename of image. | 
- **format** | **str**| Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases. | 
  **folder** | **str**| Folder with image to process. | [optional] 
  **storage** | **str**| Your Aspose Cloud Storage name. | [optional] 
 

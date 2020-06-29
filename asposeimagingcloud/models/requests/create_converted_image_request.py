@@ -1,6 +1,6 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
-#  <copyright company="Aspose" file="create_object_bounds_request.py">
+#  <copyright company="Aspose" file="create_converted_image_request.py">
 #    Copyright (c) 2018-2020 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
@@ -28,31 +28,21 @@ from asposeimagingcloud.models.requests.imaging_request import ImagingRequest
 from asposeimagingcloud.models.requests.http_request import HttpRequest
 
 
-class CreateObjectBoundsRequest(ImagingRequest):
+class CreateConvertedImageRequest(ImagingRequest):
     """
-    Request model for create_object_bounds operation.
+    Request model for create_converted_image operation.
     Initializes a new instance.
 
     :param image_data Input image
-    :param method Object detection method
-    :param threshold Object detection probability threshold in percents
-    :param include_label Draw detected objects labels
-    :param include_score Draw detected objects scores
-    :param allowed_labels Comma-separated list of allowed labels
-    :param blocked_labels Comma-separated list of blocked labels
-    :param out_path Path to updated file (if this is empty, response contains streamed image)
+    :param format Resulting image format. Please, refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap for possible use-cases.
+    :param out_path Path to updated file (if this is empty, response contains streamed image).
     :param storage Your Aspose Cloud Storage name.
     """
 
-    def __init__(self, image_data, method=None, threshold=None, include_label=None, include_score=None, allowed_labels=None, blocked_labels=None, out_path=None, storage=None):
+    def __init__(self, image_data, format, out_path=None, storage=None):
         ImagingRequest.__init__(self)
         self.image_data = image_data
-        self.method = method
-        self.threshold = threshold
-        self.include_label = include_label
-        self.include_score = include_score
-        self.allowed_labels = allowed_labels
-        self.blocked_labels = blocked_labels
+        self.format = format
         self.out_path = out_path
         self.storage = storage
 
@@ -67,43 +57,21 @@ class CreateObjectBoundsRequest(ImagingRequest):
         """
         # verify the required parameter 'image_data' is set
         if self.image_data is None:
-            raise ValueError("Missing the required parameter `image_data` when calling `create_object_bounds`")
+            raise ValueError("Missing the required parameter `image_data` when calling `create_converted_image`")
+        # verify the required parameter 'format' is set
+        if self.format is None:
+            raise ValueError("Missing the required parameter `format` when calling `create_converted_image`")
 
         collection_formats = {}
-        path = '/imaging/ai/objectdetection/bounds'
+        path = '/imaging/convert'
         path_params = {}
 
         query_params = []
-        if self._lowercase_first_letter('method') in path:
-            path = path.replace('{' + self._lowercase_first_letter('method' + '}'), self.method if self.method is not None else '')
+        if self._lowercase_first_letter('format') in path:
+            path = path.replace('{' + self._lowercase_first_letter('format' + '}'), self.format if self.format is not None else '')
         else:
-            if self.method is not None:
-                query_params.append((self._lowercase_first_letter('method'), self.method))
-        if self._lowercase_first_letter('threshold') in path:
-            path = path.replace('{' + self._lowercase_first_letter('threshold' + '}'), self.threshold if self.threshold is not None else '')
-        else:
-            if self.threshold is not None:
-                query_params.append((self._lowercase_first_letter('threshold'), self.threshold))
-        if self._lowercase_first_letter('includeLabel') in path:
-            path = path.replace('{' + self._lowercase_first_letter('includeLabel' + '}'), self.include_label if self.include_label is not None else '')
-        else:
-            if self.include_label is not None:
-                query_params.append((self._lowercase_first_letter('includeLabel'), self.include_label))
-        if self._lowercase_first_letter('includeScore') in path:
-            path = path.replace('{' + self._lowercase_first_letter('includeScore' + '}'), self.include_score if self.include_score is not None else '')
-        else:
-            if self.include_score is not None:
-                query_params.append((self._lowercase_first_letter('includeScore'), self.include_score))
-        if self._lowercase_first_letter('allowedLabels') in path:
-            path = path.replace('{' + self._lowercase_first_letter('allowedLabels' + '}'), self.allowed_labels if self.allowed_labels is not None else '')
-        else:
-            if self.allowed_labels is not None:
-                query_params.append((self._lowercase_first_letter('allowedLabels'), self.allowed_labels))
-        if self._lowercase_first_letter('blockedLabels') in path:
-            path = path.replace('{' + self._lowercase_first_letter('blockedLabels' + '}'), self.blocked_labels if self.blocked_labels is not None else '')
-        else:
-            if self.blocked_labels is not None:
-                query_params.append((self._lowercase_first_letter('blockedLabels'), self.blocked_labels))
+            if self.format is not None:
+                query_params.append((self._lowercase_first_letter('format'), self.format))
         if self._lowercase_first_letter('outPath') in path:
             path = path.replace('{' + self._lowercase_first_letter('outPath' + '}'), self.out_path if self.out_path is not None else '')
         else:
