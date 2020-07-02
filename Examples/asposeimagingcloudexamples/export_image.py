@@ -53,11 +53,11 @@ class ExportImage(ImagingBase):
         folder = ImagingBase.CLOUD_PATH  # Input file is saved at the Examples folder in the storage
         storage = None  # We are using default Cloud Storage
 
-        request = requests.SaveImageAsRequest(self._get_sample_image_file_name(), format, folder, storage)
+        request = requests.ConvertImageRequest(self._get_sample_image_file_name(), format, folder, storage)
 
         print('Call SaveImageAs with params: format: {0}'.format(format))
 
-        updated_image = self._imaging_api.save_image_as(request)
+        updated_image = self._imaging_api.convert_image(request)
         self._save_updated_sample_image_to_output(updated_image, False, format)
 
         print()
@@ -75,11 +75,11 @@ class ExportImage(ImagingBase):
         folder = ImagingBase.CLOUD_PATH  # Input file is saved at the Examples folder in the storage
         storage = None  # We are using default Cloud Storage
 
-        request = requests.SaveImageAsRequest(self._get_sample_image_file_name(), format, folder, storage)
+        request = requests.ConvertImageRequest(self._get_sample_image_file_name(), format, folder, storage)
 
         print('Call SaveImageAs with params: format: {0}'.format(format))
 
-        updated_image = self._imaging_api.save_image_as(request)
+        updated_image = self._imaging_api.convert_image(request)
         self._upload_image_to_cloud(self._get_modified_sample_image_file_name(False, format), updated_image)
 
         print()
@@ -96,11 +96,11 @@ class ExportImage(ImagingBase):
         out_path = None  # Path to updated file (if this is empty, response contains streamed image)
 
         input_stream = os.path.join(ImagingBase.EXAMPLE_IMAGES_FOLDER, self._get_sample_image_file_name())
-        request = requests.CreateSavedImageAsRequest(input_stream, format, out_path, storage)
+        request = requests.CreateConvertedImageRequest(input_stream, format, out_path, storage)
 
         print('Call CreateSavedImageAs with params: format: {0}'.format(format))
 
-        updated_image = self._imaging_api.create_saved_image_as(request)
+        updated_image = self._imaging_api.create_converted_image(request)
         self._save_updated_sample_image_to_output(updated_image, False, format)
 
         print()
