@@ -2154,7 +2154,7 @@ Name | Type | Description  | Notes
 # **get_available_labels**
 > get_available_labels(self, get_available_labels_request)
 
-Detects objects bounds and draw them on the original image
+Gets available labels for selected object detection method.
 
 ### Return type
 
@@ -2164,7 +2164,7 @@ Detects objects bounds and draw them on the original image
 # **get_available_labels_async**
 > get_available_labels_async(self, get_available_labels_request)
 
-Detects objects bounds and draw them on the original image
+Gets available labels for selected object detection method.
 
 Performs operation asynchronously.
 

@@ -41,6 +41,7 @@ from asposeimagingcloud.models.dicom_properties import DicomProperties
 from asposeimagingcloud.models.disc_usage import DiscUsage
 from asposeimagingcloud.models.djvu_properties import DjvuProperties
 from asposeimagingcloud.models.dng_properties import DngProperties
+from asposeimagingcloud.models.eps_properties import EpsProperties
 from asposeimagingcloud.models.error import Error
 from asposeimagingcloud.models.error_details import ErrorDetails
 from asposeimagingcloud.models.exif_data import ExifData
