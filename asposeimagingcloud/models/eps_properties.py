@@ -41,8 +41,6 @@ class EpsProperties(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'width': 'int',
-        'height': 'int',
         'bounding_box_string': 'str',
         'creation_date_string': 'str',
         'creator': 'str',
@@ -51,8 +49,6 @@ class EpsProperties(object):
     }
 
     attribute_map = {
-        'width': 'Width',
-        'height': 'Height',
         'bounding_box_string': 'BoundingBoxString',
         'creation_date_string': 'CreationDateString',
         'creator': 'Creator',
@@ -60,22 +56,16 @@ class EpsProperties(object):
         'title': 'Title'
     }
 
-    def __init__(self, width=None, height=None, bounding_box_string=None, creation_date_string=None, creator=None, post_script_version=None, title=None):
+    def __init__(self, bounding_box_string=None, creation_date_string=None, creator=None, post_script_version=None, title=None):
         """EpsProperties - a model defined in Swagger"""
         super(EpsProperties, self).__init__()
 
-        self._width = None
-        self._height = None
         self._bounding_box_string = None
         self._creation_date_string = None
         self._creator = None
         self._post_script_version = None
         self._title = None
 
-        if width is not None:
-            self.width = width
-        if height is not None:
-            self.height = height
         if bounding_box_string is not None:
             self.bounding_box_string = bounding_box_string
         if creation_date_string is not None:
@@ -86,54 +76,6 @@ class EpsProperties(object):
             self.post_script_version = post_script_version
         if title is not None:
             self.title = title
-
-    @property
-    def width(self):
-        """Gets the width of this EpsProperties.
-
-        Gets the width.
-
-        :return: The width of this EpsProperties.
-        :rtype: int
-        """
-        return self._width
-
-    @width.setter
-    def width(self, width):
-        """Sets the width of this EpsProperties.
-
-        Gets the width.
-
-        :param width: The width of this EpsProperties.
-        :type: int
-        """
-        if width is None:
-            raise ValueError("Invalid value for `width`, must not be `None`")
-        self._width = width
-
-    @property
-    def height(self):
-        """Gets the height of this EpsProperties.
-
-        Gets the height.
-
-        :return: The height of this EpsProperties.
-        :rtype: int
-        """
-        return self._height
-
-    @height.setter
-    def height(self, height):
-        """Sets the height of this EpsProperties.
-
-        Gets the height.
-
-        :param height: The height of this EpsProperties.
-        :type: int
-        """
-        if height is None:
-            raise ValueError("Invalid value for `height`, must not be `None`")
-        self._height = height
 
     @property
     def bounding_box_string(self):
