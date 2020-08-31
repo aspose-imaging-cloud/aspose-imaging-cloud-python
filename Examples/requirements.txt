@@ -1,2 +1,2 @@
-aspose-imaging-cloud>=20.6
+aspose-imaging-cloud>=20.8
 requests>=2.22.0
