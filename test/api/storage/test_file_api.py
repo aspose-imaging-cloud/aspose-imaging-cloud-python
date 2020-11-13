@@ -127,8 +127,8 @@ class TestFileApi(StorageApiTester):
                     requests.ObjectExistsRequest(
                         folder, self.test_storage)).exists)
 
-    def test_file_versions_copy(self):
-        @unittest.skip('IMAGINGCLOUD-644')
+    @unittest.skip('IMAGINGCLOUD-644')
+    def test_file_versions_copy(self):        
         if self.imaging_api.api_client.configuration.on_premise:
             return
 
@@ -207,8 +207,8 @@ class TestFileApi(StorageApiTester):
                     requests.DeleteFolderRequest(
                         folder, self.test_storage, True))
 
-    def test_file_versions_create(self):
-        @unittest.skip('IMAGINGCLOUD-644')
+    @unittest.skip('IMAGINGCLOUD-644')
+    def test_file_versions_create(self):        
         if self.imaging_api.api_client.configuration.on_premise:
             return
 
@@ -274,8 +274,8 @@ class TestFileApi(StorageApiTester):
                     requests.DeleteFolderRequest(
                         folder, self.test_storage, True))
 
-    def test_file_versions_delete(self):
-        @unittest.skip('IMAGINGCLOUD-644')
+    @unittest.skip('IMAGINGCLOUD-644')
+    def test_file_versions_delete(self):        
         if self.imaging_api.api_client.configuration.on_premise:
             return
 
@@ -370,8 +370,8 @@ class TestFileApi(StorageApiTester):
                     requests.DeleteFolderRequest(
                         folder, self.test_storage, True))
 
-    def test_file_versions_download(self):
-        @unittest.skip('IMAGINGCLOUD-644')
+    @unittest.skip('IMAGINGCLOUD-644')
+    def test_file_versions_download(self):        
         if self.imaging_api.api_client.configuration.on_premise:
             return
 
@@ -428,8 +428,8 @@ class TestFileApi(StorageApiTester):
                     requests.DeleteFolderRequest(
                         folder, self.test_storage, True))
 
-    def test_file_versions_move(self):
-        @unittest.skip('IMAGINGCLOUD-644')
+    @unittest.skip('IMAGINGCLOUD-644')
+    def test_file_versions_move(self):        
         if self.imaging_api.api_client.configuration.on_premise:
             return
 
