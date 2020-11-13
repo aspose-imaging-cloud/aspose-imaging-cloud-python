@@ -24,8 +24,15 @@
 #  </summary>
 #  ----------------------------------------------------------------------------
 
+import six
+
 import asposeimagingcloud.models.requests as requests
 from test.api.storage.storage_api_tester import StorageApiTester
+
+if six.PY2:
+    import unittest2 as unittest
+else:
+    import unittest
 
 
 class TestFileApi(StorageApiTester):
