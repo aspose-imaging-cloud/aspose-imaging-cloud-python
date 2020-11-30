@@ -1721,44 +1721,56 @@ class ImagingApi(object):
         return self.__make_request_async(http_request, 'PUT', 'FilesUploadResult')
 
     def __make_request(self, http_request, method, return_type):
-        self.__ensure_token()
-        return self.api_client.call_api(
-            resource_path=http_request.resource_path,
-            method=method,
-            path_params=http_request.path_params,
-            query_params=http_request.query_params,
-            header_params=http_request.header_params,
-            body=http_request.body_params,
-            post_params=http_request.form_params,
-            files=http_request.files,
-            response_type=return_type,
-            auth_settings=http_request.auth_settings,
-            _return_http_data_only=http_request.return_http_data_only,
-            _preload_content=http_request.preload_content,
-            _request_timeout=http_request.request_timeout,
-            collection_formats=http_request.collection_formats)
+        def call_api():
+            return self.api_client.call_api(
+                resource_path=http_request.resource_path,
+                method=method,
+                path_params=http_request.path_params,
+                query_params=http_request.query_params,
+                header_params=http_request.header_params,
+                body=http_request.body_params,
+                post_params=http_request.form_params,
+                files=http_request.files,
+                response_type=return_type,
+                auth_settings=http_request.auth_settings,
+                _return_http_data_only=http_request.return_http_data_only,
+                _preload_content=http_request.preload_content,
+                _request_timeout=http_request.request_timeout,
+                collection_formats=http_request.collection_formats)
+
+        try:
+            return call_api()
+        except ApiException as ex:
+            if ex.code == 401:
+                self.__request_token()
+                return call_api()
+            raise
 
     def __make_request_async(self, http_request, method, return_type):
-        self.__ensure_token()
-        self.api_client.call_api_async(
-            resource_path=http_request.resource_path,
-            method=method,
-            path_params=http_request.path_params,
-            query_params=http_request.query_params,
-            header_params=http_request.header_params,
-            body=http_request.body_params,
-            post_params=http_request.form_params,
-            files=http_request.files,
-            response_type=return_type,
-            auth_settings=http_request.auth_settings,
-            _return_http_data_only=http_request.return_http_data_only,
-            _preload_content=http_request.preload_content,
-            _request_timeout=http_request.request_timeout,
-            collection_formats=http_request.collection_formats)
+        def call_api_async():
+            self.api_client.call_api_async(
+                resource_path=http_request.resource_path,
+                method=method,
+                path_params=http_request.path_params,
+                query_params=http_request.query_params,
+                header_params=http_request.header_params,
+                body=http_request.body_params,
+                post_params=http_request.form_params,
+                files=http_request.files,
+                response_type=return_type,
+                auth_settings=http_request.auth_settings,
+                _return_http_data_only=http_request.return_http_data_only,
+                _preload_content=http_request.preload_content,
+                _request_timeout=http_request.request_timeout,
+                collection_formats=http_request.collection_formats)
 
-    def __ensure_token(self):
-        if not self.api_client.configuration.access_token:
-            self.__request_token()
+        try:
+            return call_api_async()
+        except ApiException as ex:
+            if ex.code == 401:
+                self.__request_token()
+                return call_api_async()
+            raise
 
     def __request_token(self):
         config = self.api_client.configuration
