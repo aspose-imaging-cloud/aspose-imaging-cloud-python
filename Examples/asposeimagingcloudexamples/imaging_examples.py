@@ -80,22 +80,22 @@ def process_arguments(argv):
     """Process CLI arguments, exit on invalid input"""
     errors = []
 
-    app_key = process_argument(argv, '--appKey', 'app key', errors)
-    app_sid = process_argument(argv, '--appSid', 'app sid', errors)
+    client_secret = process_argument(argv, '--clientSecret', 'Client Secret', errors)
+    client_id = process_argument(argv, '--clientId', 'Client ID', errors)
     base_url = process_argument(argv, '--baseUrl', 'Base url', errors, 'https://api.aspose.cloud/')
 
     if not errors:
-        return app_key, app_sid, base_url
+        return client_secret, client_id, base_url
 
     print('Failed to launch examples:' + os.linesep + os.linesep.join(errors))
     sys.exit(1)
 
 
 def main():
-    app_key, app_sid, base_url = process_arguments(sys.argv)
+    client_secret, client_id, base_url = process_arguments(sys.argv)
 
     try:
-        api = ImagingApi(app_key, app_sid, base_url)
+        api = ImagingApi(client_secret, client_id, base_url)
 
         if os.path.isdir(ImagingBase.OUTPUT_FOLDER):
             shutil.rmtree(ImagingBase.OUTPUT_FOLDER)

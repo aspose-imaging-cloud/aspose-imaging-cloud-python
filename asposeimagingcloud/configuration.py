@@ -43,7 +43,7 @@ class Configuration(object):
 
     default_api_version = 'v3.0'
 
-    def __init__(self, app_key=None, app_sid=None, base_url=None,
+    def __init__(self, client_secret=None, client_id=None, base_url=None,
                  api_version=None, debug=False):
         """Constructor"""
         # Base url
@@ -72,8 +72,8 @@ class Configuration(object):
 
         # Authentication Settings
         # dict to store API key(s)
-        self.api_key = {'api_key': app_key if app_key else "",
-                        'app_sid': app_sid if app_sid else ""}
+        self.api_key = {'client_secret': client_secret if client_secret else "",
+                        'client_id': client_id if client_id else ""}
         # dict to store API prefix (e.g. Bearer)
         self.api_key_prefix = {}
 
@@ -101,7 +101,7 @@ class Configuration(object):
         self.__debug = debug
 
         # On-premise switch
-        self.on_premise = not (app_key or app_sid) and base_url
+        self.on_premise = not (client_secret or client_id) and base_url
 
         # SSL/TLS verification
         # Set this to false to skip verifying SSL certificate when calling API
