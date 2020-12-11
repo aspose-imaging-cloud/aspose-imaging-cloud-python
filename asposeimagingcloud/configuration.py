@@ -72,7 +72,7 @@ class Configuration(object):
 
         # Authentication Settings
         # dict to store API key(s)
-        self.api_key = {'client_secret': client_secret if client_secret else "",
+        self.api_key = {'api_key': client_secret if client_secret else "",
                         'client_id': client_id if client_id else ""}
         # dict to store API prefix (e.g. Bearer)
         self.api_key_prefix = {}
