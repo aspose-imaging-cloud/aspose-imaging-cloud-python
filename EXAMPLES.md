@@ -1,7 +1,7 @@
 ### Imaging - Save as: convert image from storage to another format
 ```python
 # optional parameters are base URL, API version and debug mode
-imaging_api = ImagingApi('yourAppKey', 'yourAppSid')
+imaging_api = ImagingApi('yourClientSecret', 'yourClientId')
 
 try:
     # upload local image to storage
@@ -35,7 +35,7 @@ finally:
 ### Imaging - Save as: convert image from request stream to another format
 ```python
 # optional parameters are base URL, API version and debug mode
-imaging_api = ImagingApi('yourAppKey', 'yourAppSid')
+imaging_api = ImagingApi('yourClientSecret', 'yourClientId')
 
 try:
     # convert image from request to JPEG and save it to storage
@@ -65,7 +65,7 @@ finally:
 ### Imaging.AI - Compare two images
 ```python
 # optional parameters are base URL, API version and debug mode
-imaging_api = ImagingApi('yourAppKey', 'yourAppSid')
+imaging_api = ImagingApi('yourClientSecret', 'yourClientId')
 
 # create search context or use existing search context ID if search context was
 # created earlier
@@ -85,7 +85,7 @@ similarity = response.results[0].similarity
 ### Imaging.AI - Find similar images
 ```python
 # optional parameters are base URL, API version and debug mode
-imaging_api = ImagingApi('yourAppKey', 'yourAppSid')
+imaging_api = ImagingApi('yourClientSecret', 'yourClientId')
 
 # create search context or use existing search context ID if search context was
 # created earlier
@@ -124,7 +124,7 @@ for search_result in results.results:
 ### Imaging.AI - Find duplicate images
 ```python
 # optional parameters are base URL, API version and debug mode
-imaging_api = ImagingApi('yourAppKey', 'yourAppSid')
+imaging_api = ImagingApi('yourClientSecret', 'yourClientId')
 
 # create search context or use existing search context ID if search context was
 # created earlier
@@ -156,7 +156,7 @@ for duplicates in response.duplicates:
 ### Imaging.AI - Search images by tags
 ```python
 # optional parameters are base URL, API version and debug mode
-imaging_api = ImagingApi('yourAppKey', 'yourAppSid')
+imaging_api = ImagingApi('yourClientSecret', 'yourClientId')
 
 # create search context or use existing search context ID if search context was
 # created earlier

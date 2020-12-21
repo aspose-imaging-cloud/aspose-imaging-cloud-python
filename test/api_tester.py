@@ -99,13 +99,13 @@ class ApiTester(unittest.TestCase):
         on_premise = True if os.environ.get('OnPremise') and \
                              bool(strtobool(os.environ.get('OnPremise'))) \
             else False
-        app_key = None if on_premise else os.environ.get('AppKey')
-        app_sid = None if on_premise else os.environ.get('AppSid')
+        client_secret = None if on_premise else os.environ.get('ClientSecret')
+        client_id = None if on_premise else os.environ.get('ClientId')
         base_url = os.environ.get('ApiEndpoint')
         api_version = os.environ.get('ApiVersion')
 
         if (not on_premise and (
-                not app_key or not app_sid)) or not base_url or not api_version:
+                not client_secret or not client_id)) or not base_url or not api_version:
             print('Access data isn\'t set completely by environment variables.'
                   ' Filling unset data with default values.')
 
@@ -119,32 +119,32 @@ class ApiTester(unittest.TestCase):
             server_file_info = json.load(f)
 
         if server_file_info:
-            if not app_key and not on_premise:
-                app_key = server_file_info['AppKey']
-                print('Set default App key')
+            if not client_secret and not on_premise:
+                client_secret = server_file_info['ClientSecret']
+                print('Set default Client Secret')
 
-            if not app_sid and not on_premise:
-                app_sid = server_file_info['AppSid']
-                print('Set default App SID')
+            if not client_id and not on_premise:
+                client_id = server_file_info['ClientId']
+                print('Set default Client ID')
 
             if not base_url:
                 base_url = server_file_info['BaseURL']
                 print('Set default Base URL')
 
         if (not on_premise and (
-                not app_key or not app_sid)) or not base_url or not api_version:
+                not client_secret or not client_id)) or not base_url or not api_version:
             raise ValueError(
-                'Please, specify valid access data (AppKey, AppSid, Base URL)')
+                'Please, specify valid access data (ClientSecret, ClientId, Base URL)')
 
         print('On Premise: ' + str(on_premise))
         if not on_premise:
-            print('App key: ' + app_key)
-            print('App SID: ' + app_sid)
+            print('Client Secret: ' + client_secret)
+            print('Client ID: ' + client_id)
         print('Storage: ' + self.test_storage)
         print('Base URL: ' + base_url)
         print('API version: ' + api_version)
 
-        self.imaging_api = ImagingApi(app_key, app_sid, base_url, api_version)
+        self.imaging_api = ImagingApi(client_secret, client_id, base_url, api_version)
 
         self._input_test_files = self.imaging_api.get_files_list(
             requests.GetFilesListRequest(

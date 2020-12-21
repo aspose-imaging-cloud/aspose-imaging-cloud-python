@@ -39,13 +39,13 @@ class ImagingApi(object):
 
     """
 
-    def __init__(self, app_key=None, app_sid=None, base_url=None,
+    def __init__(self, client_secret=None, client_id=None, base_url=None,
                  api_version=None, debug=False):
         """
         Initializes a new instance of the ImagingApi class.
 
-        :param app_key: The app key.
-        :param app_sid: The app sid.
+        :param client_secret: The Client Secret.
+        :param client_id: The Client ID.
         :param base_url: The base URL.
         :param api_version: API version.
         :param debug: If debug mode is enabled. False by default.
@@ -53,8 +53,8 @@ class ImagingApi(object):
             True for on-premise solution with metered license usage.
             False for Aspose Cloud-hosted solution usage, default.
         """
-        configuration = Configuration(app_key=app_key,
-                                      app_sid=app_sid,
+        configuration = Configuration(client_secret=client_secret,
+                                      client_id=client_id,
                                       base_url=base_url,
                                       api_version=api_version,
                                       debug=debug)
@@ -1721,62 +1721,50 @@ class ImagingApi(object):
         return self.__make_request_async(http_request, 'PUT', 'FilesUploadResult')
 
     def __make_request(self, http_request, method, return_type):
-        def call_api():
-            return self.api_client.call_api(
-                resource_path=http_request.resource_path,
-                method=method,
-                path_params=http_request.path_params,
-                query_params=http_request.query_params,
-                header_params=http_request.header_params,
-                body=http_request.body_params,
-                post_params=http_request.form_params,
-                files=http_request.files,
-                response_type=return_type,
-                auth_settings=http_request.auth_settings,
-                _return_http_data_only=http_request.return_http_data_only,
-                _preload_content=http_request.preload_content,
-                _request_timeout=http_request.request_timeout,
-                collection_formats=http_request.collection_formats)
-
-        try:
-            return call_api()
-        except ApiException as ex:
-            if ex.code == 401:
-                self.__request_token()
-                return call_api()
-            raise
+        self.__ensure_token()
+        return self.api_client.call_api(
+            resource_path=http_request.resource_path,
+            method=method,
+            path_params=http_request.path_params,
+            query_params=http_request.query_params,
+            header_params=http_request.header_params,
+            body=http_request.body_params,
+            post_params=http_request.form_params,
+            files=http_request.files,
+            response_type=return_type,
+            auth_settings=http_request.auth_settings,
+            _return_http_data_only=http_request.return_http_data_only,
+            _preload_content=http_request.preload_content,
+            _request_timeout=http_request.request_timeout,
+            collection_formats=http_request.collection_formats)
 
     def __make_request_async(self, http_request, method, return_type):
-        def call_api_async():
-            self.api_client.call_api_async(
-                resource_path=http_request.resource_path,
-                method=method,
-                path_params=http_request.path_params,
-                query_params=http_request.query_params,
-                header_params=http_request.header_params,
-                body=http_request.body_params,
-                post_params=http_request.form_params,
-                files=http_request.files,
-                response_type=return_type,
-                auth_settings=http_request.auth_settings,
-                _return_http_data_only=http_request.return_http_data_only,
-                _preload_content=http_request.preload_content,
-                _request_timeout=http_request.request_timeout,
-                collection_formats=http_request.collection_formats)
+        self.__ensure_token()
+        self.api_client.call_api_async(
+            resource_path=http_request.resource_path,
+            method=method,
+            path_params=http_request.path_params,
+            query_params=http_request.query_params,
+            header_params=http_request.header_params,
+            body=http_request.body_params,
+            post_params=http_request.form_params,
+            files=http_request.files,
+            response_type=return_type,
+            auth_settings=http_request.auth_settings,
+            _return_http_data_only=http_request.return_http_data_only,
+            _preload_content=http_request.preload_content,
+            _request_timeout=http_request.request_timeout,
+            collection_formats=http_request.collection_formats)
 
-        try:
-            return call_api_async()
-        except ApiException as ex:
-            if ex.code == 401:
-                self.__request_token()
-                return call_api_async()
-            raise
+    def __ensure_token(self):
+        if not self.api_client.configuration.access_token:
+            self.__request_token()
 
     def __request_token(self):
         config = self.api_client.configuration
         request_url = "/connect/token"
-        form_params = [('grant_type', 'client_credentials'), ('client_id', config.api_key['app_sid']),
-                       ('client_secret', config.api_key['api_key'])]
+        form_params = [('grant_type', 'client_credentials'), ('client_id', config.api_key['client_id']),
+                       ('client_secret', config.api_key['client_secret'])]
 
         header_params = {'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded'}
 
