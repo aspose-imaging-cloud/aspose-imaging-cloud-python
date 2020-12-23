@@ -39,13 +39,13 @@ class ImagingApi(object):
 
     """
 
-    def __init__(self, app_key=None, app_sid=None, base_url=None,
+    def __init__(self, client_secret=None, client_id=None, base_url=None,
                  api_version=None, debug=False):
         """
         Initializes a new instance of the ImagingApi class.
 
-        :param app_key: The app key.
-        :param app_sid: The app sid.
+        :param client_secret: The Client Secret.
+        :param client_id: The Client ID.
         :param base_url: The base URL.
         :param api_version: API version.
         :param debug: If debug mode is enabled. False by default.
@@ -53,8 +53,8 @@ class ImagingApi(object):
             True for on-premise solution with metered license usage.
             False for Aspose Cloud-hosted solution usage, default.
         """
-        configuration = Configuration(app_key=app_key,
-                                      app_sid=app_sid,
+        configuration = Configuration(client_secret=client_secret,
+                                      client_id=client_id,
                                       base_url=base_url,
                                       api_version=api_version,
                                       debug=debug)
@@ -1763,8 +1763,8 @@ class ImagingApi(object):
     def __request_token(self):
         config = self.api_client.configuration
         request_url = "/connect/token"
-        form_params = [('grant_type', 'client_credentials'), ('client_id', config.api_key['app_sid']),
-                       ('client_secret', config.api_key['api_key'])]
+        form_params = [('grant_type', 'client_credentials'), ('client_id', config.api_key['client_id']),
+                       ('client_secret', config.api_key['client_secret'])]
 
         header_params = {'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded'}
 
