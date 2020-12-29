@@ -125,7 +125,7 @@ class ApiTester(unittest.TestCase):
 
             if not client_id and not on_premise:
                 client_id = server_file_info['ClientId']
-                print('Set default Client ID')
+                print('Set default Client Id')
 
             if not base_url:
                 base_url = server_file_info['BaseURL']
@@ -139,7 +139,8 @@ class ApiTester(unittest.TestCase):
         print('On Premise: ' + str(on_premise))
         if not on_premise:
             print('Client Secret: ' + client_secret)
-            print('Client ID: ' + client_id)
+            print('Client Id: ' + client_id)
+
         print('Storage: ' + self.test_storage)
         print('Base URL: ' + base_url)
         print('API version: ' + api_version)

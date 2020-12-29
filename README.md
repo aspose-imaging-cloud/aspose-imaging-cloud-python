@@ -3,8 +3,7 @@
 
 This repository contains [Aspose.Imaging Cloud Python SDK](https://products.aspose.cloud/imaging/python) source code. This SDK allows you to work with Aspose.Imaging Cloud REST APIs in your Python applications quickly and easily, with zero initial cost.
 
-To use this SDK, you will need Client ID and Client Secret which can be looked up at [Aspose Cloud Dashboard](https
-://dashboard.aspose.cloud/#/apps) (free registration in Aspose Cloud is required for this).
+To use this SDK, you will need Client ID and Client secret which can be looked up at [Aspose Cloud Dashboard](https://dashboard.aspose.cloud/#/apps) (free registration in Aspose Cloud is required for this).
 
 The solution is updated using [code generator](https://github.com/aspose-imaging-cloud/aspose-imaging-cloud-codegen).
 
@@ -82,7 +81,7 @@ Detalied official documentation can be found at the [following link](https://doc
 
 Please, add the following [PyPi package](https://pypi.org/project/aspose-imaging-cloud/) to your requirements.txt.
 ```
-aspose-imaging-cloud>=20.11
+aspose-imaging-cloud>=20.12
 ```
 Or install it using command line.
 ```
