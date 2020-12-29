@@ -61,7 +61,7 @@ Process options, change and return images in any supported export format:
 * Image comparison and similarity detection
 * Image features extraction (for now, AKAZE detector is supported)
 
-For the complete list of use-cases, please refer to the [format support document](https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats) to see what you can achieve!
+For the complete list of use-cases, please refer to the [format support document](https://docs.aspose.cloud/imaging/supported-file-formats/) to see what you can achieve!
 
 #### Storage API support
 Since version 19.4, SDK includes support of storage operations for better user experience and unification, so now there's no need to use 2 different SDKs!
@@ -72,7 +72,7 @@ It gives you an ability to:
 * Copy and move files and folders accross separate storages in scope of a single operation
 * Check if certain file, folder or storage exists
 
-Detalied official documentation can be found at the [following link](https://docs.aspose.cloud/display/imagingcloud).
+Detalied official documentation can be found at the [following link](https://docs.aspose.cloud/imaging/).
 
 ## Getting Started
 1. **Sign Up**. Before you begin, you need to sign up for an account on our [Dashboard](https://dashboard.aspose.cloud/) and retrieve your [credentials](https://dashboard.aspose.cloud/#/apps).
@@ -91,7 +91,7 @@ Import the dependencies to your code as follows.
 ```python
 import aspose-imaging-cloud
 ```
-4. **Using the SDK**. The best way to become familiar with how to use the SDK is to read the [Developer Guide](https://docs.aspose.cloud/display/imagingcloud/Developer+Guide). The [Getting Started Guide](https://docs.aspose.cloud/display/imagingcloud/Getting+Started) will help you to become familiar with the common concepts.
+4. **Using the SDK**. The best way to become familiar with how to use the SDK is to read the [Developer Guide](https://docs.aspose.cloud/imaging/developer-guide/). The [Getting Started Guide](https://docs.aspose.cloud/imaging/getting-started/) will help you to become familiar with the common concepts.
 
 ## Quick Examples
 Please, look at [Examples](https://github.com/aspose-imaging-cloud/aspose-imaging-cloud-python/blob/master/EXAMPLES.md) document for basic usage or use the [Examples](https://github.com/aspose-imaging-cloud/aspose-imaging-cloud-python/tree/master/Examples) folder for more sophisticated scenarios.
@@ -125,7 +125,7 @@ Your feedback is very important to us. Please feel free to contact via
 + [**Web API reference**](https://apireference.aspose.cloud/imaging/)
 + [**Website**](https://www.aspose.cloud)
 + [**Product Home**](https://products.aspose.cloud/imaging)
-+ [**Documentation**](https://docs.aspose.cloud/display/imagingcloud/Home)
++ [**Documentation**](https://docs.aspose.cloud/imaging/)
 + [**Blog**](https://blog.aspose.cloud/category/aspose-products/aspose.imaging-cloud/)
 
 ## Other languages

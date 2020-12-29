@@ -140,6 +140,7 @@ class ApiTester(unittest.TestCase):
         if not on_premise:
             print('Client Secret: ' + client_secret)
             print('Client Id: ' + client_id)
+
         print('Storage: ' + self.test_storage)
         print('Base URL: ' + base_url)
         print('API version: ' + api_version)
