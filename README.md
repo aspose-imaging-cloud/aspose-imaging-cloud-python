@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/api-v3.0-lightgrey) ![PyPI](https://img.shields.io/pypi/v/asposeimagingcloud) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/asposeimagingcloud) ![PyPI - Implementation](https://img.shields.io/pypi/implementation/asposeimagingcloud) ![PyPI - Wheel](https://img.shields.io/pypi/wheel/asposeimagingcloud) [![GitHub license](https://img.shields.io/github/license/aspose-imaging-cloud/aspose-imaging-cloud-python)](https://github.com/aspose-imaging-cloud/aspose-imaging-cloud-python/blob/master/LICENSE)
+![](https://img.shields.io/badge/api-v3.0-lightgrey) ![PyPI](https://img.shields.io/pypi/v/asposeimagingcloud) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/asposeimagingcloud) ![PyPI - Implementation](https://img.shields.io/pypi/implementation/asposeimagingcloud) [![GitHub license](https://img.shields.io/github/license/aspose-imaging-cloud/aspose-imaging-cloud-python)](https://github.com/aspose-imaging-cloud/aspose-imaging-cloud-python/blob/master/LICENSE)
 ## Image Processing in Cloud via Python REST API
 [Aspose.Imaging Cloud](https://products.aspose.cloud/imaging) is a true [REST API](https://apireference.aspose.cloud/imaging/) that enables you to perform a wide range of image processing operations including creation, manipulation and conversion in the cloud, with zero initial costs. Our Cloud SDKs are wrappers around REST API in various programming languages, allowing you to process images in language of your choice quickly and easily, gaining all benefits of strong types and IDE highlights.
 
@@ -73,6 +73,17 @@ import aspose-imaging-cloud
 
 ## Quick Examples
 Please, look at [Examples](https://github.com/aspose-imaging-cloud/aspose-imaging-cloud-python/blob/master/EXAMPLES.md) document for basic usage or use the [Examples](https://github.com/aspose-imaging-cloud/aspose-imaging-cloud-python/tree/master/Examples) folder for more sophisticated scenarios.
+
+
+## Convert PNG to JPG in Python
+
+```python
+	# Get your ClientId and ClientSecret from https://dashboard.aspose.cloud (free registration required).
+	imaging_api = ImagingApi("MY_CLIENT_SECRET", "MY_CLIENT_ID")
+
+	request = ConvertImageRequest("sample.png", "jpg", "tempFolder", "My_Storage_Name")
+	response = imaging_api.convert_image(request)
+```
 
 #### Aspose Cloud-hosted service VS on-premise deployment (*experimental feature*)
 Starting from v19.7, you can choose either to use Aspose Cloud-hosted image processing service (the standard way) or the Docker image from Docker Hub deployed on-premise to serve the requests.
