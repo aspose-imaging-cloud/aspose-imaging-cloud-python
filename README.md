@@ -18,13 +18,13 @@ The solution is updated using [code generator](https://github.com/aspose-imaging
 - Merge multiple TIFF images.
 
 ## Read & Write Image Formats
-BMP, GIF, JPEG, JPEG2000, PSD, TIFF, WEBP, PNG, WMF, EMF, SVG
+BMP, GIF, JPEG, JPEG2000, PSD, TIFF, WEBP, PNG, WMF, EMF, SVG, TGA, APNG
 
 ## Save Image As
 PDF, DICOM
 
 ## Read Image Formats
-DJVU, DICOM, CDR, CMX, ODG, DNG, EPS
+DJVU, DICOM, CDR, CMX, ODG, DNG, EPS, EMZ, WMZ, SVGZ
 
 ## Enhancements in Version 20.12
 
@@ -42,6 +42,7 @@ DJVU, DICOM, CDR, CMX, ODG, DNG, EPS
 - Support to load and convert **EPS** files to **PDF/A** format.
 
 ## Storage API support
+
 Since version 19.4, SDK includes support of storage operations for better user experience and unification, so now there's no need to use 2 different SDKs!
 
 It gives you an ability to:
@@ -59,7 +60,7 @@ Detalied official documentation can be found at the [following link](https://doc
 
 Please, add the following [PyPi package](https://pypi.org/project/aspose-imaging-cloud/) to your requirements.txt.
 ```
-aspose-imaging-cloud>=21.6
+aspose-imaging-cloud>=21.11
 ```
 Or install it using command line.
 ```
