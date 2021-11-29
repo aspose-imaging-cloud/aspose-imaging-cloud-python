@@ -28,6 +28,8 @@ Export the following images to various formats (generally supported ones are BMP
 * DNG
 * SVG
 * CMX
+* TGA
+* APNG
 
 Process options, change and return images in the same format:
 * PSD
@@ -81,7 +83,7 @@ Detalied official documentation can be found at the [following link](https://doc
 
 Please, add the following [PyPi package](https://pypi.org/project/aspose-imaging-cloud/) to your requirements.txt.
 ```
-aspose-imaging-cloud>=21.6
+aspose-imaging-cloud>=21.11
 ```
 Or install it using command line.
 ```
