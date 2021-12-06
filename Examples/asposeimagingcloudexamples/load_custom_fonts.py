@@ -70,7 +70,7 @@ class LoadCustomFonts(ImagingBase):
         """Uploads the font files to cloud"""
         fontsFolder = os.path.join(ImagingBase.EXAMPLE_IMAGES_FOLDER, "Fonts");  
         for fontFile in glob.glob(glob(fontsFolder + "/*.ttf")):           
-            self._upload_image_to_cloud(os.path.join("Fonts", fontFile)), os.path.join(fontsFolder, fontFile))    
+            self._upload_image_to_cloud(os.path.join("Fonts", fontFile), os.path.join(fontsFolder, fontFile))    
 
     def _upload_file_to_cloud(self, file_name, file):
         """Uploads the file to cloud"""
