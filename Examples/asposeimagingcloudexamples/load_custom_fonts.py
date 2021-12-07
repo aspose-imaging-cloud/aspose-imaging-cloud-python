@@ -24,11 +24,10 @@
 #  </summary>
 #  ----------------------------------------------------------------------------
 import os
-
+import glob
 import asposeimagingcloud.models.requests as requests
 
 from asposeimagingcloudexamples.imaging_base import ImagingBase
-from glob import glob
 
 
 class LoadCustomFonts(ImagingBase):
@@ -63,13 +62,14 @@ class LoadCustomFonts(ImagingBase):
         print('Call Convert with params: format: {0}'.format(format))
 
         updated_image = self._imaging_api.convert_image(request)
-        self._save_updated_sample_image_to_output(updated_image, False, format)
+        self._save_updated_sample_image_to_output(updated_image, True, format)
 
         print()
         
     def _upload_fonts_to_cloud(self):
         """Uploads the font files to cloud"""
         fontsFolder = os.path.join(ImagingBase.EXAMPLE_IMAGES_FOLDER, "Fonts");  
+        print(fontsFolder)
         for fontFile in glob.glob(glob(fontsFolder + "/*.ttf")):           
             self._upload_image_to_cloud(os.path.join("Fonts", fontFile), os.path.join(fontsFolder, fontFile))    
 
