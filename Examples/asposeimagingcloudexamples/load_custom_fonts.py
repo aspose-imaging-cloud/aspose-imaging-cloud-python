@@ -28,6 +28,7 @@ import os
 import asposeimagingcloud.models.requests as requests
 
 from asposeimagingcloudexamples.imaging_base import ImagingBase
+from glob import glob
 
 
 class LoadCustomFonts(ImagingBase):
