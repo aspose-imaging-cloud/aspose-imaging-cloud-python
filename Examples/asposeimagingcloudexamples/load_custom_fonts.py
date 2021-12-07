@@ -26,9 +26,7 @@
 import os
 import glob
 import asposeimagingcloud.models.requests as requests
-
 from asposeimagingcloudexamples.imaging_base import ImagingBase
-
 
 class LoadCustomFonts(ImagingBase):
     """Load custom fonts example"""
@@ -70,7 +68,7 @@ class LoadCustomFonts(ImagingBase):
         """Uploads the font files to cloud"""
         fontsFolder = os.path.join(ImagingBase.EXAMPLE_IMAGES_FOLDER, "Fonts");  
         print(fontsFolder)
-        for fontFile in glob.glob(glob(fontsFolder + "/*.ttf")):           
+        for fontFile in glob.glob(fontsFolder + "/*.ttf"):           
             self._upload_image_to_cloud(os.path.join("Fonts", fontFile), os.path.join(fontsFolder, fontFile))    
 
     def _upload_file_to_cloud(self, file_name, file):
