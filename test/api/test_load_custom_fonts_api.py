@@ -37,6 +37,9 @@ class TestLoadCustomFontsApi(ImagingApiTester):
     def test_using_custom_fonts_for_vector_image(self):
         """
          Using custom fonts
+         
+         custom fonts should be loaded to storage to 'Fonts' folder
+         'Fonts' folder should be placed to the root of the cloud storage
         """       
 
         name = 'image.emz'
@@ -54,8 +57,7 @@ class TestLoadCustomFontsApi(ImagingApiTester):
         def properties_tester(
                     original_properties,
                     result_properties,
-                    result_stream):
-            print(os.path.getsize(result_stream))
+                    result_stream):   
             self.assertTrue(abs(os.path.getsize(result_stream) - 11454) < 100)                   
 
         self.get_request_tester(
