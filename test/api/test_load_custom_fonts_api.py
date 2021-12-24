@@ -48,10 +48,10 @@ class TestLoadCustomFontsApi(ImagingApiTester):
                 requests.ConvertImageRequest(
                     name, format, folder, storage))  
         
-         def properties_tester(
-                        original_properties,
-                        result_properties,
-                        result_stream):
+        def properties_tester(
+                    original_properties,
+                    result_properties,
+                    result_stream):
             self.assertTrue(result_stream.length - 11454) < 100)                   
 
         self.get_request_tester(
