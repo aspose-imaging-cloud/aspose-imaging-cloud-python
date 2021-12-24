@@ -26,6 +26,7 @@
 
 from itertools import product
 
+import os
 import asposeimagingcloud.models.requests as requests
 from test.api import ImagingApiTester
 
