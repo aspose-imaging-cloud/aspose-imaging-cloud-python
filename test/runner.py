@@ -163,10 +163,14 @@ wmf_suite = unittest.TestSuite(
     loader.loadTestsFromModule(sys.modules['test.api.test_wmf_api']))
 suites_dict['Wmf'] = wmf_suite
 
+load_custom_fonts_suite = unittest.TestSuite(
+    loader.loadTestsFromModule(sys.modules['test.api.test_load_custom_fonts_api']))
+suites_dict['LoadCustomFonts'] = load_custom_fonts_suite
+
 imaging_suit = unittest.TestSuite(
     [bmp_suite, crop_suite, emf_suite, examples_suite, tiff_suite, gif_suite,
      jpeg2000_suite, jpg_suite, psd_suite, resize_suite, rotate_flip_suite,
-     convert_suite, update_suite, web_p_suite, wmf_suite])
+     convert_suite, update_suite, web_p_suite, wmf_suite, load_custom_fonts_suite])
 suites_dict['Imaging'] = imaging_suit
 
 v3_suite = unittest.TestSuite(
