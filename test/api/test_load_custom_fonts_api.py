@@ -77,7 +77,7 @@ class TestLoadCustomFontsApi(ImagingApiTester):
                 self.imaging_api.copy_file(
                     requests.CopyFileRequest(
                         os.path.join(
-                            self.original_data_folder + '/AI',
+                            self.original_data_folder + '/UseCases',
                             input_file_name),
                         os.path.join(
                             folder,
