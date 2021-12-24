@@ -67,23 +67,23 @@ class TestLoadCustomFontsApi(ImagingApiTester):
             folder,
             storage)
             
-        def copy_input_file_to_test_folder(self, input_file_name, folder, storage):       
-            if not self.imaging_api.object_exists(
-                    requests.ObjectExistsRequest(
-                        os.path.join(
-                            folder,
-                            input_file_name),
-                        storage)).exists:
-                self.imaging_api.copy_file(
-                    requests.CopyFileRequest(
-                        os.path.join(
-                            self.original_data_folder + '/UseCases',
-                            input_file_name),
-                        os.path.join(
-                            folder,
-                            input_file_name),
-                        storage,
-                        storage))
+    def copy_input_file_to_test_folder(self, input_file_name, folder, storage):       
+        if not self.imaging_api.object_exists(
+                requests.ObjectExistsRequest(
+                    os.path.join(
+                        folder,
+                        input_file_name),
+                    storage)).exists:
+            self.imaging_api.copy_file(
+                requests.CopyFileRequest(
+                    os.path.join(
+                        self.original_data_folder + '/UseCases',
+                        input_file_name),
+                    os.path.join(
+                        folder,
+                        input_file_name),
+                    storage,
+                    storage))
    
    
         
