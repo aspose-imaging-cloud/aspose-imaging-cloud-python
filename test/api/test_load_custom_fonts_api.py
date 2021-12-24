@@ -32,9 +32,7 @@ from test.api import ImagingApiTester
 
 class TestLoadCustomFontsApi(ImagingApiTester):
     """ Class for testing custom fonts loading """
-
-    self.original_data_folder = 'ImagingIntegrationTestData'
-  
+ 
     def test_using_custom_fonts_for_vector_image(self):
         """
          Using custom fonts
@@ -49,6 +47,12 @@ class TestLoadCustomFontsApi(ImagingApiTester):
             return self.imaging_api.convert_image(
                 requests.ConvertImageRequest(
                     name, format, folder, storage))  
+        
+         def properties_tester(
+                        original_properties,
+                        result_properties,
+                        result_stream):
+            self.assertTrue(result_stream.length - 11454) < 100)                   
 
         self.get_request_tester(
             'UsingCustomFontsTest',
@@ -57,9 +61,9 @@ class TestLoadCustomFontsApi(ImagingApiTester):
                 format),
             name,
             request_invoker,
-            lambda x,
-            y,
-            z: None,
+            properties_tester,
             folder,
             storage)
    
+   
+        
