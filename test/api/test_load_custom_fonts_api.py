@@ -42,6 +42,8 @@ class TestLoadCustomFontsApi(ImagingApiTester):
         format = 'png'
         folder = self.temp_folder
         storage = self.test_storage
+        
+        self._copy_input_file_to_test_folder(name, folder, storage)
       
         def request_invoker():
             return self.imaging_api.convert_image(
@@ -64,6 +66,24 @@ class TestLoadCustomFontsApi(ImagingApiTester):
             properties_tester,
             folder,
             storage)
+            
+        def _copy_input_file_to_test_folder(self, input_file_name, folder, storage):       
+            if not self.imaging_api.object_exists(
+                    requests.ObjectExistsRequest(
+                        os.path.join(
+                            folder,
+                            input_file_name),
+                        storage)).exists:
+                self.imaging_api.copy_file(
+                    requests.CopyFileRequest(
+                        os.path.join(
+                            self.original_data_folder + '/AI',
+                            input_file_name),
+                        os.path.join(
+                            folder,
+                            input_file_name),
+                        storage,
+                        storage))
    
    
         
