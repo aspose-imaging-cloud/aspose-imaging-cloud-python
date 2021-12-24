@@ -55,6 +55,7 @@ class TestLoadCustomFontsApi(ImagingApiTester):
                     original_properties,
                     result_properties,
                     result_stream):
+            print(len(result_stream))
             self.assertTrue(abs(len(result_stream) - 11454) < 100)                   
 
         self.get_request_tester(
