@@ -54,6 +54,7 @@ from asposeimagingcloudexamples.update_psd_image import UpdatePsdImage
 from asposeimagingcloudexamples.update_tiff_image import UpdateTiffImage
 from asposeimagingcloudexamples.update_web_p_image import UpdateWebPImage
 from asposeimagingcloudexamples.update_wmf_image import UpdateWmfImage
+from asposeimagingcloudexamples.load_custom_fonts import LoadCustomFonts
 
 
 def process_argument(argv, key, description, errors, default_value=None):
@@ -256,6 +257,10 @@ def main():
         object_detection_image.detect_objects_image_from_storage()
         object_detection_image.visualize_detected_objects_image_from_storage()
         object_detection_image.visualize_detect_objects_image_from_request_body()
+        
+        #Load custom fonts 
+        custom_fonts = LoadCustomFonts(api)
+        custom_fonts.using_custom_fonts_for_vector_image_conversion()
 
     except Exception as e:
         print('Something goes wrong: ' + str(e))

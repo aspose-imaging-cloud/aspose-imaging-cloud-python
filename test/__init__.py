@@ -54,3 +54,4 @@ from test.api.test_tiff_api import TestTiffApi
 from test.api.test_update_image_api import TestUpdateImageApi
 from test.api.test_web_p_api import TestWebPApi
 from test.api.test_wmf_api import TestWmfApi
+from test.api.test_load_custom_fonts_api import TestLoadCustomFontsApi
