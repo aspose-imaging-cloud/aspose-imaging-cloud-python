@@ -27,7 +27,7 @@
 from setuptools import setup, find_packages
 
 NAME = "aspose-imaging-cloud"
-VERSION = "21.12.0"
+VERSION = "22.4.0"
 # To install the library, run the following
 #
 # python setup.py install
