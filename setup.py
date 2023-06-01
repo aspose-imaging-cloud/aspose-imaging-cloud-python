@@ -27,7 +27,7 @@
 from setuptools import setup, find_packages
 
 NAME = "aspose-imaging-cloud"
-VERSION = "22.4.0"
+VERSION = "23.5.0"
 # To install the library, run the following
 #
 # python setup.py install
@@ -36,7 +36,8 @@ VERSION = "22.4.0"
 # http://pypi.python.org/pypi/setuptools
 
 REQUIRES = [
-    "urllib3>=1.22",
+    "urllib3==1.24.2",
+    "openssl==1.1.1"
     "six>=1.11",
     "certifi>=2018.1",
     "python_dateutil>=2.8"
