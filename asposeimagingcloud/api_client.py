@@ -1,7 +1,7 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
 #  <copyright company="Aspose" file="api_client.py">
-#    Copyright (c) 2018-2020 Aspose Pty Ltd. All rights reserved.
+#    Copyright (c) 2018-2025 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
 #    Permission is hereby granted, free of charge, to any person obtaining a
@@ -73,12 +73,12 @@ class ApiClient(object):
         self.pool = ThreadPool()
         self.rest_client = rest.RESTClientObject(configuration)
         self.default_headers = {'x-aspose-client': 'python sdk',
-                                'x-aspose-version': '23.5'}
+                                'x-aspose-version': '25.4'}
         if header_name is not None:
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'python sdk 23.5'
+        self.user_agent = 'python sdk 25.4'
 
         self.last_response = None
 
