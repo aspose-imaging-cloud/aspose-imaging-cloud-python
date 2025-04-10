@@ -1,7 +1,7 @@
 #  coding: utf-8
 #  ----------------------------------------------------------------------------
 #  <copyright company="Aspose" file="configuration.py">
-#    Copyright (c) 2018-2020 Aspose Pty Ltd. All rights reserved.
+#    Copyright (c) 2018-2025 Aspose Pty Ltd. All rights reserved.
 #  </copyright>
 #  <summary>
 #    Permission is hereby granted, free of charge, to any person obtaining a
@@ -273,5 +273,5 @@ class Configuration(object):
                "OS: {env}\n" \
                "Python Version: {pyversion}\n" \
                "Version of the API: 3.0\n" \
-               "SDK Package Version: 23.5.0". \
+               "SDK Package Version: 25.4.0". \
             format(env=sys.platform, pyversion=sys.version)

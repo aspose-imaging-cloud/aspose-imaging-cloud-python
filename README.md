@@ -60,7 +60,7 @@ Detalied official documentation can be found at the [following link](https://doc
 
 Please, add the following [PyPi package](https://pypi.org/project/aspose-imaging-cloud/) to your requirements.txt.
 ```
-aspose-imaging-cloud>=23.5
+aspose-imaging-cloud>=25.4
 ```
 Or install it using command line.
 ```

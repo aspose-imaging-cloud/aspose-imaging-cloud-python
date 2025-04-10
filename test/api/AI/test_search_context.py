@@ -179,7 +179,7 @@ class TestSearchContext(AiApiTester):
 
             self._wait_search_context_idle()
 
-            image_url = urllib.quote_plus('https://cdn.f1ne.ws/userfiles/hamilton/140909.jpg')
+            image_url = urllib.quote_plus('https://c.f1news.ru/userfiles/hamilton/140909.jpg')
             response = self.imaging_api.get_image_features(GetImageFeaturesRequest(self.search_context_id, image_url, storage=self.test_storage))
 
             self.assertGreater(len(response.features), 0)
