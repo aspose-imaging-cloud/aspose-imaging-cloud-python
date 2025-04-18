@@ -37,7 +37,7 @@ VERSION = "25.4.0"
 
 REQUIRES = [
     "urllib3==1.24.2",
-    "openssl==1.1.1"
+    "openssl==1.1.1",
     "six>=1.11",
     "certifi>=2018.1",
     "python_dateutil>=2.8"
