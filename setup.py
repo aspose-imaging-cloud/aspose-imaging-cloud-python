@@ -36,7 +36,7 @@ VERSION = "25.4.0"
 # http://pypi.python.org/pypi/setuptools
 
 REQUIRES = [
-    "urllib3==1.24.2",
+    "urllib3==1.26.19",
     "openssl==1.1.1",
     "six>=1.11",
     "certifi>=2018.1",
